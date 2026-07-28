@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 
 export default function Clients() {
   const partners = [
@@ -51,13 +51,13 @@ export default function Clients() {
       width: 121,
       height: 47
     },
-    {
-      name: "Memorify",
-      url: "https://www.memorify.world/",
-      logo: "/memorify-learning-app-education.svg",
-      width: 137,
-      height: 73
-    },
+    // {
+    //   name: "Memorify",
+    //   url: "https:www.memorify.world/",
+    //   logo: "/memorify-learning-app-education.svg",
+    //   width: 137,
+    //   height: 73
+    // },
     {
       name: "Bankers Heart",
       url: "https://www.bankersheart.com/",
@@ -71,20 +71,20 @@ export default function Clients() {
   const marqueePartners = [...partners, ...partners];
 
   return (
-    <section className="py-10 md:py-16 relative overflow-hidden bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10 text-center">
-        <span className="text-xs font-bold font-mono tracking-widest text-[#dc2626] uppercase">
+    <section className="relative overflow-hidden border-y border-slate-100 bg-white py-10 md:py-16">
+      <div className="mx-auto mb-10 max-w-7xl px-6 text-center md:px-12">
+        <span className="font-mono text-xs font-bold tracking-widest text-[#dc2626] uppercase">
           // CLIENT NETWORK
         </span>
-        <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-slate-800 tracking-tight mt-2">
+        <h2 className="font-heading mt-2 text-3xl font-extrabold tracking-tight text-slate-800 md:text-4xl">
           Trusted by Industry Leaders
         </h2>
       </div>
 
       {/* Marquee Wrapper */}
-      <div className="relative flex overflow-x-hidden w-full py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 md:before:w-40 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 md:after:w-40 after:bg-gradient-to-l after:from-white after:to-transparent">
+      <div className="relative flex w-full overflow-x-hidden py-4 before:absolute before:top-0 before:left-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:top-0 after:right-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-white after:to-transparent md:before:w-40 md:after:w-40">
         <motion.div
-          className="flex space-x-6 md:space-x-8 whitespace-nowrap min-w-full items-center"
+          className="flex min-w-full items-center space-x-6 whitespace-nowrap md:space-x-8"
           animate={{ x: [0, "-50%"] }}
           transition={{
             ease: "linear",
@@ -98,13 +98,13 @@ export default function Clients() {
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 inline-flex items-center justify-center h-24 w-48 px-3 filter grayscale contrast-75 brightness-95 opacity-70 hover:grayscale-0 hover:filter-none hover:opacity-100 transition-all duration-500 cursor-pointer"
+              className="inline-flex h-24 w-48 flex-shrink-0 cursor-pointer items-center justify-center px-3 opacity-70 brightness-95 contrast-75 grayscale filter transition-all duration-500 hover:opacity-100 hover:grayscale-0 hover:filter-none"
               title={partner.name}
             >
               <img
                 src={partner.logo}
                 alt={`${partner.name} Logo`}
-                className="max-h-16 max-w-[150px] object-contain pointer-events-none"
+                className="pointer-events-none max-h-16 max-w-[150px] object-contain"
                 loading="lazy"
                 width={partner.width}
                 height={partner.height}
