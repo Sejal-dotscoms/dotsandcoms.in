@@ -8,6 +8,7 @@ export default function Logo({ size = "md" }) {
     md: "h-[56px] md:h-16",
     lg: "h-16 md:h-[72px]",
     xl: "h-24 md:h-28",
+      '2xl': "h-24 md:h-[180px]",
   };
 
   const logoHeight = heights[size] || heights.md;
