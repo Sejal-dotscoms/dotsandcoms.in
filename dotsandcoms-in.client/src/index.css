@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  
+  --color-primary: #dc2626; /* Crimson Red matching logo */
+  --color-accent-blue: #dc2626; /* Replaced blue with crimson */
+  --color-accent-orange: #ea580c; /* Orange matching logo */
+  --color-accent-yellow: #eab308; /* Yellow matching logo */
+  --color-dark-bg: #f8fafc; /* Premium Light Background */
+  --color-dark-card: #ffffff; /* Card Background */
+  
+  --breakpoint-xs: 480px;
+}
+
+
+/* Custom Scrollbar for Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Lenis Smooth Scroll Recommended Classes */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Global Reset overrides */
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #475569;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border-inline: none;
+  min-height: 100vh;
+  display: block;
+}
+
+
+
+/* Light Glassmorphism details */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(220, 38, 38, 0.2);
+  box-shadow: 0 15px 35px -10px rgba(220, 38, 38, 0.08);
+}
+
+/* Glow mesh animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.15);
+    opacity: 0.35;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+    opacity: 0.25;
+  }
+}
+
+.animate-glow-mesh-1 {
+  animation: pulseGlow 15s infinite alternate ease-in-out;
+}
+.animate-glow-mesh-2 {
+  animation: pulseGlow 18s infinite alternate-reverse ease-in-out;
+}
+
+/* Text masking using logo color shades */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #1e293b 30%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #1e293b 30%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-mixed {
+  background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #eab308 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Magnetic buttons & micro animations */
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Custom styling for bento layout item */
+.bento-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(350px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(220, 38, 38, 0.12), rgba(234, 88, 12, 0.08), transparent 65%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* Hide default scrollbar inside horizontal wrapper */
+.horizontal-scroll-container {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom slant clip path for utility bar */
+.slant-clip-right {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%);
+}
+
+/* Rainbow border glow animation for floating header */
+@keyframes rainbowGlow {
+  0%, 100% {
+    border-color: rgba(220, 38, 38, 0.4);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    border-color: rgba(234, 88, 12, 0.4);
+    box-shadow: 0 0 15px rgba(234, 88, 12, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+}
+
+.floating-header-glow {
+  animation: rainbowGlow 6s infinite alternate ease-in-out;
+}
+
+/* Scrolling neon glow accent strip */
+@keyframes scrollGlowLine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.glow-line-anim {
+  background-size: 200% 200%;
+  animation: scrollGlowLine 4s infinite linear;
+}
+
+/* Fullscreen menu overlay grid helper to prevent overflow clipping */
+.menu-grid {
+  align-items: start;
+}
+@media (min-height: 620px) {
+  .menu-grid {
+    align-items: center;
+  }
+}
+
+/* Custom Scrollbar for Dark Overlay */
+.dark-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.dark-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive text justification: justify standard paragraphs on desktop, keep centered elements centered */
+@media (min-width: 1280px) {
+  p:not(.text-center) {
+    text-align: justify;
+  }
+  .text-center p,
+  [class*="text-center"] p {
+    text-align: center;
+  }
+}

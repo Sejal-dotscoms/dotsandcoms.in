@@ -1,0 +1,56 @@
+# ──────────────────────────────────────────────────────────────
+#  Dots & Coms – Root .gitignore
+# ──────────────────────────────────────────────────────────────
+
+# ── Node / Vite (React client) ───────────────────────────────
+dotsandcoms-in.client/node_modules/
+dotsandcoms-in.client/dist/
+dotsandcoms-in.client/dist-ssr/
+dotsandcoms-in.client/*.local
+dotsandcoms-in.client/obj/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ── .NET / ASP.NET Core (Server) ─────────────────────────────
+Dotsandcoms-in.Server/bin/
+Dotsandcoms-in.Server/obj/
+Dotsandcoms-in.Server/*.user
+
+# ── Visual Studio ─────────────────────────────────────────────
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.ntvs*
+*.njsproj
+*.sw?
+
+# ── OS generated ──────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ── Editor ────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# ── Environment / secrets ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+appsettings.Development.json

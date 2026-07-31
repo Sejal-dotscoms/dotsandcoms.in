@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="dotsandcoms-in.client/dotsandcoms-in.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Dotsandcoms-in.Server/Dotsandcoms-in.Server.csproj" />
+</Solution>
