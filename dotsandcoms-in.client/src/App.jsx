@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./components/Home";
+import SignIn from "./Poweradmin/Pages/SignIn/SignIn";
+import PoweradminLayout from "./Poweradmin/layout/PoweradminLayout";
+import Dashboard from "./Poweradmin/Pages/Dashboard/Dashboard";
+import BlogList from "./Poweradmin/Pages/Blog/BlogList";
+import BlogForm from "./Poweradmin/Pages/Blog/BlogForm";
 import ContactPage from "./pages/ContactPage";
 import AppLayout from "./layout/AppLayout";
 import FaqPage from "./pages/FaqPage";
@@ -22,6 +27,11 @@ import KiiaraCaseStudyPage from "./pages/KiiaraCaseStudyPage";
 import OrderNowPage from "./pages/OrderNowPage";
 import WebHostingDetailsPage from "./pages/WebHostingDetailsPage";
 import ThankYouPage from "./pages/ThankYouPage";
+import BlogsPage from "./pages/BlogsPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import ChangePassword from "./Poweradmin/Pages/ChangePassword/ChangePassword";
+import ForgotPassword from "./Poweradmin/Pages/ForgotPassword/ForgotPassword";
+import ProtectedRoute from "./Poweradmin/components/ProtectedRoute";
 
 // Scroll helper to support both top-of-page scrolling and dynamic #hash scrolling in Single Page App navigations
 function ScrollToHashElement() {
@@ -82,6 +92,29 @@ function App() {
       <CanonicalLink />
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* ── Poweradmin area ── */}
+        <Route path="/poweradmin">
+          {/* /poweradmin → signin */}
+          <Route index element={<SignIn />} />
+
+          {/* /poweradmin/forgot-password → public */}
+          <Route path="forgot-password" element={<ForgotPassword />} />
+
+          {/* /poweradmin/* → protected shell */}
+          <Route
+            element={
+              <ProtectedRoute>
+                <PoweradminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="blogs" element={<BlogList />} />
+            <Route path="blogs/new" element={<BlogForm />} />
+            <Route path="blogs/edit/:id" element={<BlogForm />} />
+            <Route path="change-password" element={<ChangePassword />} />
+          </Route>
+        </Route>
               <Route element={<AppLayout />}>
                   <Route path="/about-web-development-company-baroda" element={<AboutPage />} />
                   <Route path="/website-mobile-app-development-company-portfolio-baroda" element={<WorkPage />} />
@@ -106,6 +139,8 @@ function App() {
                   <Route path="/order-now" element={<OrderNowPage />} />
                   <Route path="/web-hosting-details" element={<WebHostingDetailsPage />} />
                   <Route path="/thank-you" element={<ThankYouPage />} />
+                  <Route path="/blogs" element={<BlogsPage />} />
+                  <Route path="/blogs/:slug" element={<BlogDetailPage />} />
                   <Route path="/*" element={<NotFoundPage />} />
               </Route>
       </Routes>

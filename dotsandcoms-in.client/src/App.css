@@ -5,3 +5,81 @@
   padding: 0;
   text-align: left;
 }
+
+/* ── CKEditor 5 (npm) host ───────────────────────────────────────── */
+.ck-host-wrap .ck-editor__editable {
+  min-height: 300px;
+}
+.ck-host-wrap .ck-source-editing-area textarea {
+  min-height: 300px;
+  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.blog-content {
+    color: #475569;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+    .blog-content h1 {
+        font-size: 42px;
+        font-weight: 800;
+        margin: 32px 0 20px;
+        color: #1e293b;
+    }
+
+    .blog-content h2 {
+        font-size: 34px;
+        font-weight: 700;
+        margin: 30px 0 18px;
+        color: #1e293b;
+    }
+
+    .blog-content h3 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 28px 0 16px;
+        color: #1e293b;
+    }
+
+    .blog-content p {
+        margin-bottom: 18px;
+    }
+
+    .blog-content ul,
+    .blog-content ol {
+        margin: 20px 0;
+        padding-left: 28px;
+    }
+
+    .blog-content li {
+        margin-bottom: 8px;
+    }
+
+    .blog-content strong {
+        font-weight: 700;
+    }
+
+    .blog-content a {
+        color: #dc2626;
+        text-decoration: none;
+    }
+
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+
+    .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .blog-content blockquote {
+        border-left: 4px solid #dc2626;
+        padding-left: 16px;
+        margin: 20px 0;
+        font-style: italic;
+    }

@@ -96,6 +96,9 @@ export default function Footer() {
                 <Link to="/webhosting-vps-dedicated-server-support-baroda" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Technical Support</Link>
               </li>
               <li>
+                <Link to="/blogs" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Blogs</Link>
+              </li>
+              <li>
                 <Link to="/web-stories" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Webstories</Link>
               </li>
               <li>
