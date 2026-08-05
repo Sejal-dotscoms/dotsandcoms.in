@@ -46,12 +46,19 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
+    optimizeDeps: {
+        exclude: ['ckeditor5'],
+        include: ['fuzzysort', 'extend', 'debug', 'ms']
+    },
     build: {
         rollupOptions: {
             output: {
                 assetFileNames: 'assets/[name][extname]',
                 chunkFileNames: 'assets/[name].js',
-                entryFileNames: 'assets/[name].js'
+                entryFileNames: 'assets/[name].js',
+                manualChunks: (id) => {
+                    if (id.includes('ckeditor5')) return 'ckeditor5';
+                }
             }
         }
     },

@@ -143,6 +143,7 @@ export default function Header() {
     { label: "Web", label2: "Hosting", href: "/windows-web-hosting-service-provider-baroda", desc: "High-performance SSD cloud server architectures" },
     { label: "Digital", label2: "Marketing", href: "/organic-seo-ppc-digital-marketing-vadodara", desc: "Performance marketing, SEO and branding solutions" },
     { label: "Our", label2: "Work", href: "/website-mobile-app-development-company-portfolio-baroda", desc: "Our portfolio of enterprise systems and branding projects" },
+    //{ label: "Blog", label2: "", href: "/blogs", desc: "Insights, tips and updates from the Dots & Coms team" },
     { label: "About", label2: "Us", href: "/about-web-development-company-baroda", desc: "25+ years of digital agency legacy and expert team details" },
     { label: "Contact", label2: "Us", href: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda", desc: "Drop by our office or write to us for free consulting" },
   ];

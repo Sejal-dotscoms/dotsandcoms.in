@@ -1,4 +1,5 @@
 using Dotsandcoms_in.Server.Data;
+using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
 using Dotsandcoms_in.Server.Services;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IEmailService,EmailService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ILegacyTokenService, LegacyTokenService>();
+builder.Services.AddScoped<IAdminAuthService, AdminAuthService>();
+builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddHttpClient();
 builder.Services.AddCors(options =>
 {
@@ -35,7 +38,7 @@ builder.Services.AddCors(options =>
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseJet(connectionString) // MySql ki jagah UseJet aayega
+    options.UseSqlServer(connectionString)
 );
 
 var app = builder.Build();
@@ -92,6 +95,45 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Serve blog detail pages with blog-specific meta tags injected into index.html
+// so they appear in View Page Source and are visible to social/SEO crawlers.
+app.Use(async (context, next) =>
+{
+    var path  = context.Request.Path.Value ?? "";
+    var match = System.Text.RegularExpressions.Regex.Match(
+        path, @"^/blogs/([^/?#]+)$",
+        System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+    if (context.Request.Method == "GET" && match.Success)
+    {
+        var slug  = Uri.UnescapeDataString(match.Groups[1].Value);
+        var db    = context.RequestServices.GetRequiredService<AppDbContext>();
+        var env   = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+        var today = DateTime.UtcNow.Date;
+
+        var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
+            b.BrowserUrl.ToLower() == slug.ToLower() &&
+            b.IsVisible &&
+            b.BlogDate.Date <= today &&
+            (b.ExpiryDate == null || b.ExpiryDate.Value.Date >= today));
+
+        if (blog != null)
+        {
+            var indexPath = Path.Combine(env.WebRootPath, "index.html");
+            if (File.Exists(indexPath))
+            {
+                var html = await File.ReadAllTextAsync(indexPath);
+                html = BlogMetaInjector.Inject(html, blog);
+                context.Response.ContentType = "text/html; charset=utf-8";
+                await context.Response.WriteAsync(html);
+                return;
+            }
+        }
+    }
+
+    await next();
+});
 
 app.MapFallbackToFile("/index.html");
 
