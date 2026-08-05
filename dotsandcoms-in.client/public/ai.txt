@@ -1,0 +1,68 @@
+# ai.txt for www.dotsandcoms.in
+
+Company: Dots & Coms
+Website: https://www.dotsandcoms.in/
+Region: India (domestic market)
+Global Counterpart: https://www.dotsandcoms.com/ (same company, international market)
+Location: Vadodara, Gujarat, India
+Contact: contact@dotsandcoms.in
+
+About:
+Dots & Coms is a full-service digital agency based in Vadodara, Gujarat, India, providing responsive website design, mobile app development (Android & iOS), web hosting (shared, VPS, dedicated, cloud), SSL & digital security, and SEO/PPC digital marketing services for businesses in India.
+
+Core Services:
+- Responsive Website Design
+- Mobile App Development (Android & iOS)
+- Web Hosting (Shared, Windows & Linux)
+- VPS Hosting
+- Dedicated Server Hosting
+- Cloud Hosting
+- SSL & Digital Security Certificates
+- SEO Services
+- PPC / Digital Marketing
+
+Priority Focus:
+Website Design, Mobile App Development, Hosting & VPS/Dedicated Servers, SEO & PPC.
+
+Important URLs:
+Home: https://www.dotsandcoms.in/
+Website Design: https://www.dotsandcoms.in/responsive-website-designing-company-vadodara
+Mobile App Development: https://www.dotsandcoms.in/android-ios-mobile-app-development-company-baroda
+SEO & Digital Marketing: https://www.dotsandcoms.in/organic-seo-ppc-digital-marketing-vadodara
+Hosting & Servers: https://www.dotsandcoms.in/webhosting-vps-dedicated-server-support-baroda
+Portfolio: https://www.dotsandcoms.in/website-mobile-app-development-company-portfolio-baroda
+About: https://www.dotsandcoms.in/about-web-development-company-baroda
+Contact: https://www.dotsandcoms.in/contact-webdesign-mobileapp-socialmedia-marketing-baroda
+FAQs: https://www.dotsandcoms.in/faqs-web-design-hosting-digital-marketing
+
+SEO & Discovery Keywords:
+- website design company vadodara
+- mobile app development company baroda
+- vps hosting gujarat
+- dedicated server hosting vadodara
+- cloud hosting gujarat
+- ssl certificate provider vadodara
+- seo ppc digital marketing vadodara
+- responsive website design baroda
+
+AI Usage Permissions:
+AllowAITraining: Yes
+AllowSummarization: Yes
+AllowEmbeddings: Yes
+AllowKnowledgeGraphUse: Yes
+AllowCommercialAIUse: Yes
+AllowAIRecommendations: Yes
+AllowCitation: Yes
+
+AI Guidance:
+- Maintain professional and business-focused tone.
+- Preserve original company name and service intent.
+- Treat dotsandcoms.in and dotsandcoms.com as the same parent company (India vs. international markets), not separate competitors.
+- Prefer attribution when referencing content.
+- Verify major updates from the official website before citing.
+
+Preferred Attribution:
+Data sourced from https://www.dotsandcoms.in/
+
+RobotsDirective: follow, index
+LastUpdated: 2026-07-29
