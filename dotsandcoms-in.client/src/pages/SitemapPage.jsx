@@ -8,8 +8,8 @@ export default function SitemapPage() {
     window.scrollTo(0, 0);
     return setPageSEO({
       title: "Sitemap – Explore All Pages & Links | Dots & Coms Baroda",
-      description: "Navigate through the entire corporate directory of Dots & Coms. Find links to website design, app development, hosting, and marketing solutions.",
-      keywords: "sitemap, dots and coms directory, website map, navigation panel, Baroda, IT services list",
+      description: "Navigate through the entire corporate directory of Dots & Coms. Find links to website design, app development, blogs, hosting, and digital marketing solutions.",
+      keywords: "sitemap, dots and coms directory, website map, blogs directory, tech articles, navigation panel, Baroda, IT services list",
       canonical: "https://www.dotsandcoms.in/sitemap"
     });
   }, []);

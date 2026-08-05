@@ -133,6 +133,7 @@ function App() {
                   <Route path="/web-stories" element={<WebStoriesPage />} />
                   <Route path="/terms-and-conditions" element={<TermsPage />} />
                   <Route path="/sitemap" element={<SitemapPage />} />
+                  <Route path="/sitemap.html" element={<SitemapPage />} />
                   <Route path="/accutechlabels-case-study-traditional-to-web-business" element={<AccutechCaseStudyPage />} />
                   <Route path="/1life-case-study-of-regional-to-national-reach" element={<OneLifeCaseStudyPage />} />
                   <Route path="/hobby-goes-global-case-study" element={<KiiaraCaseStudyPage />} />
