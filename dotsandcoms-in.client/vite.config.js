@@ -58,6 +58,10 @@ export default defineConfig({
                 entryFileNames: 'assets/[name].js',
                 manualChunks: (id) => {
                     if (id.includes('ckeditor5')) return 'ckeditor5';
+                    if (id.includes('three')) return 'three-vendor';
+                    if (id.includes('framer-motion') || id.includes('gsap') || id.includes('lenis')) return 'animation-vendor';
+                    if (id.includes('lucide-react') || id.includes('react-icons')) return 'icons-vendor';
+                    if (id.includes('node_modules')) return 'vendor';
                 }
             }
         }

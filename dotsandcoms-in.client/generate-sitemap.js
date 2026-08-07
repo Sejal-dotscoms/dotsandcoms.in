@@ -26,6 +26,7 @@ try {
     '/home-2',
     '/web-hosting-details',
     '/poweradmin',
+    '/sitemap.html',
     '/blogs/new',
     '/blogs/edit',
     '/change-password',

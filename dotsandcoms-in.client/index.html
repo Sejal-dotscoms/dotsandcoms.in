@@ -83,96 +83,55 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Clarity tracking code for https://www.dotsandcoms.in/ -->
-    <script>(function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "l10mzw70lk");</script>
-
+    <!-- Deferred Third-Party Analytics & Tracking Scripts (Loaded after initial render for max PageSpeed) -->
     <script>
-    function initApollo() {
-            var n = Math.random().toString(36).substring(7), o = document.createElement("script");
-            o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n, o.async = !0, o.defer = !0,
-                o.onload = function () { window.trackingFunctions.onLoad({ appId: "68ef9c9e4b084100197f2d51" }) },
-                document.head.appendChild(o)
-        } initApollo();</script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CRXSP5BRN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
+      function loadAnalytics() {
+        // Load Google Analytics & Ads
+        var g1 = document.createElement('script');
+        g1.async = true;
+        g1.src = 'https://www.googletagmanager.com/gtag/js?id=G-2CRXSP5BRN';
+        document.head.appendChild(g1);
         gtag('config', 'G-2CRXSP5BRN');
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB64HJNEW2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
         gtag('config', 'G-NB64HJNEW2');
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10830133798"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-
         gtag('config', 'AW-10830133798');
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18111497809"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
         gtag('config', 'AW-18111497809');
-    </script>
-    <!-- Event snippet for Website traffic conversion page -->
-    <script>
+        gtag('config', 'G-WC7NS81XJR');
         gtag('event', 'conversion', { 'send_to': 'AW-10830133798/QtIcCOu3k44DEKb0mqwo' });
-    </script>
 
+        // Load Microsoft Clarity
+        (function (c, l, a, r, i, t, y) { 
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; 
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; 
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); 
+        })(window, document, "clarity", "script", "l10mzw70lk");
 
-    <!-- Taboola Pixel Code -->
-    <script type='text/javascript'>
+        // Load Apollo micro tracker
+        var n = Math.random().toString(36).substring(7), o = document.createElement("script");
+        o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
+        o.async = true; o.defer = true;
+        o.onload = function () { if (window.trackingFunctions) window.trackingFunctions.onLoad({ appId: "68ef9c9e4b084100197f2d51" }); };
+        document.head.appendChild(o);
+
+        // Load Taboola Pixel
         window._tfa = window._tfa || [];
         window._tfa.push({ notify: 'event', name: 'page_view', id: 1499174 });
-        !function (t, f, a, x) {
-            if (!document.getElementById(x)) {
-                t.async = 1; t.src = a; t.id = x; f.parentNode.insertBefore(t, f);
-            }
-        }(document.createElement('script'),
-            document.getElementsByTagName('script')[0],
-            '//cdn.taboola.com/libtrc/unip/1499174/tfa.js',
-            'tb_tfa_script');
-    </script>
-    <!-- End of Taboola Pixel Code -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC7NS81XJR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+        var tb = document.createElement('script');
+        tb.async = true; tb.id = 'tb_tfa_script';
+        tb.src = '//cdn.taboola.com/libtrc/unip/1499174/tfa.js';
+        document.head.appendChild(tb);
+      }
 
-        gtag('config', 'G-WC7NS81XJR');
-    </script>
-    <!-- Google tag (gtag.js) Ad word -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10830133798">
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-
-        gtag('config', 'AW-10830133798');
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(loadAnalytics, { timeout: 3500 });
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadAnalytics, 2000);
+        });
+      }
     </script>
 
     <script type="application/ld+json">

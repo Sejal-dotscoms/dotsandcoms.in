@@ -81,31 +81,40 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-[14px]">
               <li>
-                <Link to="/#hero" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Home</Link>
+                <Link to="/#hero" aria-label="Dots and Coms Main Homepage" title="Dots and Coms Homepage" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Home Page</Link>
               </li>
               <li>
-                <Link to="/#about" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">About Us</Link>
+                <Link to="/#about" aria-label="About Dots and Coms Web Development Company" title="About Dots and Coms" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">About Us</Link>
               </li>
               <li>
-                <Link to="/website-mobile-app-development-company-portfolio-baroda" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Our Work</Link>
+                <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Our Web Design and App Development Portfolio" title="Our Work Portfolio" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Our Portfolio & Work</Link>
               </li>
               <li>
-                <Link to="/faqs-web-design-hosting-digital-marketing" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">FAQs</Link>
+                <Link to="/accutechlabels-case-study-traditional-to-web-business" aria-label="Accutech Labels B2B E-Commerce Case Study" title="Accutech Case Study" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Accutech Case Study</Link>
               </li>
               <li>
-                <Link to="/webhosting-vps-dedicated-server-support-baroda" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Technical Support</Link>
+                <Link to="/1life-case-study-of-regional-to-national-reach" aria-label="1Life NGO National SEO Expansion Case Study" title="1Life Case Study" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">1Life NGO Case Study</Link>
               </li>
               <li>
-                <Link to="/blogs" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Blogs</Link>
+                <Link to="/hobby-goes-global-case-study" aria-label="Kiiara Kreations Global E-Commerce Case Study" title="Kiiara Case Study" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Kiiara Case Study</Link>
               </li>
               <li>
-                <Link to="/web-stories" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Webstories</Link>
+                <Link to="/faqs-web-design-hosting-digital-marketing" aria-label="Frequently Asked Questions about Website Design and Hosting" title="Web Design FAQs" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">FAQs & Knowledge</Link>
               </li>
               <li>
-                <Link to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Contact Us</Link>
+                <Link to="/webhosting-vps-dedicated-server-support-baroda" aria-label="Technical Support for Web Hosting and Servers" title="Technical Support" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Technical Support</Link>
               </li>
               <li>
-                <a href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Career with Us</a>
+                <Link to="/blogs" aria-label="Read Latest Web Development and SEO Blogs" title="Web Development Blogs" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Latest Tech Blogs</Link>
+              </li>
+              <li>
+                <Link to="/web-stories" aria-label="Visual Web Stories and Digital Insights" title="Web Stories" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Visual Web Stories</Link>
+              </li>
+              <li>
+                <Link to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" aria-label="Contact Dots and Coms Team in Vadodara" title="Contact Us" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Contact Us Now</Link>
+              </li>
+              <li>
+                <a href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer" aria-label="Explore Careers and Job Openings at Dots and Coms" title="Careers" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Careers & Vacancies</a>
               </li>
             </ul>
           </div>
@@ -119,13 +128,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800">
               <li>
-                <Link to="/responsive-website-designing-company-vadodara#website-design" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Custom Website</Link>
+                <Link to="/responsive-website-designing-company-vadodara#website-design" aria-label="Custom Website Design Services in Vadodara" title="Custom Website Design" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Custom Website Design</Link>
               </li>
               <li>
-                <Link to="/responsive-website-designing-company-vadodara#ecommerce-development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Ecommerce Website</Link>
+                <Link to="/responsive-website-designing-company-vadodara#ecommerce-development" aria-label="Ecommerce Website Development Solutions" title="Ecommerce Website Development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Ecommerce Website Development</Link>
               </li>
               <li>
-                <Link to="/responsive-website-designing-company-vadodara#custom-applications" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Content Management System</Link>
+                <Link to="/responsive-website-designing-company-vadodara#custom-applications" aria-label="Content Management Systems and CMS Web Solutions" title="CMS Development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Content Management Systems</Link>
               </li>
             </ul>
           </div>
@@ -135,13 +144,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800">
               <li>
-                <Link to="/android-ios-mobile-app-development-company-baroda#android-development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Android Mobile Apps</Link>
+                <Link to="/android-ios-mobile-app-development-company-baroda#android-development" aria-label="Android Mobile Application Development" title="Android Mobile Apps" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Android Mobile Applications</Link>
               </li>
               <li>
-                <Link to="/android-ios-mobile-app-development-company-baroda#ios-development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">iOS Mobile Apps</Link>
+                <Link to="/android-ios-mobile-app-development-company-baroda#ios-development" aria-label="iOS Mobile Application Development" title="iOS Mobile Apps" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">iOS Mobile Applications</Link>
               </li>
               <li>
-                <Link to="/android-ios-mobile-app-development-company-baroda#flutter-development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Flutter Apps</Link>
+                <Link to="/android-ios-mobile-app-development-company-baroda#flutter-development" aria-label="Cross Platform Flutter App Development" title="Flutter App Development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Flutter App Development</Link>
               </li>
             </ul>
           </div>
@@ -155,13 +164,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800">
               <li>
-                <Link to="/windows-web-hosting-service-provider-baroda#vps-hosting" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">VPS Hosting</Link>
+                <Link to="/windows-web-hosting-service-provider-baroda#vps-hosting" aria-label="Windows and Linux VPS Server Hosting" title="VPS Hosting" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">VPS Server Hosting</Link>
               </li>
               <li>
-                <Link to="/windows-web-hosting-service-provider-baroda#dedicated-servers" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Dedicated Server</Link>
+                <Link to="/windows-web-hosting-service-provider-baroda#dedicated-servers" aria-label="Dedicated Server Hosting Solutions" title="Dedicated Servers" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Dedicated Server Hosting</Link>
               </li>
               <li>
-                <Link to="/windows-web-hosting-service-provider-baroda#ssl-certificate" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">SSL Certificate</Link>
+                <Link to="/windows-web-hosting-service-provider-baroda#ssl-certificate" aria-label="SSL Security Certificate Installation" title="SSL Certificates" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">SSL Security Certificates</Link>
               </li>
             </ul>
           </div>
@@ -171,13 +180,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800 mb-2.5">
               <li>
-                <Link to="/organic-seo-ppc-digital-marketing-vadodara#organic-seo" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Organic SEO</Link>
+                <Link to="/organic-seo-ppc-digital-marketing-vadodara#organic-seo" aria-label="Organic SEO Search Engine Optimization Services" title="Organic SEO" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Organic SEO Services</Link>
               </li>
               <li>
-                <Link to="/organic-seo-ppc-digital-marketing-vadodara#social-media" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Social Media Marketing</Link>
+                <Link to="/organic-seo-ppc-digital-marketing-vadodara#social-media" aria-label="Social Media Marketing and Management" title="Social Media Marketing" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Social Media Marketing</Link>
               </li>
               <li>
-                <Link to="/organic-seo-ppc-digital-marketing-vadodara#google-adwords" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Google AdWords</Link>
+                <Link to="/organic-seo-ppc-digital-marketing-vadodara#google-adwords" aria-label="Google AdWords PPC Advertising Campaigns" title="Google AdWords" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Google AdWords PPC</Link>
               </li>
             </ul>
           </div>
@@ -188,10 +197,10 @@ export default function Footer() {
       {/* Copyright panel */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-sm mt-8 pt-5 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between text-slate-500 gap-4 text-left">
         <div>
-          © {currentYear} Dots and Coms. All rights reserved. | <Link to="/sitemap" className="hover:text-slate-300 transition-colors text-sm">Sitemap</Link>
+          © {currentYear} Dots and Coms. All rights reserved. | <Link to="/sitemap" aria-label="Website HTML Sitemap Directory" title="HTML Sitemap" className="hover:text-slate-300 transition-colors text-sm">Website Sitemap</Link>
         </div>
         <div className="flex space-x-6">
-          <Link to="/terms-and-conditions#terms" className="hover:text-slate-300 transition-colors text-sm">Terms of Service</Link>
+          <Link to="/terms-and-conditions#terms" aria-label="Terms of Service and Privacy Policy" title="Terms of Service" className="hover:text-slate-300 transition-colors text-sm">Terms of Service</Link>
         </div>
       </div>
     </footer>
