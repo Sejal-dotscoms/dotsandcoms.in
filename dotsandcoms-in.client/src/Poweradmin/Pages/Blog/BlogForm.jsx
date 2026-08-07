@@ -16,8 +16,12 @@ import "ckeditor5/ckeditor5.css";
 
 function fmt(dateVal) {
   if (!dateVal) return "";
-  const d = new Date(dateVal);
-  return isNaN(d) ? "" : d.toISOString().slice(0, 10);
+  // API strings like "2026-07-29T00:00:00" — slice directly to avoid UTC-shift for IST users
+  if (typeof dateVal === "string" && dateVal.length >= 10) return dateVal.slice(0, 10);
+  // Date objects (e.g. new Date()) — use local components so today's date is correct
+  const d = dateVal instanceof Date ? dateVal : new Date(dateVal);
+  if (isNaN(d)) return "";
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 function slugify(str) {
@@ -222,6 +226,7 @@ export default function BlogForm() {
     if (!form.browserUrl.trim())       errors.browserUrl       = "Browser URL is required.";
     if (!form.shortDescription.trim()) errors.shortDescription = "Short description is required.";
     if (!longDesc.trim())              errors.longDescription  = "Long description is required.";
+    if (!form.metaTags.trim())         errors.metaTags         = "Meta tags are required.";
     if (!form.blogDate)                errors.blogDate         = "Blog date is required.";
     if (form.expiryDate && form.blogDate && form.expiryDate <= form.blogDate)
       errors.expiryDate = "Expiry date must be after the blog date.";
@@ -416,12 +421,13 @@ export default function BlogForm() {
           {/* Meta Tags */}
           <div className="px-6 py-4 space-y-1">
             <label className="block text-sm font-medium text-gray-700">
-              Meta Tags
+              Meta Tags <span className="text-red-500">*</span>
               <span className="ml-1 text-xs font-normal text-gray-400">(raw HTML injected into &lt;head&gt;)</span>
             </label>
             <textarea name="metaTags" value={form.metaTags} onChange={handleChange}
               rows={5} placeholder={`<link rel="canonical" href="https://www.dotsandcoms.in/blogs/my-url" />\n<meta name="description" content="..." />\n<meta name="keywords" content="..." />`}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-red-200 resize-y" />
+              className={`w-full px-4 py-2.5 border rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-red-200 resize-y ${fieldErrors.metaTags ? "border-red-400" : "border-gray-200"}`} />
+            <FieldError msg={fieldErrors.metaTags} />
             <p className="text-xs text-gray-400">Paste raw HTML meta/link tags. They will be injected into the blog detail page's &lt;head&gt;.</p>
           </div>
 
