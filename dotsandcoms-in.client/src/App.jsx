@@ -1,36 +1,38 @@
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import Home from "./components/Home";
-import SignIn from "./Poweradmin/Pages/SignIn/SignIn";
-import PoweradminLayout from "./Poweradmin/layout/PoweradminLayout";
-import Dashboard from "./Poweradmin/Pages/Dashboard/Dashboard";
-import BlogList from "./Poweradmin/Pages/Blog/BlogList";
-import BlogForm from "./Poweradmin/Pages/Blog/BlogForm";
-import ContactPage from "./pages/ContactPage";
 import AppLayout from "./layout/AppLayout";
-import FaqPage from "./pages/FaqPage";
-import TechnicalSupportPage from "./pages/TechnicalSupportPage";
-import AboutPage from "./pages/AboutPage";
-import ServicesPage from "./pages/ServicesPage";
-import WorkPage from "./pages/WorkPage";
-import WebDesignDetail from "./pages/services/WebDesignDetail";
-import MobileAppsDetail from "./pages/services/MobileAppsDetail";
-import WebHostingDetail from "./pages/services/WebHostingDetail";
-import DigitalMarketingDetail from "./pages/services/DigitalMarketingDetail";
-import WebStoriesPage from "./pages/WebStoriesPage";
-import TermsPage from "./pages/TermsPage";
-import SitemapPage from "./pages/SitemapPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import AccutechCaseStudyPage from "./pages/AccutechCaseStudyPage";
-import OneLifeCaseStudyPage from "./pages/OneLifeCaseStudyPage";
-import KiiaraCaseStudyPage from "./pages/KiiaraCaseStudyPage";
-import OrderNowPage from "./pages/OrderNowPage";
-import WebHostingDetailsPage from "./pages/WebHostingDetailsPage";
-import ThankYouPage from "./pages/ThankYouPage";
-import BlogsPage from "./pages/BlogsPage";
-import BlogDetailPage from "./pages/BlogDetailPage";
-import ChangePassword from "./Poweradmin/Pages/ChangePassword/ChangePassword";
-import ForgotPassword from "./Poweradmin/Pages/ForgotPassword/ForgotPassword";
+
+// Lazy-loaded pages for optimal bundle splitting and fast initial page load
+const SignIn = lazy(() => import("./Poweradmin/Pages/SignIn/SignIn"));
+const PoweradminLayout = lazy(() => import("./Poweradmin/layout/PoweradminLayout"));
+const Dashboard = lazy(() => import("./Poweradmin/Pages/Dashboard/Dashboard"));
+const BlogList = lazy(() => import("./Poweradmin/Pages/Blog/BlogList"));
+const BlogForm = lazy(() => import("./Poweradmin/Pages/Blog/BlogForm"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const FaqPage = lazy(() => import("./pages/FaqPage"));
+const TechnicalSupportPage = lazy(() => import("./pages/TechnicalSupportPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const WorkPage = lazy(() => import("./pages/WorkPage"));
+const WebDesignDetail = lazy(() => import("./pages/services/WebDesignDetail"));
+const MobileAppsDetail = lazy(() => import("./pages/services/MobileAppsDetail"));
+const WebHostingDetail = lazy(() => import("./pages/services/WebHostingDetail"));
+const DigitalMarketingDetail = lazy(() => import("./pages/services/DigitalMarketingDetail"));
+const WebStoriesPage = lazy(() => import("./pages/WebStoriesPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
+const SitemapPage = lazy(() => import("./pages/SitemapPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const AccutechCaseStudyPage = lazy(() => import("./pages/AccutechCaseStudyPage"));
+const OneLifeCaseStudyPage = lazy(() => import("./pages/OneLifeCaseStudyPage"));
+const KiiaraCaseStudyPage = lazy(() => import("./pages/KiiaraCaseStudyPage"));
+const OrderNowPage = lazy(() => import("./pages/OrderNowPage"));
+const WebHostingDetailsPage = lazy(() => import("./pages/WebHostingDetailsPage"));
+const ThankYouPage = lazy(() => import("./pages/ThankYouPage"));
+const BlogsPage = lazy(() => import("./pages/BlogsPage"));
+const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
+const ChangePassword = lazy(() => import("./Poweradmin/Pages/ChangePassword/ChangePassword"));
+const ForgotPassword = lazy(() => import("./Poweradmin/Pages/ForgotPassword/ForgotPassword"));
 import ProtectedRoute from "./Poweradmin/components/ProtectedRoute";
 
 // Scroll helper to support both top-of-page scrolling and dynamic #hash scrolling in Single Page App navigations
@@ -90,61 +92,63 @@ function App() {
     <BrowserRouter>
       <ScrollToHashElement />
       <CanonicalLink />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* ── Poweradmin area ── */}
-        <Route path="/poweradmin">
-          {/* /poweradmin → signin */}
-          <Route index element={<SignIn />} />
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* ── Poweradmin area ── */}
+          <Route path="/poweradmin">
+            {/* /poweradmin → signin */}
+            <Route index element={<SignIn />} />
 
-          {/* /poweradmin/forgot-password → public */}
-          <Route path="forgot-password" element={<ForgotPassword />} />
+            {/* /poweradmin/forgot-password → public */}
+            <Route path="forgot-password" element={<ForgotPassword />} />
 
-          {/* /poweradmin/* → protected shell */}
-          <Route
-            element={
-              <ProtectedRoute>
-                <PoweradminLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="blogs" element={<BlogList />} />
-            <Route path="blogs/new" element={<BlogForm />} />
-            <Route path="blogs/edit/:id" element={<BlogForm />} />
-            <Route path="change-password" element={<ChangePassword />} />
+            {/* /poweradmin/* → protected shell */}
+            <Route
+              element={
+                <ProtectedRoute>
+                  <PoweradminLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="blogs" element={<BlogList />} />
+              <Route path="blogs/new" element={<BlogForm />} />
+              <Route path="blogs/edit/:id" element={<BlogForm />} />
+              <Route path="change-password" element={<ChangePassword />} />
+            </Route>
           </Route>
-        </Route>
-              <Route element={<AppLayout />}>
-                  <Route path="/about-web-development-company-baroda" element={<AboutPage />} />
-                  <Route path="/website-mobile-app-development-company-portfolio-baroda" element={<WorkPage />} />
-                  <Route path="/services" element={<ServicesPage />} />
-                  <Route path="/responsive-website-designing-company-vadodara" element={<WebDesignDetail />} />
-                  <Route path="/android-ios-mobile-app-development-company-baroda" element={<MobileAppsDetail />} />
-                  <Route path="/windows-web-hosting-service-provider-baroda" element={<WebHostingDetail />} />
-                  <Route path="/windows-and-linux-vps-server-hosting-gujarat" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
-                  <Route path="/dedicated-server-hosting-cloud-hosting-vadodara" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
-                  <Route path="/dedicated-server-hosting-company-vadodara" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
-                  <Route path="/fee-seo-performance-web-site-audit" element={<Navigate to="/organic-seo-ppc-digital-marketing-vadodara" replace />} />
-                  <Route path="/organic-seo-ppc-digital-marketing-vadodara" element={<DigitalMarketingDetail />} />
-                  <Route path="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" element={<ContactPage />} />
-                  <Route path="/webhosting-vps-dedicated-server-support-baroda" element={<TechnicalSupportPage />} />
-                  <Route path="/faqs-web-design-hosting-digital-marketing" element={<FaqPage />} />
-                  <Route path="/web-stories" element={<WebStoriesPage />} />
-                  <Route path="/terms-and-conditions" element={<TermsPage />} />
-                  <Route path="/sitemap" element={<SitemapPage />} />
-                  <Route path="/sitemap.html" element={<SitemapPage />} />
-                  <Route path="/accutechlabels-case-study-traditional-to-web-business" element={<AccutechCaseStudyPage />} />
-                  <Route path="/1life-case-study-of-regional-to-national-reach" element={<OneLifeCaseStudyPage />} />
-                  <Route path="/hobby-goes-global-case-study" element={<KiiaraCaseStudyPage />} />
-                  <Route path="/order-now" element={<OrderNowPage />} />
-                  <Route path="/web-hosting-details" element={<WebHostingDetailsPage />} />
-                  <Route path="/thank-you" element={<ThankYouPage />} />
-                  <Route path="/blogs" element={<BlogsPage />} />
-                  <Route path="/blogs/:slug" element={<BlogDetailPage />} />
-                  <Route path="/*" element={<NotFoundPage />} />
-              </Route>
-      </Routes>
+                <Route element={<AppLayout />}>
+                    <Route path="/about-web-development-company-baroda" element={<AboutPage />} />
+                    <Route path="/website-mobile-app-development-company-portfolio-baroda" element={<WorkPage />} />
+                    <Route path="/services" element={<ServicesPage />} />
+                    <Route path="/responsive-website-designing-company-vadodara" element={<WebDesignDetail />} />
+                    <Route path="/android-ios-mobile-app-development-company-baroda" element={<MobileAppsDetail />} />
+                    <Route path="/windows-web-hosting-service-provider-baroda" element={<WebHostingDetail />} />
+                    <Route path="/windows-and-linux-vps-server-hosting-gujarat" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
+                    <Route path="/dedicated-server-hosting-cloud-hosting-vadodara" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
+                    <Route path="/dedicated-server-hosting-company-vadodara" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
+                    <Route path="/fee-seo-performance-web-site-audit" element={<Navigate to="/organic-seo-ppc-digital-marketing-vadodara" replace />} />
+                    <Route path="/organic-seo-ppc-digital-marketing-vadodara" element={<DigitalMarketingDetail />} />
+                    <Route path="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" element={<ContactPage />} />
+                    <Route path="/webhosting-vps-dedicated-server-support-baroda" element={<TechnicalSupportPage />} />
+                    <Route path="/faqs-web-design-hosting-digital-marketing" element={<FaqPage />} />
+                    <Route path="/web-stories" element={<WebStoriesPage />} />
+                    <Route path="/terms-and-conditions" element={<TermsPage />} />
+                    <Route path="/sitemap" element={<SitemapPage />} />
+                    <Route path="/sitemap.html" element={<SitemapPage />} />
+                    <Route path="/accutechlabels-case-study-traditional-to-web-business" element={<AccutechCaseStudyPage />} />
+                    <Route path="/1life-case-study-of-regional-to-national-reach" element={<OneLifeCaseStudyPage />} />
+                    <Route path="/hobby-goes-global-case-study" element={<KiiaraCaseStudyPage />} />
+                    <Route path="/order-now" element={<OrderNowPage />} />
+                    <Route path="/web-hosting-details" element={<WebHostingDetailsPage />} />
+                    <Route path="/thank-you" element={<ThankYouPage />} />
+                    <Route path="/blogs" element={<BlogsPage />} />
+                    <Route path="/blogs/:slug" element={<BlogDetailPage />} />
+                    <Route path="/*" element={<NotFoundPage />} />
+                </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

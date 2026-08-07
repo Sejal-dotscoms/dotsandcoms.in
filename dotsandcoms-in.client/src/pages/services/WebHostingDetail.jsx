@@ -168,6 +168,7 @@ export default function WebHostingDetail() {
 
                     <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-xl bg-white">
                       <table className="w-full text-left border-collapse min-w-[850px]">
+                        <caption className="sr-only">Web Hosting Plans & Pricing Comparison</caption>
                         <thead>
                           <tr className="bg-gradient-to-r from-amber-400 via-orange-500 to-[#dc2626] text-white">
                             {websiteHostingData.pricing.headers.map((header, idx) => (
@@ -363,6 +364,7 @@ export default function WebHostingDetail() {
                         {/* Windows VPS Table */}
                         <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-xl bg-white">
                           <table className="w-full text-center border-collapse">
+                            <caption className="sr-only">Windows VPS Server Hosting Specifications and Pricing</caption>
                             <thead>
                               <tr className="bg-gradient-to-r from-amber-400 via-orange-500 to-[#dc2626] text-white font-extrabold text-xs uppercase tracking-wider">
                                 <th className="p-4 border-r border-white/10">VPS Plan</th>
@@ -413,6 +415,7 @@ export default function WebHostingDetail() {
                         {/* Linux VPS Table */}
                         <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-xl bg-white">
                           <table className="w-full text-center border-collapse">
+                            <caption className="sr-only">Linux VPS Server Hosting Specifications and Pricing</caption>
                             <thead>
                               <tr className="bg-gradient-to-r from-amber-400 via-orange-500 to-[#dc2626] text-white font-extrabold text-xs uppercase tracking-wider">
                                 <th className="p-4 border-r border-white/10">VPS Plan</th>

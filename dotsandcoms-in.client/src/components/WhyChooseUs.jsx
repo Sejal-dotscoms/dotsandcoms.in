@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
             Traditional Agency vs. Dots and Coms
           </h2>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-            Discover why global companies partner with us to engineer high-velocity digital growth.
+            Discover why <strong>global companies and ambitious businesses</strong> partner with us to engineer high-velocity <strong>digital growth</strong>.
           </p>
         </div>
 

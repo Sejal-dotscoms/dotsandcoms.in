@@ -147,6 +147,7 @@ export default function Hero() {
 
                     {/* Staggered Text Reveal Headline */}
                     <motion.h1
+                        aria-label="Turning Vision Into Impactful Digital Experiences"
                         className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.08] flex flex-col"
                         variants={titleContainerVariants}
                         initial="hidden"
@@ -175,8 +176,8 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     >
-                        We design websites, build mobile apps, host them reliably, and market them —
-                        for ambitious businesses across Vadodara and beyond.
+                        We design <strong>responsive websites</strong>, build <strong>mobile apps</strong>, host them reliably, and market them —
+                        for ambitious businesses across <strong>Vadodara</strong> and beyond.
                     </motion.p>
 
                     {/* Magnetic CTA Buttons */}

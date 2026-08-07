@@ -46,11 +46,15 @@ var app = builder.Build();
 
 app.UseCors("ReactPolicy");
 
-// Add security headers to defend against click-jacking, MIME type sniffing, and enforce HSTS
+// Add security headers to defend against click-jacking, XSS, MIME type sniffing, and enforce HSTS
 app.Use(async (context, next) =>
 {
     context.Response.Headers["X-Frame-Options"] = "SAMEORIGIN";
     context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+    context.Response.Headers["X-XSS-Protection"] = "1; mode=block";
+    context.Response.Headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
+    context.Response.Headers["Permissions-Policy"] = "geolocation=(), camera=(), microphone=()";
+    context.Response.Headers["Content-Security-Policy"] = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';";
     context.Response.Headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload";
     await next();
 });
@@ -130,6 +134,50 @@ app.Use(async (context, next) =>
                 return;
             }
         }
+    }
+
+    await next();
+});
+
+// SPA Fallback with 404 status code check for unrecognized routes
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value ?? "";
+    if (Path.HasExtension(path) || path.StartsWith("/api", StringComparison.OrdinalIgnoreCase) || path.StartsWith("/swagger", StringComparison.OrdinalIgnoreCase))
+    {
+        await next();
+        return;
+    }
+
+    var validRoutes = new[]
+    {
+        "/", "", "/about-web-development-company-baroda",
+        "/website-mobile-app-development-company-portfolio-baroda",
+        "/services", "/responsive-website-designing-company-vadodara",
+        "/android-ios-mobile-app-development-company-baroda",
+        "/windows-web-hosting-service-provider-baroda",
+        "/windows-and-linux-vps-server-hosting-gujarat",
+        "/dedicated-server-hosting-cloud-hosting-vadodara",
+        "/dedicated-server-hosting-company-vadodara",
+        "/fee-seo-performance-web-site-audit",
+        "/organic-seo-ppc-digital-marketing-vadodara",
+        "/contact-webdesign-mobileapp-socialmedia-marketing-baroda",
+        "/webhosting-vps-dedicated-server-support-baroda",
+        "/faqs-web-design-hosting-digital-marketing",
+        "/web-stories", "/terms-and-conditions", "/sitemap", "/sitemap.html",
+        "/accutechlabels-case-study-traditional-to-web-business",
+        "/1life-case-study-of-regional-to-national-reach",
+        "/hobby-goes-global-case-study", "/order-now", "/web-hosting-details",
+        "/thank-you", "/blogs"
+    };
+
+    bool isValid = validRoutes.Any(r => path.Equals(r, StringComparison.OrdinalIgnoreCase)) ||
+                   path.StartsWith("/blogs/", StringComparison.OrdinalIgnoreCase) ||
+                   path.StartsWith("/poweradmin", StringComparison.OrdinalIgnoreCase);
+
+    if (!isValid)
+    {
+        context.Response.StatusCode = 404;
     }
 
     await next();
