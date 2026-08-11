@@ -165,7 +165,7 @@ export default function DigitalMarketingDetail() {
 
           <div className="pt-2">
             <Link
-              to={ctaData.ctaLink || "/fee-seo-performance-website-audit"}
+              to={ctaData.ctaLink || "/free-seo-performance-website-audit"}
               className="inline-flex items-center space-x-2 bg-white text-[#dc2626] hover:bg-[#fff7ed] font-bold text-sm px-6 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 shadow-md hover:shadow-lg group cursor-pointer"
             >
               <span>{ctaData.ctaText}</span>

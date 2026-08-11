@@ -159,6 +159,8 @@ app.Use(async (context, next) =>
         "/windows-and-linux-vps-server-hosting-gujarat",
         "/dedicated-server-hosting-cloud-hosting-vadodara",
         "/dedicated-server-hosting-company-vadodara",
+        "/feer-seo-performance-website-audit",
+        "/free-seo-performance-website-audit",
         "/fee-seo-performance-website-audit",
         "/fee-seo-performance-web-site-audit",
         "/free-audit",
