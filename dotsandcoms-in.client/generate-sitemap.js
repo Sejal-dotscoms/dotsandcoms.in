@@ -22,6 +22,8 @@ try {
     '/dedicated-server-hosting-cloud-hosting-vadodara',
     '/dedicated-server-hosting-company-vadodara',
     '/fee-seo-performance-web-site-audit',
+    '/free-audit',
+    '/free-seo-audit',
     '/thank-you',
     '/home-2',
     '/web-hosting-details',

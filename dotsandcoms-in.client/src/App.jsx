@@ -33,6 +33,7 @@ const BlogsPage = lazy(() => import("./pages/BlogsPage"));
 const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
 const ChangePassword = lazy(() => import("./Poweradmin/Pages/ChangePassword/ChangePassword"));
 const ForgotPassword = lazy(() => import("./Poweradmin/Pages/ForgotPassword/ForgotPassword"));
+const FreeWebsiteAuditPage = lazy(() => import("./pages/FreeWebsiteAuditPage"));
 import ProtectedRoute from "./Poweradmin/components/ProtectedRoute";
 
 // Scroll helper to support both top-of-page scrolling and dynamic #hash scrolling in Single Page App navigations
@@ -128,7 +129,10 @@ function App() {
                     <Route path="/windows-and-linux-vps-server-hosting-gujarat" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
                     <Route path="/dedicated-server-hosting-cloud-hosting-vadodara" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
                     <Route path="/dedicated-server-hosting-company-vadodara" element={<Navigate to="/windows-web-hosting-service-provider-baroda" replace />} />
-                    <Route path="/fee-seo-performance-web-site-audit" element={<Navigate to="/organic-seo-ppc-digital-marketing-vadodara" replace />} />
+                    <Route path="/fee-seo-performance-website-audit" element={<FreeWebsiteAuditPage />} />
+                    <Route path="/fee-seo-performance-web-site-audit" element={<FreeWebsiteAuditPage />} />
+                    <Route path="/free-audit" element={<Navigate to="/fee-seo-performance-website-audit" replace />} />
+                    <Route path="/free-seo-audit" element={<Navigate to="/fee-seo-performance-website-audit" replace />} />
                     <Route path="/organic-seo-ppc-digital-marketing-vadodara" element={<DigitalMarketingDetail />} />
                     <Route path="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" element={<ContactPage />} />
                     <Route path="/webhosting-vps-dedicated-server-support-baroda" element={<TechnicalSupportPage />} />
