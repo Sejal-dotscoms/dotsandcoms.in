@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import InnerBanner from "../../components/ui/InnerBanner";
 import { subServices, bannerData, ctaData } from "../../data/digitalMarketing";
-import AuditModal from "../../components/ui/AuditModal";
 import { setPageSEO } from "../../utils/seo";
 
 // Reusable 3D Tilt Card component with layered offset backing
@@ -45,7 +44,6 @@ function TiltCard({ src, alt, offsetBorder, glowColor, width, height }) {
 }
 
 export default function DigitalMarketingDetail() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -166,18 +164,16 @@ export default function DigitalMarketingDetail() {
           </p>
 
           <div className="pt-2">
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <Link
+              to={ctaData.ctaLink || "/free-seo-performance-website-audit"}
               className="inline-flex items-center space-x-2 bg-white text-[#dc2626] hover:bg-[#fff7ed] font-bold text-sm px-6 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 shadow-md hover:shadow-lg group cursor-pointer"
             >
               <span>{ctaData.ctaText}</span>
               <ArrowRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
-
-      <AuditModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

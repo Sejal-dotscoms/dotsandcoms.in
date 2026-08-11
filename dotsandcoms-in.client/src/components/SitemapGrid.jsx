@@ -162,6 +162,18 @@ export default function SitemapGrid() {
               </p>
             </div>
 
+            {/* Free Website Audit */}
+            <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
+              <Link to="/free-seo-performance-website-audit" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+                <Shield className="h-4 w-4" />
+                <span>Free Website Audit & SEO</span>
+                <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
+              </Link>
+              <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
+                Request a comprehensive free website audit report to evaluate page speed, Core Web Vitals, technical SEO, mobile responsiveness, and dead links within 48 hours.
+              </p>
+            </div>
+
             {/* Case Studies */}
             <div className="space-y-6 rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm">
               <div className="border-b border-slate-100 pb-3">
