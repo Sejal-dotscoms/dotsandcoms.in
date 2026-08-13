@@ -58,7 +58,7 @@ export default function WebHostingDetailsPage() {
     if (loading) {
         return (
             <div className="min-h-[60vh] bg-white flex items-center justify-center p-6">
-                <h1 className="sr-only">Web Hosting Order Details</h1>
+                <div role="status" className="sr-only">Loading Web Hosting Order Details...</div>
                 <Loader2 className="w-6 h-6 animate-spin text-[#dc2626]" />
             </div>
         );
@@ -71,8 +71,8 @@ export default function WebHostingDetailsPage() {
                     <div className="w-12 h-12 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mx-auto">
                         <AlertTriangle className="w-6 h-6" />
                     </div>
-                    <h1 className="text-lg font-bold text-slate-800">Web Hosting Order Details</h1>
-                    <h2 className="text-base font-semibold text-slate-600">No Active Order Session</h2>
+                    <h2 className="text-lg font-bold text-slate-800">Web Hosting Order Details</h2>
+                    <p className="text-base font-semibold text-slate-600">No Active Order Session</p>
                     <p className="text-sm text-slate-500">
                         {loadError || "We couldn't find any pending order details. Please fill out the configuration form first."}
                     </p>

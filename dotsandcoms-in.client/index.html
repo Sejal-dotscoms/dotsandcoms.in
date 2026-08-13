@@ -2,43 +2,10 @@
 <html lang="en" class="bg-[#09090b]">
 <head>
     <meta charset="UTF-8" />
-    <script>
-        window.addEventListener('error', function (e) {
-            var div = document.createElement('div');
-            div.style.position = 'fixed';
-            div.style.top = '0';
-            div.style.left = '0';
-            div.style.width = '100%';
-            div.style.zIndex = '999999';
-            div.style.background = 'red';
-            div.style.color = 'white';
-            div.style.padding = '20px';
-            div.style.fontSize = '14px';
-            div.style.fontFamily = 'monospace';
-            div.style.whiteSpace = 'pre-wrap';
-            div.innerHTML = 'ERROR: ' + e.message + '\nStack: ' + (e.error ? e.error.stack : 'no stack');
-            document.body.appendChild(div);
-        });
-        window.addEventListener('unhandledrejection', function (e) {
-            var div = document.createElement('div');
-            div.style.position = 'fixed';
-            div.style.top = '0';
-            div.style.left = '0';
-            div.style.width = '100%';
-            div.style.zIndex = '999999';
-            div.style.background = 'orange';
-            div.style.color = 'white';
-            div.style.padding = '20px';
-            div.style.fontSize = '14px';
-            div.style.fontFamily = 'monospace';
-            div.style.whiteSpace = 'pre-wrap';
-            div.innerHTML = 'UNHANDLED REJECTION: ' + e.reason;
-            document.body.appendChild(div);
-        });
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Design & Mobile App Development Company in Vadodara</title>
     <link rel="canonical" href="https://www.dotsandcoms.in/" />
+    <link rel="preload" as="image" href="/hero-banner-image.webp" type="image/webp" fetchpriority="high" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -79,17 +46,25 @@
     <meta name="twitter:title" content="DotsandComs - Digital Marketing Company in Vadodara" />
     <meta name="twitter:description" content="We provide SEO, website design, and digital marketing services to grow your business." />
     <meta name="twitter:image" content="https://www.dotsandcoms.in/og-image.png" />
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preload / Non-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Deferred Third-Party Analytics & Tracking Scripts (Loaded after initial render for max PageSpeed) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    </noscript>
+
+    <!-- Deferred Third-Party Analytics & Tracking Scripts -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      var _analyticsLoaded = false;
       function loadAnalytics() {
+        if (_analyticsLoaded) return;
+        _analyticsLoaded = true;
+
         // Load Google Analytics & Ads
         var g1 = document.createElement('script');
         g1.async = true;
@@ -125,13 +100,11 @@
         document.head.appendChild(tb);
       }
 
-      if (window.requestIdleCallback) {
-        window.requestIdleCallback(loadAnalytics, { timeout: 3500 });
-      } else {
-        window.addEventListener('load', function() {
-          setTimeout(loadAnalytics, 2000);
-        });
-      }
+      // Load on first user interaction or fallback timeout
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(event) {
+        window.addEventListener(event, loadAnalytics, { once: true, passive: true });
+      });
+      setTimeout(loadAnalytics, 5000);
     </script>
 
     <script type="application/ld+json">

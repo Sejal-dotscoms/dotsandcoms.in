@@ -236,7 +236,7 @@ export default function Hero() {
                             ref={dashRef}
                             className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl border border-slate-200/80 bg-cover bg-center bg-no-repeat aspect-[4/3] w-full"
                             style={{
-                                backgroundImage: `url(/hero-banner-image.png)`,
+                                backgroundImage: `url(/hero-banner-image.webp)`,
                                 rotateX: rotateX,
                                 rotateY: rotateY,
                                 transformStyle: "preserve-3d",

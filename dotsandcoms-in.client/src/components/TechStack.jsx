@@ -126,9 +126,9 @@ export default function TechStack() {
                     <span className="text-[10px] font-bold font-mono text-[#ea580c] uppercase tracking-widest block mb-1">
                       System Deployment
                     </span>
-                    <h4 className="text-slate-800 font-bold font-heading text-sm mb-2">
+                    <div className="text-slate-800 font-bold font-heading text-sm mb-2">
                       {tech.name}
-                    </h4>
+                    </div>
                     <p className="text-slate-500 text-xs leading-relaxed">
                       {tech.desc}
                     </p>

@@ -41,10 +41,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString)
 );
 
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
+
 var app = builder.Build();
  
 
 app.UseCors("ReactPolicy");
+app.UseResponseCompression();
 
 // Add security headers to defend against click-jacking, XSS, MIME type sniffing, and enforce HSTS
 app.Use(async (context, next) =>
@@ -77,8 +83,28 @@ app.UseStaticFiles(new StaticFileOptions
 {
     OnPrepareResponse = ctx =>
     {
-        var path = ctx.Context.Request.Path.Value;
-        if (!string.IsNullOrEmpty(path) && path.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+        var path = ctx.Context.Request.Path.Value ?? "";
+        
+        // Cache static files (JS, CSS, images, fonts, icons) for 1 year
+        if (path.StartsWith("/assets/", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".js", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".css", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".woff", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers["Cache-Control"] = "public, max-age=31536000, immutable";
+        }
+        else if (path.EndsWith(".html", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+        }
+
+        if (path.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
         {
             // Set canonical header for the PDF to prevent duplicate indexing
             var canonicalUrl = $"https://www.dotsandcoms.in{path}";
