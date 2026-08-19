@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -67,14 +67,14 @@ function BlurredWebsiteBackdrop() {
           </p>
         </div>
         <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
-                  <img src={seoImg} alt="On Page Seo Vadodara Website Optimization" className="h-auto w-full object-cover" />
+          <img src={seoImg} alt="On Page Seo Vadodara Website Optimization" className="h-auto w-full object-cover" loading="lazy" decoding="async" width="1024" height="768" />
         </div>
       </div>
 
       {/* Content Section 2: Social Media */}
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl bg-slate-50 px-6 py-12 md:grid-cols-2">
         <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
-                  <img src={socialImg} alt="Social Media Services Baroda Online Branding" className="h-auto w-full object-cover" />
+          <img src={socialImg} alt="Social Media Services Baroda Online Branding" className="h-auto w-full object-cover" loading="lazy" decoding="async" width="1024" height="768" />
         </div>
         <div className="space-y-4 text-left">
           <span className="font-mono text-xs font-bold tracking-widest text-[#ea580c] uppercase">

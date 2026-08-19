@@ -211,6 +211,7 @@ function ProjectCard({ project }) {
                     : "w-full h-full object-contain object-top block bg-white"
                 }`}
                 loading="lazy"
+                decoding="async"
                 width={isMobileApp ? 1000 : 1500}
                 height={isMobileApp ? 1000 : 1000}
               />

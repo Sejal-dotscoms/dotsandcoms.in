@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -169,6 +169,9 @@ export default function FeaturedWork() {
                   alt={project.alt || `${project.title} - ${project.category} Portfolio | Dots & Coms Web Design Company Vadodara`}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
+                  width="850"
+                  height="560"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/5 to-transparent" />
               </div>

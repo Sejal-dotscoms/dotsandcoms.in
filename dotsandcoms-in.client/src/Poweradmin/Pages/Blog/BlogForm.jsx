@@ -473,7 +473,10 @@ export default function BlogForm() {
                 {form.imageUrls.map((url, idx) => (
                   <div key={idx} className="relative group">
                     <img src={url} alt={`Image ${idx + 1}`}
-                      className="h-28 w-28 rounded-lg border border-gray-200 object-cover" />
+                      className="h-28 w-28 rounded-lg border border-gray-200 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     {idx === 0 && (
                       <span className="absolute bottom-1 left-1 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
                         Cover

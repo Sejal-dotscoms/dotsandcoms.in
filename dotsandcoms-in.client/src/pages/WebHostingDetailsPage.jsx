@@ -208,7 +208,7 @@ export default function WebHostingDetailsPage() {
                         <div className="space-y-4 pt-4 border-t border-slate-100">
                             <h2 className="font-bold text-slate-800 text-base">Payment methods:</h2>
                             <div className="my-2 max-w-lg">
-                                <img src={paymentMethodsImg} alt="Payment Gateway Logos" className="w-full h-auto object-contain" loading="lazy" width="1024" height="189" />
+                                <img src={paymentMethodsImg} alt="Payment Gateway Logos" className="w-full h-auto object-contain" loading="lazy" decoding="async" width="1024" height="189" />
                             </div>
                             <div className="flex flex-col sm:flex-row gap-6 pt-2">
                                 {["Master Card", "Visa", "NetBanking"].map((method) => (

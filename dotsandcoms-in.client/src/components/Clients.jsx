@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Clients() {
   const partners = [
@@ -106,6 +106,7 @@ export default function Clients() {
                 alt={`${partner.name} Logo`}
                 className="pointer-events-none max-h-16 max-w-[150px] object-contain"
                 loading="lazy"
+                decoding="async"
                 width={partner.width}
                 height={partner.height}
               />

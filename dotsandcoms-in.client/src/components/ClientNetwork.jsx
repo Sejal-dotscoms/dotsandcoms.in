@@ -118,6 +118,7 @@ export default function ClientNetwork() {
                                     alt={`${partner.name} Logo`}
                                     className="max-h-12 max-w-[140px] object-contain pointer-events-none"
                                     loading="lazy"
+                                    decoding="async"
                                     width={partner.width}
                                     height={partner.height}
                                 />
@@ -151,6 +152,7 @@ export default function ClientNetwork() {
                                     alt={`${partner.name} Logo`}
                                     className="max-h-12 max-w-[140px] object-contain pointer-events-none"
                                     loading="lazy"
+                                    decoding="async"
                                     width={partner.width}
                                     height={partner.height}
                                 />

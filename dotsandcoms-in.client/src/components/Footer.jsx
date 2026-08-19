@@ -29,7 +29,7 @@ export default function Footer() {
 
       {/* Watermark logo in the background */}
       <div className="absolute right-[6%] bottom-[8%] w-[260px] md:w-[330px] opacity-[0.045] pointer-events-none select-none -z-10 transform -rotate-6 filter brightness-0 invert">
-        <img src={logoImg} alt="Dots & Coms Logo" className="w-full h-auto object-contain" loading="lazy" width="94" height="98" />
+        <img src={logoImg} alt="Dots & Coms Logo" className="w-full h-auto object-contain" loading="lazy" decoding="async" width="94" height="98" />
       </div>
 
       {/* Glowing gradient mesh accents */}

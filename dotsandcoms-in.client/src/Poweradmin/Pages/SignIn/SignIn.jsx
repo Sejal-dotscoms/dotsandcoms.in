@@ -110,10 +110,12 @@ export default function SignIn() {
             {/* ── Logo / heading ── */}
             <div className="flex flex-col items-center mb-2 gap-3">
               <img
-                              src="https://www.dotsandcoms.in/assets/dots-and-coms-logo.webp"
+                src="https://www.dotsandcoms.in/assets/dots-and-coms-logo.webp"
                 alt="Dots & Coms"
                 className="h-20 w-auto object-contain"
                 draggable={false}
+                loading="lazy"
+                decoding="async"
                 width="94"
                 height="98"
               />

@@ -42,6 +42,7 @@ export default function EventsAwards() {
                                     alt={item.alt || `${item.title} - Dots & Coms Corporate Events & Achievements Baroda`}
                                     className="h-62 w-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     loading="lazy"
+                                    decoding="async"
                                     width={item.width}
                                     height={item.height}
                                 />

@@ -37,7 +37,7 @@ function ImageCarousel({ images, alt }) {
   if (total === 1) {
     return (
       <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-        <img src={images[0]} alt={alt} className="w-full max-h-[460px] object-cover" />
+        <img src={images[0]} alt={alt} className="w-full max-h-[460px] object-cover" loading="lazy" decoding="async" />
       </div>
     );
   }
@@ -64,7 +64,8 @@ function ImageCarousel({ images, alt }) {
               src={url}
               alt={`${alt} – image ${idx + 1}`}
               className="w-full max-h-[460px] object-cover"
-              loading={idx === 0 ? "eager" : "lazy"}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}

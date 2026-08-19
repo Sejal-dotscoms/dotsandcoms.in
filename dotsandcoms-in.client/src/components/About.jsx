@@ -132,6 +132,7 @@ export default function About() {
                           alt={slide.alt || `${slide.title} - Custom Web Design & Web Development Company in Vadodara`}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
                           width={slide.width}
                           height={slide.height}
                         />
