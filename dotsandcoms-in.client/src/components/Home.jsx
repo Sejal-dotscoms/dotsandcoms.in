@@ -29,19 +29,16 @@ export default function Home() {
 
   // Set page-specific SEO metadata on mount
   useEffect(() => {
-    if (isLoading) return;
     return setPageSEO({
       title: "Website Design & Mobile App Development Company in Vadodara",
       description: "Dots & Coms is a leading website design and mobile app development company in Vadodara offering responsive web design, Android & iOS app development, web hosting, SEO, and digital marketing services.",
       keywords: "website design Vadodara, mobile app development Vadodara, web development company Vadodara, app developers Vadodara, website designing company Baroda, mobile application development Baroda, web hosting Vadodara, IT company Vadodara, software development Vadodara, SEO company Vadodara, digital marketing Vadodara",
       canonical: "https://www.dotsandcoms.in/"
     });
-  }, [isLoading]);
+  }, []);
 
   // Initialize Lenis Smooth Scroll
   useEffect(() => {
-    if (isLoading) return;
-
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom acceleration easing
@@ -52,54 +49,53 @@ export default function Home() {
 
     window.lenis = lenis;
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       window.lenis = null;
     };
-  }, [isLoading]);
+  }, []);
 
   return (
     <>
       <LoadingScreen onComplete={() => setIsLoading(false)} />
       
-      {!isLoading && (
-        <div className="relative min-h-screen text-slate-600 bg-[#f8fafc]">
-          {/* Custom interactive elements */}
-          <ParticleBackground />
+      <div className="relative min-h-screen text-slate-600 bg-[#f8fafc]">
+        {/* Custom interactive elements */}
+        <ParticleBackground />
 
-          {/* Navigation */}
-          <Header />
+        {/* Navigation */}
+        <Header />
 
-          {/* Page Sections */}
-          <main>
-            <Hero />
-                      <Trust />
-                      <About />
-                    
-            <Services />
-            <FeaturedWork />
-            <Process />
-            <WhyChooseUs />
-            <Clients />
-            <TechStack />
-            <FreeAuditCTA />
-            <Testimonials />
-          </main>
+        {/* Page Sections */}
+        <main>
+          <Hero />
+          <Trust />
+          <About />
+          <Services />
+          <FeaturedWork />
+          <Process />
+          <WhyChooseUs />
+          <Clients />
+          <TechStack />
+          <FreeAuditCTA />
+          <Testimonials />
+        </main>
 
-          {/* Footer */}
-          <Footer />
+        {/* Footer */}
+        <Footer />
 
-          {/* Floating WhatsApp Button */}
-          <WhatsAppButton />
-        </div>
-      )}
+        {/* Floating WhatsApp Button */}
+        <WhatsAppButton />
+      </div>
     </>
   );
 }

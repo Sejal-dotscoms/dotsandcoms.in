@@ -89,7 +89,7 @@ export default function ParticleBackground() {
     const initParticles = () => {
       particles = [];
       const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 40 : 100; // Optimize performance for mobile
+      const count = isMobile ? 20 : 36; // Optimized count for silky smooth 60fps
 
       for (let i = 0; i < count; i++) {
         const x = Math.random() * canvas.width;
@@ -99,7 +99,11 @@ export default function ParticleBackground() {
     };
 
     const drawLines = () => {
-      const maxDistance = 120;
+      const maxDistance = 100;
+      ctx.beginPath();
+      ctx.strokeStyle = "rgba(220, 38, 38, 0.08)";
+      ctx.lineWidth = 0.5;
+
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const p1 = particles[i];
@@ -107,22 +111,22 @@ export default function ParticleBackground() {
           
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (Math.abs(dx) > maxDistance || Math.abs(dy) > maxDistance) continue;
 
+          const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < maxDistance) {
-            const opacity = (maxDistance - dist) / maxDistance * 0.12;
-            ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(220, 38, 38, ${opacity})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
           }
         }
       }
+      ctx.stroke();
     };
 
+    let isVisible = true;
+
     const animate = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach((particle) => {
@@ -135,14 +139,27 @@ export default function ParticleBackground() {
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    const onVisibilityChange = () => {
+      isVisible = document.visibilityState === "visible";
+      if (isVisible) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
     handleResize();
-    animate();
+    const startTimer = setTimeout(() => {
+      animate();
+    }, 60);
 
     return () => {
+      clearTimeout(startTimer);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
