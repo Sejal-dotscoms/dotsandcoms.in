@@ -76,9 +76,9 @@ export default function Footer() {
         {/* Column 2: Company & Quick Links */}
         <div className="lg:col-span-3 space-y-4 text-left">
           <div>
-            <h4 className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
+            <p className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
               Quick Links
-            </h4>
+            </p>
             <ul className="space-y-2 text-[14px]">
               <li>
                 <Link to="/#hero" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Home</Link>
@@ -114,9 +114,9 @@ export default function Footer() {
         {/* Column 3: Website Design & Mobile Apps */}
         <div className="lg:col-span-3 space-y-4 text-left">
           <div className="min-h-[140px]">
-            <h4 className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
+            <p className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
               Website Design
-            </h4>
+            </p>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800">
               <li>
                 <Link to="/responsive-website-designing-company-vadodara#website-design" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Custom Website</Link>
@@ -130,9 +130,9 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
+            <p className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
               Mobile Apps
-            </h4>
+            </p>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800">
               <li>
                 <Link to="/android-ios-mobile-app-development-company-baroda#android-development" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Android Mobile Apps</Link>
@@ -150,9 +150,9 @@ export default function Footer() {
         {/* Column 4: Web Hosting & Digital Marketing */}
         <div className="lg:col-span-3 space-y-4 text-left">
           <div className="min-h-[140px]">
-            <h4 className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
+            <p className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
               Web Hosting
-            </h4>
+            </p>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800">
               <li>
                 <Link to="/windows-web-hosting-service-provider-baroda#vps-hosting" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">VPS Hosting</Link>
@@ -166,9 +166,9 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
+            <p className="text-slate-100 font-bold font-heading text-sm uppercase tracking-wider mb-4">
               Digital Marketing
-            </h4>
+            </p>
             <ul className="space-y-2 text-[14px] pl-2.5 border-l border-slate-800 mb-2.5">
               <li>
                 <Link to="/organic-seo-ppc-digital-marketing-vadodara#organic-seo" className="text-slate-400 hover:text-white transition-colors duration-300 font-normal">Organic SEO</Link>

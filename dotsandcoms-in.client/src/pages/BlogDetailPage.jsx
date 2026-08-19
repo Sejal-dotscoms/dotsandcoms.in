@@ -190,7 +190,7 @@ export default function BlogDetailPage() {
   if (loading) {
     return (
       <>
-        <InnerBanner title="Blog" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Loading…" }]} />
+        <InnerBanner title="Blog" titleTag="div" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Loading…" }]} />
         <div className="flex justify-center py-32">
           <svg className="animate-spin h-8 w-8 text-[#dc2626]" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
@@ -204,7 +204,7 @@ export default function BlogDetailPage() {
   if (error || !blog) {
     return (
       <>
-        <InnerBanner title="Blog" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Not Found" }]} />
+        <InnerBanner title="Blog" titleTag="div" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Not Found" }]} />
         <div className="text-center py-32 text-slate-500">{error || "Blog not found."}</div>
       </>
     );
@@ -216,6 +216,7 @@ export default function BlogDetailPage() {
     <>
       <InnerBanner
         title={blog.title}
+        titleTag="div"
         breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: blog.title }]}
       />
 

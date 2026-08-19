@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -24,11 +24,11 @@ import socialImg from "../assets/images/social-media-services-Baroda-online-bran
 // Pure visual background without side-effects or SEO overwriting
 function BlurredWebsiteBackdrop() {
   return (
-    <div aria-hidden="true" className="pointer-events-none select-none overflow-hidden opacity-40 filter blur-[7px] scale-[1.02] transform-gpu">
+    <div aria-hidden="true" className="pointer-events-none scale-[1.02] transform-gpu overflow-hidden opacity-40 blur-[7px] filter select-none">
       {/* Top Navigation Bar Mockup */}
-      <header className="w-full bg-white/90 border-b border-slate-200/60 px-6 py-4 flex items-center justify-between">
+      <header className="flex w-full items-center justify-between border-b border-slate-200/60 bg-white/90 px-6 py-4">
         <Logo size="md" />
-        <div className="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+        <div className="hidden items-center space-x-8 text-sm font-semibold text-slate-700 md:flex">
           <span>Home</span>
           <span>About Us</span>
           <span>Services</span>
@@ -39,51 +39,51 @@ function BlurredWebsiteBackdrop() {
       </header>
 
       {/* Hero / Banner Area */}
-      <div className="w-full bg-gradient-to-b from-slate-50 to-white py-16 px-6 text-center border-b border-slate-150">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#dc2626]">
+      <div className="border-slate-150 w-full border-b bg-gradient-to-b from-slate-50 to-white px-6 py-16 text-center">
+        <div className="mx-auto max-w-4xl space-y-4">
+          <span className="font-mono text-xs font-bold tracking-widest text-[#dc2626] uppercase">
             // Services / Digital Marketing
           </span>
-          <div className="text-4xl font-extrabold text-slate-900 tracking-tight">
+          <div className="text-4xl font-extrabold tracking-tight text-slate-900">
             Digital Marketing Services
           </div>
-          <p className="text-slate-600 text-sm max-w-xl mx-auto">
+          <p className="mx-auto max-w-xl text-sm text-slate-600">
             Accelerate your search visibility, social engagement, and paid CPC acquisition with targeted web strategies.
           </p>
         </div>
       </div>
 
       {/* Content Section 1: Organic SEO */}
-      <div className="max-w-6xl mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-12 md:grid-cols-2">
         <div className="space-y-4 text-left">
-          <span className="text-xs font-mono font-bold text-[#ea580c] uppercase tracking-widest">
+          <span className="font-mono text-xs font-bold tracking-widest text-[#ea580c] uppercase">
             Search Engine Optimization
           </span>
           <div className="text-2xl font-bold text-slate-800">
             Organic Search Engine Optimization (SEO)
           </div>
-          <p className="text-slate-600 text-xs leading-relaxed">
+          <p className="text-xs leading-relaxed text-slate-600">
             Organic SEO is the process of increasing a website's visibility in search results by optimizing its content, structure, and technical aspects without using paid advertising.
           </p>
         </div>
-        <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-          <img src={seoImg} alt="" className="w-full h-auto object-cover" />
+        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
+                  <img src={seoImg} alt="On Page Seo Vadodara Website Optimization" className="h-auto w-full object-cover" />
         </div>
       </div>
 
       {/* Content Section 2: Social Media */}
-      <div className="max-w-6xl mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-slate-50 rounded-3xl">
-        <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-          <img src={socialImg} alt="" className="w-full h-auto object-cover" />
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl bg-slate-50 px-6 py-12 md:grid-cols-2">
+        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
+                  <img src={socialImg} alt="Social Media Services Baroda Online Branding" className="h-auto w-full object-cover" />
         </div>
         <div className="space-y-4 text-left">
-          <span className="text-xs font-mono font-bold text-[#ea580c] uppercase tracking-widest">
+          <span className="font-mono text-xs font-bold tracking-widest text-[#ea580c] uppercase">
             Social Engagement &amp; Branding
           </span>
           <div className="text-2xl font-bold text-slate-800">
             Social Media Marketing
           </div>
-          <p className="text-slate-600 text-xs leading-relaxed">
+          <p className="text-xs leading-relaxed text-slate-600">
             Social media marketing uses platforms such as Instagram, Facebook, and LinkedIn to connect with the right audience.
           </p>
         </div>
@@ -287,8 +287,8 @@ export default function FreeWebsiteAuditPage() {
       <div className="pointer-events-none fixed inset-0 z-0 bg-slate-950/60 backdrop-blur-sm" />
 
       {/* Soft warm glowing ambient mesh */}
-      <div className="pointer-events-none absolute top-0 left-1/4 h-[450px] w-[450px] rounded-full bg-[#dc2626]/20 blur-[130px] z-0" />
-      <div className="pointer-events-none absolute right-1/4 bottom-0 h-[450px] w-[450px] rounded-full bg-[#ea580c]/20 blur-[130px] z-0" />
+      <div className="pointer-events-none absolute top-0 left-1/4 z-0 h-[450px] w-[450px] rounded-full bg-[#dc2626]/20 blur-[130px]" />
+      <div className="pointer-events-none absolute right-1/4 bottom-0 z-0 h-[450px] w-[450px] rounded-full bg-[#ea580c]/20 blur-[130px]" />
 
       {/* Floating Side Action: Logo on Top-Left */}
       <div className="fixed top-4 left-4 z-30 sm:top-6 sm:left-7">
@@ -461,7 +461,7 @@ export default function FreeWebsiteAuditPage() {
                       htmlFor="modal-name"
                       className="block font-mono font-bold tracking-widest text-[10px] text-slate-500 uppercase"
                     >
-                      Your Name <span className="text-[#dc2626] font-bold">*</span>
+                      Your Name <span className="font-bold text-[#dc2626]">*</span>
                     </label>
                     <input
                       id="modal-name"
@@ -491,7 +491,7 @@ export default function FreeWebsiteAuditPage() {
                       htmlFor="modal-url"
                       className="block font-mono font-bold tracking-widest text-[10px] text-slate-500 uppercase"
                     >
-                      Your Website URL <span className="text-[#dc2626] font-bold">*</span>
+                      Your Website URL <span className="font-bold text-[#dc2626]">*</span>
                     </label>
                     <input
                       id="modal-url"
@@ -521,7 +521,7 @@ export default function FreeWebsiteAuditPage() {
                       htmlFor="modal-email"
                       className="block font-mono font-bold tracking-widest text-[10px] text-slate-500 uppercase"
                     >
-                      Your Email Address <span className="text-[#dc2626] font-bold">*</span>
+                      Your Email Address <span className="font-bold text-[#dc2626]">*</span>
                     </label>
                     <input
                       id="modal-email"
@@ -551,7 +551,7 @@ export default function FreeWebsiteAuditPage() {
                       htmlFor="modal-captcha"
                       className="block text-xs font-bold tracking-wider text-slate-500 uppercase"
                     >
-                      *Verify Math Check <span className="text-[#dc2626] font-bold">*</span>
+                      *Verify Math Check <span className="font-bold text-[#dc2626]">*</span>
                     </label>
                     <div className="flex items-center gap-3">
                       <div className="flex h-11 items-center justify-center gap-1.5 rounded-lg bg-slate-800 px-4 font-mono text-sm font-black tracking-wide text-white select-none">

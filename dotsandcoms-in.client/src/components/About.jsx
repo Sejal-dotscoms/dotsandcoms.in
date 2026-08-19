@@ -80,7 +80,7 @@ export default function About() {
             <div className="pt-6 grid grid-cols-2 gap-6 border-t border-slate-200 mt-4">
               {aboutHeroData.stats.map((stat, idx) => (
                 <div key={idx}>
-                  <h4 className="text-2xl font-bold text-slate-800 font-heading">{stat.value}</h4>
+                  <div className="text-2xl font-bold text-slate-800 font-heading">{stat.value}</div>
                   <p className="text-xs text-slate-500 mt-1 uppercase tracking-wider">{stat.label}</p>
                 </div>
               ))}
