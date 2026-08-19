@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-red-500/30 via-orange-500/50 to-yellow-500/30" />
 
       {/* Tech lines decoration */}
-      <svg className="absolute inset-0 w-full h-full stroke-slate-800 stroke-[1.2] fill-none pointer-events-none -z-10" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full stroke-slate-800 stroke-[1.2] fill-none pointer-events-none -z-10" aria-hidden="true">
         <path d="M-50 40h150l30 30h250l20-20h150" />
         <path d="M200 120h100l20 20h200" />
         <circle cx="100" cy="40" r="2.5" className="fill-[#dc2626]/30 stroke-none" />
@@ -29,7 +29,7 @@ export default function Footer() {
 
       {/* Watermark logo in the background */}
       <div className="absolute right-[6%] bottom-[8%] w-[260px] md:w-[330px] opacity-[0.045] pointer-events-none select-none -z-10 transform -rotate-6 filter brightness-0 invert">
-        <img src={logoImg} alt="Dots & Coms Logo" className="w-full h-auto object-contain" loading="lazy" decoding="async" width="94" height="98" />
+        <img src={logoImg} alt="Dots & Coms Footer Navigation Brand Logo" className="w-full h-auto object-contain" loading="lazy" decoding="async" width="94" height="98" />
       </div>
 
       {/* Glowing gradient mesh accents */}

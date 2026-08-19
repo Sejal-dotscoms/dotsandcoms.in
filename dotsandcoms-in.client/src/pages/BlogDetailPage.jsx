@@ -37,7 +37,7 @@ function ImageCarousel({ images, alt }) {
   if (total === 1) {
     return (
       <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-        <img src={images[0]} alt={alt} className="w-full max-h-[460px] object-cover" loading="lazy" decoding="async" />
+        <img src={images[0]} alt={alt} className="w-full max-h-[460px] object-cover" loading="lazy" decoding="async" width="800" height="460" />
       </div>
     );
   }
@@ -66,6 +66,8 @@ function ImageCarousel({ images, alt }) {
               className="w-full max-h-[460px] object-cover"
               loading="lazy"
               decoding="async"
+              width="800"
+              height="460"
             />
           </div>
         ))}
@@ -175,7 +177,7 @@ export default function BlogDetailPage() {
         setBlog(data);
         setPageSEO({
           title:       data.pageTitle || `${data.title} | Dots & Coms Blog`,
-          description: data.shortDescription,
+          description: data.shortDescription ? (data.shortDescription.length > 155 ? data.shortDescription.substring(0, 152) + '...' : data.shortDescription) : undefined,
           keywords:    `${data.title}, web design blog Vadodara, Dots and Coms`,
           canonical:   `https://www.dotsandcoms.in/blogs/${data.browserUrl}`,
           ogImage:     (data.imageUrls?.[0] || data.imageUrl) &&

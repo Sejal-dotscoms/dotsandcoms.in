@@ -130,36 +130,43 @@ app.MapControllers();
 // so they appear in View Page Source and are visible to social/SEO crawlers.
 app.Use(async (context, next) =>
 {
-    var path  = context.Request.Path.Value ?? "";
-    var match = System.Text.RegularExpressions.Regex.Match(
-        path, @"^/blogs/([^/?#]+)$",
-        System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-
-    if (context.Request.Method == "GET" && match.Success)
+    try
     {
-        var slug  = Uri.UnescapeDataString(match.Groups[1].Value);
-        var db    = context.RequestServices.GetRequiredService<AppDbContext>();
-        var env   = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
-        var today = DateTime.UtcNow.Date;
+        var path  = context.Request.Path.Value ?? "";
+        var match = System.Text.RegularExpressions.Regex.Match(
+            path, @"^/blogs/([^/?#]+)$",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
-        var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
-            b.BrowserUrl.ToLower() == slug.ToLower() &&
-            b.IsVisible &&
-            b.BlogDate.Date <= today &&
-            (b.ExpiryDate == null || b.ExpiryDate.Value.Date >= today));
-
-        if (blog != null)
+        if (context.Request.Method == "GET" && match.Success)
         {
-            var indexPath = Path.Combine(env.WebRootPath, "index.html");
-            if (File.Exists(indexPath))
+            var slug  = Uri.UnescapeDataString(match.Groups[1].Value);
+            var db    = context.RequestServices.GetRequiredService<AppDbContext>();
+            var env   = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+            var today = DateTime.UtcNow.Date;
+
+            var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
+                b.BrowserUrl.ToLower() == slug.ToLower() &&
+                b.IsVisible &&
+                b.BlogDate.Date <= today &&
+                (b.ExpiryDate == null || b.ExpiryDate.Value.Date >= today));
+
+            if (blog != null)
             {
-                var html = await File.ReadAllTextAsync(indexPath);
-                html = BlogMetaInjector.Inject(html, blog);
-                context.Response.ContentType = "text/html; charset=utf-8";
-                await context.Response.WriteAsync(html);
-                return;
+                var indexPath = Path.Combine(env.WebRootPath, "index.html");
+                if (File.Exists(indexPath))
+                {
+                    var html = await File.ReadAllTextAsync(indexPath);
+                    html = BlogMetaInjector.Inject(html, blog);
+                    context.Response.ContentType = "text/html; charset=utf-8";
+                    await context.Response.WriteAsync(html);
+                    return;
+                }
             }
         }
+    }
+    catch
+    {
+        // Gracefully fall through to SPA pipeline if DB or file read fails
     }
 
     await next();

@@ -96,7 +96,7 @@ export default function WhyChooseUs() {
             ))}
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-white">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>

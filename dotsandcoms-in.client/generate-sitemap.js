@@ -65,7 +65,7 @@ try {
 
   // 1. GENERATE XML SITEMAP
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  xml += '<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
   // Add the home page first if it exists
   if (paths.has('/')) {

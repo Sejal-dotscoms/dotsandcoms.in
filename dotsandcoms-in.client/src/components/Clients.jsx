@@ -103,7 +103,8 @@ export default function Clients() {
             >
               <img
                 src={partner.logo}
-                alt={`${partner.name} Logo`}
+                alt={index < 8 ? `${partner.name} Corporate Client of Dots & Coms` : ""}
+                aria-hidden={index >= 8 ? "true" : undefined}
                 className="pointer-events-none max-h-16 max-w-[150px] object-contain"
                 loading="lazy"
                 decoding="async"

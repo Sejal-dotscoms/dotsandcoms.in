@@ -100,7 +100,7 @@ export const projects = [
     title: "Khatu TMT",
     location: "Vadodara, India",
     category: "Web Design",
-    link: "http://khatutmt.com/",
+    link: "https://khatutmt.com/",
     webp: webThumb("CMS-website-development-Baroda-dynamic-sites.webp"),
     png:  webThumb("CMS-website-development-Baroda-dynamic-sites.png"),
     video: khatuVideo,

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import InnerBanner from "../components/ui/InnerBanner";
 import { setPageSEO } from "../utils/seo";
 
@@ -30,20 +30,20 @@ export default function TermsPage() {
         breadcrumbs={[{ label: "Terms & Conditions" }]}
       />
 
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="relative overflow-hidden bg-white py-24">
         {/* Subtle decorative background accents */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-[#dc2626]/2 rounded-full blur-[120px] pointer-events-none -z-10" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#ea580c]/2 rounded-full blur-[120px] pointer-events-none -z-10" />
+        <div className="pointer-events-none absolute top-20 left-10 -z-10 h-96 w-96 rounded-full bg-[#dc2626]/2 blur-[120px]" />
+        <div className="pointer-events-none absolute right-10 bottom-20 -z-10 h-96 w-96 rounded-full bg-[#ea580c]/2 blur-[120px]" />
 
-        <div className="max-w-4xl mx-auto px-6 text-left">
+        <div className="mx-auto max-w-4xl px-6 text-left">
           <div className="prose prose-slate max-w-none space-y-12">
             
             {/* Section: Terms & Conditions */}
-            <div id="terms" className="space-y-6 scroll-mt-24">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="terms" className="scroll-mt-24 space-y-6">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 Our Terms & Conditions
               </h2>
-              <div className="space-y-4 text-slate-600 text-sm md:text-[15px] leading-relaxed">
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600 md:text-[15px]">
                 <p>
                   The Website Owner, including subsidiaries and affiliates (“Website” or “Website Owner” or “we” or “us” or “our”) provides the information contained on the website or any of the pages comprising the website (“website”) to visitors (“visitors”) (cumulatively referred to as “you” or “your” hereinafter) subject to the terms and conditions set out in these website terms and conditions, the privacy policy and any other relevant terms and conditions, policies and notices which may be applicable to a specific section or module of the website.
                 </p>
@@ -59,7 +59,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-bold text-slate-700">
                   The use of this website is subject to the following terms of use:
                 </h3>
-                <ul className="list-disc pl-6 space-y-3.5 text-slate-655 text-sm md:text-[15px] leading-relaxed">
+                <ul className="text-slate-655 list-disc space-y-3.5 pl-6 text-sm leading-relaxed md:text-[15px]">
                   <li>
                     The content of the pages of this website is for your general information and use only. It is subject to change without notice.
                   </li>
@@ -90,17 +90,17 @@ export default function TermsPage() {
                 </ul>
               </div>
 
-              <p className="p-4 bg-slate-50 border-l-4 border-[#dc2626] rounded-r-xl text-slate-600 text-sm italic leading-relaxed">
+              <p className="rounded-r-xl border-l-4 border-[#dc2626] bg-slate-50 p-4 text-sm leading-relaxed text-slate-600 italic">
                 "We as a merchant shall be under no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any Transaction, on Account of the Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time time"
               </p>
             </div>
 
             {/* Section: Website privacy policy */}
-            <div id="privacy" className="space-y-6 scroll-mt-24 pt-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="privacy" className="scroll-mt-24 space-y-6 pt-4">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 Website privacy policy
               </h2>
-              <div className="space-y-4 text-slate-650 text-sm md:text-[15px] leading-relaxed">
+              <div className="text-slate-650 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>
                   This privacy policy sets out how Dots & Coms uses and protects any information that you provide on this website.
                 </p>
@@ -114,8 +114,8 @@ export default function TermsPage() {
 
               <div className="space-y-4 pt-2">
                 <h3 className="text-lg font-bold text-slate-700">What we collect</h3>
-                <p className="text-slate-600 text-sm md:text-[15px]">We may collect the following information:</p>
-                <ul className="list-disc pl-6 space-y-2 text-slate-655 text-sm md:text-[15px] leading-relaxed">
+                <p className="text-sm text-slate-600 md:text-[15px]">We may collect the following information:</p>
+                <ul className="text-slate-655 list-disc space-y-2 pl-6 text-sm leading-relaxed md:text-[15px]">
                   <li>name and job title</li>
                   <li>contact information including email address</li>
                   <li>demographic information such as postcode, preferences and interests</li>
@@ -126,7 +126,7 @@ export default function TermsPage() {
 
               <div className="space-y-4 pt-4">
                 <h3 className="text-lg font-bold text-slate-700">What we do with the information we gather</h3>
-                <ul className="list-disc pl-6 space-y-2 text-slate-655 text-sm md:text-[15px] leading-relaxed">
+                <ul className="text-slate-655 list-disc space-y-2 pl-6 text-sm leading-relaxed md:text-[15px]">
                   <li>Internal record keeping.</li>
                   <li>We may use the information to improve our products and services.</li>
                   <li>We may periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided.</li>
@@ -136,16 +136,16 @@ export default function TermsPage() {
             </div>
 
             {/* Section: Security */}
-            <div id="security" className="space-y-6 scroll-mt-24 pt-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="security" className="scroll-mt-24 space-y-6 pt-4">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 Security
               </h2>
-              <div className="space-y-4 text-slate-650 text-sm md:text-[15px] leading-relaxed">
+              <div className="text-slate-650 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>
                   We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.
                 </p>
 
-                <h3 className="text-lg font-bold text-slate-700 pt-2">How we use cookies</h3>
+                <h3 className="pt-2 text-lg font-bold text-slate-700">How we use cookies</h3>
                 <p>
                   A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyses web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences.
                 </p>
@@ -159,7 +159,7 @@ export default function TermsPage() {
                   You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website.
                 </p>
 
-                <h3 className="text-lg font-bold text-slate-700 pt-4">Links to other websites</h3>
+                <h3 className="pt-4 text-lg font-bold text-slate-700">Links to other websites</h3>
                 <p>
                   Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question.
                 </p>
@@ -173,11 +173,11 @@ export default function TermsPage() {
             </div>
 
             {/* Section: Website disclaimer */}
-            <div id="disclaimer" className="space-y-6 scroll-mt-24 pt-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="disclaimer" className="scroll-mt-24 space-y-6 pt-4">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 Website disclaimer
               </h2>
-              <div className="space-y-4 text-slate-650 text-sm md:text-[15px] leading-relaxed">
+              <div className="text-slate-650 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>
                   The information contained in this website is for general information purposes only. The information is provided by Dots & Coms and while we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
                 </p>
@@ -194,11 +194,11 @@ export default function TermsPage() {
             </div>
 
             {/* Section: Cancellation and Refund Policy */}
-            <div id="refund" className="space-y-6 scroll-mt-24 pt-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="refund" className="scroll-mt-24 space-y-6 pt-4">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 Cancellation and Refund Policy
               </h2>
-              <div className="space-y-4 text-slate-650 text-sm md:text-[15px] leading-relaxed">
+              <div className="text-slate-650 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>
                   Domain orders once place cannot be cancelled if the order has been executed. If there is a spelling mistake or any other reason to cancel the domain order, if the order has not been executed, we may be able to cancel the order and refund the full amount. However, if the order has been executed, no cancellation is possible.
                 </p>
@@ -221,11 +221,11 @@ export default function TermsPage() {
             </div>
 
             {/* Section: Shipping & Delivery Policy */}
-            <div id="shipping" className="space-y-6 scroll-mt-24 pt-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="shipping" className="scroll-mt-24 space-y-6 pt-4">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 Shipping & Delivery Policy
               </h2>
-              <div className="space-y-4 text-slate-655 text-sm md:text-[15px] leading-relaxed">
+              <div className="text-slate-655 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>Our products and services are not physical, and no shipping or logistics is involved.</p>
                 <p>
                   If we have to make the website live or upload the code on a server for which the webhosting is NOT provided by us, We expect the custom to do the due diligence about the platform and functionality of the server and that the server has required support to make the application live.
@@ -234,11 +234,11 @@ export default function TermsPage() {
             </div>
 
             {/* Section: BO Clause */}
-            <div id="bo-clause" className="space-y-6 scroll-mt-24 pt-4">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 tracking-tight border-b border-slate-100 pb-4">
+            <div id="bo-clause" className="scroll-mt-24 space-y-6 pt-4">
+              <h2 className="font-heading border-b border-slate-100 pb-4 text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
                 BO Clause
               </h2>
-              <p className="p-4 bg-slate-50 border-l-4 border-[#ea580c] rounded-r-xl text-slate-655 text-sm md:text-[15px] leading-relaxed italic">
+              <p className="text-slate-655 rounded-r-xl border-l-4 border-[#ea580c] bg-slate-50 p-4 text-sm leading-relaxed italic md:text-[15px]">
                 We as a merchant shall be under no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any Transaction, on Account of the Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time to time.
               </p>
             </div>

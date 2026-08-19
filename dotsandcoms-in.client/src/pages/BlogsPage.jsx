@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -64,19 +64,19 @@ export default function BlogsPage() {
         breadcrumbs={[{ label: "Blogs" }]}
       />
 
-      <section className="relative py-16 sm:py-20 bg-slate-50/60 overflow-hidden">
+      <section className="relative overflow-hidden bg-slate-50/60 py-16 sm:py-20">
         {/* Subtle background accents */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#dc2626]/3 rounded-full blur-[120px] pointer-events-none -z-10" />
-        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-[#ea580c]/3 rounded-full blur-[100px] pointer-events-none -z-10" />
+        <div className="pointer-events-none absolute top-0 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-[#dc2626]/3 blur-[120px]" />
+        <div className="pointer-events-none absolute bottom-0 left-10 -z-10 h-[400px] w-[400px] rounded-full bg-[#ea580c]/3 blur-[100px]" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
 
           {/* Section header */}
-          <motion.div {...fadeUp} className="text-center mb-12">
-            <span className="text-xs font-bold font-mono tracking-widest text-[#dc2626] uppercase bg-red-500/5 border border-red-500/10 px-3 py-1.5 rounded-full inline-block mb-4">
+          <motion.div {...fadeUp} className="mb-12 text-center">
+            <span className="mb-4 inline-block rounded-full border border-red-500/10 bg-red-500/5 px-3 py-1.5 font-mono text-xs font-bold tracking-widest text-[#dc2626] uppercase">
               // LATEST ARTICLES
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-slate-800 tracking-tight">
+            <h2 className="font-heading text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">
               From Our Blog
             </h2>
           </motion.div>
@@ -84,7 +84,7 @@ export default function BlogsPage() {
           {/* Loading */}
           {loading && (
             <div className="flex justify-center py-20">
-              <svg className="animate-spin h-8 w-8 text-[#dc2626]" viewBox="0 0 24 24" fill="none">
+              <svg className="h-8 w-8 animate-spin text-[#dc2626]" viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
                 <path d="M4 12a8 8 0 018-8v8H4z" fill="currentColor" className="opacity-75" />
               </svg>
@@ -93,20 +93,20 @@ export default function BlogsPage() {
 
           {/* Error */}
           {!loading && error && (
-            <div className="text-center py-20 text-slate-500">{error}</div>
+            <div className="py-20 text-center text-slate-500">{error}</div>
           )}
 
           {/* Empty */}
           {!loading && !error && blogs.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-slate-500 text-lg">No blog posts available yet. Check back soon!</p>
+            <div className="py-20 text-center">
+              <p className="text-lg text-slate-500">No blog posts available yet. Check back soon!</p>
             </div>
           )}
 
           {/* Grid */}
           {!loading && !error && currentBlogs.length > 0 && (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {currentBlogs.map((blog, idx) => (
                   <motion.div
                     key={blog.id}
@@ -117,22 +117,24 @@ export default function BlogsPage() {
                   >
                     <Link
                       to={`/blogs/${blog.browserUrl || blog.id}`}
-                      className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full"
+                      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                       aria-label={blog.title}
                     >
                       {/* Cover image */}
-                      <div className="relative overflow-hidden h-52 bg-slate-100 flex-shrink-0">
+                      <div className="relative h-52 flex-shrink-0 overflow-hidden bg-slate-100">
                         {(blog.imageUrls?.[0] || blog.imageUrl) ? (
                           <img
                             src={blog.imageUrls?.[0] || blog.imageUrl}
                             alt={blog.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                             loading="lazy"
                             decoding="async"
+                            width="400"
+                            height="208"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                            <svg className="w-12 h-12 text-slate-300" fill="none" viewBox="0 0 24 24">
+                          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
+                            <svg className="h-12 w-12 text-slate-300" fill="none" viewBox="0 0 24 24">
                               <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
                               <path d="M3 15l5-5 4 4 3-3 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                               <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
@@ -140,30 +142,30 @@ export default function BlogsPage() {
                           </div>
                         )}
                         {/* Red top-line accent */}
-                        <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#dc2626] to-[#f87171] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-[#dc2626] to-[#f87171] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                       </div>
 
                       {/* Content */}
-                      <div className="flex flex-col flex-1 p-5 gap-3">
+                      <div className="flex flex-1 flex-col gap-3 p-5">
                         {/* Date */}
-                        <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-                          <Calendar className="w-3.5 h-3.5 text-[#dc2626]" />
+                        <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400">
+                          <Calendar className="h-3.5 w-3.5 text-[#dc2626]" />
                           {fmt(blog.blogDate)}
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-base font-bold font-heading text-slate-800 leading-snug group-hover:text-[#dc2626] transition-colors duration-200 line-clamp-2">
+                        <h3 className="font-heading line-clamp-2 text-base leading-snug font-bold text-slate-800 transition-colors duration-200 group-hover:text-[#dc2626]">
                           {blog.title}
                         </h3>
 
                         {/* Short description */}
-                        <p className="text-sm text-slate-500 leading-relaxed line-clamp-3 flex-1">
+                        <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-slate-500">
                           {blog.shortDescription}
                         </p>
 
                         {/* CTA */}
-                        <div className="flex items-center gap-1 text-xs font-semibold text-[#dc2626] mt-1 group-hover:gap-2 transition-all duration-200">
-                          Read more <ArrowRight className="w-3.5 h-3.5" />
+                        <div className="mt-1 flex items-center gap-1 text-xs font-semibold text-[#dc2626] transition-all duration-200 group-hover:gap-2">
+                          Read more <ArrowRight className="h-3.5 w-3.5" />
                         </div>
                       </div>
                     </Link>
@@ -173,7 +175,7 @@ export default function BlogsPage() {
 
               {/* Pagination controls */}
               {totalPages > 1 && (
-                <div className="flex items-center justify-center gap-2 mt-12 pt-4">
+                <div className="mt-12 flex items-center justify-center gap-2 pt-4">
                   <button
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}

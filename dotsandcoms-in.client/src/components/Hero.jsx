@@ -146,29 +146,32 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Staggered Text Reveal Headline */}
-                    <motion.h1
-                        aria-label="Turning Vision Into Impactful Digital Experiences"
-                        className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.08] flex flex-col"
-                        variants={titleContainerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <span className="block overflow-hidden py-1">
-                            <motion.span variants={titleLineVariants} className="block">
-                                Turning  <span className="text-gradient-blue">Vision</span>
-                            </motion.span>
-                        </span>
-                        <span className="block overflow-hidden py-1">
-                            <motion.span variants={titleLineVariants} className="block">
-                                Into Impactful
-                            </motion.span>
-                        </span>
-                        <span className="block overflow-hidden py-1">
-                            <motion.span variants={titleLineVariants} className="block">
-                                <span className="text-gradient-orange">Digital Experiences</span>
-                            </motion.span>
-                        </span>
-                    </motion.h1>
+                    <div className="relative">
+                        <h1 className="sr-only">Turning Vision Into Impactful Digital Experiences</h1>
+                        <motion.div
+                            aria-hidden="true"
+                            className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.08] flex flex-col"
+                            variants={titleContainerVariants}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <span className="block overflow-hidden py-1">
+                                <motion.span variants={titleLineVariants} className="block">
+                                    Turning  <span className="text-gradient-blue">Vision</span>
+                                </motion.span>
+                            </span>
+                            <span className="block overflow-hidden py-1">
+                                <motion.span variants={titleLineVariants} className="block">
+                                    Into Impactful
+                                </motion.span>
+                            </span>
+                            <span className="block overflow-hidden py-1">
+                                <motion.span variants={titleLineVariants} className="block">
+                                    <span className="text-gradient-orange">Digital Experiences</span>
+                                </motion.span>
+                            </span>
+                        </motion.div>
+                    </div>
 
                     <motion.p
                         className="text-slate-600 text-base md:text-lg font-normal leading-relaxed max-w-xl"

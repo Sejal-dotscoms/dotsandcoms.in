@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AlertTriangle, Loader2 } from "lucide-react";
@@ -57,19 +57,19 @@ export default function WebHostingDetailsPage() {
 
     if (loading) {
         return (
-            <div className="min-h-[60vh] bg-white flex items-center justify-center p-6">
+            <div className="flex min-h-[60vh] items-center justify-center bg-white p-6">
                 <div role="status" className="sr-only">Loading Web Hosting Order Details...</div>
-                <Loader2 className="w-6 h-6 animate-spin text-[#dc2626]" />
+                <Loader2 className="h-6 w-6 animate-spin text-[#dc2626]" />
             </div>
         );
     }
 
     if (loadError || !order) {
         return (
-            <div className="min-h-[60vh] bg-white flex items-center justify-center p-6">
-                <div className="max-w-md w-full text-center space-y-4">
-                    <div className="w-12 h-12 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mx-auto">
-                        <AlertTriangle className="w-6 h-6" />
+            <div className="flex min-h-[60vh] items-center justify-center bg-white p-6">
+                <div className="w-full max-w-md space-y-4 text-center">
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-amber-500">
+                        <AlertTriangle className="h-6 w-6" />
                     </div>
                     <h2 className="text-lg font-bold text-slate-800">Web Hosting Order Details</h2>
                     <p className="text-base font-semibold text-slate-600">No Active Order Session</p>
@@ -138,8 +138,8 @@ export default function WebHostingDetailsPage() {
                     { label: "Order Details" }
                 ]}
             />
-            <div className="bg-white min-h-screen py-16 px-6 sm:px-12 md:px-24 text-slate-900 font-sans">
-                <div className="max-w-3xl mx-auto space-y-8 text-base md:text-lg leading-relaxed">
+            <div className="min-h-screen bg-white px-6 py-16 font-sans text-slate-900 sm:px-12 md:px-24">
+                <div className="mx-auto max-w-3xl space-y-8 text-base leading-relaxed md:text-lg">
                     <motion.form
                         key="payment-form"
                         onSubmit={handleFinalSubmit}
@@ -151,68 +151,68 @@ export default function WebHostingDetailsPage() {
                             <p className="font-extrabold text-black">
                                 Package you choosed : <span className="font-black text-slate-900">{displayName}</span> Price: ₹ {packagePrice} per {packagePeriod}
                             </p>
-                            <p className="text-xs text-slate-400 font-mono mt-1">Order Ref: {orderRef}</p>
+                            <p className="mt-1 font-mono text-xs text-slate-400">Order Ref: {orderRef}</p>
                         </div>
 
                         <div>
                             <p className="font-bold text-slate-800">
                                 {isServerPlan ? "Server Name:" : "Domain Name:"}
-                                <span className="font-extrabold text-black ml-4">
+                                <span className="ml-4 font-extrabold text-black">
                                     {isServerPlan ? serverName : domainName}
                                 </span>
                             </p>
                             {isServerPlan && (
-                                <p className="font-bold text-slate-800 mt-1">
+                                <p className="mt-1 font-bold text-slate-800">
                                     Operating System:
-                                    <span className="font-extrabold text-black ml-4">{operatingSystem}</span>
+                                    <span className="ml-4 font-extrabold text-black">{operatingSystem}</span>
                                 </p>
                             )}
                         </div>
 
                         <div className="space-y-2 pt-2">
-                            <h2 className="font-black text-black text-lg border-b border-slate-200 pb-1 mb-3">
+                            <h2 className="mb-3 border-b border-slate-200 pb-1 text-lg font-black text-black">
                                 Billing Information:
                             </h2>
                             <div className="space-y-1.5">
-                                <p className="text-slate-700">Company Name: <span className="font-extrabold text-black ml-2">{companyName}</span></p>
-                                <p className="text-slate-700">Your Name: <span className="font-extrabold text-black ml-2">{yourName}</span></p>
-                                <p className="text-slate-700">Email ID: <span className="font-extrabold text-black ml-2">{emailId}</span></p>
-                                <p className="text-slate-700">Contact Number: <span className="font-extrabold text-black ml-2">{contactNumber}</span></p>
-                                <p className="text-slate-700">Address: <span className="font-extrabold text-black ml-2">{address}</span></p>
-                                <p className="text-slate-700">City: <span className="font-extrabold text-black ml-2">{city}</span></p>
-                                <p className="text-slate-700">State: <span className="font-extrabold text-black ml-2">{orderState}</span></p>
+                                <p className="text-slate-700">Company Name: <span className="ml-2 font-extrabold text-black">{companyName}</span></p>
+                                <p className="text-slate-700">Your Name: <span className="ml-2 font-extrabold text-black">{yourName}</span></p>
+                                <p className="text-slate-700">Email ID: <span className="ml-2 font-extrabold text-black">{emailId}</span></p>
+                                <p className="text-slate-700">Contact Number: <span className="ml-2 font-extrabold text-black">{contactNumber}</span></p>
+                                <p className="text-slate-700">Address: <span className="ml-2 font-extrabold text-black">{address}</span></p>
+                                <p className="text-slate-700">City: <span className="ml-2 font-extrabold text-black">{city}</span></p>
+                                <p className="text-slate-700">State: <span className="ml-2 font-extrabold text-black">{orderState}</span></p>
                                 {!isServerPlan && areaCode && (
-                                    <p className="text-slate-700">Area Code: <span className="font-extrabold text-black ml-2">{areaCode}</span></p>
+                                    <p className="text-slate-700">Area Code: <span className="ml-2 font-extrabold text-black">{areaCode}</span></p>
                                 )}
-                                <p className="text-slate-700">Country: <span className="font-extrabold text-black ml-2">{country}</span></p>
-                                <p className="text-slate-700">Comments: <span className="font-extrabold text-black ml-2">{comments || "N/A"}</span></p>
+                                <p className="text-slate-700">Country: <span className="ml-2 font-extrabold text-black">{country}</span></p>
+                                <p className="text-slate-700">Comments: <span className="ml-2 font-extrabold text-black">{comments || "N/A"}</span></p>
                             </div>
                         </div>
 
-                        <div className="space-y-1.5 pt-4 border-t border-slate-100">
-                            <p className="text-slate-700">{displayName}: <span className="font-extrabold text-black ml-2">₹ {Number(packagePrice).toFixed(2)}</span></p>
+                        <div className="space-y-1.5 border-t border-slate-100 pt-4">
+                            <p className="text-slate-700">{displayName}: <span className="ml-2 font-extrabold text-black">₹ {Number(packagePrice).toFixed(2)}</span></p>
                             {!isServerPlan && dbAddonPrice > 0 && (
-                                <p className="text-slate-700">SQL 2012 Database Support: <span className="font-extrabold text-black ml-2">₹ {Number(dbAddonPrice).toFixed(2)}</span></p>
+                                <p className="text-slate-700">SQL 2012 Database Support: <span className="ml-2 font-extrabold text-black">₹ {Number(dbAddonPrice).toFixed(2)}</span></p>
                             )}
                             {setupCharge > 0 && (
-                                <p className="text-slate-700">Setup Charge: <span className="font-extrabold text-black ml-2">₹ {Number(setupCharge).toFixed(2)}</span></p>
+                                <p className="text-slate-700">Setup Charge: <span className="ml-2 font-extrabold text-black">₹ {Number(setupCharge).toFixed(2)}</span></p>
                             )}
                             {discount > 0 && (
-                                <p className="text-emerald-700">Discount: <span className="font-extrabold ml-2">-₹ {Number(discount).toFixed(2)}</span></p>
+                                <p className="text-emerald-700">Discount: <span className="ml-2 font-extrabold">-₹ {Number(discount).toFixed(2)}</span></p>
                             )}
-                            <p className="text-slate-700">Total: <span className="font-extrabold text-black ml-2">₹ {Number(totalPrice).toFixed(2)}</span></p>
-                            <p className="text-slate-700">GST (18%) : <span className="font-extrabold text-black ml-2">₹ {gstAmount.toFixed(2)}</span></p>
-                            <p className="font-extrabold text-black">Grand Total: <span className="font-black text-black ml-2">₹ {grandTotal.toFixed(2)}</span></p>
+                            <p className="text-slate-700">Total: <span className="ml-2 font-extrabold text-black">₹ {Number(totalPrice).toFixed(2)}</span></p>
+                            <p className="text-slate-700">GST (18%) : <span className="ml-2 font-extrabold text-black">₹ {gstAmount.toFixed(2)}</span></p>
+                            <p className="font-extrabold text-black">Grand Total: <span className="ml-2 font-black text-black">₹ {grandTotal.toFixed(2)}</span></p>
                         </div>
 
-                        <div className="space-y-4 pt-4 border-t border-slate-100">
-                            <h2 className="font-bold text-slate-800 text-base">Payment methods:</h2>
+                        <div className="space-y-4 border-t border-slate-100 pt-4">
+                            <h2 className="text-base font-bold text-slate-800">Payment methods:</h2>
                             <div className="my-2 max-w-lg">
-                                <img src={paymentMethodsImg} alt="Payment Gateway Logos" className="w-full h-auto object-contain" loading="lazy" decoding="async" width="1024" height="189" />
+                                <img src={paymentMethodsImg} alt="Payment Gateway Logos" className="h-auto w-full object-contain" loading="lazy" decoding="async" width="1024" height="189" />
                             </div>
-                            <div className="flex flex-col sm:flex-row gap-6 pt-2">
+                            <div className="flex flex-col gap-6 pt-2 sm:flex-row">
                                 {["Master Card", "Visa", "NetBanking"].map((method) => (
-                                    <label key={method} className="inline-flex items-center gap-2 cursor-pointer select-none">
+                                    <label key={method} className="inline-flex cursor-pointer items-center gap-2 select-none">
                                         <input
                                             type="radio"
                                             name="paymentMethod"
@@ -228,14 +228,14 @@ export default function WebHostingDetailsPage() {
                         </div>
 
                         {submitError && (
-                            <p className="text-xs text-[#dc2626] font-semibold">{submitError}</p>
+                            <p className="text-xs font-semibold text-[#dc2626]">{submitError}</p>
                         )}
 
                         <div className="pt-6">
                             <button
                                 type="submit"
                                 disabled={processing}
-                                className="bg-[#dc2626] hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded shadow transition cursor-pointer text-sm uppercase tracking-wider font-heading"
+                                className="font-heading cursor-pointer rounded bg-[#dc2626] px-8 py-3.5 text-sm font-bold tracking-wider text-white uppercase shadow transition hover:bg-red-700"
                             >
                                 {processing ? "Processing..." : "Submit"}
                             </button>
