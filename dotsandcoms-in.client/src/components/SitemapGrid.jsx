@@ -29,7 +29,7 @@ export default function SitemapGrid() {
 
             {/* Home */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/" aria-label="Dots & Coms Agency Home Page Overview" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Home className="h-4 w-4" />
                 <span>Home</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -42,7 +42,7 @@ export default function SitemapGrid() {
 
             {/* About Us */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/about-web-development-company-baroda" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/about-web-development-company-baroda" aria-label="About Dots & Coms Web Development Company Vadodara" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Globe className="h-4 w-4" />
                 <span>About Us</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -55,7 +55,7 @@ export default function SitemapGrid() {
 
             {/* Portfolio */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/website-mobile-app-development-company-portfolio-baroda" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Dots & Coms Web Design Portfolio & Case Studies" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Layers className="h-4 w-4" />
                 <span>Portfolio</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -67,7 +67,7 @@ export default function SitemapGrid() {
 
             {/* Blogs */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/blogs" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/blogs" aria-label="Dots & Coms Technology and Business Blogs List" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <FileText className="h-4 w-4" />
                 <span>Blogs</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -79,7 +79,7 @@ export default function SitemapGrid() {
 
             {/* FAQs */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/faqs-web-design-hosting-digital-marketing" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/faqs-web-design-hosting-digital-marketing" aria-label="Frequently Asked Questions Web Design and Hosting Page" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <HelpCircle className="h-4 w-4" />
                 <span>FAQs</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -93,7 +93,7 @@ export default function SitemapGrid() {
             {/* Webstories & Read More */}
             <div className="group space-y-4 rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
               <div>
-                <Link to="/web-stories" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+                <Link to="/web-stories" aria-label="Dots & Coms Interactive Web Stories Gallery" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                   <BookOpen className="h-4 w-4" />
                   <span>Webstories</span>
                   <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -104,6 +104,7 @@ export default function SitemapGrid() {
                   href="https://sites.google.com/view/web-design-hosting-company/home?authuser=0" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  aria-label="Read More about Web Design and Hosting on Google Sites"
                   className="inline-flex items-center space-x-1.5 rounded-full border border-slate-200 px-4 py-2 text-xs font-bold text-slate-600 transition-all hover:border-[#dc2626] hover:bg-[#dc2626] hover:text-white"
                 >
                   <span>Read More</span>

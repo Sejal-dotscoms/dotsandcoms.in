@@ -1627,6 +1627,9 @@
   .gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
   }
+  .gap-x-6 {
+    column-gap: calc(var(--spacing) * 6);
+  }
   :where(.space-x-0 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
     margin-inline-start: 0;
@@ -1684,6 +1687,9 @@
   }
   .gap-y-1 {
     row-gap: var(--spacing);
+  }
+  .gap-y-2 {
+    row-gap: calc(var(--spacing) * 2);
   }
   :where(.divide-y > :not(:last-child)) {
     --tw-divide-y-reverse: 0;

@@ -55,6 +55,7 @@ function SlidingNavLink({ link, index, hoveredIdx, setHoveredIdx }) {
   return (
     <Link
       to={link.href}
+      aria-label={`Dots & Coms ${link.label} ${link.label2} Page`}
       onMouseEnter={() => {
         setIsHovered(true);
         setHoveredIdx(index);
@@ -149,10 +150,10 @@ export default function Header() {
   ];
 
   const socialLinks = [
-    { icon: <FacebookIcon className="w-3.5 h-3.5" />, href: "https://www.facebook.com/dedicated.developers.india/", color: "hover:bg-blue-600" },
-    { icon: <TwitterIcon className="w-3.5 h-3.5" />, href: "https://x.com/dotsandcoms", color: "hover:bg-sky-505" },
-    { icon: <LinkedinIcon className="w-3.5 h-3.5" />, href: "https://www.linkedin.com/company/dots-&-coms/", color: "hover:bg-blue-700" },
-    { icon: <InstagramIcon className="w-3.5 h-3.5" />, href: "https://www.instagram.com/dotsandcoms/?hl=en", color: "hover:bg-pink-655" },
+    { name: "Facebook", icon: <FacebookIcon className="w-3.5 h-3.5" />, href: "https://www.facebook.com/dedicated.developers.india/", color: "hover:bg-blue-600" },
+    { name: "Twitter", icon: <TwitterIcon className="w-3.5 h-3.5" />, href: "https://x.com/dotsandcoms", color: "hover:bg-sky-505" },
+    { name: "LinkedIn", icon: <LinkedinIcon className="w-3.5 h-3.5" />, href: "https://www.linkedin.com/company/dots-&-coms/", color: "hover:bg-blue-700" },
+    { name: "Instagram", icon: <InstagramIcon className="w-3.5 h-3.5" />, href: "https://www.instagram.com/dotsandcoms/?hl=en", color: "hover:bg-pink-655" },
   ];
 
   return (
@@ -191,6 +192,7 @@ export default function Header() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Visit Dots & Coms on ${s.name}`}
                     className={`p-1.5 rounded-full hover:text-white transition-all duration-300 ${s.color}`}
                   >
                     {s.icon}
@@ -204,6 +206,7 @@ export default function Header() {
               <div className="flex items-center space-x-5 text-xs font-semibold">
                 <a
                   href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer"
+                  aria-label="Career and Job Opportunities at Dots & Coms Vadodara"
                   className="flex items-center space-x-1.5 hover:text-[#ea580c] transition-colors duration-300"
                 >
                   <Briefcase className="w-3.5 h-3.5 text-[#ea580c]" />
@@ -211,6 +214,7 @@ export default function Header() {
                 </a>
                 <Link
                   to="/webhosting-vps-dedicated-server-support-baroda"
+                  aria-label="Technical Support Services Baroda Header Link"
                   className="flex items-center space-x-1.5 hover:text-[#dc2626] transition-colors duration-300"
                 >
                   <LifeBuoy className="w-3.5 h-3.5 text-[#dc2626]" />
@@ -238,7 +242,7 @@ export default function Header() {
             <div className="w-full flex items-center justify-between relative">
               
               {/* Logo */}
-              <Link to="/" className="flex items-center shrink-0 hover:scale-[1.02] transition-transform duration-300">
+              <Link to="/" aria-label="Dots & Coms Web Development Agency Header Logo Link" className="flex items-center shrink-0 hover:scale-[1.02] transition-transform duration-300">
                 <Logo size={scrolled ? "sm" : "md"} />
               </Link>
 

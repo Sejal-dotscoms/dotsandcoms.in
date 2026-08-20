@@ -1,5 +1,5 @@
-﻿import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 import InnerBanner from "../components/ui/InnerBanner";
 import { setPageSEO } from "../utils/seo";
@@ -44,12 +44,13 @@ export default function ThankYouPage() {
               </p>
             </div>
             <div className="pt-4">
-              <button
-                onClick={() => navigate("/")}
+              <Link
+                to="/"
+                aria-label="Return to Dots & Coms Agency Home Page"
                 className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md cursor-pointer"
               >
                 Back to Home Page
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -94,12 +95,13 @@ export default function ThankYouPage() {
               </p>
             </div>
             <div className="pt-4">
-              <button
-                onClick={() => navigate("/")}
+              <Link
+                to="/"
+                aria-label="Return to Dots & Coms Agency Home Page after contact"
                 className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md cursor-pointer"
               >
                 Back to Home Page
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -173,12 +175,13 @@ export default function ThankYouPage() {
           </p>
 
           <div className="pt-4">
-            <button
-              onClick={() => navigate("/windows-web-hosting-service-provider-baroda")}
+            <Link
+              to="/windows-web-hosting-service-provider-baroda"
+              aria-label="Back to Web Hosting Solutions Service Page"
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md cursor-pointer"
             >
               Back to Hosting Solutions
-            </button>
+            </Link>
           </div>
 
         </div>
