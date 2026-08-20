@@ -32,6 +32,7 @@ function TiltCard({ src, alt, offsetBorder, glowColor, width, height }) {
           alt={alt}
           className="w-full h-auto object-cover select-none block"
           loading="lazy"
+          decoding="async"
           width={width}
           height={height}
           style={{ transform: "translateZ(20px)" }}

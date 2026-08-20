@@ -172,6 +172,7 @@ export default function TeamSection() {
                       className="w-full h-full object-cover cursor-zoom-in"
                       onClick={() => setIsLightboxOpen(true)}
                       loading="lazy"
+                      decoding="async"
                       width={teamSlides[activeIndex].width}
                       height={teamSlides[activeIndex].height}
                     />
@@ -276,6 +277,7 @@ export default function TeamSection() {
                   alt={teamSlides[activeIndex].alt || `${teamSlides[activeIndex].title} - Dots & Coms Development Team Baroda`}
                   className="max-w-full max-h-[75vh] rounded-xl object-contain shadow-2xl border border-white/10"
                   loading="lazy"
+                  decoding="async"
                   width={teamSlides[activeIndex].width}
                   height={teamSlides[activeIndex].height}
                 />
@@ -307,9 +309,9 @@ export default function TeamSection() {
 
               {/* Caption details below large image */}
               <div className="mt-4 text-center max-w-2xl px-4 pointer-events-auto text-white">
-                <h4 className="text-lg font-bold font-heading">
+                <div className="text-lg font-bold font-heading text-white">
                   {teamSlides[activeIndex].title}
-                </h4>
+                </div>
                 <p className="text-xs text-slate-300 mt-1 leading-relaxed">
                   {teamSlides[activeIndex].desc}
                 </p>

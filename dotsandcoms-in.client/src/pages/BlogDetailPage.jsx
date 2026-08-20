@@ -37,7 +37,7 @@ function ImageCarousel({ images, alt }) {
   if (total === 1) {
     return (
       <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-        <img src={images[0]} alt={alt} className="w-full max-h-[460px] object-cover" />
+        <img src={images[0]} alt={alt} className="w-full max-h-[460px] object-cover" loading="lazy" decoding="async" width="800" height="460" />
       </div>
     );
   }
@@ -64,7 +64,10 @@ function ImageCarousel({ images, alt }) {
               src={url}
               alt={`${alt} – image ${idx + 1}`}
               className="w-full max-h-[460px] object-cover"
-              loading={idx === 0 ? "eager" : "lazy"}
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="460"
             />
           </div>
         ))}
@@ -174,7 +177,7 @@ export default function BlogDetailPage() {
         setBlog(data);
         setPageSEO({
           title:       data.pageTitle || `${data.title} | Dots & Coms Blog`,
-          description: data.shortDescription,
+          description: data.shortDescription ? (data.shortDescription.length > 155 ? data.shortDescription.substring(0, 152) + '...' : data.shortDescription) : undefined,
           keywords:    `${data.title}, web design blog Vadodara, Dots and Coms`,
           canonical:   `https://www.dotsandcoms.in/blogs/${data.browserUrl}`,
           ogImage:     (data.imageUrls?.[0] || data.imageUrl) &&
@@ -190,7 +193,7 @@ export default function BlogDetailPage() {
   if (loading) {
     return (
       <>
-        <InnerBanner title="Blog" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Loading…" }]} />
+        <InnerBanner title="Blog" titleTag="div" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Loading…" }]} />
         <div className="flex justify-center py-32">
           <svg className="animate-spin h-8 w-8 text-[#dc2626]" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
@@ -204,7 +207,7 @@ export default function BlogDetailPage() {
   if (error || !blog) {
     return (
       <>
-        <InnerBanner title="Blog" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Not Found" }]} />
+        <InnerBanner title="Blog" titleTag="div" breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: "Not Found" }]} />
         <div className="text-center py-32 text-slate-500">{error || "Blog not found."}</div>
       </>
     );
@@ -216,6 +219,7 @@ export default function BlogDetailPage() {
     <>
       <InnerBanner
         title={blog.title}
+        titleTag="div"
         breadcrumbs={[{ label: "Blogs", href: "/blogs" }, { label: blog.title }]}
       />
 

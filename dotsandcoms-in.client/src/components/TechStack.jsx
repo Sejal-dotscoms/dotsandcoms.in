@@ -10,56 +10,56 @@ export default function TechStack() {
       role: "User Interfaces",
       desc: "Client-side rendering, virtual DOM state machines, and micro-animations for immersive web portals.",
       color: "from-cyan-500/10 to-blue-500/5",
-      icon: <img src="/react-js.png" className="h-10 w-auto object-contain" alt="React JS - Modern frontend development library for interactive web applications" loading="lazy" width="256" height="256" />,
+      icon: <img src="/react-js.png" className="h-10 w-auto object-contain" alt="React JS - Modern frontend development library for interactive web applications" loading="lazy" decoding="async" width="256" height="256" />,
     },
     {
       name: "ASPX Core",
       role: "Enterprise Backend",
       desc: "Secure, high-performance MVC framework for robust server-side application logic and web APIs.",
       color: "from-purple-500/10 to-indigo-500/5",
-      icon: <img src="/asp-net-icon.png" className="h-10 w-auto object-contain" alt="ASP.NET Core - High performance backend framework for secure web APIs" loading="lazy" width="200" height="138" />,
+      icon: <img src="/asp-net-icon.png" className="h-10 w-auto object-contain" alt="ASP.NET Core - High performance backend framework for secure web APIs" loading="lazy" decoding="async" width="200" height="138" />,
     },
     {
       name: "Node JS",
       role: "Backend APIs",
       desc: "Asynchronous event-driven JavaScript runtimes designed for highly scalable socket servers.",
       color: "from-green-500/10 to-emerald-500/5",
-      icon: <img src="/node-logo-dark.svg" className="h-8 w-auto object-contain" alt="Node JS - Scalable JavaScript runtime for custom API development" loading="lazy" width="267" height="80" />,
+      icon: <img src="/node-logo-dark.svg" className="h-8 w-auto object-contain" alt="Node JS - Scalable JavaScript runtime for custom API development" loading="lazy" decoding="async" width="267" height="80" />,
     },
     {
       name: "Flutter",
       role: "Mobile App Development",
       desc: "Compiled cross-platform mobile architectures delivering high performance at 120Hz.",
       color: "from-blue-500/10 to-cyan-500/5",
-      icon: <img src="/flutter-icon.png" className="h-10 w-auto object-contain" alt="Flutter - Cross platform framework for Android and iOS mobile app development" loading="lazy" width="200" height="200" />,
+      icon: <img src="/flutter-icon.png" className="h-10 w-auto object-contain" alt="Flutter - Cross platform framework for Android and iOS mobile app development" loading="lazy" decoding="async" width="200" height="200" />,
     },
     {
       name: "Figma",
       role: "UI/UX & Prototyping",
       desc: "Collaborative design platforms for interactive prototyping, high-fidelity wireframing, and custom design systems.",
       color: "from-pink-500/10 to-orange-500/5",
-      icon: <img src="/figma-ui-ux-developer.png" className="h-10 w-auto object-contain" alt="Figma - Collaborative design tool for custom UI UX prototypes" loading="lazy" width="200" height="200" />,
+      icon: <img src="/figma-ui-ux-developer.png" className="h-10 w-auto object-contain" alt="Figma - Collaborative design tool for custom UI UX prototypes" loading="lazy" decoding="async" width="200" height="200" />,
     },
     {
       name: "Shopify",
       role: "E-Commerce",
       desc: "Robust checkouts, headless Storefront APIs, global transaction handling, and security.",
       color: "from-lime-600/10 to-green-500/5",
-      icon: <img src="/shopify_logo_black.png" className="h-7 w-auto object-contain" alt="Shopify - Headless e-commerce development platform for online stores" loading="lazy" width="1000" height="286" />,
+      icon: <img src="/shopify_logo_black.png" className="h-7 w-auto object-contain" alt="Shopify - Headless e-commerce development platform for online stores" loading="lazy" decoding="async" width="1000" height="286" />,
     },
     {
       name: "Hosting",
       role: "Deployment & Scaling",
       desc: "High-performance server configurations, web hosting infrastructure with 99.9% uptime, and auto-scaling support.",
       color: "from-orange-500/10 to-yellow-500/5",
-      icon: <img src="/cloud-computing.png" className="h-10 w-auto object-contain" alt="Web Hosting - Secure server hosting and deployment solutions" loading="lazy" width="256" height="256" />,
+      icon: <img src="/cloud-computing.png" className="h-10 w-auto object-contain" alt="Web Hosting - Secure server hosting and deployment solutions" loading="lazy" decoding="async" width="256" height="256" />,
     },
     {
       name: "SEO & Digital Marketing",
       role: "Growth & Visibility",
       desc: "Strategic search engine optimization, analytics monitoring, and digital lead generation campaigns.",
       color: "from-red-500/10 to-orange-500/5",
-      icon: <img src="/seo.png" className="h-9 w-auto object-contain" alt="SEO & Digital Marketing - Search engine optimization for business growth" loading="lazy" width="256" height="144" />,
+      icon: <img src="/seo.png" className="h-9 w-auto object-contain" alt="SEO & Digital Marketing - Search engine optimization for business growth" loading="lazy" decoding="async" width="256" height="144" />,
     },
   ];
 
@@ -126,9 +126,9 @@ export default function TechStack() {
                     <span className="text-[10px] font-bold font-mono text-[#ea580c] uppercase tracking-widest block mb-1">
                       System Deployment
                     </span>
-                    <h4 className="text-slate-800 font-bold font-heading text-sm mb-2">
+                    <div className="text-slate-800 font-bold font-heading text-sm mb-2">
                       {tech.name}
-                    </h4>
+                    </div>
                     <p className="text-slate-500 text-xs leading-relaxed">
                       {tech.desc}
                     </p>

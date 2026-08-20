@@ -90,11 +90,12 @@ export default function TechnicalSupport() {
                                     Get Expert Support
                                 </span>
 
-                                <h2 className="mt-5 text-3xl lg:text-4xl font-black leading-tight text-white">
+                                <h2 className="sr-only">Need Help? We're Ready to Assist.</h2>
+                                <div aria-hidden="true" className="mt-5 text-3xl lg:text-4xl font-black leading-tight text-white">
                                     Need Help?
                                     <br />
                                     We're Ready to Assist.
-                                </h2>
+                                </div>
 
                                 <p className="mt-5 max-w-xl text-white/90 leading-7">
                                     Submit a support ticket, browse FAQs or contact our emergency

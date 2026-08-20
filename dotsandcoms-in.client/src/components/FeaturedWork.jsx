@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,6 +15,7 @@ export default function FeaturedWork() {
       title: "Accutech Labels",
       industry: "Digital Transformation",
       image: "/case_study_accutech.webp",
+      alt: "Accutech Labels B2B Web Design & Digital Transformation Case Study",
       challenge: "Accutech Labels operated primarily on a traditional, offline-first model, leaving them vulnerable to digital-first competitors and missing valuable B2B search traffic.",
       result: "Shifted from an offline-first approach to a powerful digital lead engine, unlocking massive national B2B growth and consistent high-quality lead streams.",
       tech: ["React JS", "Tailwind CSS", "SEO Strategy", "Google Ads Network"],
@@ -24,6 +25,7 @@ export default function FeaturedWork() {
       title: "1Life",
       industry: "Brand Expansion",
       image: "/case_study_onelife.webp",
+      alt: "1Life Health & Wellness National Brand Expansion Case Study",
       challenge: "Expanding a regional health and wellness brand into a national footprint while maintaining unified branding, scaling digital operations, and driving regional adoption.",
       result: "Achieved rapid nationwide scaling, establishing a cohesive national identity and data-driven marketing systems that accelerated customer acquisition.",
       tech: ["Branding Suite", "React JS", "Node.js", "AWS Cloud Services", "CRM Solutions"],
@@ -33,6 +35,7 @@ export default function FeaturedWork() {
       title: "Kiiara Kreations",
       industry: "Startup Growth",
       image: "/case_study_kiiara.webp",
+      alt: "Kiiara Kreations Custom eCommerce Platform & Startup Case Study",
       challenge: "Evolving Kiiara Kreations from a creative passion project into a structured startup with high conversion rates, speed-optimized storefronts, and targeted digital reach.",
       result: "Transformed into a fast-growing consumer brand, leveraging custom-designed e-commerce platforms and social marketing to reach a wider audience and accelerate order volumes.",
       tech: ["Shopify Headless API", "React 19", "Tailwind CSS", "Meta Marketing Ads", "Google Analytics"],
@@ -169,6 +172,9 @@ export default function FeaturedWork() {
                   alt={project.alt || `${project.title} - ${project.category} Portfolio | Dots & Coms Web Design Company Vadodara`}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
+                  width="850"
+                  height="560"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/5 to-transparent" />
               </div>

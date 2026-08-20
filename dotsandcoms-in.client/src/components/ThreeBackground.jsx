@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Hero section background — exact same canvas grid system as inner-page banners.
@@ -58,9 +58,9 @@ export default function ThreeBackground() {
         window.addEventListener("scroll",    onScroll);
         window.addEventListener("resize",    onResize);
 
-        const CELL  = 52;
+        const CELL  = 72;
         const FL    = 800;
-        const EXTRA = 10;
+        const EXTRA = 6;
 
         /* ── projection — world coords centred at (0,0,0) ── */
         const project = (cx, cy, z, W, H) => {
@@ -78,8 +78,11 @@ export default function ThreeBackground() {
 
         let time = 0;
         let raf;
+        let isVisible = true;
 
         const draw = () => {
+            if (!isVisible) return;
+
             rotX += (targetRotX - rotX) * LERP;
             rotY += (targetRotY - rotY) * LERP;
 
@@ -127,34 +130,62 @@ export default function ThreeBackground() {
                 }
             }
 
-            /* Horizontal lines */
+            /* Batch all horizontal lines into a single path */
+            ctx.beginPath();
             for (let r = 0; r <= ROWS; r++) {
-                ctx.beginPath();
                 for (let c = 0; c <= COLS; c++) {
                     const p = pts[r][c];
                     c === 0 ? ctx.moveTo(p.sx, p.sy) : ctx.lineTo(p.sx, p.sy);
                 }
-                ctx.stroke();
             }
+            ctx.stroke();
 
-            /* Vertical lines */
+            /* Batch all vertical lines into a single path */
+            ctx.beginPath();
             for (let c = 0; c <= COLS; c++) {
-                ctx.beginPath();
                 for (let r = 0; r <= ROWS; r++) {
                     const p = pts[r][c];
                     r === 0 ? ctx.moveTo(p.sx, p.sy) : ctx.lineTo(p.sx, p.sy);
                 }
-                ctx.stroke();
             }
+            ctx.stroke();
 
             time += 0.014;
             raf = requestAnimationFrame(draw);
         };
 
-        draw();
+        // Pause animation when hero is scrolled out of view
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                isVisible = entry.isIntersecting;
+                if (isVisible) {
+                    cancelAnimationFrame(raf);
+                    raf = requestAnimationFrame(draw);
+                }
+            },
+            { threshold: 0.05 }
+        );
+        observer.observe(canvas);
+
+        const onVisibilityChange = () => {
+            isVisible = document.visibilityState === "visible";
+            if (isVisible) {
+                cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(draw);
+            }
+        };
+        document.addEventListener("visibilitychange", onVisibilityChange);
+
+        // Start drawing after initial mount frame to keep FCP 0ms
+        const startTimer = setTimeout(() => {
+            raf = requestAnimationFrame(draw);
+        }, 50);
 
         return () => {
+            clearTimeout(startTimer);
             cancelAnimationFrame(raf);
+            observer.disconnect();
+            document.removeEventListener("visibilitychange", onVisibilityChange);
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("scroll",    onScroll);
             window.removeEventListener("resize",    onResize);

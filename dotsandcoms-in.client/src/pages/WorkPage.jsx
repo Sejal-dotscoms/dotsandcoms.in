@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowUpRight, Smartphone, ExternalLink, Monitor, Layers } from "lucide-react";
@@ -94,7 +94,7 @@ function TiltCard({ children }) {
       {/* 3D Spotlight Dynamic Reflective Flare overlay */}
       {!isMobile && (
         <motion.div
-          className="absolute inset-0 z-20 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
             background: `radial-gradient(280px circle at ${spotlightX.get()} ${spotlightY.get()}, rgba(220, 38, 38, 0.14), rgba(220, 38, 38, 0.02) 40%, transparent 80%)`,
           }}
@@ -105,19 +105,19 @@ function TiltCard({ children }) {
       {!isMobile && (
         <>
           <div 
-            className="absolute top-4 left-4 w-2 h-2 border-t-2 border-l-2 border-transparent transition-all duration-300 z-20"
+            className="absolute top-4 left-4 z-20 h-2 w-2 border-t-2 border-l-2 border-transparent transition-all duration-300"
             style={{ borderColor: hovered ? "#dc2626" : "transparent" }}
           />
           <div 
-            className="absolute top-4 right-4 w-2 h-2 border-t-2 border-r-2 border-transparent transition-all duration-300 z-20"
+            className="absolute top-4 right-4 z-20 h-2 w-2 border-t-2 border-r-2 border-transparent transition-all duration-300"
             style={{ borderColor: hovered ? "#dc2626" : "transparent" }}
           />
           <div 
-            className="absolute bottom-4 left-4 w-2 h-2 border-b-2 border-l-2 border-transparent transition-all duration-300 z-20"
+            className="absolute bottom-4 left-4 z-20 h-2 w-2 border-b-2 border-l-2 border-transparent transition-all duration-300"
             style={{ borderColor: hovered ? "#dc2626" : "transparent" }}
           />
           <div 
-            className="absolute bottom-4 right-4 w-2 h-2 border-b-2 border-r-2 border-transparent transition-all duration-300 z-20"
+            className="absolute right-4 bottom-4 z-20 h-2 w-2 border-r-2 border-b-2 border-transparent transition-all duration-300"
             style={{ borderColor: hovered ? "#dc2626" : "transparent" }}
           />
         </>
@@ -125,7 +125,7 @@ function TiltCard({ children }) {
 
       {/* Neon border strip at the bottom of the card */}
       <div 
-        className="absolute bottom-0 left-0 w-full h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" 
+        className="absolute bottom-0 left-0 z-20 h-[3px] w-full opacity-0 transition-opacity duration-500 group-hover:opacity-100" 
         style={{
           background: "linear-gradient(to right, transparent, #dc2626, transparent)"
         }}
@@ -211,6 +211,7 @@ function ProjectCard({ project }) {
                     : "w-full h-full object-contain object-top block bg-white"
                 }`}
                 loading="lazy"
+                decoding="async"
                 width={isMobileApp ? 1000 : 1500}
                 height={isMobileApp ? 1000 : 1000}
               />
@@ -219,14 +220,14 @@ function ProjectCard({ project }) {
 
           {/* Floating Action Link Badge - Video remains completely visible on hover! */}
           <div
-            className="absolute top-6 right-4 z-20 px-3.5 py-1.5 rounded-full bg-[#dc2626] text-white text-[10px] font-extrabold uppercase tracking-widest flex items-center space-x-1.5 shadow-lg shadow-red-500/30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 hover:bg-red-700 hover:scale-105"
+            className="absolute top-6 right-4 z-20 flex items-center space-x-1.5 rounded-full bg-[#dc2626] px-3.5 py-1.5 font-extrabold tracking-widest text-white text-[10px] uppercase opacity-100 shadow-lg shadow-red-500/30 transition-all duration-300 hover:scale-105 hover:bg-red-700 md:opacity-0 md:group-hover:opacity-100"
           >
             <span>
               {isExternal 
                 ? (project.category === "Mobile Apps" ? "View App" : "Live Site") 
                 : "Case Study"}
             </span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ExternalLink className="h-3.5 w-3.5" />
           </div>
         </div>
 
@@ -239,16 +240,16 @@ function ProjectCard({ project }) {
               : "pt-3.5 pb-4 px-5 md:pt-4 md:pb-5 md:px-6"
           } flex-1 flex flex-col justify-between items-start text-left z-10`}
         >
-          <div className="space-y-2.5 w-full" style={isMobile ? {} : { transformStyle: "preserve-3d" }}>
+          <div className="w-full space-y-2.5" style={isMobile ? {} : { transformStyle: "preserve-3d" }}>
             {/* Unified Dynamic Label Badge */}
             <div className="flex items-center space-x-2">
-              <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full border border-slate-200/60 bg-slate-50 text-slate-500 text-[9px] font-extrabold uppercase tracking-widest font-mono relative">
+              <span className="relative inline-flex items-center space-x-1.5 rounded-full border border-slate-200/60 bg-slate-50 px-3 py-1 font-mono font-extrabold tracking-widest text-slate-500 text-[9px] uppercase">
                 <span className="relative flex h-1.5 w-1.5">
                   <span 
-                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-[#dc2626]"
+                    className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#dc2626] opacity-75"
                   ></span>
                   <span 
-                    className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#dc2626]"
+                    className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#dc2626]"
                   ></span>
                 </span>
                 <span>{project.isEcommerce ? "E-commerce" : project.category}</span>
@@ -258,13 +259,13 @@ function ProjectCard({ project }) {
             {/* Title Header */}
             <div style={isMobile ? {} : { transform: "translateZ(10px)" }}>
               <h3 
-                className="text-xl md:text-2xl font-extrabold font-heading text-slate-800 transition-colors duration-300 line-clamp-1 leading-snug"
+                className="font-heading line-clamp-1 text-xl leading-snug font-extrabold text-slate-800 transition-colors duration-300 md:text-2xl"
                 style={{ color: isHovered ? "#dc2626" : "#1e293b" }}
               >
                 {project.title}
               </h3>
               {project.location && (
-                <p className="text-slate-400 text-xs font-bold mt-1.5 flex items-center">
+                <p className="mt-1.5 flex items-center text-xs font-bold text-slate-400">
                   <span>{project.location}</span>
                 </p>
               )}
@@ -274,10 +275,10 @@ function ProjectCard({ project }) {
           {/* Card Footer Detail Link */}
           <div 
             style={isMobile ? {} : { transform: "translateZ(15px)" }}
-            className="w-full pt-4 mt-4 border-t border-slate-100 flex items-center justify-between"
+            className="mt-4 flex w-full items-center justify-between border-t border-slate-100 pt-4"
           >
             <div
-              className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-widest transition-colors duration-300"
+              className="inline-flex items-center space-x-2 text-xs font-extrabold tracking-widest uppercase transition-colors duration-300"
               style={{
                 color: isHovered ? "#b91c1c" : "#dc2626"
               }}
@@ -287,7 +288,7 @@ function ProjectCard({ project }) {
                   ? (project.category === "Mobile Apps" ? "Get App" : "Explore Project") 
                   : "Read Case Study"}
               </span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
             </div>
           </div>
         </div>
@@ -325,43 +326,43 @@ export default function WorkPage() {
         breadcrumbs={[{ label: "Our Work" }]}
       />
 
-      <section className="py-12 md:py-24 bg-[#f8fafc] relative overflow-hidden">
+      <section className="relative overflow-hidden bg-[#f8fafc] py-12 md:py-24">
         {/* Subtle Tech Grids background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f030_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f030_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none -z-10" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#e2e8f030_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f030_1px,transparent_1px)] bg-[size:30px_30px]" />
 
         {/* Dynamic mesh lights floating behind layout */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#dc2626]/2 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#ea580c]/2 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" />
+        <div className="pointer-events-none absolute top-1/4 left-1/4 -z-10 h-[600px] w-[600px] animate-pulse rounded-full bg-[#dc2626]/2 blur-[140px]" />
+        <div className="pointer-events-none absolute right-1/4 bottom-1/4 -z-10 h-[600px] w-[600px] animate-pulse rounded-full bg-[#ea580c]/2 blur-[140px]" />
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
           {/* Centered filter tabs and stats panel */}
-          <div className="flex flex-col items-center justify-center space-y-8 mb-10 md:mb-20">
-            <h2 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-800 text-center tracking-tight">
+          <div className="mb-10 flex flex-col items-center justify-center space-y-8 md:mb-20">
+            <h2 className="font-heading text-center text-2xl font-extrabold tracking-tight text-slate-800 md:text-3xl">
               Featured Web Design and Mobile App Development Projects
             </h2>
 
             {/* Mobile Dropdown Category Selector */}
-            <div className="md:hidden w-full max-w-xs mx-auto relative">
+            <div className="relative mx-auto w-full max-w-xs md:hidden">
               <select
                 value={activeTab}
                 onChange={(e) => setActiveTab(e.target.value)}
                 className="w-full bg-gradient-to-r from-[#dc2626] to-[#ea580c] text-white font-extrabold uppercase tracking-wider text-xs px-5 py-4 rounded-xl shadow-md border-none focus:outline-none appearance-none cursor-pointer pr-10 text-center"
               >
                 {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id} className="text-slate-800 bg-white font-bold uppercase tracking-wider text-xs">
+                  <option key={cat.id} value={cat.id} className="bg-white text-xs font-bold tracking-wider text-slate-800 uppercase">
                     {cat.label}
                   </option>
                 ))}
               </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-white">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-white">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </div>
             </div>
 
             {/* Filter Navigation Tabs - Match Hosting Tab style */}
-            <div className="hidden md:inline-flex flex-wrap md:flex-nowrap p-1.5 bg-slate-50/80 backdrop-blur-md border border-slate-200/80 rounded-2xl md:rounded-full shadow-lg shadow-slate-100/50 gap-1.5 max-w-full overflow-x-auto horizontal-scroll-container">
+            <div className="horizontal-scroll-container hidden max-w-full flex-wrap gap-1.5 overflow-x-auto rounded-2xl border border-slate-200/80 bg-slate-50/80 p-1.5 shadow-lg shadow-slate-100/50 backdrop-blur-md md:inline-flex md:flex-nowrap md:rounded-full">
               {categories.map((cat) => {
                 const isActive = activeTab === cat.id;
                 const Icon = cat.icon;
@@ -374,7 +375,7 @@ export default function WorkPage() {
                     {isActive && (
                       <motion.div
                         layoutId="activeWorkTabBackground"
-                        className="absolute inset-0 bg-gradient-to-r from-[#dc2626] via-red-500 to-[#ea580c] rounded-xl md:rounded-full shadow-md shadow-red-500/20 border border-red-600/20"
+                        className="absolute inset-0 rounded-xl border border-red-600/20 bg-gradient-to-r from-[#dc2626] via-red-500 to-[#ea580c] shadow-md shadow-red-500/20 md:rounded-full"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}

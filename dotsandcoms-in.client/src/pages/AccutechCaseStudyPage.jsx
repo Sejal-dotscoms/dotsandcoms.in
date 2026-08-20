@@ -68,6 +68,8 @@ export default function AccutechCaseStudyPage() {
                   src={imgPackaging} 
                   alt="Accutech Labels B2B Transformation" 
                   className="w-full h-auto object-cover"
+                  loading="lazy"
+                  decoding="async"
                   width="1024"
                   height="1024"
                 />
@@ -108,6 +110,8 @@ export default function AccutechCaseStudyPage() {
                   src={imgPackaging} 
                   alt="Accutech Labels B2B Transformation" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                   width="1024"
                   height="1024"
                 />
@@ -152,6 +156,7 @@ export default function AccutechCaseStudyPage() {
                   alt="Accutech Labels Challenges" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                   width="1024"
                   height="1024"
                 />
@@ -357,7 +362,7 @@ export default function AccutechCaseStudyPage() {
             >
               <div className="space-y-6">
                 <div className="rounded-xl overflow-hidden aspect-[16/10] border border-slate-100 relative">
-                  <img src={imgWebDesign} alt="B2B E-commerce Custom Web Design and User Interface for Accutech Labels in Vadodara" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" width="1500" height="938" />
+                  <img src={imgWebDesign} alt="B2B E-commerce Custom Web Design and User Interface for Accutech Labels in Vadodara" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" decoding="async" width="1500" height="938" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="space-y-3 text-left">
@@ -407,7 +412,7 @@ export default function AccutechCaseStudyPage() {
             >
               <div className="space-y-6">
                 <div className="rounded-xl overflow-hidden aspect-[16/10] border border-slate-100 relative">
-                  <img src={imgSeo} alt="Google Search Engine Optimization and B2B Keyword Strategy for Accutech Labels" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" width="1502" height="1002" />
+                  <img src={imgSeo} alt="Google Search Engine Optimization and B2B Keyword Strategy for Accutech Labels" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" decoding="async" width="1502" height="1002" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="space-y-3 text-left">
@@ -455,7 +460,7 @@ export default function AccutechCaseStudyPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div className="w-full md:w-5/12 rounded-xl overflow-hidden aspect-[16/10] border border-slate-100 relative shrink-0">
-                <img src={imgLeadGen} alt="Digital Lead Generation and B2B Customer Acquisition funnels for manufacturing company" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" width="1024" height="1024" />
+                <img src={imgLeadGen} alt="Digital Lead Generation and B2B Customer Acquisition funnels for manufacturing company" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" decoding="async" width="1024" height="1024" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
               </div>
               <div className="space-y-4 text-left">

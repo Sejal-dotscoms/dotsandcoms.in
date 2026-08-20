@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import ThreeBackground3 from "../Threebackground3";
 
 
-export default function InnerBanner({ title, subtitle, breadcrumbs = [] }) {
+export default function InnerBanner({ title, subtitle, breadcrumbs = [], titleTag: Tag = "h1" }) {
+    const MotionTag = Tag === "h1" ? motion.h1 : Tag === "h2" ? motion.h2 : Tag === "h3" ? motion.h3 : motion.div;
+
     return (
         <section className="relative w-full  flex items-center justify-center pt-30 sm:pt-40 pb-10 overflow-hidden bg-transparent">
             {/* Same interactive 3D background as Hero, for visual continuity.
@@ -33,14 +35,14 @@ export default function InnerBanner({ title, subtitle, breadcrumbs = [] }) {
 
                 {/* Title — staggered reveal, same overflow-hidden line-mask technique as Hero headline */}
                 <span className="block overflow-hidden py-1">
-                    <motion.h1
+                    <MotionTag
                         initial={{ y: "100%", opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.85, ease: [0.215, 0.61, 0.355, 1] }}
                         className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1]"
                     >
                         {title}
-                    </motion.h1>
+                    </MotionTag>
                 </span>
 
                 {/* Subtitle */}
@@ -65,6 +67,7 @@ export default function InnerBanner({ title, subtitle, breadcrumbs = [] }) {
                 >
                     <Link
                         to="/"
+                        aria-label="Dots & Coms Agency Home Page Breadcrumb"
                         className="flex items-center gap-1 text-slate-500 hover:text-[#dc2626] transition-colors duration-200"
                     >
                         <Home className="w-3.5 h-3.5" />
@@ -81,6 +84,7 @@ export default function InnerBanner({ title, subtitle, breadcrumbs = [] }) {
                                 ) : (
                                     <Link
                                         to={crumb.href}
+                                        aria-label={`Navigate to ${crumb.label} Section`}
                                         className="text-slate-500 hover:text-[#dc2626] transition-colors duration-200"
                                     >
                                         {crumb.label}

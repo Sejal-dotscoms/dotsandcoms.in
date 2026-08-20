@@ -602,7 +602,7 @@ export default function WebHostingDetail() {
                                 ))}
                               </ul>
                               <div className="w-20 h-20 bg-slate-50 border border-slate-200 rounded-xl p-2 flex items-center justify-center flex-shrink-0 self-center">
-                                <img src={dedicatedServersData.logo} alt="Dots & Coms Dedicated Web Servers Infrastructure logo" className="max-w-full max-h-full object-contain" loading="lazy" width="94" height="98" />
+                                <img src={dedicatedServersData.logo} alt="Dots & Coms Dedicated Web Servers Infrastructure logo" className="max-w-full max-h-full object-contain" loading="lazy" decoding="async" width="94" height="98" />
                               </div>
                             </div>
                           </div>
@@ -663,6 +663,7 @@ export default function WebHostingDetail() {
                           alt="SSL Certificate Security Protection Seal - Dots & Coms Web Hosting Vadodara" 
                           className="w-full max-w-[280px] h-auto object-contain select-none block"
                           loading="lazy"
+                          decoding="async"
                           width="300"
                           height="220"
                         />

@@ -76,9 +76,10 @@ export default function ContactCTA() {
 
                 {/* Title */}
                 <div className="text-center space-y-3 mb-10 lg:mb-12">
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold font-heading text-slate-800 tracking-tight leading-[1.05]">
+                    <h2 className="sr-only">Ready to Build Extraordinary?</h2>
+                    <div aria-hidden="true" className="text-3xl md:text-5xl lg:text-6xl font-extrabold font-heading text-slate-800 tracking-tight leading-[1.05]">
                         Ready to Build <span className="text-gradient-mixed">Extraordinary?</span>
-                    </h2>
+                    </div>
                     <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                         Let's construct next-generation web designs, database layers, and search-optimized systems that unlock digital growth.
                     </p>

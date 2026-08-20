@@ -51,6 +51,7 @@ export default defineConfig({
         include: ['fuzzysort', 'extend', 'debug', 'ms']
     },
     build: {
+        cssMinify: true,
         rollupOptions: {
             output: {
                 assetFileNames: 'assets/[name][extname]',

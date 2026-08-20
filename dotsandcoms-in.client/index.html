@@ -2,43 +2,10 @@
 <html lang="en" class="bg-[#09090b]">
 <head>
     <meta charset="UTF-8" />
-    <script>
-        window.addEventListener('error', function (e) {
-            var div = document.createElement('div');
-            div.style.position = 'fixed';
-            div.style.top = '0';
-            div.style.left = '0';
-            div.style.width = '100%';
-            div.style.zIndex = '999999';
-            div.style.background = 'red';
-            div.style.color = 'white';
-            div.style.padding = '20px';
-            div.style.fontSize = '14px';
-            div.style.fontFamily = 'monospace';
-            div.style.whiteSpace = 'pre-wrap';
-            div.innerHTML = 'ERROR: ' + e.message + '\nStack: ' + (e.error ? e.error.stack : 'no stack');
-            document.body.appendChild(div);
-        });
-        window.addEventListener('unhandledrejection', function (e) {
-            var div = document.createElement('div');
-            div.style.position = 'fixed';
-            div.style.top = '0';
-            div.style.left = '0';
-            div.style.width = '100%';
-            div.style.zIndex = '999999';
-            div.style.background = 'orange';
-            div.style.color = 'white';
-            div.style.padding = '20px';
-            div.style.fontSize = '14px';
-            div.style.fontFamily = 'monospace';
-            div.style.whiteSpace = 'pre-wrap';
-            div.innerHTML = 'UNHANDLED REJECTION: ' + e.reason;
-            document.body.appendChild(div);
-        });
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Design & Mobile App Development Company in Vadodara</title>
     <link rel="canonical" href="https://www.dotsandcoms.in/" />
+    <link rel="preload" as="image" href="/hero-banner-image.webp" type="image/webp" fetchpriority="high" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -56,7 +23,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Dots & Coms is a leading website design and mobile app development company in Vadodara offering responsive web design, Android & iOS app development, web hosting, SEO, and digital marketing services." />
+    <meta name="description" content="Dots & Coms is a web design and mobile app development company in Vadodara offering responsive websites, iOS & Android apps, web hosting, and SEO services." />
     <meta name="keywords" content="website design Vadodara, mobile app development Vadodara, web development company Vadodara, app developers Vadodara, website designing company Baroda, mobile application development Baroda, web hosting Vadodara, IT company Vadodara, software development Vadodara, SEO company Vadodara, digital marketing Vadodara" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Dots & Coms" />
@@ -65,8 +32,8 @@
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.dotsandcoms.in/" />
-    <meta property="og:title" content="DotsandComs - Digital Marketing Company in Vadodara" />
-    <meta property="og:description" content="We provide SEO, website design, and digital marketing services to grow your business." />
+    <meta property="og:title" content="Website Design & Mobile App Development Company in Vadodara" />
+    <meta property="og:description" content="Dots & Coms is a web design and mobile app development company in Vadodara offering responsive websites, iOS & Android apps, web hosting, and SEO services." />
     <meta property="og:image" content="https://www.dotsandcoms.in/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -76,47 +43,53 @@
     <meta name="twitter:site" content="@dotsandcoms" />
     <meta name="twitter:creator" content="@dotsandcoms" />
     <meta name="twitter:url" content="https://www.dotsandcoms.in/" />
-    <meta name="twitter:title" content="DotsandComs - Digital Marketing Company in Vadodara" />
-    <meta name="twitter:description" content="We provide SEO, website design, and digital marketing services to grow your business." />
+    <meta name="twitter:title" content="Website Design & Mobile App Development Company in Vadodara" />
+    <meta name="twitter:description" content="Dots & Coms is a web design and mobile app development company in Vadodara offering responsive websites, iOS & Android apps, web hosting, and SEO services." />
     <meta name="twitter:image" content="https://www.dotsandcoms.in/og-image.png" />
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preload / Non-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Deferred Third-Party Analytics & Tracking Scripts (Loaded after initial render for max PageSpeed) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    </noscript>
+
+    <!-- Google Tag Manager & Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CRXSP5BRN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('config', 'G-2CRXSP5BRN');
+      gtag('config', 'G-NB64HJNEW2');
+      gtag('config', 'AW-10830133798');
+      gtag('config', 'AW-18111497809');
+      gtag('config', 'G-WC7NS81XJR');
+      gtag('event', 'conversion', { 'send_to': 'AW-10830133798/QtIcCOu3k44DEKb0mqwo' });
 
-      function loadAnalytics() {
-        // Load Google Analytics & Ads
-        var g1 = document.createElement('script');
-        g1.async = true;
-        g1.src = 'https://www.googletagmanager.com/gtag/js?id=G-2CRXSP5BRN';
-        document.head.appendChild(g1);
-        gtag('config', 'G-2CRXSP5BRN');
-        gtag('config', 'G-NB64HJNEW2');
-        gtag('config', 'AW-10830133798');
-        gtag('config', 'AW-18111497809');
-        gtag('config', 'G-WC7NS81XJR');
-        gtag('event', 'conversion', { 'send_to': 'AW-10830133798/QtIcCOu3k44DEKb0mqwo' });
+      // Deferred Secondary Analytics & Tracking Scripts
+      var _secondaryLoaded = false;
+      function loadSecondaryTrackers() {
+        if (_secondaryLoaded) return;
+        _secondaryLoaded = true;
 
-        // Load Microsoft Clarity
+        // Microsoft Clarity
         (function (c, l, a, r, i, t, y) { 
           c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; 
           t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; 
           y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); 
         })(window, document, "clarity", "script", "l10mzw70lk");
 
-        // Load Apollo micro tracker
+        // Apollo tracker
         var n = Math.random().toString(36).substring(7), o = document.createElement("script");
         o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
         o.async = true; o.defer = true;
         o.onload = function () { if (window.trackingFunctions) window.trackingFunctions.onLoad({ appId: "68ef9c9e4b084100197f2d51" }); };
         document.head.appendChild(o);
 
-        // Load Taboola Pixel
+        // Taboola Pixel
         window._tfa = window._tfa || [];
         window._tfa.push({ notify: 'event', name: 'page_view', id: 1499174 });
         var tb = document.createElement('script');
@@ -125,13 +98,10 @@
         document.head.appendChild(tb);
       }
 
-      if (window.requestIdleCallback) {
-        window.requestIdleCallback(loadAnalytics, { timeout: 3500 });
-      } else {
-        window.addEventListener('load', function() {
-          setTimeout(loadAnalytics, 2000);
-        });
-      }
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(event) {
+        window.addEventListener(event, loadSecondaryTrackers, { once: true, passive: true });
+      });
+      setTimeout(loadSecondaryTrackers, 4000);
     </script>
 
     <script type="application/ld+json">
@@ -216,7 +186,7 @@
               "@type": "ItemList",
               "@id": "https://www.dotsandcoms.in/#services",
               "name": "Core Services",
-              "itemListOrder": "http://schema.org/ItemListOrderAscending",
+              "itemListOrder": "https://schema.org/ItemListOrderAscending",
               "numberOfItems": 4,
               "itemListElement": [
                 {

@@ -99,14 +99,14 @@ export default function Trust() {
                        
 
                           {/* Number */}
-                          <h3 className="relative text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-slate-900">
+                          <div className="relative text-2xl sm:text-3xl md:text-5xl font-black tracking-tight text-slate-900">
 
                               <Counter
                                   target={stat.target}
                                   suffix={stat.suffix}
                               />
 
-                          </h3>
+                          </div>
 
                           {/* Divider */}
                           <div className="relative mx-auto mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-300 group-hover:w-20" />

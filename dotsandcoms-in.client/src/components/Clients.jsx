@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Clients() {
   const partners = [
@@ -100,12 +100,14 @@ export default function Clients() {
               rel="noopener noreferrer"
               className="inline-flex h-24 w-48 flex-shrink-0 cursor-pointer items-center justify-center px-3 opacity-70 brightness-95 contrast-75 grayscale filter transition-all duration-500 hover:opacity-100 hover:grayscale-0 hover:filter-none"
               title={partner.name}
+              aria-label={`${partner.name} - Corporate Client of Dots & Coms`}
             >
               <img
                 src={partner.logo}
-                alt={`${partner.name} Logo`}
+                alt={`${partner.name} - Corporate Client of Dots & Coms`}
                 className="pointer-events-none max-h-16 max-w-[150px] object-contain"
                 loading="lazy"
+                decoding="async"
                 width={partner.width}
                 height={partner.height}
               />

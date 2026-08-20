@@ -3,6 +3,9 @@ Disallow: /cgi-bin/
 Disallow: /poweradmin/
 Disallow: /poweradmin
 
+Allow: /blogs
+Allow: /blogs/
+
 # AI / LLM ACCESS (GEO + AEO OPTIMIZATION)
 Allow: /llms.txt
 Allow: /llms-full.txt

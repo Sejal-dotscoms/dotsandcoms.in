@@ -89,7 +89,7 @@ export default function Testimonials() {
 
                 <div className="mt-8 flex items-center justify-between pt-6 border-t border-slate-100">
                   <div>
-                    <h4 className="text-slate-800 font-bold font-heading">{reviews[index].author}</h4>
+                    <div className="text-slate-800 font-bold font-heading">{reviews[index].author}</div>
                     {(reviews[index].role || reviews[index].company) && (
                       <p className="text-slate-500 text-xs mt-0.5 font-mono">
                         {reviews[index].role}

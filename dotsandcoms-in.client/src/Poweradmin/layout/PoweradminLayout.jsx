@@ -113,6 +113,10 @@ export default function PoweradminLayout() {
                               src={logo}
                               alt="Dots & Coms"
                               className="h-20 w-auto object-contain"
+                              loading="lazy"
+                              decoding="async"
+                              width="94"
+                              height="98"
                               style={{
                                   backgroundColor: "white",
                                   paddingRight: "20px",

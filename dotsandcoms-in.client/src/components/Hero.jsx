@@ -146,29 +146,32 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Staggered Text Reveal Headline */}
-                    <motion.h1
-                        aria-label="Turning Vision Into Impactful Digital Experiences"
-                        className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.08] flex flex-col"
-                        variants={titleContainerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <span className="block overflow-hidden py-1">
-                            <motion.span variants={titleLineVariants} className="block">
-                                Turning  <span className="text-gradient-blue">Vision</span>
-                            </motion.span>
-                        </span>
-                        <span className="block overflow-hidden py-1">
-                            <motion.span variants={titleLineVariants} className="block">
-                                Into Impactful
-                            </motion.span>
-                        </span>
-                        <span className="block overflow-hidden py-1">
-                            <motion.span variants={titleLineVariants} className="block">
-                                <span className="text-gradient-orange">Digital Experiences</span>
-                            </motion.span>
-                        </span>
-                    </motion.h1>
+                    <div className="relative">
+                        <h1 className="sr-only">Turning Vision Into Impactful Digital Experiences</h1>
+                        <motion.div
+                            aria-hidden="true"
+                            className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.08] flex flex-col"
+                            variants={titleContainerVariants}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <span className="block overflow-hidden py-1">
+                                <motion.span variants={titleLineVariants} className="block">
+                                    Turning  <span className="text-gradient-blue">Vision</span>
+                                </motion.span>
+                            </span>
+                            <span className="block overflow-hidden py-1">
+                                <motion.span variants={titleLineVariants} className="block">
+                                    Into Impactful
+                                </motion.span>
+                            </span>
+                            <span className="block overflow-hidden py-1">
+                                <motion.span variants={titleLineVariants} className="block">
+                                    <span className="text-gradient-orange">Digital Experiences</span>
+                                </motion.span>
+                            </span>
+                        </motion.div>
+                    </div>
 
                     <motion.p
                         className="text-slate-600 text-base md:text-lg font-normal leading-relaxed max-w-xl"
@@ -190,6 +193,7 @@ export default function Hero() {
                         <Magnetic>
                             <Link
                                 to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
+                                aria-label="Start Your Project - Contact Dots & Coms Agency"
                                 className="group inline-flex items-center space-x-2 px-8 py-4 rounded-full text-sm font-bold tracking-wider uppercase bg-[#dc2626] text-white hover:bg-red-700 transition-all duration-300 border border-red-500/10 shadow-[0_0_30px_rgba(220,38,38,0.12)] hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]"
                             >
                                 <span>Start Your Project</span>
@@ -200,6 +204,7 @@ export default function Hero() {
                         <Magnetic>
                             <Link
                                 to="/website-mobile-app-development-company-portfolio-baroda"
+                                aria-label="View Portfolio - Dots & Coms Web Design Work"
                                 className="inline-flex items-center space-x-3 px-8 py-4 rounded-full text-sm font-bold tracking-wider uppercase border border-slate-200 hover:border-slate-300 text-slate-800 hover:bg-slate-50 transition-all duration-300"
                             >
                                 <Play className="w-3.5 h-3.5 fill-current text-slate-800" />
@@ -236,7 +241,7 @@ export default function Hero() {
                             ref={dashRef}
                             className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl border border-slate-200/80 bg-cover bg-center bg-no-repeat aspect-[4/3] w-full"
                             style={{
-                                backgroundImage: `url(/hero-banner-image.png)`,
+                                backgroundImage: `url(/hero-banner-image.webp)`,
                                 rotateX: rotateX,
                                 rotateY: rotateY,
                                 transformStyle: "preserve-3d",

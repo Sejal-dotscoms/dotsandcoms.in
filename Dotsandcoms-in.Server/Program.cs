@@ -41,10 +41,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString)
 );
 
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
+
 var app = builder.Build();
  
 
 app.UseCors("ReactPolicy");
+app.UseResponseCompression();
 
 // Add security headers to defend against click-jacking, XSS, MIME type sniffing, and enforce HSTS
 app.Use(async (context, next) =>
@@ -77,8 +83,28 @@ app.UseStaticFiles(new StaticFileOptions
 {
     OnPrepareResponse = ctx =>
     {
-        var path = ctx.Context.Request.Path.Value;
-        if (!string.IsNullOrEmpty(path) && path.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+        var path = ctx.Context.Request.Path.Value ?? "";
+        
+        // Cache static files (JS, CSS, images, fonts, icons) for 1 year
+        if (path.StartsWith("/assets/", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".js", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".css", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".woff", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers["Cache-Control"] = "public, max-age=31536000, immutable";
+        }
+        else if (path.EndsWith(".html", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) || path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+        }
+
+        if (path.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
         {
             // Set canonical header for the PDF to prevent duplicate indexing
             var canonicalUrl = $"https://www.dotsandcoms.in{path}";
@@ -104,36 +130,43 @@ app.MapControllers();
 // so they appear in View Page Source and are visible to social/SEO crawlers.
 app.Use(async (context, next) =>
 {
-    var path  = context.Request.Path.Value ?? "";
-    var match = System.Text.RegularExpressions.Regex.Match(
-        path, @"^/blogs/([^/?#]+)$",
-        System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-
-    if (context.Request.Method == "GET" && match.Success)
+    try
     {
-        var slug  = Uri.UnescapeDataString(match.Groups[1].Value);
-        var db    = context.RequestServices.GetRequiredService<AppDbContext>();
-        var env   = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
-        var today = DateTime.UtcNow.Date;
+        var path  = context.Request.Path.Value ?? "";
+        var match = System.Text.RegularExpressions.Regex.Match(
+            path, @"^/blogs/([^/?#]+)$",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
-        var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
-            b.BrowserUrl.ToLower() == slug.ToLower() &&
-            b.IsVisible &&
-            b.BlogDate.Date <= today &&
-            (b.ExpiryDate == null || b.ExpiryDate.Value.Date >= today));
-
-        if (blog != null)
+        if (context.Request.Method == "GET" && match.Success)
         {
-            var indexPath = Path.Combine(env.WebRootPath, "index.html");
-            if (File.Exists(indexPath))
+            var slug  = Uri.UnescapeDataString(match.Groups[1].Value);
+            var db    = context.RequestServices.GetRequiredService<AppDbContext>();
+            var env   = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+            var today = DateTime.UtcNow.Date;
+
+            var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
+                b.BrowserUrl.ToLower() == slug.ToLower() &&
+                b.IsVisible &&
+                b.BlogDate.Date <= today &&
+                (b.ExpiryDate == null || b.ExpiryDate.Value.Date >= today));
+
+            if (blog != null)
             {
-                var html = await File.ReadAllTextAsync(indexPath);
-                html = BlogMetaInjector.Inject(html, blog);
-                context.Response.ContentType = "text/html; charset=utf-8";
-                await context.Response.WriteAsync(html);
-                return;
+                var indexPath = Path.Combine(env.WebRootPath, "index.html");
+                if (File.Exists(indexPath))
+                {
+                    var html = await File.ReadAllTextAsync(indexPath);
+                    html = BlogMetaInjector.Inject(html, blog);
+                    context.Response.ContentType = "text/html; charset=utf-8";
+                    await context.Response.WriteAsync(html);
+                    return;
+                }
             }
         }
+    }
+    catch
+    {
+        // Gracefully fall through to SPA pipeline if DB or file read fails
     }
 
     await next();
