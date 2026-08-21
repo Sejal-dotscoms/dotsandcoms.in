@@ -53,7 +53,11 @@ export default function InnerBanner({ title, subtitle, breadcrumbs = [], titleTa
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                         className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed max-w-xl"
                     >
-                        {subtitle}
+                        {typeof subtitle === "string" && subtitle.includes("<") ? (
+                            <span dangerouslySetInnerHTML={{ __html: subtitle }} />
+                        ) : (
+                            subtitle
+                        )}
                     </motion.p>
                 )}
 

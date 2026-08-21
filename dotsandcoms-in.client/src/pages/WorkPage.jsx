@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowUpRight, Smartphone, ExternalLink, Monitor, Layers } from "lucide-react";
@@ -303,8 +303,8 @@ export default function WorkPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Portfolio – Web Designing & Mobile App Development Services | Dots & Coms",
-      description: "Portfolio showcasing responsive website design, web application development, eCommerce websites, mobile app development, domain registration, and SEO project work.",
+      title: "Portfolio – Web Design & Mobile App Development Work",
+      description: "Portfolio showcasing responsive website design, web application development, eCommerce platforms, mobile app development, and SEO project work.",
       keywords: "web design portfolio Vadodara, responsive website design and development, web application development, ecommerce website development, mobile app development portfolio, iPad mobile application development, website design projects",
       canonical: "https://www.dotsandcoms.in/website-mobile-app-development-company-portfolio-baroda"
     });
@@ -322,7 +322,7 @@ export default function WorkPage() {
     <>
       <InnerBanner
         title="Our Work"
-        subtitle="Explore our comprehensive portfolio of web design projects, e-commerce applications, and mobile products."
+        subtitle={<>Explore our comprehensive portfolio of <strong>web design projects</strong>, <strong>e-commerce applications</strong>, and <strong>mobile products</strong>.</>}
         breadcrumbs={[{ label: "Our Work" }]}
       />
 

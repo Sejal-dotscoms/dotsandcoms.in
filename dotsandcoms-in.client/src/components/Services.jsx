@@ -89,6 +89,8 @@ export default function Services() {
               <CardComponent
                 key={service.title}
                 onMouseMove={handleMouseMove}
+                aria-label={`Discover More about ${service.title} Services`}
+                title={`Discover More about ${service.title}`}
                 {...cardProps}
                 className={`bento-card group p-6 md:p-8 rounded-2xl glass-panel border border-slate-100 flex flex-col justify-between items-start transition-all duration-300 hover:border-[#dc2626]/20 hover:scale-[1.01] bg-white/70 shadow-[0_8px_30px_rgba(0,0,0,0.015)] cursor-pointer ${service.span}`}
                 initial={{ opacity: 0, y: 30 }}

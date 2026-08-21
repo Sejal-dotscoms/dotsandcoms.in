@@ -49,7 +49,7 @@ export default function DigitalMarketingDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Digital Marketing Company in Vadodara | SEO & Ads | Dots & Coms",
+      title: "Digital Marketing Company in Vadodara | SEO & Ads",
       description: "Digital marketing company in Vadodara offering SEO, Google Ads, social media marketing, and performance marketing services to grow your business online.",
       keywords: "digital marketing company Vadodara, SEO company Vadodara, Google Ads Baroda, social media marketing Vadodara, PPC agency Baroda, online marketing Vadodara, performance marketing Gujarat, search engine optimization Vadodara",
       canonical: "https://www.dotsandcoms.in/organic-seo-ppc-digital-marketing-vadodara"

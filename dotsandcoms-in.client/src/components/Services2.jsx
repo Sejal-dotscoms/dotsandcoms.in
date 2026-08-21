@@ -14,6 +14,7 @@ export default function Services2() {
       title: "Web Design",
       shortTitle: "Web Design",
       desc: "Pixel-perfect, custom layouts tailored for maximum user retention, modern visual storytelling, and responsive layouts across all viewports.",
+      link: "/responsive-website-designing-company-vadodara"
     },
     {
       num: "02",
@@ -23,6 +24,7 @@ export default function Services2() {
       title: "Mobile App Development",
       shortTitle: "Mobile Apps",
       desc: "Native iOS/Android applications built with Flutter and React Native, ensuring fluid micro-interactions and performance.",
+      link: "/android-ios-mobile-app-development-company-baroda"
     },
     {
       num: "03",
@@ -32,6 +34,7 @@ export default function Services2() {
       title: "Domains & Web Hosting",
       shortTitle: "Web Hosting",
       desc: "High-performance SSD cloud web hosting with 99.9% uptime guarantees, domains management, and enterprise-grade security structures.",
+      link: "/windows-web-hosting-service-provider-baroda"
     },
     {
       num: "04",
@@ -41,6 +44,7 @@ export default function Services2() {
       title: "Digital Marketing",
       shortTitle: "Marketing",
       desc: "SEO audits, Google Ads, Meta campaigns, and high-conversion PPC structures designed to capture organic search traffic and scale sales.",
+      link: "/organic-seo-ppc-digital-marketing-vadodara"
     },
     {
       num: "05",
@@ -50,6 +54,7 @@ export default function Services2() {
       title: "Graphic Design",
       shortTitle: "Graphics",
       desc: "Creative brand guidelines, corporate identity style scales, print media, social assets, and unified visual guidelines that dictate brand presence.",
+      link: "https://brochuredesigncompany.com/"
     },
     {
       num: "06",
@@ -59,6 +64,7 @@ export default function Services2() {
       title: "Remote IT Workforce",
       shortTitle: "Workforce",
       desc: "Bespoke dedicated developers, engineers, and digital experts integrated seamlessly to scale your internal technical resources and accelerate delivery.",
+      link: "https://remoteitworkforce.in/"
     },
   ];
 

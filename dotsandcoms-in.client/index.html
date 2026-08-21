@@ -56,24 +56,28 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     </noscript>
 
-    <!-- Google Tag Manager & Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CRXSP5BRN"></script>
+    <!-- Google Tag Manager & Google Analytics (Deferred to prevent main thread blocking) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2CRXSP5BRN');
-      gtag('config', 'G-NB64HJNEW2');
-      gtag('config', 'AW-10830133798');
-      gtag('config', 'AW-18111497809');
-      gtag('config', 'G-WC7NS81XJR');
-      gtag('event', 'conversion', { 'send_to': 'AW-10830133798/QtIcCOu3k44DEKb0mqwo' });
+      var _gtagLoaded = false;
+      function loadGtag() {
+        if (_gtagLoaded) return;
+        _gtagLoaded = true;
 
-      // Deferred Secondary Analytics & Tracking Scripts
-      var _secondaryLoaded = false;
-      function loadSecondaryTrackers() {
-        if (_secondaryLoaded) return;
-        _secondaryLoaded = true;
+        var gscript = document.createElement('script');
+        gscript.async = true;
+        gscript.src = "https://www.googletagmanager.com/gtag/js?id=G-2CRXSP5BRN";
+        document.head.appendChild(gscript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-2CRXSP5BRN');
+        gtag('config', 'G-NB64HJNEW2');
+        gtag('config', 'AW-10830133798');
+        gtag('config', 'AW-18111497809');
+        gtag('config', 'G-WC7NS81XJR');
+        gtag('event', 'conversion', { 'send_to': 'AW-10830133798/QtIcCOu3k44DEKb0mqwo' });
 
         // Microsoft Clarity
         (function (c, l, a, r, i, t, y) { 
@@ -99,9 +103,13 @@
       }
 
       ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(event) {
-        window.addEventListener(event, loadSecondaryTrackers, { once: true, passive: true });
+        window.addEventListener(event, loadGtag, { once: true, passive: true });
       });
-      setTimeout(loadSecondaryTrackers, 4000);
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() { setTimeout(loadGtag, 2000); });
+      } else {
+        setTimeout(loadGtag, 3000);
+      }
     </script>
 
     <script type="application/ld+json">

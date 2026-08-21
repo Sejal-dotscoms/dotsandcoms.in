@@ -4,7 +4,7 @@ import customImg from "../assets/images/custom-web-applications-Baroda-enterpris
 
 export const bannerData = {
   title: "Website Design",
-  subtitle: "Custom, responsive, and conversion-focused web layouts designed to reflect your brand identity.",
+  subtitle: "Custom, <strong>responsive web design</strong>, and conversion-focused layouts designed to reflect your brand identity in <strong>Vadodara</strong>.",
   breadcrumbs: [
     { label: "Services", href: "/services" },
     { label: "Web Design" }

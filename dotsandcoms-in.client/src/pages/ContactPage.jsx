@@ -9,8 +9,8 @@ export default function ContactPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
         return setPageSEO({
-            title: "Contact Us | Web Design, Mobile Apps, Hosting & SEO Services | Dots & Coms",
-            description: "Contact our Vadodara team for website design, mobile app development, web hosting, dedicated servers, eCommerce development, SEO services, and domain registration support.",
+            title: "Contact Us | Web Design, Mobile Apps & SEO Services",
+            description: "Contact our Vadodara team for website design, mobile app development, web hosting, dedicated servers, SEO services, and domain registration support.",
             keywords: "website design Vadodara, web design company Baroda, mobile app development Vadodara, web hosting services Vadodara, SEO services Baroda, digital marketing agency Vadodara, website designer Vadodara, ecommerce website development",
             canonical: "https://www.dotsandcoms.in/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
         });
@@ -20,7 +20,7 @@ export default function ContactPage() {
         <>
             <InnerBanner
                 title="Contact Us"
-                subtitle="Have a query or looking to launch a new project? Reach out to our technical consulting team."
+                subtitle={<>Have a query or looking to launch a new project? Reach out to our <strong>technical consulting team</strong> in <strong>Vadodara</strong>.</>}
                 breadcrumbs={[{ label: "Contact Us" }]}
             />
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white py-16 px-4 sm:px-8">

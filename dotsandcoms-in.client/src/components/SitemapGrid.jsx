@@ -269,7 +269,7 @@ export default function SitemapGrid() {
             {/* VPS Hosting */}
             <div className="group space-y-4 rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
               <div>
-                <Link to="/windows-web-hosting-service-provider-baroda" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+                <Link to="/windows-web-hosting-service-provider-baroda#vps-hosting" aria-label="Windows and Linux VPS Server Hosting Solutions Vadodara" title="VPS Hosting" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                   <Server className="h-4 w-4" />
                   <span>VPS Hosting</span>
                   <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -301,7 +301,7 @@ export default function SitemapGrid() {
             {/* Dedicated Servers */}
             <div className="group space-y-4 rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
               <div>
-                <Link to="/windows-web-hosting-service-provider-baroda" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+                <Link to="/windows-web-hosting-service-provider-baroda#dedicated-servers" aria-label="Dedicated Server Cloud Hosting Services Vadodara" title="Dedicated Servers" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                   <Server className="h-4 w-4" />
                   <span>Dedicated Servers</span>
                   <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -331,7 +331,7 @@ export default function SitemapGrid() {
 
             {/* SSL Certificate */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/windows-web-hosting-service-provider-baroda" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/windows-web-hosting-service-provider-baroda#ssl-certificate" aria-label="SSL Security Certificate Installation Services Baroda" title="SSL Certificate" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Shield className="h-4 w-4" />
                 <span>SSL Certificate</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />

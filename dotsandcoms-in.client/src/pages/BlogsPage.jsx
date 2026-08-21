@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -32,7 +32,7 @@ export default function BlogsPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Blogs – Web Design, Mobile App & Digital Marketing Insights | Dots & Coms",
+      title: "Blogs – Web Design, Mobile App & Digital Marketing Insights",
       description:
         "Read expert articles on website design, mobile app development, SEO, digital marketing, and web hosting from Dots & Coms, Vadodara.",
       keywords:
@@ -60,7 +60,7 @@ export default function BlogsPage() {
     <>
       <InnerBanner
         title="Our Blogs"
-        subtitle="Insights, tips and updates from the Dots & Coms team."
+        subtitle={<>Insights, <strong>web design tips</strong>, and <strong>mobile app updates</strong> from the Dots & Coms team in <strong>Vadodara</strong>.</>}
         breadcrumbs={[{ label: "Blogs" }]}
       />
 
