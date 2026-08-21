@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AlertTriangle, Loader2 } from "lucide-react";
@@ -23,7 +23,7 @@ export default function WebHostingDetailsPage() {
         window.scrollTo(0, 0);
         return setPageSEO({
             title: "Web Hosting Order Details | Dots & Coms",
-            description: "View and process your web hosting order details. Secure transactions and robust cloud hosting setups with Dots & Coms Baroda.",
+            description: "View and process your web hosting order details. Enjoy secure transactions, 99.9% uptime, and robust cloud hosting setups with Dots & Coms Baroda.",
             keywords: "hosting order details, invoice tracking, web hosting setup, secure hosting payment, Dots and Coms",
             canonical: "https://www.dotsandcoms.in/web-hosting-details"
         });
@@ -131,7 +131,7 @@ export default function WebHostingDetailsPage() {
         <>
             <InnerBanner
                 title="Web Hosting Order Details"
-                subtitle="Review your configuration, billing information, and proceed with payment."
+                subtitle={<>Review your <strong>web hosting configuration</strong>, billing information, and proceed with <strong>secure payment</strong> at Dots & Coms.</>}
                 breadcrumbs={[
                     { label: "Web Hosting", href: "/windows-web-hosting-service-provider-baroda" },
                     { label: "Order Now", href: "/order-now" },

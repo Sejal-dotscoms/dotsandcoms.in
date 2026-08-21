@@ -48,8 +48,8 @@ export default function WebDesignDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Responsive Website Designing Company in Vadodara | Dots & Coms",
-      description: "Responsive website designing company in Vadodara providing custom web design, website development, mobile app development, hosting, and web-based application solutions for businesses.",
+      title: "Responsive Website Designing Company in Vadodara",
+      description: "Responsive website designing company in Vadodara providing custom web design, mobile app development, hosting, and web application solutions.",
       keywords: "responsive website designing Vadodara, web design company Vadodara, website development Baroda, responsive web design Baroda, mobile app development Vadodara, website redesign company, web-based application development, website design services Vadodara",
       canonical: "https://www.dotsandcoms.in/responsive-website-designing-company-vadodara"
     });

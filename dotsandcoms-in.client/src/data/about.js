@@ -170,36 +170,42 @@ export const events = [
   {
     title: "Annual Excellence Awards 2025",
     image: corporateEventsImg,
+    alt: "Annual Excellence Awards 2025 celebration event by Dots & Coms Baroda",
     width: 1632,
     height: 964
   },
   {
     title: "Hong Kong Electronics Fair",
     image: teamBuildingImg,
+    alt: "Hong Kong Electronics Fair technology booth exhibit by Dots & Coms",
     width: 740,
     height: 436
   },
   {
     title: "CeBIT Australia Exhibition",
     image: workplaceEnvironmentImg,
+    alt: "CeBIT Australia Exhibition international tech conference pavilion",
     width: 740,
     height: 436
   },
   {
     title: "India Trade Fair 2013, Dubai",
     image: businessMeetingImg,
+    alt: "India Trade Fair 2013 Dubai IT services international exhibition",
     width: 740,
     height: 436
   },
   {
     title: "Mobile Monday Ahmedabad",
     image: companyCelebrationImg,
+    alt: "Mobile Monday Ahmedabad coolest app award runner-up presentation",
     width: 740,
     height: 436
   },
   {
     title: "Hong Kong Tech Expo",
     image: officeLifeImg,
+    alt: "Hong Kong Tech Expo web and mobile application showcase booth",
     width: 740,
     height: 436
   },

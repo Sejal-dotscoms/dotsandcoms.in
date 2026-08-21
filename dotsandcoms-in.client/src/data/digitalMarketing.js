@@ -4,7 +4,7 @@ import analyticsImg from "../assets/images/analytics-setup-Vadodara-performance-
 
 export const bannerData = {
   title: "Digital Marketing",
-  subtitle: "Accelerate your search visibility, social engagement, and paid CPC acquisition with targeted web strategies.",
+  subtitle: "Accelerate your search visibility with <strong>organic SEO</strong>, <strong>Google Ads (PPC)</strong>, and <strong>social media marketing</strong> in <strong>Vadodara</strong>.",
   breadcrumbs: [
     { label: "Services", href: "/services" },
     { label: "Digital Marketing" }

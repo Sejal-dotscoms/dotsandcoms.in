@@ -110,7 +110,7 @@ export default function ClientNetwork() {
                                 href={partner.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-shrink-0 inline-flex items-center justify-center h-20 w-44 px-3 filter grayscale contrast-75 brightness-95 opacity-70 hover:grayscale-0 hover:filter-none hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"
+                                className="flex-shrink-0 inline-flex items-center justify-center h-20 w-44 px-3 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"
                                 title={partner.name}
                             >
                                 <img
@@ -144,7 +144,7 @@ export default function ClientNetwork() {
                                 href={partner.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-shrink-0 inline-flex items-center justify-center h-20 w-44 px-3 filter grayscale contrast-75 brightness-95 opacity-70 hover:grayscale-0 hover:filter-none hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"
+                                className="flex-shrink-0 inline-flex items-center justify-center h-20 w-44 px-3 opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer"
                                 title={partner.name}
                             >
                                 <img

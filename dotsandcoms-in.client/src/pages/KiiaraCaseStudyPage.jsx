@@ -17,8 +17,8 @@ export default function KiiaraCaseStudyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Kiiara Kreations Case Study – Hobby Goes Global | Dots & Coms",
-      description: "Discover how Dots & Coms helped Kiiara Kreations turn a handmade craft hobby into a globally visible brand through eCommerce web design, SEO, and digital marketing.",
+      title: "Kiiara Kreations Case Study – Hobby Goes Global Brand",
+      description: "Discover how Dots & Coms helped Kiiara Kreations turn a handmade craft hobby into a global brand through eCommerce web design, SEO, and marketing.",
       keywords: "Kiiara Kreations case study, handmade products website Baroda, ecommerce website design Vadodara, hobby to business web design, craft brand digital marketing Gujarat",
       canonical: "https://www.dotsandcoms.in/hobby-goes-global-case-study",
       ogImage: "https://www.dotsandcoms.in/og-image.png",
@@ -67,7 +67,7 @@ export default function KiiaraCaseStudyPage() {
               <div className="lg:hidden w-full my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100">
                 <img 
                   src={imgBanner} 
-                  alt="Kiiara Kreations Handmade Passion Brand" 
+                  alt="Kiiara Kreations Handmade Passion Brand Mobile Showcase" 
                   className="w-full h-auto object-cover"
                   loading="lazy"
                   decoding="async"
@@ -131,7 +131,7 @@ export default function KiiaraCaseStudyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={imgBanner} 
-                  alt="Kiiara Kreations Handmade Passion Brand" 
+                  alt="Kiiara Kreations Handmade Passion Brand Desktop Showcase" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"

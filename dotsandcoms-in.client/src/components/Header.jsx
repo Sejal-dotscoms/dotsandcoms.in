@@ -265,6 +265,8 @@ export default function Header() {
                               <button
                                   onClick={() => setIsModalOpen(true)}
                                   data-testid="button-audit-cta"
+                                  aria-label="Request Free SEO & Website Performance Audit Report"
+                                  title="Request Free Audit Report"
                   className="hidden md:inline-flex items-center space-x-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-[#dc2626] text-white hover:bg-red-700 transition-all duration-300 border border-red-500/10 shadow-[0_0_20px_rgba(220,38,38,0.12)] hover:shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:-translate-y-0.5"
                 >
                   <span>Free Audit Report</span>
@@ -276,9 +278,10 @@ export default function Header() {
                   className={`p-2.5 rounded-full border transition-all duration-300 bg-slate-50 hover:bg-slate-100 ${
                     isOpen
                       ? "border-red-500/20 text-[#dc2626]"
-                      : "border-slate-200 text-slate-700 hover:border-slate-350"
+                      : "border-slate-200 text-slate-700 hover:border-slate-[#350]"
                   }`}
-                  aria-label="Toggle menu"
+                  aria-label="Toggle Navigation Menu"
+                  title="Toggle Navigation Menu"
                 >
                   {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>

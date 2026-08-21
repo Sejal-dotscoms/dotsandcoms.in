@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     return setPageSEO({
       title: "Website Design & Mobile App Development Company in Vadodara",
-      description: "Dots & Coms is a leading website design and mobile app development company in Vadodara offering responsive web design, Android & iOS app development, web hosting, SEO, and digital marketing services.",
+      description: "Dots & Coms is a website design and mobile app development company in Vadodara offering responsive web design, app development, web hosting, and SEO services.",
       keywords: "website design Vadodara, mobile app development Vadodara, web development company Vadodara, app developers Vadodara, website designing company Baroda, mobile application development Baroda, web hosting Vadodara, IT company Vadodara, software development Vadodara, SEO company Vadodara, digital marketing Vadodara",
       canonical: "https://www.dotsandcoms.in/"
     });

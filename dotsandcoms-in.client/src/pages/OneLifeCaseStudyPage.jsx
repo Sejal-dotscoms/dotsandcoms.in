@@ -17,8 +17,8 @@ export default function OneLifeCaseStudyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "1Life Case Study – Regional to National Digital Reach | Dots & Coms",
-      description: "See how Dots & Coms helped 1Life expand from a regional presence to national digital reach through strategic website design, SEO, and performance marketing campaigns.",
+      title: "1Life Case Study – Regional to National Digital Reach",
+      description: "See how Dots & Coms helped 1Life expand from a regional presence to national reach through strategic website design, SEO, and marketing campaigns.",
       keywords: "1Life case study, regional to national digital marketing, website design case study Gujarat, national SEO campaign India, business growth digital marketing Baroda",
       canonical: "https://www.dotsandcoms.in/1life-case-study-of-regional-to-national-reach",
       ogImage: "https://www.dotsandcoms.in/og-image.png",
@@ -67,7 +67,7 @@ export default function OneLifeCaseStudyPage() {
               <div className="lg:hidden w-full my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100">
                 <img 
                   src={imgBanner} 
-                  alt="1Life Expand From Regional Impact to National Reach" 
+                  alt="1Life Expand From Regional Impact to National Reach Mobile Banner" 
                   className="w-full h-auto object-cover"
                   loading="lazy"
                   decoding="async"
@@ -106,7 +106,7 @@ export default function OneLifeCaseStudyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={imgBanner} 
-                  alt="1Life Expand From Regional Impact to National Reach" 
+                  alt="1Life Expand From Regional Impact to National Reach Desktop Banner" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
@@ -242,7 +242,7 @@ export default function OneLifeCaseStudyPage() {
               <div className="lg:hidden w-full my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100">
                 <img 
                   src={imgApproach} 
-                  alt="Our Approach at Dots & Coms" 
+                  alt="Our Strategic Approach at Dots & Coms Mobile Overview" 
                   className="w-full h-auto object-cover"
                   loading="lazy"
                   decoding="async"
@@ -302,7 +302,7 @@ export default function OneLifeCaseStudyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={imgApproach} 
-                  alt="Our Approach at Dots & Coms" 
+                  alt="Our Strategic Approach at Dots & Coms Desktop Overview" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"

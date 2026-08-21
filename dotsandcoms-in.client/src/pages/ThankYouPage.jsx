@@ -13,7 +13,7 @@ export default function ThankYouPage() {
     window.scrollTo(0, 0);
     return setPageSEO({
       title: "Thank You for Your Order | Dots & Coms",
-      description: "Thank you for choosing Dots & Coms. Your order has been placed successfully. Our team will contact you soon.",
+      description: "Thank you for choosing Dots & Coms. Your order has been placed successfully. Our technical team will reach out to you shortly to assist with your setup.",
       keywords: "thank you page, order success, checkout complete, Dots and Coms",
       canonical: "https://www.dotsandcoms.in/thank-you"
     });

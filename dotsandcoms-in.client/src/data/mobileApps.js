@@ -4,7 +4,7 @@ import flutterImg from "../assets/images/flutter-development-Vadodara-secure-web
 
 export const bannerData = {
   title: "Mobile App Development",
-  subtitle: "Native iOS & Android engineering powered by cross-platform Flutter and React Native architectures.",
+  subtitle: "Native <strong>iOS & Android app development</strong> powered by cross-platform <strong>Flutter</strong> architectures in <strong>Vadodara</strong>.",
   breadcrumbs: [
     { label: "Services", href: "/services" },
     { label: "Mobile Apps" }

@@ -363,7 +363,7 @@ export default function FreeWebsiteAuditPage() {
             </h1>
 
             <p className="text-xs leading-relaxed text-orange-100 sm:text-sm">
-              The first logical step toward a successful digital marketing investment is to evaluate your current position and determine whether your website is truly ready to attract and retain visitors.
+              The first logical step toward a successful <strong>digital marketing investment</strong> is to evaluate your current position and determine whether your <strong>responsive website</strong> is truly ready to attract and retain visitors.
             </p>
 
             {/* Styled quote callout */}

@@ -3,7 +3,7 @@ import logoImg from "../assets/images/dots-and-coms-logo.png";
 
 export const bannerData = {
   title: "Web Hosting & Cloud Servers",
-  subtitle: "High-performance SSD cloud server configurations, Windows & Linux VPS, and secure SSL digital certificates.",
+  subtitle: "High-performance <strong>Windows web hosting</strong>, <strong>Linux VPS</strong>, and <strong>cloud hosting</strong> with 99.9% uptime in <strong>Baroda</strong>.",
   breadcrumbs: [
     { label: "Services", href: "/services" },
     { label: "Web Hosting" }

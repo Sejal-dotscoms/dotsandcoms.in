@@ -45,8 +45,8 @@ export default function ServicesPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Web Design, Mobile App & Digital Marketing Services | Dots & Coms Baroda",
-      description: "Explore full-service digital solutions from Dots & Coms including responsive web design, Android & iOS app development, cloud hosting, SEO, and digital marketing services in Baroda.",
+      title: "Web Design, Mobile App & Digital Marketing Services",
+      description: "Explore full-service digital solutions from Dots & Coms including responsive web design, app development, cloud hosting, SEO, and digital marketing.",
       keywords: "web design services Baroda, mobile app development services Vadodara, cloud hosting services Baroda, SEO services Vadodara, digital marketing agency Baroda, website development company Gujarat, IT services Baroda",
       canonical: "https://www.dotsandcoms.in/services",
     });
@@ -56,7 +56,7 @@ export default function ServicesPage() {
     <>
       <InnerBanner 
         title="Our Services" 
-        subtitle="We combine award-winning designs with high-performance software infrastructure to power your digital growth."
+        subtitle={<>We combine <strong>award-winning designs</strong> with <strong>high-performance software infrastructure</strong> to power your digital growth in <strong>Vadodara</strong>.</>}
         breadcrumbs={[{ label: "Services" }]}
       />
 

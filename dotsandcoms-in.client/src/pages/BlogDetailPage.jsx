@@ -270,6 +270,9 @@ export default function BlogDetailPage() {
 
           <div className="h-px bg-gradient-to-r from-[#dc2626]/30 via-slate-200 to-transparent mb-10" />
 
+          {/* Article Section Heading */}
+          <h2 className="sr-only">Detailed Article Content and Key Insights</h2>
+
           {/* Long description */}
           <motion.div className="blog-content"
             dangerouslySetInnerHTML={{ __html: blog.longDescription }} />

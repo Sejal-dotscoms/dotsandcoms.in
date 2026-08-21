@@ -20,6 +20,7 @@ export default function Logo({ size = "md" }) {
         alt="Dots & Coms - Web Development and Android iOS Mobile App Design Agency in Vadodara"
         className={`${logoHeight} w-auto object-contain transition-all duration-300`}
         draggable="false"
+        loading="eager"
         decoding="async"
         width="94"
         height="98"

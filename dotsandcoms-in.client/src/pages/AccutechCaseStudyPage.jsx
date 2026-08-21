@@ -16,8 +16,8 @@ export default function AccutechCaseStudyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Accutech Labels Case Study – Traditional to Digital Business | Dots & Coms",
-      description: "How Dots & Coms transformed Accutech Labels from a traditional business into a digital lead generation engine using web design, SEO, and digital marketing strategies.",
+      title: "Accutech Labels Case Study – Web Business Transformation",
+      description: "Discover how Dots & Coms transformed Accutech Labels from a traditional business into a digital lead engine using web design, SEO, and digital marketing.",
       keywords: "Accutech Labels case study, digital transformation Baroda, web design case study Vadodara, SEO case study Gujarat, lead generation website, packaging company website design",
       canonical: "https://www.dotsandcoms.in/accutechlabels-case-study-traditional-to-web-business",
       ogImage: "https://www.dotsandcoms.in/og-image.png",
@@ -66,7 +66,7 @@ export default function AccutechCaseStudyPage() {
               <div className="lg:hidden w-full my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100">
                 <img 
                   src={imgPackaging} 
-                  alt="Accutech Labels B2B Transformation" 
+                  alt="Accutech Labels B2B Digital Transformation Case Study Mobile" 
                   className="w-full h-auto object-cover"
                   loading="lazy"
                   decoding="async"
@@ -108,7 +108,7 @@ export default function AccutechCaseStudyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={imgPackaging} 
-                  alt="Accutech Labels B2B Transformation" 
+                  alt="Accutech Labels B2B Digital Transformation Case Study Desktop" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"

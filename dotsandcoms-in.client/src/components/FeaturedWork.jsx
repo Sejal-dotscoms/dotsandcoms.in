@@ -157,6 +157,8 @@ export default function FeaturedWork() {
                 <div className="border-t border-slate-100 pt-4">
                   <Link
                     to={project.link || "/contact-webdesign-mobileapp-socialmedia-marketing-baroda"}
+                    aria-label={`Read ${project.title} Case Study & Web Design Solution`}
+                    title={`Read ${project.title} Case Study`}
                     className="inline-flex items-center space-x-2 text-xs font-bold tracking-widest text-slate-800 uppercase transition-colors duration-300 group-hover:text-[#ea580c]"
                   >
                     <span>{project.link ? "Read Case Study" : "Request Audit Info"}</span>

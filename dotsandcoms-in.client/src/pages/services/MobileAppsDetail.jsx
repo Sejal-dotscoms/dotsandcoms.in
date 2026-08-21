@@ -48,8 +48,8 @@ export default function MobileAppsDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "Android & iOS Mobile App Development Experts in Gujarat | Dots & Coms",
-      description: "Mobile app development company in Vadodara offering Android, iOS, and Flutter app development services with responsive design, UI/UX focus, and reliable hosting support.",
+      title: "Android & iOS Mobile App Development Experts in Vadodara",
+      description: "Mobile app development company in Vadodara offering Android, iOS, and Flutter app development services with responsive UI/UX and reliable hosting support.",
       keywords: "android app development Vadodara, ios app development Gujarat, mobile app development company Vadodara, flutter mobile app development, mobile app design services, responsive mobile app development, app developers Gujarat, mobile application development Baroda",
       canonical: "https://www.dotsandcoms.in/android-ios-mobile-app-development-company-baroda"
     });
