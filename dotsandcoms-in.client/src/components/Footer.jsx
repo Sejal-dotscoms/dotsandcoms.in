@@ -50,15 +50,15 @@ export default function Footer() {
             <div className="flex items-start space-x-2 text-[14px]">
               <Mail className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#dc2626]" />
               <div className="flex flex-col space-y-1 leading-tight">
-                <a href="mailto:parul@dotscoms.com" aria-label="Send email to Parul at Dots & Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">parul@dotscoms.com</a>
+                 {/* <a href="mailto:parul@dotscoms.com" aria-label="Send email to Parul at Dots & Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">parul@dotscoms.com</a> */}
                 <a href="mailto:contact@dotsandcoms.in" aria-label="Send email to Contact at Dots & Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">contact@dotsandcoms.in</a>
               </div>
             </div>
             <div className="flex items-start space-x-2 text-[14px]">
               <Phone className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#dc2626]" />
               <div className="flex flex-col space-y-1 leading-tight">
-                <a href="tel:+918469332448" aria-label="Call Dots & Coms phone number +91 84693 32448" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 84693 32448</a>
-                <a href="tel:+919925072327" aria-label="Call Dots & Coms phone number +91 99250 72327" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 99250 72327</a>
+                <a href="tel:+918469332448" aria-label="Call Dots & Coms phone number +91 84693 32448" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 84693 32448</a> 
+               {/* <a href="tel:+919925072327" aria-label="Call Dots & Coms phone number +91 99250 72327" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 99250 72327</a> */}
               </div>
             </div>
             <div className="flex items-start space-x-2 text-[14px]">

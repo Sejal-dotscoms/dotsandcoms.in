@@ -41,18 +41,18 @@ export default function TechStack() {
       icon: <img src="/figma-ui-ux-developer.png" className="h-10 w-auto object-contain" alt="Figma - Collaborative design tool for custom UI UX prototypes" loading="lazy" decoding="async" width="200" height="200" />,
     },
     {
-      name: "Shopify",
-      role: "E-Commerce",
-      desc: "Robust checkouts, headless Storefront APIs, global transaction handling, and security.",
-      color: "from-lime-600/10 to-green-500/5",
-      icon: <img src="/shopify_logo_black.png" className="h-7 w-auto object-contain" alt="Shopify - Headless e-commerce development platform for online stores" loading="lazy" decoding="async" width="1000" height="286" />,
+      name: "ChatGPT",
+      role: "AI Generator",
+      desc: "Advanced LLM integration, custom GPT agents, conversational UI workflows, and automated intelligence pipelines.",
+      color: "from-emerald-500/10 to-teal-500/5",
+      icon: <img src="/chatgpt-logo.png" className="h-10 w-auto object-contain" alt="ChatGPT - AI Generator and LLM integration" loading="lazy" decoding="async" width="256" height="256" />,
     },
     {
-      name: "Hosting",
-      role: "Deployment & Scaling",
-      desc: "High-performance server configurations, web hosting infrastructure with 99.9% uptime, and auto-scaling support.",
-      color: "from-orange-500/10 to-yellow-500/5",
-      icon: <img src="/cloud-computing.png" className="h-10 w-auto object-contain" alt="Web Hosting - Secure server hosting and deployment solutions" loading="lazy" decoding="async" width="256" height="256" />,
+      name: "Claude",
+      role: "AI Generator",
+      desc: "Sophisticated reasoning models, complex code generation, long-context data synthesis, and enterprise AI solutions.",
+      color: "from-amber-600/10 to-orange-500/5",
+      icon: <img src="/claude-logo.png" className="h-10 w-auto object-contain" alt="Claude - AI Generator and advanced reasoning" loading="lazy" decoding="async" width="256" height="256" />,
     },
     {
       name: "SEO & Digital Marketing",
@@ -83,67 +83,80 @@ export default function TechStack() {
 
         {/* Logos Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {techs.map((tech, idx) => (
-            <div
-              key={tech.name}
-              className="relative"
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onMouseLeave={() => setHoveredIdx(null)}
-            >
+          {techs.map((tech, idx) => {
+            const isHovered = hoveredIdx === idx;
+            return (
               <div
-                className={`h-40 rounded-2xl glass-panel border border-slate-100 flex flex-col justify-center items-center cursor-pointer transition-all duration-300 bg-gradient-to-br bg-white ${
-                  hoveredIdx === idx
-                    ? `${tech.color} border-red-500/20 scale-[1.03] shadow-[0_15px_30px_-10px_rgba(220,38,38,0.06)]`
-                    : "hover:border-slate-200"
+                key={tech.name}
+                className={`relative h-40 rounded-2xl overflow-hidden glass-panel border cursor-pointer bg-white transition-all duration-500 ease-out ${
+                  isHovered
+                    ? "border-red-500/30 shadow-[0_15px_30px_-5px_rgba(220,38,38,0.08)] scale-[1.02]"
+                    : "border-slate-100 shadow-sm hover:border-slate-200"
                 }`}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
               >
-                <div className="mb-3 transform transition-transform duration-300 group-hover:scale-110">
-                  {tech.icon}
-                </div>
-                <h3 className="text-center text-sm font-bold text-slate-800 tracking-wider uppercase font-heading">
-                  {tech.name}
-                </h3>
-                <span className="text-[10px] text-slate-400 uppercase font-mono mt-1">
-                  {tech.role}
-                </span>
-              </div>
+                {/* Normal Logo State */}
+                <motion.div
+                  className="h-full w-full flex flex-col justify-center items-center p-4 text-center select-none"
+                  animate={{
+                    opacity: isHovered ? 0 : 1,
+                    y: isHovered ? -10 : 0,
+                    scale: isHovered ? 0.94 : 1,
+                  }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="mb-3 transform transition-transform duration-500 ease-out">
+                    {tech.icon}
+                  </div>
+                  <h3 className="text-center text-sm font-bold text-slate-800 tracking-wider uppercase font-heading">
+                    {tech.name}
+                  </h3>
+                  <span className="text-[10px] text-slate-400 uppercase font-mono mt-1">
+                    {tech.role}
+                  </span>
+                </motion.div>
 
-              {/* Tooltip Overlay Panel */}
-              <AnimatePresence>
-                {hoveredIdx === idx && (
-                  <motion.div
-                    className={`absolute z-30 bottom-[108%] w-[260px] xs:w-[280px] rounded-xl glass-panel border border-red-500/10 p-4 sm:p-5 shadow-2xl text-left pointer-events-none bg-white/95 
-                      ${idx % 2 === 0 
-                        ? "left-0 origin-bottom-left md:left-1/2 md:-translate-x-1/2 md:origin-bottom" 
-                        : "right-0 origin-bottom-right md:left-1/2 md:-translate-x-1/2 md:origin-bottom"
-                      }
-                    `}
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <span className="text-[10px] font-bold font-mono text-[#ea580c] uppercase tracking-widest block mb-1">
-                      System Deployment
-                    </span>
-                    <div className="text-slate-800 font-bold font-heading text-sm mb-2">
-                      {tech.name}
-                    </div>
-                    <p className="text-slate-500 text-xs leading-relaxed">
-                      {tech.desc}
-                    </p>
-                    {/* Tooltip Arrow */}
-                    <div className={`absolute top-full border-8 border-transparent border-t-white
-                      ${idx % 2 === 0 
-                        ? "left-[29%] -translate-x-1/2 md:left-1/2 md:-translate-x-1/2" 
-                        : "right-[29%] translate-x-1/2 md:left-1/2 md:-translate-x-1/2"
-                      }
-                    `} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                {/* In-Card Hover Detail Overlay */}
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div
+                      className={`absolute inset-0 z-10 p-5 flex flex-col justify-center text-left bg-gradient-to-br ${tech.color} bg-white rounded-2xl select-none`}
+                      initial={{ opacity: 0, y: 12, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.96 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <motion.span
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-[10px] font-bold font-mono text-[#ea580c] uppercase tracking-widest block mb-1"
+                      >
+                        System Deployment
+                      </motion.span>
+                      <motion.div
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-slate-800 font-bold font-heading text-sm mb-1"
+                      >
+                        {tech.name}
+                      </motion.div>
+                      <motion.p
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-slate-600 text-xs leading-relaxed"
+                      >
+                        {tech.desc}
+                      </motion.p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
 
       </div>
