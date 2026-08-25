@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import Lenis from "lenis";
 
 // Custom global elements
@@ -30,7 +30,7 @@ export default function Home() {
   // Set page-specific SEO metadata on mount
   useEffect(() => {
     return setPageSEO({
-      title: "Website Design & Mobile App Development Company in Vadodara",
+        title: "Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat ",
       description: "Dots & Coms is a website design and mobile app development company in Vadodara offering responsive web design, app development, web hosting, and SEO services.",
       keywords: "website design Vadodara, mobile app development Vadodara, web development company Vadodara, app developers Vadodara, website designing company Baroda, mobile application development Baroda, web hosting Vadodara, IT company Vadodara, software development Vadodara, SEO company Vadodara, digital marketing Vadodara",
       canonical: "https://www.dotsandcoms.in/"
@@ -68,7 +68,7 @@ export default function Home() {
     <>
       <LoadingScreen onComplete={() => setIsLoading(false)} />
       
-      <div className="relative min-h-screen text-slate-600 bg-[#f8fafc]">
+      <div className="relative min-h-screen bg-[#f8fafc] text-slate-600">
         {/* Custom interactive elements */}
         <ParticleBackground />
 
