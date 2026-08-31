@@ -59,82 +59,80 @@ export default function WebStoriesPage() {
           {/* 9:16 Tall Story Cards Grid */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
             {webStories.map((story, index) => (
-              <motion.a
+              <motion.div
                 key={story.id}
-                href={story.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 whileHover={{ y: -8 }}
-                className="group relative flex cursor-pointer flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-md transition-all duration-500 hover:shadow-[0_22px_40px_rgba(0,0,0,0.08)]"
-                style={{
-                  "--accent-color": story.accentColor
-                }}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-md transition-all duration-500 hover:shadow-[0_22px_40px_rgba(0,0,0,0.08)]"
               >
-                {/* Image Container */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                  <motion.img
-                    src={story.image}
-                    alt={story.title}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                <Link to={story.url} className="flex flex-col justify-between h-full w-full">
+                  {/* Image Container */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                    <motion.img
+                      src={story.image}
+                      alt={story.title}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {/* Soft top overlay for category readability */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/20 to-transparent" />
+                    
+                    {/* Category Pill Overlay */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span
+                        className="rounded-full border px-3.5 py-1 font-mono font-bold tracking-widest text-[10px] uppercase backdrop-blur-md select-none"
+                        style={{
+                          backgroundColor: `${story.accentColor}15`,
+                          borderColor: `${story.accentColor}40`,
+                          color: story.accentColor
+                        }}
+                      >
+                        {story.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="flex flex-1 flex-col justify-between space-y-4 p-6 text-left">
+                    <div className="space-y-2">
+                      <h3 className="line-clamp-2 text-lg leading-tight font-bold tracking-tight text-slate-800 transition-colors group-hover:text-[#dc2626] md:text-xl">
+                        {story.title}
+                      </h3>
+                      <p className="line-clamp-3 font-sans text-xs leading-relaxed font-normal text-slate-500 md:text-sm">
+                        {story.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                      <div
+                        className="inline-flex items-center gap-2 border-b border-transparent pb-1 font-mono text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:border-current"
+                        style={{
+                          color: story.accentColor
+                        }}
+                      >
+                        <span>View Guide</span>
+                        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-100 bg-slate-50 text-slate-400 transition-colors group-hover:border-red-100 group-hover:bg-red-50 group-hover:text-[#dc2626]">
+                        <BookOpen className="h-3.5 w-3.5" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom edge color glow bar */}
+                  <div
+                    className="absolute bottom-0 left-0 z-10 h-[4px] w-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{
+                      backgroundColor: story.accentColor,
+                      boxShadow: `0 0 15px ${story.accentColor}`
+                    }}
                   />
-                  {/* Soft top overlay for category readability */}
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/20 to-transparent" />
-                  
-                  {/* Category Pill Overlay */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span
-                      className="rounded-full border px-3.5 py-1 font-mono font-bold tracking-widest text-[10px] uppercase backdrop-blur-md select-none"
-                      style={{
-                        backgroundColor: `${story.accentColor}15`,
-                        borderColor: `${story.accentColor}40`,
-                        color: story.accentColor
-                      }}
-                    >
-                      {story.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Container */}
-                <div className="flex flex-1 flex-col justify-between space-y-4 p-6 text-left">
-                  <div className="space-y-2">
-                    <h3 className="line-clamp-2 text-lg leading-tight font-bold tracking-tight text-slate-800 transition-colors group-hover:text-[#dc2626] md:text-xl">
-                      {story.title}
-                    </h3>
-                    <p className="line-clamp-3 font-sans text-xs leading-relaxed font-normal text-slate-500 md:text-sm">
-                      {story.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
-                    <div
-                      className="inline-flex items-center gap-2 border-b border-transparent pb-1 font-mono text-xs font-bold tracking-widest uppercase transition-all duration-300 group-hover:border-current"
-                      style={{
-                        color: story.accentColor
-                      }}
-                    >
-                      <span>View Story</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-100 bg-slate-50 text-slate-400 transition-colors group-hover:border-red-100 group-hover:bg-red-50 group-hover:text-[#dc2626]">
-                      <BookOpen className="h-3.5 w-3.5" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom edge color glow bar */}
-                <div
-                  className="absolute bottom-0 left-0 z-10 h-[4px] w-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{
-                    backgroundColor: story.accentColor,
-                    boxShadow: `0 0 15px ${story.accentColor}`
-                  }}
-                />
-              </motion.a>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>

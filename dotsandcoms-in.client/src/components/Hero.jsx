@@ -147,9 +147,7 @@ export default function Hero() {
 
                     {/* Staggered Text Reveal Headline */}
                     <div className="relative">
-                        <h1 className="sr-only">Turning Vision Into Impactful Digital Experiences</h1>
-                        <motion.div
-                            aria-hidden="true"
+                        <motion.h1
                             className="text-3xl sm:text-5xl md:text-6xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.08] flex flex-col"
                             variants={titleContainerVariants}
                             initial="hidden"
@@ -170,7 +168,7 @@ export default function Hero() {
                                     <span className="text-gradient-orange">Digital Experiences</span>
                                 </motion.span>
                             </span>
-                        </motion.div>
+                        </motion.h1>
                     </div>
 
                     <motion.p
