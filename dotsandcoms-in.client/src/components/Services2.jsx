@@ -127,18 +127,15 @@ export default function Services2() {
                     {service.num}
                   </span>
 
-                  {/* Vertical Text Stack (Letters aligned vertically) */}
-                  <div className="flex flex-col items-center justify-center my-auto py-4 space-y-1.5 lg:space-y-2 transition-all duration-300">
-                    {service.shortTitle.split("").map((char, charIdx) => (
-                      <span
-                        key={charIdx}
-                        className={`text-sm lg:text-[23px] font-black font-heading uppercase transition-colors duration-300 leading-none ${
-                          isHovered ? "text-[#dc2626]" : "text-slate-500/70"
-                        }`}
-                      >
-                        {char === " " ? "\u00A0" : char}
-                      </span>
-                    ))}
+                  {/* Vertical Text Stack (CSS vertical writing mode for optimal DOM size) */}
+                  <div className="flex flex-col items-center justify-center my-auto py-4 transition-all duration-300">
+                    <span
+                      className={`text-xs lg:text-sm font-black font-heading uppercase tracking-widest transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 select-none ${
+                        isHovered ? "text-[#dc2626]" : "text-slate-500/70"
+                      }`}
+                    >
+                      {service.shortTitle}
+                    </span>
                   </div>
 
                   {/* Icon */}

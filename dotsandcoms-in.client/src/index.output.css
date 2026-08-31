@@ -4117,6 +4117,9 @@
     -webkit-user-select: none;
     user-select: none;
   }
+  .\[writing-mode\:vertical-lr\] {
+    writing-mode: vertical-lr;
+  }
   @media (hover: hover) {
     .group-hover\:w-20:is(:where(.group):hover *) {
       width: calc(var(--spacing) * 20);

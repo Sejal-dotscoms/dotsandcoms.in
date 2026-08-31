@@ -204,36 +204,36 @@ export default function WebHostingDetail() {
                               </td>
                             ))}
                           </tr>
-
-                          {/* Features Groups */}
-                          {websiteHostingData.pricing.features.map((group, groupIdx) => (
-                            <Fragment key={groupIdx}>
-                              <tr>
-                                <td colSpan="6" className="bg-slate-100/80 p-3 font-extrabold text-xs uppercase tracking-widest text-[#ea580c] border-y border-slate-200">
-                                  {group.group}
-                                </td>
-                              </tr>
-                              {group.items.map((feature, featureIdx) => (
-                                <tr key={featureIdx} className="border-b border-slate-200 hover:bg-slate-50/30 transition-colors">
-                                  <td className="p-4 text-sm font-semibold text-slate-700 border-r border-slate-200">
-                                    {feature.name}
-                                    {feature.spec && <><br /><span className="text-xs font-normal text-slate-400">{feature.spec}</span></>}
-                                  </td>
-                                  {feature.values.map((val, vIdx) => (
-                                    <td 
-                                      key={vIdx} 
-                                      className={`p-4 text-center text-sm border-r border-slate-200 last:border-r-0 ${
-                                        vIdx % 2 === 1 ? "bg-slate-50/30" : ""
-                                      }`}
-                                    >
-                                      {val === true ? <CheckIcon /> : val}
-                                    </td>
-                                  ))}
-                                </tr>
-                              ))}
-                            </Fragment>
-                          ))}
                         </tbody>
+
+                        {/* Features Groups — separate tbody per group to avoid excessive parent DOM width */}
+                        {websiteHostingData.pricing.features.map((group, groupIdx) => (
+                          <tbody key={groupIdx}>
+                            <tr>
+                              <td colSpan="6" className="bg-slate-100/80 p-3 font-extrabold text-xs uppercase tracking-widest text-[#ea580c] border-y border-slate-200">
+                                {group.group}
+                              </td>
+                            </tr>
+                            {group.items.map((feature, featureIdx) => (
+                              <tr key={featureIdx} className="border-b border-slate-200 hover:bg-slate-50/30 transition-colors">
+                                <td className="p-4 text-sm font-semibold text-slate-700 border-r border-slate-200">
+                                  {feature.name}
+                                  {feature.spec && <><br /><span className="text-xs font-normal text-slate-400">{feature.spec}</span></>}
+                                </td>
+                                {feature.values.map((val, vIdx) => (
+                                  <td 
+                                    key={vIdx} 
+                                    className={`p-4 text-center text-sm border-r border-slate-200 last:border-r-0 ${
+                                      vIdx % 2 === 1 ? "bg-slate-50/30" : ""
+                                    }`}
+                                  >
+                                    {val === true ? <CheckIcon /> : val}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        ))}
                       </table>
                     </div>
                   </div>

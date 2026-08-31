@@ -54,9 +54,10 @@ try {
     }
   }
 
-  // Ensure /sitemap, /sitemap.html and /blogs are present
+  // Ensure /sitemap, /sitemap.html, /web-stories, and /blogs are present
   paths.add('/sitemap');
   paths.add('/blogs');
+  paths.add('/web-stories');
 
   const baseUrl = 'https://www.dotsandcoms.in';
   const currentDate = new Date().toISOString().split('T')[0];

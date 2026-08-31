@@ -9,7 +9,7 @@
  * @param {string} opts.canonical     - canonical URL
  * @param {string} [opts.ogImage]     - OG image URL (defaults to site og-image)
  */
-export function setPageSEO({ title, description, keywords, canonical, ogImage }) {
+export function setPageSEO({ title, description, keywords, canonical, ogImage, breadcrumbs }) {
   const DEFAULT_TITLE = "Website Design & Mobile App Development Company in Vadodara";
   const DEFAULT_IMAGE = "https://www.dotsandcoms.in/og-image.png";
 
@@ -52,22 +52,62 @@ export function setPageSEO({ title, description, keywords, canonical, ogImage })
   const slots = [
     setMeta("meta[name='description']",            "content", description),
     setMeta("meta[name='keywords']",               "content", keywords),
+    setMeta("meta[name='robots']",                 "content", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"),
     setMeta("link[rel='canonical']",               "href",    canonical),
     // OG
     setMeta("meta[property='og:type']",            "content", "website"),
+    setMeta("meta[property='og:site_name']",       "content", "Dots & Coms"),
+    setMeta("meta[property='og:locale']",          "content", "en_US"),
     setMeta("meta[property='og:title']",           "content", title),
     setMeta("meta[property='og:description']",     "content", description),
     setMeta("meta[property='og:url']",             "content", canonical),
     setMeta("meta[property='og:image']",           "content", imgUrl),
-    // Twitter
+    setMeta("meta[property='og:image:alt']",       "content", title || "Dots & Coms Vadodara"),
+    // Twitter Card (Both name and property selectors for complete validation)
     setMeta("meta[name='twitter:card']",           "content", "summary_large_image"),
     setMeta("meta[name='twitter:site']",           "content", "@dotsandcoms"),
     setMeta("meta[name='twitter:creator']",        "content", "@dotsandcoms"),
+    setMeta("meta[name='twitter:domain']",         "content", "dotsandcoms.in"),
     setMeta("meta[name='twitter:title']",          "content", title),
     setMeta("meta[name='twitter:description']",    "content", description),
     setMeta("meta[name='twitter:url']",            "content", canonical),
     setMeta("meta[name='twitter:image']",          "content", imgUrl),
+    setMeta("meta[name='twitter:image:src']",      "content", imgUrl),
+    setMeta("meta[name='twitter:image:alt']",      "content", title || "Dots & Coms Vadodara"),
+    setMeta("meta[property='twitter:title']",      "content", title),
+    setMeta("meta[property='twitter:description']","content", description),
+    setMeta("meta[property='twitter:image']",      "content", imgUrl),
   ];
+
+  // ── Dynamic Breadcrumb Schema ──
+  let schemaScript = document.getElementById("dynamic-page-schema");
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    if (!schemaScript) {
+      schemaScript = document.createElement("script");
+      schemaScript.id = "dynamic-page-schema";
+      schemaScript.type = "application/ld+json";
+      document.head.appendChild(schemaScript);
+    }
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.dotsandcoms.in/"
+        },
+        ...breadcrumbs.map((crumb, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 2,
+          "name": crumb.label,
+          "item": crumb.href ? (crumb.href.startsWith("http") ? crumb.href : `https://www.dotsandcoms.in${crumb.href}`) : canonical
+        }))
+      ]
+    };
+    schemaScript.textContent = JSON.stringify(schemaData);
+  }
 
   // ── cleanup ───────────────────────────────────────────────────────────────
   return () => {
@@ -81,5 +121,8 @@ export function setPageSEO({ title, description, keywords, canonical, ogImage })
         }
       }
     });
+    if (schemaScript) {
+      schemaScript.remove();
+    }
   };
 }

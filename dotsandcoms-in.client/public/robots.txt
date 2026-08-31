@@ -3,6 +3,7 @@ Disallow: /cgi-bin/
 Disallow: /poweradmin/
 Disallow: /poweradmin
 
+Allow: /
 Allow: /blogs
 Allow: /blogs/
 
