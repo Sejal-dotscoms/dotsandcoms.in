@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import InnerBanner from "../../components/ui/InnerBanner";
 import { subServices, bannerData, ctaData } from "../../data/mobileApps";
 import { setPageSEO } from "../../utils/seo";
+import { getRouteSEO } from "../../seo/publicRoutes";
 
 // Reusable 3D Tilt Card component with layered offset backing
 function TiltCard({ src, alt, offsetBorder, glowColor, width, height }) {
@@ -47,12 +48,7 @@ function TiltCard({ src, alt, offsetBorder, glowColor, width, height }) {
 export default function MobileAppsDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Android & iOS Mobile App Development Experts in Vadodara",
-      description: "Mobile app development company in Vadodara offering Android, iOS, and Flutter app development services with responsive UI/UX and reliable hosting support.",
-      keywords: "android app development Vadodara, ios app development Gujarat, mobile app development company Vadodara, flutter mobile app development, mobile app design services, responsive mobile app development, app developers Gujarat, mobile application development Baroda",
-      canonical: "https://www.dotsandcoms.in/android-ios-mobile-app-development-company-baroda"
-    });
+    return setPageSEO(getRouteSEO("/android-ios-mobile-app-development-company-baroda"));
   }, []);
 
   return (

@@ -4,6 +4,7 @@ import { CheckCircle2, TrendingUp, Target, AlertTriangle, Lightbulb, Heart, Chev
 import InnerBanner from "../components/ui/InnerBanner";
 import { Link } from "react-router-dom";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 // Image imports
 import imgBanner from "../assets/images/1life-expand-from-regional-impact-to-national-reach-img.png";
@@ -16,13 +17,7 @@ import imgSeo from "../assets/images/seo-and-search-visibility-strategy-img.png"
 export default function OneLifeCaseStudyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "1Life Case Study – Regional to National Digital Reach",
-      description: "See how Dots & Coms helped 1Life expand from a regional presence to national reach through strategic website design, SEO, and marketing campaigns.",
-      keywords: "1Life case study, regional to national digital marketing, website design case study Gujarat, national SEO campaign India, business growth digital marketing Baroda",
-      canonical: "https://www.dotsandcoms.in/1life-case-study-of-regional-to-national-reach",
-      ogImage: "https://www.dotsandcoms.in/og-image.png",
-    });
+    return setPageSEO(getRouteSEO("/1life-case-study-of-regional-to-national-reach"));
   }, []);
 
   const fadeInUp = {

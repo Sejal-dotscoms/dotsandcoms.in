@@ -5,6 +5,7 @@ import { Monitor, Smartphone, Cloud, Target, ArrowRight } from "lucide-react";
 import InnerBanner from "../components/ui/InnerBanner";
 
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 const servicesHub = [
   {
@@ -44,12 +45,7 @@ const servicesHub = [
 export default function ServicesPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Web Design, Mobile App & Digital Marketing Services",
-      description: "Explore full-service digital solutions from Dots & Coms including responsive web design, app development, cloud hosting, SEO, and digital marketing.",
-      keywords: "web design services Baroda, mobile app development services Vadodara, cloud hosting services Baroda, SEO services Vadodara, digital marketing agency Baroda, website development company Gujarat, IT services Baroda",
-      canonical: "https://www.dotsandcoms.in/services",
-    });
+    return setPageSEO(getRouteSEO("/services"));
   }, []);
 
   return (

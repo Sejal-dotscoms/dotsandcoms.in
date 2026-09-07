@@ -4,6 +4,7 @@ import { CheckCircle2, TrendingUp, Target, AlertTriangle, Lightbulb, Heart, Chev
 import InnerBanner from "../components/ui/InnerBanner";
 import { Link } from "react-router-dom";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 // Image imports
 import imgPackaging from "../assets/images/accutechlabels-packaging-labels-and-customized-labeling-solutions.png";
@@ -15,13 +16,7 @@ import imgSeo from "../assets/images/seo-and-search-visibility-strategy-img.png"
 export default function AccutechCaseStudyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Accutech Labels Case Study – Web Business Transformation",
-      description: "Discover how Dots & Coms transformed Accutech Labels from a traditional business into a digital lead engine using web design, SEO, and digital marketing.",
-      keywords: "Accutech Labels case study, digital transformation Baroda, web design case study Vadodara, SEO case study Gujarat, lead generation website, packaging company website design",
-      canonical: "https://www.dotsandcoms.in/accutechlabels-case-study-traditional-to-web-business",
-      ogImage: "https://www.dotsandcoms.in/og-image.png",
-    });
+    return setPageSEO(getRouteSEO("/accutechlabels-case-study-traditional-to-web-business"));
   }, []);
 
   const fadeInUp = {

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import InnerBanner from "../components/ui/InnerBanner";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 export default function TermsPage() {
   useEffect(() => {
@@ -15,12 +16,7 @@ export default function TermsPage() {
       window.scrollTo(0, 0);
     }
 
-    return setPageSEO({
-      title: "Terms & Conditions | Privacy Policy | Dots & Coms Baroda",
-      description: "Read the terms and conditions and privacy policy for using Dots & Coms web design, mobile app development, hosting, and digital marketing services.",
-      keywords: "terms and conditions Dots and Coms, privacy policy web design company, website usage terms Baroda, digital agency terms Gujarat, web hosting terms Vadodara",
-      canonical: "https://www.dotsandcoms.in/terms-and-conditions",
-    });
+    return setPageSEO(getRouteSEO("/terms-and-conditions"));
   }, []);
 
   return (

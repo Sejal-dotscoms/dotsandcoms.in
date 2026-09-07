@@ -5,6 +5,7 @@ import { ArrowUpRight, Smartphone, ExternalLink, Monitor, Layers } from "lucide-
 import InnerBanner from "../components/ui/InnerBanner";
 import { projects } from "../data/projects";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 const categories = [
   { id: "All", label: "All Work", icon: Layers },
@@ -302,12 +303,7 @@ export default function WorkPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Portfolio – Web Design & Mobile App Development Work",
-      description: "Portfolio showcasing responsive website design, web application development, eCommerce platforms, mobile app development, and SEO project work.",
-      keywords: "web design portfolio Vadodara, responsive website design and development, web application development, ecommerce website development, mobile app development portfolio, iPad mobile application development, website design projects",
-      canonical: "https://www.dotsandcoms.in/website-mobile-app-development-company-portfolio-baroda"
-    });
+    return setPageSEO(getRouteSEO("/website-mobile-app-development-company-portfolio-baroda"));
   }, []);
 
   const filteredProjects = projects.filter((project) => {

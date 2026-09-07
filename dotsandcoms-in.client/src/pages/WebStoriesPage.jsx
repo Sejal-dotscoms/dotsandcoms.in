@@ -5,16 +5,12 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 import InnerBanner from "../components/ui/InnerBanner";
 import { webStories, introData, bannerData } from "../data/webStories";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 export default function WebStoriesPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Web Stories – Visual Digital Stories by Dots & Coms Baroda",
-      description: "Explore engaging Web Stories created by Dots & Coms covering website design tips, mobile app development, digital marketing, and SEO strategies.",
-      keywords: "web stories Vadodara, digital stories Baroda, web design tips, mobile app stories, SEO tips Vadodara, digital marketing stories, Google web stories India",
-      canonical: "https://www.dotsandcoms.in/web-stories",
-    });
+    return setPageSEO(getRouteSEO("/web-stories"));
   }, []);
 
   return (

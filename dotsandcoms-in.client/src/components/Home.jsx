@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import LoadingScreen from "./LoadingScreen";
 import ParticleBackground from "./ParticleBackground";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 // Sections
 import Header from "./Header";
@@ -29,12 +30,7 @@ export default function Home() {
 
   // Set page-specific SEO metadata on mount
   useEffect(() => {
-    return setPageSEO({
-        title: "Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat ",
-      description: "Dots & Coms is a website design and mobile app development company in Vadodara offering responsive web design, app development, web hosting, and SEO services.",
-      keywords: "website design Vadodara, mobile app development Vadodara, web development company Vadodara, app developers Vadodara, website designing company Baroda, mobile application development Baroda, web hosting Vadodara, IT company Vadodara, software development Vadodara, SEO company Vadodara, digital marketing Vadodara",
-      canonical: "https://www.dotsandcoms.in/"
-    });
+    return setPageSEO(getRouteSEO("/"));
   }, []);
 
   // Initialize Lenis Smooth Scroll

@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 import Logo from "../components/Logo";
 import seoImg from "../assets/images/on-page-seo-Vadodara-website-optimization.png";
 import socialImg from "../assets/images/social-media-services-Baroda-online-branding.png";
@@ -124,14 +125,7 @@ export default function FreeWebsiteAuditPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Free SEO & Website Performance Audit | Dots & Coms",
-      description:
-        "Get a free SEO and website performance audit from Dots & Coms, Vadodara. Uncover speed, ranking & optimization issues — book your audit today.",
-      keywords:
-        "free SEO audit, website performance audit, SEO audit Vadodara, website speed audit, free website audit, SEO analysis tool, digital marketing audit, website health check Vadodara",
-      canonical: "https://www.dotsandcoms.in/free-seo-performance-website-audit"
-    });
+    return setPageSEO(getRouteSEO("/free-seo-performance-website-audit"));
   }, []);
 
   const validateField = (field, value) => {

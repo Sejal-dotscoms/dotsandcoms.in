@@ -30,4 +30,7 @@
     </ProjectReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\dotsandcoms-in.client\public\seo-routes.json" Link="seo-routes.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
