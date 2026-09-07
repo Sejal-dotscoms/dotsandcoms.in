@@ -23,6 +23,7 @@ builder.Services.AddScoped<ILegacyTokenService, LegacyTokenService>();
 builder.Services.AddScoped<IAdminAuthService, AdminAuthService>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddHttpClient();
+builder.Services.AddSingleton<SeoRouteCatalog>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactPolicy",
@@ -78,6 +79,15 @@ app.Use(async (context, next) =>
     await next();
 });
 
+// Marketing pages: rewrite homepage-shell meta to the requested route before static files
+app.Use(async (context, next) =>
+{
+    var catalog = context.RequestServices.GetRequiredService<SeoRouteCatalog>();
+    if (await TryWriteSeoHtmlAsync(context, catalog))
+        return;
+    await next();
+});
+
 app.UseDefaultFiles();
 app.UseStaticFiles(new StaticFileOptions
 {
@@ -126,15 +136,21 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Serve blog detail pages with blog-specific meta tags injected into index.html
-// so they appear in View Page Source and are visible to social/SEO crawlers.
+static string ResolveSpaShellPath(IWebHostEnvironment env)
+{
+    var shell = Path.Combine(env.WebRootPath ?? "", "spa-shell.html");
+    if (File.Exists(shell)) return shell;
+    return Path.Combine(env.WebRootPath ?? "", "index.html");
+}
+
+// Blog detail: unique meta + crawler-visible article body from spa-shell.html
 app.Use(async (context, next) =>
 {
     try
     {
         var path  = context.Request.Path.Value ?? "";
         var match = System.Text.RegularExpressions.Regex.Match(
-            path, @"^/blogs/([^/?#]+)$",
+            path, @"^/blogs/([^/?#]+)/?$",
             System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
         if (context.Request.Method == "GET" && match.Success)
@@ -152,12 +168,13 @@ app.Use(async (context, next) =>
 
             if (blog != null)
             {
-                var indexPath = Path.Combine(env.WebRootPath, "index.html");
-                if (File.Exists(indexPath))
+                var shellPath = ResolveSpaShellPath(env);
+                if (File.Exists(shellPath))
                 {
-                    var html = await File.ReadAllTextAsync(indexPath);
+                    var html = await File.ReadAllTextAsync(shellPath);
                     html = BlogMetaInjector.Inject(html, blog);
                     context.Response.ContentType = "text/html; charset=utf-8";
+                    context.Response.Headers["Cache-Control"] = "public, max-age=3600";
                     await context.Response.WriteAsync(html);
                     return;
                 }
@@ -170,6 +187,105 @@ app.Use(async (context, next) =>
     }
 
     await next();
+});
+
+// Blog listing: crawler-visible post titles/links for GET /blogs
+app.Use(async (context, next) =>
+{
+    try
+    {
+        var path = context.Request.Path.Value ?? "";
+        var isBlogsIndex = path.Equals("/blogs", StringComparison.OrdinalIgnoreCase)
+                           || path.Equals("/blogs/", StringComparison.OrdinalIgnoreCase);
+
+        if (context.Request.Method == "GET" && isBlogsIndex)
+        {
+            var db  = context.RequestServices.GetRequiredService<AppDbContext>();
+            var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+            var today = DateTime.UtcNow.Date;
+
+            var blogs = await db.Blogs.AsNoTracking()
+                .Where(b =>
+                    b.IsVisible &&
+                    b.BlogDate.Date <= today &&
+                    (b.ExpiryDate == null || b.ExpiryDate.Value.Date >= today))
+                .OrderByDescending(b => b.BlogDate)
+                .Select(b => new Blog
+                {
+                    Title = b.Title,
+                    BrowserUrl = b.BrowserUrl,
+                    ShortDescription = b.ShortDescription
+                })
+                .ToListAsync();
+
+            var shellPath = ResolveSpaShellPath(env);
+            if (File.Exists(shellPath))
+            {
+                var html = await File.ReadAllTextAsync(shellPath);
+                html = BlogMetaInjector.InjectBlogList(html, blogs);
+                context.Response.ContentType = "text/html; charset=utf-8";
+                context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+                await context.Response.WriteAsync(html);
+                return;
+            }
+        }
+    }
+    catch
+    {
+        // Fall through
+    }
+
+    await next();
+});
+
+// Serve prerendered marketing HTML at wwwroot/{path}/index.html (no trailing-slash required)
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method != "GET" && context.Request.Method != "HEAD")
+    {
+        await next();
+        return;
+    }
+
+    var path = context.Request.Path.Value ?? "";
+    if (string.IsNullOrEmpty(path) || path == "/" ||
+        Path.HasExtension(path) ||
+        path.StartsWith("/api", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/uploads", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/poweradmin", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/swagger", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/blogs", StringComparison.OrdinalIgnoreCase))
+    {
+        await next();
+        return;
+    }
+
+    var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+    var webRoot = env.WebRootPath;
+    if (string.IsNullOrEmpty(webRoot))
+    {
+        await next();
+        return;
+    }
+
+    var relative = path.Trim('/');
+    var candidate = Path.GetFullPath(Path.Combine(webRoot, relative.Replace('/', Path.DirectorySeparatorChar), "index.html"));
+    var rootFull = Path.GetFullPath(webRoot);
+    if (!candidate.StartsWith(rootFull, StringComparison.OrdinalIgnoreCase) || !File.Exists(candidate))
+    {
+        await next();
+        return;
+    }
+
+    var html = await File.ReadAllTextAsync(candidate);
+    var catalog = context.RequestServices.GetRequiredService<SeoRouteCatalog>();
+    var norm = SeoRouteCatalog.Normalize(path);
+    if (catalog.TryGet(norm, out var seo))
+        html = PageMetaInjector.Inject(html, seo);
+
+    context.Response.ContentType = "text/html; charset=utf-8";
+    context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+    await context.Response.WriteAsync(html);
 });
 
 // SPA Fallback with 404 status code check for unrecognized routes
@@ -221,6 +337,79 @@ app.Use(async (context, next) =>
     await next();
 });
 
-app.MapFallbackToFile("/index.html");
+// Prefer spa-shell.html (empty #root) so fallback/admin never get prerendered homepage HTML
+app.MapFallback(async context =>
+{
+    var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+    var shellPath = ResolveSpaShellPath(env);
+    if (!File.Exists(shellPath))
+    {
+        context.Response.StatusCode = 404;
+        return;
+    }
+
+    var html = await File.ReadAllTextAsync(shellPath);
+    var path = SeoRouteCatalog.Normalize(context.Request.Path.Value ?? "");
+    if (path != "/" && !path.StartsWith("/blogs", StringComparison.OrdinalIgnoreCase))
+    {
+        var catalog = context.RequestServices.GetRequiredService<SeoRouteCatalog>();
+        if (catalog.TryGet(path, out var seo))
+            html = PageMetaInjector.Inject(html, seo);
+    }
+
+    context.Response.ContentType = "text/html; charset=utf-8";
+    context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+    await context.Response.WriteAsync(html);
+});
+
+static async Task<bool> TryWriteSeoHtmlAsync(HttpContext context, SeoRouteCatalog catalog)
+{
+    if (context.Request.Method != HttpMethods.Get && context.Request.Method != HttpMethods.Head)
+        return false;
+
+    var path = SeoRouteCatalog.Normalize(context.Request.Path.Value ?? "");
+    if (path == "/" ||
+        Path.HasExtension(path) ||
+        path.StartsWith("/api", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/uploads", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/poweradmin", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/swagger", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/blogs", StringComparison.OrdinalIgnoreCase))
+        return false;
+
+    if (!catalog.TryGet(path, out var seo))
+        return false;
+
+    var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+    var html = await ReadMarketingHtmlAsync(env, path);
+    if (html == null)
+        return false;
+
+    html = PageMetaInjector.Inject(html, seo);
+    context.Response.ContentType = "text/html; charset=utf-8";
+    context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+    await context.Response.WriteAsync(html);
+    return true;
+}
+
+static async Task<string?> ReadMarketingHtmlAsync(IWebHostEnvironment env, string path)
+{
+    var webRoot = env.WebRootPath;
+    if (string.IsNullOrEmpty(webRoot)) return null;
+
+    var relative = path.Trim('/');
+    var candidate = Path.GetFullPath(Path.Combine(webRoot, relative.Replace('/', Path.DirectorySeparatorChar), "index.html"));
+    var rootFull = Path.GetFullPath(webRoot);
+    if (candidate.StartsWith(rootFull, StringComparison.OrdinalIgnoreCase) && File.Exists(candidate))
+        return await File.ReadAllTextAsync(candidate);
+
+    var shellPath = Path.Combine(webRoot, "spa-shell.html");
+    if (File.Exists(shellPath))
+        return await File.ReadAllTextAsync(shellPath);
+
+    // No dedicated shell — do not use prerendered homepage index.html (wrong body).
+    // Fall through so SpaProxy/Vite can serve in development.
+    return null;
+}
 
 app.Run();

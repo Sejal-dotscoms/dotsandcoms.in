@@ -2,16 +2,12 @@ import { useEffect } from "react";
 import InnerBanner from "../components/ui/InnerBanner";
 import SitemapGrid from "../components/SitemapGrid";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 export default function SitemapPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Sitemap – Explore All Pages & Links | Dots & Coms Baroda",
-      description: "Navigate through the corporate directory of Dots & Coms. Find links to website design, app development, blogs, hosting, and digital marketing.",
-      keywords: "sitemap, dots and coms directory, website map, blogs directory, tech articles, navigation panel, Baroda, IT services list",
-      canonical: "https://www.dotsandcoms.in/sitemap"
-    });
+    return setPageSEO(getRouteSEO("/sitemap"));
   }, []);
 
   return (

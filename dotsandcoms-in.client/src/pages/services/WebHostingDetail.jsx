@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Database, Download, Check, Globe, Server, Cpu, ShieldCheck, Monitor, Terminal, Settings } from "lucide-react";
 import InnerBanner from "../../components/ui/InnerBanner";
 import { setPageSEO } from "../../utils/seo";
+import { getRouteSEO } from "../../seo/publicRoutes";
 import { 
   bannerData, 
   websiteHostingData, 
@@ -47,12 +48,7 @@ export default function WebHostingDetail() {
 
   // Set page-specific SEO metadata on mount
   useEffect(() => {
-    return setPageSEO({
-      title: "Cloud Hosting & Windows Web Hosting Company in Baroda",
-      description: "Cloud hosting services in Baroda offering Windows and Linux hosting, VPS hosting, dedicated servers, reseller hosting, and scalable infrastructure.",
-      keywords: "cloud hosting services Baroda, windows web hosting Baroda, Linux hosting Vadodara, VPS hosting Baroda, dedicated server provider Vadodara, reseller hosting services, server hosting Baroda, web hosting company Vadodara",
-      canonical: "https://www.dotsandcoms.in/windows-web-hosting-service-provider-baroda"
-    });
+    return setPageSEO(getRouteSEO("/windows-web-hosting-service-provider-baroda"));
   }, []);
 
   return (

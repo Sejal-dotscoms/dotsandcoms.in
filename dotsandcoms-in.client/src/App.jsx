@@ -66,33 +66,10 @@ function ScrollToHashElement() {
   return null;
 }
 
-// Dynamic canonical tag updater for SEO across pages
-function CanonicalLink() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", "canonical");
-      document.head.appendChild(link);
-    }
-    const base = "https://www.dotsandcoms.in";
-    const normalizedPath = pathname.endsWith("/") && pathname !== "/"
-      ? pathname.slice(0, -1)
-      : pathname;
-      
-    link.setAttribute("href", `${base}${normalizedPath}`);
-  }, [pathname]);
-
-  return null;
-}
-
 function App() {
   return (
     <BrowserRouter>
       <ScrollToHashElement />
-      <CanonicalLink />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -5,6 +5,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 import InnerBanner from "../components/ui/InnerBanner";
 import { getPublicBlogs } from "../services/blogService";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 function fmt(dateVal) {
   if (!dateVal) return "";
@@ -31,14 +32,7 @@ export default function BlogsPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Blogs – Web Design, Mobile App & Digital Marketing Insights",
-      description:
-        "Read expert articles on website design, mobile app development, SEO, digital marketing, and web hosting from Dots & Coms, Vadodara.",
-      keywords:
-        "web design blog Vadodara, mobile app development blog, SEO tips Baroda, digital marketing articles, web hosting tips, Dots and Coms blog",
-      canonical: "https://www.dotsandcoms.in/blogs",
-    });
+    return setPageSEO(getRouteSEO("/blogs"));
   }, []);
 
   useEffect(() => {

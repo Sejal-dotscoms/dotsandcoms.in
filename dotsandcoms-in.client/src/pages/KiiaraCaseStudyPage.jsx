@@ -4,6 +4,7 @@ import { CheckCircle2, TrendingUp, Target, AlertTriangle, Lightbulb, Heart, Chev
 import InnerBanner from "../components/ui/InnerBanner";
 import { Link } from "react-router-dom";
 import { setPageSEO } from "../utils/seo";
+import { getRouteSEO } from "../seo/publicRoutes";
 
 // Image imports
 import imgBanner from "../assets/images/kiiara-kreations-creative-handmade-brand-built-around-passion-img.png";
@@ -16,13 +17,7 @@ import imgLeadGen from "../assets/images/from-traditional-sales-to-digital-lead-
 export default function KiiaraCaseStudyPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Kiiara Kreations Case Study – Hobby Goes Global Brand",
-      description: "Discover how Dots & Coms helped Kiiara Kreations turn a handmade craft hobby into a global brand through eCommerce web design, SEO, and marketing.",
-      keywords: "Kiiara Kreations case study, handmade products website Baroda, ecommerce website design Vadodara, hobby to business web design, craft brand digital marketing Gujarat",
-      canonical: "https://www.dotsandcoms.in/hobby-goes-global-case-study",
-      ogImage: "https://www.dotsandcoms.in/og-image.png",
-    });
+    return setPageSEO(getRouteSEO("/hobby-goes-global-case-study"));
   }, []);
 
   const fadeInUp = {

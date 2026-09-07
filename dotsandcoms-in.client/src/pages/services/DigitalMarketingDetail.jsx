@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import InnerBanner from "../../components/ui/InnerBanner";
 import { subServices, bannerData, ctaData } from "../../data/digitalMarketing";
 import { setPageSEO } from "../../utils/seo";
+import { getRouteSEO } from "../../seo/publicRoutes";
 
 // Reusable 3D Tilt Card component with layered offset backing
 function TiltCard({ src, alt, offsetBorder, glowColor, width, height }) {
@@ -48,12 +49,7 @@ export default function DigitalMarketingDetail() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    return setPageSEO({
-      title: "Digital Marketing Company in Vadodara | SEO & Ads",
-      description: "Digital marketing company in Vadodara offering SEO, Google Ads, social media marketing, and performance marketing services to grow your business online.",
-      keywords: "digital marketing company Vadodara, SEO company Vadodara, Google Ads Baroda, social media marketing Vadodara, PPC agency Baroda, online marketing Vadodara, performance marketing Gujarat, search engine optimization Vadodara",
-      canonical: "https://www.dotsandcoms.in/organic-seo-ppc-digital-marketing-vadodara"
-    });
+    return setPageSEO(getRouteSEO("/organic-seo-ppc-digital-marketing-vadodara"));
   }, []);
 
   return (
