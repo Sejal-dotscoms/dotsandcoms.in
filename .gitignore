@@ -54,3 +54,5 @@ Desktop.ini
 .env.*.local
 *.env
 appsettings.Development.json
+/.cursor/rules
+/docs

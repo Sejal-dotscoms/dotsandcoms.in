@@ -10,7 +10,7 @@
  * @param {string} [opts.ogImage]     - OG image URL (defaults to site og-image)
  */
 export function setPageSEO({ title, description, keywords, canonical, ogImage, breadcrumbs }) {
-  const DEFAULT_TITLE = "Website Design & Mobile App Development Company in Vadodara";
+  const DEFAULT_TITLE = "Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat";
   const DEFAULT_IMAGE = "https://www.dotsandcoms.in/og-image.png";
 
   const imgUrl = ogImage || DEFAULT_IMAGE;

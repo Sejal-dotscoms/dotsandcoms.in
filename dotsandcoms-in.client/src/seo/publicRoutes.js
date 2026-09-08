@@ -10,7 +10,7 @@ export const BASE_URL = "https://www.dotsandcoms.in";
 export const PUBLIC_ROUTES = [
   {
     path: "/",
-    title: "Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat ",
+    title: "Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat",
     description:
       "Dots & Coms is a website design and mobile app development company in Vadodara offering responsive web design, app development, web hosting, and SEO services.",
     keywords:
@@ -233,7 +233,7 @@ export const PUBLIC_ROUTES = [
     prerender: false,
     sitemap: true,
   },
-  // In sitemap / has SEO, but not prerendered (transactional / low value for crawlers as static snapshot)
+  // Transactional: not prerendered; ASP.NET injects unique meta + minimal #seo-content from spa-shell
   {
     path: "/web-hosting-details",
     title: "Web Hosting Order Details | Dots & Coms",

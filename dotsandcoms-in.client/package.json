@@ -7,8 +7,9 @@
     "dev": "vite",
     "playwright:install": "playwright install chromium",
     "prerender": "npm run playwright:install && node prerender.mjs",
-    "build": "node generate-sitemap.js && vite build && npm run prerender",
+    "build": "node generate-sitemap.js && vite build && npm run prerender && npm run qa:prerender",
     "qa:prerender": "node scripts/qa-prerender.mjs",
+    "qa:live": "node scripts/qa-live-crawl.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
