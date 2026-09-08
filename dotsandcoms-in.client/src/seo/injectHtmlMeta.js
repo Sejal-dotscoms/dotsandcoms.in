@@ -51,6 +51,16 @@ export function injectHtmlMeta(html, route) {
     html = replaceMeta(html, "name", "twitter:url", url);
   }
 
+  // Guarantee crawler-visible body when Playwright captured an empty #root
+  if (/<div\s+id=["']root["']\s*>\s*<\/div>/i.test(html)) {
+    const body =
+      `<main id="seo-content"><h1>${titleText}</h1><p>${esc(route.description || "")}</p></main>`;
+    html = html.replace(
+      /<div\s+id=["']root["']\s*>\s*<\/div>/i,
+      `<div id="root">${body}</div>`
+    );
+  }
+
   return html;
 }
 

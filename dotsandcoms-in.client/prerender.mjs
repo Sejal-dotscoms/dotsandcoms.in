@@ -84,8 +84,8 @@ async function waitForSeoReady(page, expectedTitle) {
       if (!title) return text.length > 80;
       const needle = title.trim().slice(0, 20).toLowerCase();
       const titleOk = (document.title || "").toLowerCase().includes(needle);
-      // Require the route title so we never snapshot homepage meta onto inner pages
-      return titleOk && (text.length > 40 || document.title.trim().length > 10);
+      // Require both correct title AND real body — never snapshot empty #root
+      return titleOk && text.length > 80;
     },
     expectedTitle,
     { timeout: ROUTE_TIMEOUT_MS }
