@@ -176,7 +176,7 @@ export default function BlogDetailPage() {
         if (!data) { navigate("/blogs", { replace: true }); return; }
         setBlog(data);
         setPageSEO({
-          title:       data.pageTitle || `${data.title} | Dots & Coms Blog`,
+          title:       data.pageTitle || `${data.title} | Dots and Coms Blog`,
           description: data.shortDescription ? (data.shortDescription.length > 155 ? data.shortDescription.substring(0, 152) + '...' : data.shortDescription) : undefined,
           keywords:    `${data.title}, web design blog Vadodara, Dots and Coms`,
           canonical:   `https://www.dotsandcoms.in/blogs/${data.browserUrl}`,

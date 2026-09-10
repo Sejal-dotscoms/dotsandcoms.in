@@ -118,7 +118,7 @@ export const teamIntro = {
 export const teamSlides = [
   {
     image: cricketTeam1,
-    title: "Cricket Dots & Coms Team",
+    title: "Cricket Dots and Coms Team",
     desc: "Strengthening our bond and sportsmanship on the cricket field during our team outings.",
     width: 1080,
     height: 800
@@ -139,14 +139,14 @@ export const teamSlides = [
   },
   {
     image: teamOuting,
-    title: "Dots & Coms Team Outing",
+    title: "Dots and Coms Team Outing",
     desc: "Stepping outside the workspace to connect, recharge, and inspire new ideas.",
     width: 1080,
     height: 800
   },
   {
     image: alembicCity,
-    title: "Dots & Coms at Alembic City",
+    title: "Dots and Coms at Alembic City",
     desc: "A memorable gathering showcasing our close-knit office culture and team spirit.",
     width: 1080,
     height: 800
@@ -170,14 +170,14 @@ export const events = [
   {
     title: "Annual Excellence Awards 2025",
     image: corporateEventsImg,
-    alt: "Annual Excellence Awards 2025 celebration event by Dots & Coms Baroda",
+    alt: "Annual Excellence Awards 2025 celebration event by Dots and Coms Baroda",
     width: 1632,
     height: 964
   },
   {
     title: "Hong Kong Electronics Fair",
     image: teamBuildingImg,
-    alt: "Hong Kong Electronics Fair technology booth exhibit by Dots & Coms",
+    alt: "Hong Kong Electronics Fair technology booth exhibit by Dots and Coms",
     width: 740,
     height: 436
   },

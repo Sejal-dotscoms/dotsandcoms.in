@@ -55,7 +55,7 @@ function SlidingNavLink({ link, index, hoveredIdx, setHoveredIdx }) {
   return (
     <Link
       to={link.href}
-      aria-label={`Dots & Coms ${link.label} ${link.label2} Page`}
+      aria-label={`Dots and Coms ${link.label} ${link.label2} Page`}
       onMouseEnter={() => {
         setIsHovered(true);
         setHoveredIdx(index);
@@ -144,7 +144,7 @@ export default function Header() {
     { label: "Web", label2: "Hosting", href: "/windows-web-hosting-service-provider-baroda", desc: "High-performance SSD cloud server architectures" },
     { label: "Digital", label2: "Marketing", href: "/organic-seo-ppc-digital-marketing-vadodara", desc: "Performance marketing, SEO and branding solutions" },
     { label: "Our", label2: "Work", href: "/website-mobile-app-development-company-portfolio-baroda", desc: "Our portfolio of enterprise systems and branding projects" },
-    //{ label: "Blog", label2: "", href: "/blogs", desc: "Insights, tips and updates from the Dots & Coms team" },
+    //{ label: "Blog", label2: "", href: "/blogs", desc: "Insights, tips and updates from the Dots and Coms team" },
     { label: "About", label2: "Us", href: "/about-web-development-company-baroda", desc: "25+ years of digital agency legacy and expert team details" },
     { label: "Contact", label2: "Us", href: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda", desc: "Drop by our office or write to us for free consulting" },
   ];
@@ -192,7 +192,7 @@ export default function Header() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Visit Dots & Coms on ${s.name}`}
+                    aria-label={`Visit Dots and Coms on ${s.name}`}
                     className={`p-1.5 rounded-full hover:text-white transition-all duration-300 ${s.color}`}
                   >
                     {s.icon}
@@ -206,7 +206,7 @@ export default function Header() {
               <div className="flex items-center space-x-5 text-xs font-semibold">
                 <a
                   href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer"
-                  aria-label="Career and Job Opportunities at Dots & Coms Vadodara"
+                  aria-label="Career and Job Opportunities at Dots and Coms Vadodara"
                   className="flex items-center space-x-1.5 hover:text-[#ea580c] transition-colors duration-300"
                 >
                   <Briefcase className="w-3.5 h-3.5 text-[#ea580c]" />
@@ -242,7 +242,7 @@ export default function Header() {
             <div className="w-full flex items-center justify-between relative">
               
               {/* Logo */}
-              <Link to="/" aria-label="Dots & Coms Web Development Agency Header Logo Link" className="flex items-center shrink-0 hover:scale-[1.02] transition-transform duration-300">
+              <Link to="/" aria-label="Dots and Coms Web Development Agency Header Logo Link" className="flex items-center shrink-0 hover:scale-[1.02] transition-transform duration-300">
                 <Logo size={scrolled ? "sm" : "md"} />
               </Link>
 

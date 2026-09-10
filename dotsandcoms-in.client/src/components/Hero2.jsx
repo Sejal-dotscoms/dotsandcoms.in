@@ -213,7 +213,7 @@ export default function Hero2() {
                         <Magnetic>
                             <Link
                                 to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
-                                aria-label="Start Your Project - Contact Dots & Coms Agency Consultation"
+                                aria-label="Start Your Project - Contact Dots and Coms Agency Consultation"
                                 title="Start Your Project"
                                 className="group inline-flex items-center space-x-2 px-8 py-4 rounded-full text-sm font-bold tracking-wider uppercase bg-[#dc2626] text-white hover:bg-red-700 transition-all duration-300 border border-red-500/10 shadow-[0_0_30px_rgba(220,38,38,0.12)] hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]"
                             >
@@ -225,7 +225,7 @@ export default function Hero2() {
                         <Magnetic>
                             <Link
                                 to="/website-mobile-app-development-company-portfolio-baroda"
-                                aria-label="View Portfolio - Explore Dots & Coms Web Design Work"
+                                aria-label="View Portfolio - Explore Dots and Coms Web Design Work"
                                 title="View Portfolio"
                                 className="inline-flex items-center space-x-3 px-8 py-4 rounded-full text-sm font-bold tracking-wider uppercase border border-slate-200 hover:border-slate-300 text-slate-800 hover:bg-slate-50 transition-all duration-300"
                             >

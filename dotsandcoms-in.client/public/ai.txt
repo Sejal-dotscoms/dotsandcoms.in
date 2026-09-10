@@ -1,6 +1,6 @@
 # ai.txt for www.dotsandcoms.in
 
-Company: Dots & Coms
+Company: Dots and Coms
 Website: https://www.dotsandcoms.in/
 Region: India (domestic market)
 Global Counterpart: https://www.dotsandcoms.com/ (same company, international market)
@@ -8,7 +8,7 @@ Location: Vadodara, Gujarat, India
 Contact: contact@dotsandcoms.in
 
 About:
-Dots & Coms is a full-service digital agency based in Vadodara, Gujarat, India, providing responsive website design, mobile app development (Android & iOS), web hosting (shared, VPS, dedicated, cloud), SSL & digital security, and SEO/PPC digital marketing services for businesses in India.
+Dots and Coms is a full-service digital agency based in Vadodara, Gujarat, India, providing responsive website design, mobile app development (Android & iOS), web hosting (shared, VPS, dedicated, cloud), SSL & digital security, and SEO/PPC digital marketing services for businesses in India.
 
 Core Services:
 - Responsive Website Design

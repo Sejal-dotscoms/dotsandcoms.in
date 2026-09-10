@@ -31,7 +31,7 @@ export default function KiiaraCaseStudyPage() {
     <>
       <InnerBanner
         title="Case Study: Kiiara Kreations"
-        subtitle="How Dots & Coms helped Kiiara Kreations transform from a passion project into a fast-growing brand."
+        subtitle="How Dots and Coms helped Kiiara Kreations transform from a passion project into a fast-growing brand."
         breadcrumbs={[
           { label: "Kiiara Kreations Case Study" }
         ]}
@@ -55,7 +55,7 @@ export default function KiiaraCaseStudyPage() {
                 // ECOMMERCE BRAND ELEVATION
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-slate-800 tracking-tight leading-tight">
-                How Dots & Coms Helped Kiiara Kreations Transform From a Passion Project Into a Fast-Growing Brand
+                How Dots and Coms Helped Kiiara Kreations Transform From a Passion Project Into a Fast-Growing Brand
               </h2>
               
               {/* Mobile Only Image */}
@@ -110,7 +110,7 @@ export default function KiiaraCaseStudyPage() {
                   But the brand lacked one thing: A scalable digital ecosystem.
                 </p>
                 <p className="font-bold text-slate-900">
-                  That’s where Dots & Coms stepped in.
+                  That’s where Dots and Coms stepped in.
                 </p>
               </div>
             </motion.div>
@@ -191,7 +191,7 @@ export default function KiiaraCaseStudyPage() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                Before partnering with Dots & Coms, Kiiara Kreations operated largely as a hobby-driven business. Most sales came from:
+                Before partnering with Dots and Coms, Kiiara Kreations operated largely as a hobby-driven business. Most sales came from:
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs md:text-sm text-slate-600 font-semibold">
@@ -255,7 +255,7 @@ export default function KiiaraCaseStudyPage() {
               
               <div className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  At Dots & Coms, we understood immediately that Kiiara Kreations was not just selling products.
+                  At Dots and Coms, we understood immediately that Kiiara Kreations was not just selling products.
                 </p>
                 <p className="font-semibold text-slate-805">
                   It was selling:
@@ -304,13 +304,13 @@ export default function KiiaraCaseStudyPage() {
               <div className="flex items-center space-x-3 text-[#dc2626]">
                 <Target className="w-6 h-6" />
                 <h3 className="text-2xl font-extrabold font-heading text-slate-800">
-                  The Dots & Coms Approach
+                  The Dots and Coms Approach
                 </h3>
               </div>
 
               <div className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  At Dots & Coms, we don’t believe websites should simply “exist.” We believe they should create business transformation.
+                  At Dots and Coms, we don’t believe websites should simply “exist.” We believe they should create business transformation.
                 </p>
                 <p className="font-semibold text-slate-805">
                   What makes our approach different is that we combine:
@@ -726,7 +726,7 @@ export default function KiiaraCaseStudyPage() {
 
               <div className="lg:col-span-7 p-6 md:p-8 rounded-2xl border border-slate-100 bg-white shadow-md text-left space-y-4">
                 <p className="text-slate-650 text-xs md:text-sm leading-relaxed">
-                  But in reality: Presentation influences trust. Trust influences conversions. Conversions influence growth. That’s why strategic design matters. At Dots & Coms, we specialize in helping businesses bridge the gap between:
+                  But in reality: Presentation influences trust. Trust influences conversions. Conversions influence growth. That’s why strategic design matters. At Dots and Coms, we specialize in helping businesses bridge the gap between:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs md:text-sm text-slate-600 font-semibold pt-2 border-t border-slate-50">
                   <span className="flex items-center space-x-2">
@@ -759,7 +759,7 @@ export default function KiiaraCaseStudyPage() {
               <div className="lg:col-span-5 text-left space-y-4 lg:order-2">
                 <span className="text-4xl font-extrabold font-heading text-[#dc2626]/10">02</span>
                 <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-850 tracking-tight leading-tight">
-                  What Makes Dots & Coms Different
+                  What Makes Dots and Coms Different
                 </h3>
                 <div className="w-12 h-1 bg-[#dc2626] rounded-full" />
                 <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
@@ -803,7 +803,7 @@ export default function KiiaraCaseStudyPage() {
                 </h3>
                 <div className="w-12 h-1 bg-[#dc2626] rounded-full" />
                 <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
-                  The collaboration between Dots & Coms and Kiiara Kreations demonstrates how the right digital strategy can completely transform a small creative business.
+                  The collaboration between Dots and Coms and Kiiara Kreations demonstrates how the right digital strategy can completely transform a small creative business.
                 </p>
               </div>
 

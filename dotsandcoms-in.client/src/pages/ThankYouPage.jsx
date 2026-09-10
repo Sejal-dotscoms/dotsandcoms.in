@@ -36,13 +36,13 @@ export default function ThankYouPage() {
                 Thank You!
               </h2>
               <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-500 sm:text-base">
-                We appreciate you reaching out to Dots & Coms. If you have placed an order or submitted a message, our team will get back to you shortly.
+                We appreciate you reaching out to Dots and Coms. If you have placed an order or submitted a message, our team will get back to you shortly.
               </p>
             </div>
             <div className="pt-4">
               <Link
                 to="/"
-                aria-label="Return to Dots & Coms Agency Home Page"
+                aria-label="Return to Dots and Coms Agency Home Page"
                 className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md cursor-pointer"
               >
                 Back to Home Page
@@ -93,7 +93,7 @@ export default function ThankYouPage() {
             <div className="pt-4">
               <Link
                 to="/"
-                aria-label="Return to Dots & Coms Agency Home Page after contact"
+                aria-label="Return to Dots and Coms Agency Home Page after contact"
                 className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-lg text-sm transition-all duration-200 shadow-md cursor-pointer"
               >
                 Back to Home Page
@@ -131,7 +131,7 @@ export default function ThankYouPage() {
               Order Placed Successfully!
             </h2>
             <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-500 sm:text-base">
-              Thank you for ordering with Dots & Coms. We have received your order details and will setup your server/domain hosting shortly.
+              Thank you for ordering with Dots and Coms. We have received your order details and will setup your server/domain hosting shortly.
             </p>
           </div>
 

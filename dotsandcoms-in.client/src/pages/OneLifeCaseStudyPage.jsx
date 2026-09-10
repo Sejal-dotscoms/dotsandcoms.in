@@ -31,7 +31,7 @@ export default function OneLifeCaseStudyPage() {
     <>
       <InnerBanner
         title="Case Study: 1Life"
-        subtitle="How Dots & Coms helped 1Life expand their suicide prevention and crisis support from regional impact to national reach."
+        subtitle="How Dots and Coms helped 1Life expand their suicide prevention and crisis support from regional impact to national reach."
         breadcrumbs={[
           { label: "1Life Case Study" }
         ]}
@@ -55,7 +55,7 @@ export default function OneLifeCaseStudyPage() {
                 // SOCIAL IMPACT & REACH
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-slate-800 tracking-tight leading-tight">
-                How Dots & Coms Helped 1Life Expand From Regional Impact to National Reach
+                How Dots and Coms Helped 1Life Expand From Regional Impact to National Reach
               </h2>
               
               {/* Mobile Only Image */}
@@ -85,7 +85,7 @@ export default function OneLifeCaseStudyPage() {
                   Despite the incredible impact they were creating on the ground, their digital presence was not reflecting the scale of their mission.
                 </p>
                 <p className="font-bold text-slate-800">
-                  That’s where Dots & Coms stepped in.
+                  That’s where Dots and Coms stepped in.
                 </p>
               </div>
             </motion.div>
@@ -166,7 +166,7 @@ export default function OneLifeCaseStudyPage() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-slate-650 text-sm md:text-base leading-relaxed">
-                Before partnering with Dots & Coms, 1Life primarily had a regional digital footprint. Most website traffic, enquiries, and volunteer registrations were concentrated within a limited geographic audience.
+                Before partnering with Dots and Coms, 1Life primarily had a regional digital footprint. Most website traffic, enquiries, and volunteer registrations were concentrated within a limited geographic audience.
               </p>
 
               <p className="text-slate-800 font-semibold text-sm md:text-base">
@@ -230,14 +230,14 @@ export default function OneLifeCaseStudyPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-slate-800 tracking-tight leading-tight">
-                Our Approach at Dots & Coms
+                Our Approach at Dots and Coms
               </h2>
               
               {/* Mobile Only Image */}
               <div className="lg:hidden w-full my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100">
                 <img 
                   src={imgApproach} 
-                  alt="Our Strategic Approach at Dots & Coms Mobile Overview" 
+                  alt="Our Strategic Approach at Dots and Coms Mobile Overview" 
                   className="w-full h-auto object-cover"
                   loading="lazy"
                   decoding="async"
@@ -248,13 +248,13 @@ export default function OneLifeCaseStudyPage() {
 
               <div className="space-y-4 text-slate-655 leading-relaxed text-sm md:text-base">
                 <p>
-                  At Dots & Coms, we don’t believe websites are just design projects.
+                  At Dots and Coms, we don’t believe websites are just design projects.
                 </p>
                 <p>
                   We believe they are business and impact engines.
                 </p>
                 <p>
-                  What makes Dots & Coms different from traditional web agencies is our approach toward strategy-first execution. Every pixel, section, CTA, SEO structure, and content hierarchy is designed with one objective — measurable growth.
+                  What makes Dots and Coms different from traditional web agencies is our approach toward strategy-first execution. Every pixel, section, CTA, SEO structure, and content hierarchy is designed with one objective — measurable growth.
                 </p>
                 <p>
                   For the 1Life project, we combined:
@@ -297,7 +297,7 @@ export default function OneLifeCaseStudyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 group">
                 <img 
                   src={imgApproach} 
-                  alt="Our Strategic Approach at Dots & Coms Desktop Overview" 
+                  alt="Our Strategic Approach at Dots and Coms Desktop Overview" 
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
@@ -387,7 +387,7 @@ export default function OneLifeCaseStudyPage() {
             >
               <div className="space-y-6">
                 <div className="rounded-xl overflow-hidden aspect-[16/10] border border-slate-100 relative">
-                  <img src={imgWebDesign} alt="Non-Profit Custom Web Redesign and Accessible User Interface by Dots & Coms" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" decoding="async" width="1500" height="938" />
+                  <img src={imgWebDesign} alt="Non-Profit Custom Web Redesign and Accessible User Interface by Dots and Coms" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" loading="lazy" decoding="async" width="1500" height="938" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="space-y-3 text-left">
@@ -714,7 +714,7 @@ export default function OneLifeCaseStudyPage() {
 
               <div className="lg:col-span-7 p-6 md:p-8 rounded-2xl border border-slate-100 bg-white shadow-md text-left space-y-4 lg:order-1">
                 <p className="text-slate-650 text-xs md:text-sm leading-relaxed">
-                  At Dots & Coms, we understand that. Our approach combines:
+                  At Dots and Coms, we understand that. Our approach combines:
                 </p>
                 <div className="grid grid-cols-2 gap-2 text-xs md:text-sm text-slate-600 font-semibold border-t border-slate-50 pt-3">
                   {["Psychology-driven UX", "Strategic SEO", "High-conversion web architecture", "Brand positioning", "Long-term scalability"].map((item, idx) => (
@@ -741,7 +741,7 @@ export default function OneLifeCaseStudyPage() {
               <div className="lg:col-span-5 text-left space-y-4">
                 <span className="text-4xl font-extrabold font-heading text-[#dc2626]/10">03</span>
                 <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-855 tracking-tight leading-tight">
-                  What Makes Dots & Coms Different
+                  What Makes Dots and Coms Different
                 </h3>
                 <div className="w-12 h-1 bg-[#dc2626] rounded-full" />
                 <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
@@ -794,7 +794,7 @@ export default function OneLifeCaseStudyPage() {
                 </h3>
                 <div className="w-12 h-1 bg-[#dc2626] rounded-full" />
                 <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
-                  The collaboration between Dots & Coms and 1Life demonstrates how the right digital strategy can amplify real-world impact.
+                  The collaboration between Dots and Coms and 1Life demonstrates how the right digital strategy can amplify real-world impact.
                 </p>
               </div>
 

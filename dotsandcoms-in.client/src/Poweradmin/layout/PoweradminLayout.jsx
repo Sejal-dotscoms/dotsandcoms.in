@@ -111,7 +111,7 @@ export default function PoweradminLayout() {
           ) : (
                           <img
                               src={logo}
-                              alt="Dots & Coms"
+                              alt="Dots and Coms"
                               className="h-20 w-auto object-contain"
                               loading="lazy"
                               decoding="async"

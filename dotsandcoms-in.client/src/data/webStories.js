@@ -17,7 +17,7 @@ export const bannerData = {
 export const introData = {
   title: "Visual Stories on SEO, Web Development, Hosting & Digital Marketing",
   badge: "Visual Learning",
-  description: "Raising Digital Presence through Expert SEO Solutions. Dots & Coms was founded in the height of the dotcom boom and has persevered through the ups and downs of technological advancement to become stronger than before. Established by the dynamic team of Kishore & Bharat, we set out on this adventure with the goal of using technology to create significant change. We have not only welcomed every technical advancement over the years, but we have also influenced its direction. With a team of driven people and a global presence today, we are at the forefront of innovation, consistently pushing the envelope and going above and beyond expectations."
+  description: "Raising Digital Presence through Expert SEO Solutions. Dots and Coms was founded in the height of the dotcom boom and has persevered through the ups and downs of technological advancement to become stronger than before. Established by the dynamic team of Kishore & Bharat, we set out on this adventure with the goal of using technology to create significant change. We have not only welcomed every technical advancement over the years, but we have also influenced its direction. With a team of driven people and a global presence today, we are at the forefront of innovation, consistently pushing the envelope and going above and beyond expectations."
 };
 
 export const webStories = [

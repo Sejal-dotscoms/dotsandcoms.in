@@ -171,7 +171,7 @@ export default function FeaturedWork() {
               <div className="relative h-[240px] w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50 md:col-span-7 md:h-[360px]">
                 <img
                   src={project.image}
-                  alt={project.alt || `${project.title} - ${project.category} Portfolio | Dots & Coms Web Design Company Vadodara`}
+                  alt={project.alt || `${project.title} - ${project.category} Portfolio | Dots and Coms Web Design Company Vadodara`}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                   decoding="async"

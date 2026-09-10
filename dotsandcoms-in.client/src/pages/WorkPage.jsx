@@ -205,7 +205,7 @@ function ProjectCard({ project }) {
               <source srcSet={project.png} type="image/png" />
               <img
                 src={project.png}
-                alt={project.alt || `${project.title} - ${project.category} Portfolio | Dots & Coms Web Design Company Vadodara`}
+                alt={project.alt || `${project.title} - ${project.category} Portfolio | Dots and Coms Web Design Company Vadodara`}
                 className={`transition-transform duration-700 ease-out group-hover:scale-102 ${
                   isMobileApp
                     ? "max-w-full max-h-full object-contain"

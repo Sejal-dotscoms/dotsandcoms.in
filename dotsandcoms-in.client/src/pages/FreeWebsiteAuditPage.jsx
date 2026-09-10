@@ -286,7 +286,7 @@ export default function FreeWebsiteAuditPage() {
 
       {/* Floating Side Action: Logo on Top-Left */}
       <div className="fixed top-4 left-4 z-30 sm:top-6 sm:left-7">
-        <Link to="/" className="flex items-center transition-opacity hover:opacity-85" title="Dots & Coms Home">
+        <Link to="/" className="flex items-center transition-opacity hover:opacity-85" title="Dots and Coms Home">
           <Logo size="sm" />
         </Link>
       </div>

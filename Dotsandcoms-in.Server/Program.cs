@@ -396,9 +396,9 @@ static async Task WriteCrawlerNotFoundAsync(HttpContext context, IWebHostEnviron
         var notFound = new SeoRoute
         {
             Path = context.Request.Path.Value ?? "/404",
-            Title = "Page Not Found | Dots & Coms",
+            Title = "Page Not Found | Dots and Coms",
             Description = string.IsNullOrWhiteSpace(message)
-                ? "The page you requested could not be found on Dots & Coms."
+                ? "The page you requested could not be found on Dots and Coms."
                 : message,
             Keywords = "404, page not found, Dots and Coms",
             Canonical = "https://www.dotsandcoms.in" + (context.Request.Path.Value ?? "/404")

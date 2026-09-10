@@ -23,7 +23,7 @@ export default function TermsPage() {
     <>
       <InnerBanner
         title="Terms & Conditions"
-        subtitle={<>Official terms, conditions, and privacy policies governing <strong>Dots & Coms</strong> web development and <strong>hosting services</strong>.</>}
+        subtitle={<>Official terms, conditions, and privacy policies governing <strong>Dots and Coms</strong> web development and <strong>hosting services</strong>.</>}
         breadcrumbs={[{ label: "Terms & Conditions" }]}
       />
 
@@ -45,10 +45,10 @@ export default function TermsPage() {
                   The Website Owner, including subsidiaries and affiliates (“Website” or “Website Owner” or “we” or “us” or “our”) provides the information contained on the website or any of the pages comprising the website (“website”) to visitors (“visitors”) (cumulatively referred to as “you” or “your” hereinafter) subject to the terms and conditions set out in these website terms and conditions, the privacy policy and any other relevant terms and conditions, policies and notices which may be applicable to a specific section or module of the website.
                 </p>
                 <p>
-                  Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Dots & Coms's relationship with you in relation to this website.
+                  Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Dots and Coms's relationship with you in relation to this website.
                 </p>
                 <p>
-                  The term Dots & Coms or 'us' or 'we' refers to the owner of the website whose registered office is 201, Senate Square, Gotri, Vadodara. The term 'you' refers to the user or viewer of our website.
+                  The term Dots and Coms or 'us' or 'we' refers to the owner of the website whose registered office is 201, Senate Square, Gotri, Vadodara. The term 'you' refers to the user or viewer of our website.
                 </p>
               </div>
 
@@ -79,7 +79,7 @@ export default function TermsPage() {
                     From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).
                   </li>
                   <li>
-                    You may not create a link to this website from another website or document without Dots & Coms's prior written consent.
+                    You may not create a link to this website from another website or document without Dots and Coms's prior written consent.
                   </li>
                   <li>
                     Your use of this website and any dispute arising out of such use of the website is subject to the laws of India or other regulatory authority.
@@ -99,13 +99,13 @@ export default function TermsPage() {
               </h2>
               <div className="text-slate-650 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>
-                  This privacy policy sets out how Dots & Coms uses and protects any information that you provide on this website.
+                  This privacy policy sets out how Dots and Coms uses and protects any information that you provide on this website.
                 </p>
                 <p>
-                  Dots & Coms is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.
+                  Dots and Coms is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.
                 </p>
                 <p>
-                  Dots & Coms does not share the information with any other agency or advertisers and may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.
+                  Dots and Coms does not share the information with any other agency or advertisers and may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.
                 </p>
               </div>
 
@@ -176,16 +176,16 @@ export default function TermsPage() {
               </h2>
               <div className="text-slate-650 space-y-4 text-sm leading-relaxed md:text-[15px]">
                 <p>
-                  The information contained in this website is for general information purposes only. The information is provided by Dots & Coms and while we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+                  The information contained in this website is for general information purposes only. The information is provided by Dots and Coms and while we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
                 </p>
                 <p>
                   In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arise out of, or in connection with, the use of this website.
                 </p>
                 <p>
-                  Through this website you are able to link to other websites which are not under the control of Dots & Coms. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+                  Through this website you are able to link to other websites which are not under the control of Dots and Coms. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
                 </p>
                 <p>
-                  Every effort is made to keep the website up and running smoothly. However, Dots & Coms takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.
+                  Every effort is made to keep the website up and running smoothly. However, Dots and Coms takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.
                 </p>
               </div>
             </div>

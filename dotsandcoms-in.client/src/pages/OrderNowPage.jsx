@@ -325,8 +325,8 @@ export default function OrderNowPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: `Complete Your Order - ${selectedPack.name} | Dots & Coms`,
-      description: `Securely order ${selectedPack.name}. Blazing fast SSD network performance and professional support with Dots & Coms Baroda.`,
+      title: `Complete Your Order - ${selectedPack.name} | Dots and Coms`,
+      description: `Securely order ${selectedPack.name}. Blazing fast SSD network performance and professional support with Dots and Coms Baroda.`,
       keywords: "web hosting order, buy ssl certificate, checkout page Dots and Coms, windows hosting Baroda, secure server purchase",
       canonical: "https://www.dotsandcoms.in/order-now"
     });
@@ -1097,7 +1097,7 @@ export default function OrderNowPage() {
                   <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4">
                     <h4 className="font-bold text-slate-800 text-sm flex items-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-[#dc2626]" />
-                      Dots & Coms Guarantee
+                      Dots and Coms Guarantee
                     </h4>
                     <ul className="text-xs text-slate-650 space-y-2.5">
                       <li className="flex items-start gap-2">
@@ -1133,7 +1133,7 @@ export default function OrderNowPage() {
                 <div className="space-y-2">
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800">Order Placed Successfully!</h2>
                   <p className="text-sm text-slate-500 max-w-md mx-auto">
-                    Thank you for ordering with Dots & Coms. We have received your order details and will setup your server/domain hosting shortly.
+                    Thank you for ordering with Dots and Coms. We have received your order details and will setup your server/domain hosting shortly.
                   </p>
                 </div>
 

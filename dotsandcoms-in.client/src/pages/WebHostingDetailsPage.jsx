@@ -127,7 +127,7 @@ export default function WebHostingDetailsPage() {
         <>
             <InnerBanner
                 title="Web Hosting Order Details"
-                subtitle={<>Review your <strong>web hosting configuration</strong>, billing information, and proceed with <strong>secure payment</strong> at Dots & Coms.</>}
+                subtitle={<>Review your <strong>web hosting configuration</strong>, billing information, and proceed with <strong>secure payment</strong> at Dots and Coms.</>}
                 breadcrumbs={[
                     { label: "Web Hosting", href: "/windows-web-hosting-service-provider-baroda" },
                     { label: "Order Now", href: "/order-now" },

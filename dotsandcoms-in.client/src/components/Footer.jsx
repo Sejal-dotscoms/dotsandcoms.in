@@ -29,7 +29,7 @@ export default function Footer() {
 
       {/* Watermark logo in the background */}
       <div className="pointer-events-none absolute right-[6%] bottom-[8%] -z-10 w-[260px] -rotate-6 transform opacity-[0.045] brightness-0 invert filter select-none md:w-[330px]">
-        <img src={logoImg} alt="Dots & Coms Footer Navigation Brand Logo" className="h-auto w-full object-contain" loading="lazy" decoding="async" width="94" height="98" />
+        <img src={logoImg} alt="Dots and Coms Footer Navigation Brand Logo" className="h-auto w-full object-contain" loading="lazy" decoding="async" width="94" height="98" />
       </div>
 
       {/* Glowing gradient mesh accents */}
@@ -40,7 +40,7 @@ export default function Footer() {
         
         {/* Column 1: Info */}
         <div className="space-y-3 lg:col-span-3">
-          <Link to="/" aria-label="Dots & Coms Web Development Agency Home" className="flex items-center">
+          <Link to="/" aria-label="Dots and Coms Web Development Agency Home" className="flex items-center">
             <div className="brightness-110">
               <Logo size="lg" />
             </div>
@@ -50,15 +50,15 @@ export default function Footer() {
             <div className="flex items-start space-x-2 text-[14px]">
               <Mail className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#dc2626]" />
               <div className="flex flex-col space-y-1 leading-tight">
-                 {/* <a href="mailto:parul@dotscoms.com" aria-label="Send email to Parul at Dots & Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">parul@dotscoms.com</a> */}
-                <a href="mailto:contact@dotsandcoms.in" aria-label="Send email to Contact at Dots & Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">contact@dotsandcoms.in</a>
+                 {/* <a href="mailto:parul@dotscoms.com" aria-label="Send email to Parul at Dots and Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">parul@dotscoms.com</a> */}
+                <a href="mailto:contact@dotsandcoms.in" aria-label="Send email to Contact at Dots and Coms" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">contact@dotsandcoms.in</a>
               </div>
             </div>
             <div className="flex items-start space-x-2 text-[14px]">
               <Phone className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#dc2626]" />
               <div className="flex flex-col space-y-1 leading-tight">
-                <a href="tel:+918469332448" aria-label="Call Dots & Coms phone number +91 84693 32448" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 84693 32448</a> 
-               {/* <a href="tel:+919925072327" aria-label="Call Dots & Coms phone number +91 99250 72327" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 99250 72327</a> */}
+                <a href="tel:+918469332448" aria-label="Call Dots and Coms phone number +91 84693 32448" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 84693 32448</a> 
+               {/* <a href="tel:+919925072327" aria-label="Call Dots and Coms phone number +91 99250 72327" className="text-slate-300 transition-colors duration-300 hover:text-[#dc2626]">+91 99250 72327</a> */}
               </div>
             </div>
             <div className="flex items-start space-x-2 text-[14px]">
@@ -81,16 +81,16 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 text-[14px]">
               <li>
-                <Link to="/#hero" aria-label="Dots & Coms Home Page Section" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Home</Link>
+                <Link to="/#hero" aria-label="Dots and Coms Home Page Section" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Home</Link>
               </li>
               <li>
-                <Link to="/about-web-development-company-baroda" aria-label="About Dots & Coms Web Development Company Vadodara" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">About Us</Link>
+                <Link to="/about-web-development-company-baroda" aria-label="About Dots and Coms Web Development Company Vadodara" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">About Us</Link>
               </li>
               <li>
                 <Link to="/services" aria-label="All Digital & Development Services" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Services</Link>
               </li>
               <li>
-                <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Dots & Coms Web Design Portfolio and Work" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Our Work</Link>
+                <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Dots and Coms Web Design Portfolio and Work" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Our Work</Link>
               </li>
               <li>
                 <Link to="/faqs-web-design-hosting-digital-marketing" aria-label="Frequently Asked Questions on Web Design and Hosting" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">FAQs</Link>
@@ -99,16 +99,16 @@ export default function Footer() {
                 <Link to="/webhosting-vps-dedicated-server-support-baroda" aria-label="Technical Support Services Baroda" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Technical Support</Link>
               </li>
               <li>
-                <Link to="/blogs" aria-label="Dots & Coms Technology and Digital Marketing Blogs" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Blogs</Link>
+                <Link to="/blogs" aria-label="Dots and Coms Technology and Digital Marketing Blogs" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Blogs</Link>
               </li>
               <li>
-                <Link to="/web-stories" aria-label="Dots & Coms Visual Web Stories" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Webstories</Link>
+                <Link to="/web-stories" aria-label="Dots and Coms Visual Web Stories" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Webstories</Link>
               </li>
               <li>
-                <Link to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" aria-label="Contact Dots & Coms Web Development Team" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Contact Us</Link>
+                <Link to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" aria-label="Contact Dots and Coms Web Development Team" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Contact Us</Link>
               </li>
               <li>
-                <a href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer" aria-label="Careers and Vacancies at Dots & Coms Vadodara" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Careers</a>
+                <a href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer" aria-label="Careers and Vacancies at Dots and Coms Vadodara" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Careers</a>
               </li>
             </ul>
           </div>
@@ -197,10 +197,10 @@ export default function Footer() {
       {/* Copyright panel */}
       <div className="mx-auto mt-8 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-slate-800 px-6 pt-5 text-left text-sm text-slate-500 md:flex-row md:px-12">
         <div>
-          © {currentYear} Dots and Coms. All rights reserved. | <Link to="/sitemap" aria-label="Dots & Coms Complete HTML Sitemap Page" className="text-sm transition-colors hover:text-slate-300">Sitemap</Link>
+          © {currentYear} Dots and Coms. All rights reserved. | <Link to="/sitemap" aria-label="Dots and Coms Complete HTML Sitemap Page" className="text-sm transition-colors hover:text-slate-300">Sitemap</Link>
         </div>
         <div className="flex space-x-6">
-          <Link to="/terms-and-conditions#terms" aria-label="Dots & Coms Terms of Service and Conditions" className="text-sm transition-colors hover:text-slate-300">Terms of Service</Link>
+          <Link to="/terms-and-conditions#terms" aria-label="Dots and Coms Terms of Service and Conditions" className="text-sm transition-colors hover:text-slate-300">Terms of Service</Link>
         </div>
       </div>
     </footer>

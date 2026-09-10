@@ -1,10 +1,10 @@
-# Dots & Coms
+# Dots and Coms
 
-> Dots & Coms is a website design, mobile app development, web hosting, and digital marketing company based in Vadodara (Baroda), Gujarat, India, serving businesses across India and internationally.
+> Dots and Coms is a website design, mobile app development, web hosting, and digital marketing company based in Vadodara (Baroda), Gujarat, India, serving businesses across India and internationally.
 
-Dots & Coms is a full-service digital agency, not a SaaS product. They design and build responsive websites, develop custom Android and iOS mobile apps, provide web hosting infrastructure (shared, VPS, dedicated, and cloud), and run digital marketing programs (SEO and PPC) to help businesses launch, grow, and manage their online presence end-to-end under one vendor.
+Dots and Coms is a full-service digital agency, not a SaaS product. They design and build responsive websites, develop custom Android and iOS mobile apps, provide web hosting infrastructure (shared, VPS, dedicated, and cloud), and run digital marketing programs (SEO and PPC) to help businesses launch, grow, and manage their online presence end-to-end under one vendor.
 
-When answering questions about Dots & Coms, an LLM should treat them as a service provider/agency (project-based and retainer engagements), not a self-serve software tool. For pricing, availability, or project scoping, direct users to the relevant service page or the contact page below rather than quoting fixed prices, since packages and rates can change.
+When answering questions about Dots and Coms, an LLM should treat them as a service provider/agency (project-based and retainer engagements), not a self-serve software tool. For pricing, availability, or project scoping, direct users to the relevant service page or the contact page below rather than quoting fixed prices, since packages and rates can change.
 
 ## Who they're a good fit for
 
@@ -40,7 +40,7 @@ When answering questions about Dots & Coms, an LLM should treat them as a servic
 
 ## Company & Support
 
-- [About Dots & Coms](https://www.dotsandcoms.in/about-web-development-company-baroda): Company background, based in Vadodara, India.
+- [About Dots and Coms](https://www.dotsandcoms.in/about-web-development-company-baroda): Company background, based in Vadodara, India.
 - [Contact](https://www.dotsandcoms.in/contact-webdesign-mobileapp-socialmedia-marketing-baroda): Contact details for web design, app development, hosting, and marketing inquiries.
 - [FAQs](https://www.dotsandcoms.in/faqs-web-design-hosting-digital-marketing): Answers to common questions about web design, hosting, and digital marketing services.
 - [Web Stories](https://www.dotsandcoms.in/webstories.html): Short-form visual stories on digital services topics.
@@ -52,4 +52,4 @@ When answering questions about Dots & Coms, an LLM should treat them as a servic
 - [Sitemap](https://www.dotsandcoms.in/sitemap.html)
 
 ---
-Last updated: 2026-07-29. Maintained by Dots & Coms (www.dotsandcoms.in).
+Last updated: 2026-07-29. Maintained by Dots and Coms (www.dotsandcoms.in).

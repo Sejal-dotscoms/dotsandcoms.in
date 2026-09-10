@@ -54,7 +54,7 @@ export default function BlogsPage() {
     <>
       <InnerBanner
         title="Our Blogs"
-        subtitle={<>Insights, <strong>web design tips</strong>, and <strong>mobile app updates</strong> from the Dots & Coms team in <strong>Vadodara</strong>.</>}
+        subtitle={<>Insights, <strong>web design tips</strong>, and <strong>mobile app updates</strong> from the Dots and Coms team in <strong>Vadodara</strong>.</>}
         breadcrumbs={[{ label: "Blogs" }]}
       />
 

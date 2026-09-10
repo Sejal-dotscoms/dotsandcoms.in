@@ -98,8 +98,8 @@ try {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sitemap - Dots & Coms Baroda</title>
-  <meta name="description" content="Explore the sitemap directory of Dots & Coms Vadodara. Quick links to website design, app development, blogs, web hosting, and digital marketing services.">
+  <title>Sitemap - Dots and Coms Baroda</title>
+  <meta name="description" content="Explore the sitemap directory of Dots and Coms Vadodara. Quick links to website design, app development, blogs, web hosting, and digital marketing services.">
   <link rel="canonical" href="${BASE_URL}/sitemap.html" />
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 40px 20px; line-height: 1.6; }
@@ -114,7 +114,7 @@ try {
 <body>
   <div class="container">
     <h1>HTML Sitemap Directory</h1>
-    <p>Complete web page directory of Dots & Coms Vadodara — Web Design, App Development, Blogs, Hosting & Digital Marketing Agency.</p>
+    <p>Complete web page directory of Dots and Coms Vadodara — Web Design, App Development, Blogs, Hosting & Digital Marketing Agency.</p>
     <ul>
 `;
 
