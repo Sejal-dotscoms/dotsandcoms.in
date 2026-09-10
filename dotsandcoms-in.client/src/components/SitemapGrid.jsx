@@ -29,51 +29,51 @@ export default function SitemapGrid() {
 
             {/* Home */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/" aria-label="Dots & Coms Agency Home Page Overview" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/" aria-label="Dots and Coms Agency Home Page Overview" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Home className="h-4 w-4" />
                 <span>Home</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
               </Link>
                           <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
-                              Dots & Coms is a website design and web development company in Vadodara, offering mobile app development, logo and graphics designing, digital marketing, and web hosting services. Our solutions help Gujarat and India-based businesses build a strong online presence with modern technologies and creative design.
+                              Dots and Coms is a website design and web development company in Vadodara, offering mobile app development, logo and graphics designing, digital marketing, and web hosting services. Our solutions help Gujarat and India-based businesses build a strong online presence with modern technologies and creative design.
 
               </p>
             </div>
 
             {/* About Us */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/about-web-development-company-baroda" aria-label="About Dots & Coms Web Development Company Vadodara" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/about-web-development-company-baroda" aria-label="About Dots and Coms Web Development Company Vadodara" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Globe className="h-4 w-4" />
                 <span>About Us</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
               </Link>
               <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
-                              Established in 1999, Dots & Coms is a Vadodara-based digital service provider trusted by businesses across Gujarat, India, and abroad. The web development and digital marketing company now serves clients across several countries worldwide.
+                              Established in 1999, Dots and Coms is a Vadodara-based digital service provider trusted by businesses across Gujarat, India, and abroad. The web development and digital marketing company now serves clients across several countries worldwide.
 
               </p>
             </div>
 
             {/* Portfolio */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Dots & Coms Web Design Portfolio & Case Studies" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Dots and Coms Web Design Portfolio & Case Studies" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <Layers className="h-4 w-4" />
                 <span>Portfolio</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
               </Link>
               <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
-                              Dots & Coms, a Vadodara-based website design and mobile app development company, delivers website design, web development, mobile applications, logo design, graphic design, and digital marketing projects for clients across Gujarat, India, and beyond.
+                              Dots and Coms, a Vadodara-based website design and mobile app development company, delivers website design, web development, mobile applications, logo design, graphic design, and digital marketing projects for clients across Gujarat, India, and beyond.
               </p>
             </div>
 
             {/* Blogs */}
             <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
-              <Link to="/blogs" aria-label="Dots & Coms Technology and Business Blogs List" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+              <Link to="/blogs" aria-label="Dots and Coms Technology and Business Blogs List" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                 <FileText className="h-4 w-4" />
                 <span>Blogs</span>
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
               </Link>
               <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
-                Dots & Coms, a Vadodara-based website design and web development company, publishes expert articles on website designing, mobile app development, SEO optimization, web hosting, and digital marketing to help businesses across Gujarat and India build a successful online presence.
+                Dots and Coms, a Vadodara-based website design and web development company, publishes expert articles on website designing, mobile app development, SEO optimization, web hosting, and digital marketing to help businesses across Gujarat and India build a successful online presence.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function SitemapGrid() {
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
               </Link>
               <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
-                              Dots & Coms, a Vadodara web design and web hosting company, answers common questions on website design, hosting, and digital marketing to help India-based businesses make informed decisions.
+                              Dots and Coms, a Vadodara web design and web hosting company, answers common questions on website design, hosting, and digital marketing to help India-based businesses make informed decisions.
 
               </p>
             </div>
@@ -93,7 +93,7 @@ export default function SitemapGrid() {
             {/* Webstories & Read More */}
             <div className="group space-y-4 rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
               <div>
-                <Link to="/web-stories" aria-label="Dots & Coms Interactive Web Stories Gallery" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+                <Link to="/web-stories" aria-label="Dots and Coms Interactive Web Stories Gallery" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
                   <BookOpen className="h-4 w-4" />
                   <span>Webstories</span>
                   <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
@@ -158,7 +158,7 @@ export default function SitemapGrid() {
                 <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
               </Link>
               <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
-                              Dots & Coms, a digital marketing agency in Vadodara, uses online marketing strategies to promote businesses across India. Services include email marketing, pay-per-click advertising, search engine optimization, and social media marketing.
+                              Dots and Coms, a digital marketing agency in Vadodara, uses online marketing strategies to promote businesses across India. Services include email marketing, pay-per-click advertising, search engine optimization, and social media marketing.
 
               </p>
             </div>
@@ -182,7 +182,7 @@ export default function SitemapGrid() {
                   Case Studies
                 </h4>
                 <p className="mt-2 text-xs leading-relaxed font-normal text-slate-500">
-                  Explore our case studies to discover how Dots & Coms has helped businesses achieve digital growth.
+                  Explore our case studies to discover how Dots and Coms has helped businesses achieve digital growth.
                 </p>
               </div>
 
@@ -369,7 +369,7 @@ export default function SitemapGrid() {
               </h4>
             </div>
             <div className="space-y-1">
-              <h5 className="font-mono text-sm font-extrabold text-[#dc2626]">Dots & Coms</h5>
+              <h5 className="font-mono text-sm font-extrabold text-[#dc2626]">Dots and Coms</h5>
               <p className="mt-2 flex items-start gap-2 text-xs leading-relaxed text-slate-500">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-slate-400" />
                 <span>

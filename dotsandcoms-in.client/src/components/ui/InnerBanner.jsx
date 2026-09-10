@@ -71,7 +71,7 @@ export default function InnerBanner({ title, subtitle, breadcrumbs = [], titleTa
                 >
                     <Link
                         to="/"
-                        aria-label="Dots & Coms Agency Home Page Breadcrumb"
+                        aria-label="Dots and Coms Agency Home Page Breadcrumb"
                         className="flex items-center gap-1 text-slate-500 hover:text-[#dc2626] transition-colors duration-200"
                     >
                         <Home className="w-3.5 h-3.5" />

@@ -13,7 +13,7 @@ export const bannerData = {
 export const websiteHostingData = {
   title: "Reliable Windows Hosting with ASP.NET & MSSQL in Vadodara",
   paragraphs: [
-    "Dots & Coms provides dependable Windows web hosting services for businesses and individuals working with ASP.NET, MSSQL, and other Microsoft technologies. Our hosting environment supports the .NET Framework, Windows Server, and scripting languages such as VBScript, making it ideal for applications that require a Windows-based infrastructure.",
+    "Dots and Coms provides dependable Windows web hosting services for businesses and individuals working with ASP.NET, MSSQL, and other Microsoft technologies. Our hosting environment supports the .NET Framework, Windows Server, and scripting languages such as VBScript, making it ideal for applications that require a Windows-based infrastructure.",
     "We offer reliable uptime, scalable resources, and seamless connectivity with Microsoft platforms. Our Windows hosting services come with control panel access, email configurations, and secure database support. Whether you run a dynamic website or a corporate application, our hosting services provide continuous performance and data reliability.",
     "As a reliable Windows web hosting service provider, we also give technical assistance with server-side scripts, application deployment, and configuration."
   ],
@@ -307,7 +307,7 @@ export const sslData = {
   title: "SSL & Digital Security Certificates in Vadodara for Secure Websites",
   paragraphs: [
     "Internet and consumer data safety is becoming a threat. Implementing SSL Digital Security Certificates is one of the best ways to keep your website secure and also to keep the customers data and transactions secure. Even the Search Giant Google recently announced to include HTTPS as a ranking signal. Now improve your rankings and your trust with an SSL Certificate (HTTPS).",
-    "Dots & Coms being the complete web solutions provider brings you best in class security for your websites. SSL Certificates,"
+    "Dots and Coms being the complete web solutions provider brings you best in class security for your websites. SSL Certificates,"
   ],
   checklist: [
     "Keeps payments & customer data private",

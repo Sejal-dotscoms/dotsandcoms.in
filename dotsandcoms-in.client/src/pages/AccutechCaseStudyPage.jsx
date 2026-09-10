@@ -30,7 +30,7 @@ export default function AccutechCaseStudyPage() {
     <>
       <InnerBanner
         title="Case Study: Accutech Labels"
-        subtitle="How Dots & Coms Transformed Accutech Labels From a Traditional Business Into a Digital Lead Generation Engine."
+        subtitle="How Dots and Coms Transformed Accutech Labels From a Traditional Business Into a Digital Lead Generation Engine."
         breadcrumbs={[
           { label: "Accutech Labels Case Study" }
         ]}
@@ -54,7 +54,7 @@ export default function AccutechCaseStudyPage() {
                 // B2B DIGITAL TRANSFORMATION
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-slate-800 tracking-tight leading-tight">
-                How Dots & Coms Transformed Accutech Labels From a Traditional Business Into a Digital Lead Generation Engine
+                How Dots and Coms Transformed Accutech Labels From a Traditional Business Into a Digital Lead Generation Engine
               </h2>
               
               {/* Mobile Only Image */}
@@ -87,7 +87,7 @@ export default function AccutechCaseStudyPage() {
                   Their website existed — but it was not performing.
                 </p>
                 <p className="font-bold text-slate-800">
-                  That’s when Dots & Coms stepped in.
+                  That’s when Dots and Coms stepped in.
                 </p>
               </div>
             </motion.div>
@@ -168,7 +168,7 @@ export default function AccutechCaseStudyPage() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-slate-650 text-sm md:text-base leading-relaxed">
-                Before partnering with Dots & Coms, Accutech Labels relied heavily on traditional business development methods. Most of their leads came from:
+                Before partnering with Dots and Coms, Accutech Labels relied heavily on traditional business development methods. Most of their leads came from:
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs md:text-sm text-slate-600 font-semibold">
@@ -239,7 +239,7 @@ export default function AccutechCaseStudyPage() {
               
               <div className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  At Dots & Coms, we realized that Accutech Labels had:
+                  At Dots and Coms, we realized that Accutech Labels had:
                 </p>
                 <div className="grid grid-cols-1 gap-2 text-xs md:text-sm text-slate-600 font-semibold">
                   {[
@@ -289,13 +289,13 @@ export default function AccutechCaseStudyPage() {
               <div className="flex items-center space-x-3 text-[#dc2626]">
                 <Target className="w-6 h-6" />
                 <h3 className="text-2xl font-extrabold font-heading text-slate-800">
-                  The Dots & Coms Approach
+                  The Dots and Coms Approach
                 </h3>
               </div>
 
               <div className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  What makes Dots & Coms different from traditional design agencies is our approach. We don’t just build templates. We build strategy.
+                  What makes Dots and Coms different from traditional design agencies is our approach. We don’t just build templates. We build strategy.
                 </p>
                 <p className="font-semibold text-slate-805">
                   For this project, we combined:
@@ -662,7 +662,7 @@ export default function AccutechCaseStudyPage() {
               <div className="lg:col-span-5 text-left space-y-4 lg:order-2">
                 <span className="text-4xl font-extrabold font-heading text-[#dc2626]/10">02</span>
                 <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-slate-855 tracking-tight leading-tight">
-                  What Makes Dots & Coms Different
+                  What Makes Dots and Coms Different
                 </h3>
                 <div className="w-12 h-1 bg-[#dc2626] rounded-full" />
                 <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
@@ -721,7 +721,7 @@ export default function AccutechCaseStudyPage() {
                 </h3>
                 <div className="w-12 h-1 bg-[#dc2626] rounded-full" />
                 <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
-                  The collaboration between Dots & Coms and Accutech Labels transformed a traditional, offline-reliant manufacturing business into a digital lead generation engine.
+                  The collaboration between Dots and Coms and Accutech Labels transformed a traditional, offline-reliant manufacturing business into a digital lead generation engine.
                 </p>
               </div>
 

@@ -102,7 +102,7 @@ namespace Dotsandcoms_in.Server.Services
                 to: admin.Email,
                 cc: "",
                 from: "",
-                subject: "Your Admin Panel Credentials – Dots & Coms",
+                subject: "Your Admin Panel Credentials – Dots and Coms",
                 html: BuildForgotPasswordEmail(admin.Email, tempPassword)
             );
         }

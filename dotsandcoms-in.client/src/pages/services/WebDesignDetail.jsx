@@ -118,7 +118,7 @@ export default function WebDesignDetail() {
                     <div className="w-full max-w-2xl">
                       <TiltCard 
                         src={sub.image} 
-                        alt={sub.alt || `${sub.title} - Custom Website Design and Development Vadodara | Dots & Coms`} 
+                        alt={sub.alt || `${sub.title} - Custom Website Design and Development Vadodara | Dots and Coms`} 
                         offsetBorder={sub.offsetBorder}
                         glowColor={sub.glowColor}
                         width={sub.width}

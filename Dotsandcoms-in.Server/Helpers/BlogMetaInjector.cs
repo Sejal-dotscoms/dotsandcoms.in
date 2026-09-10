@@ -166,19 +166,55 @@ public static class BlogMetaInjector
         return html;
     }
 
-    private static string InjectRootContent(string html, string content)
+    /// <summary>
+    /// Injects a crawler-visible list of public blog posts for GET /blogs.
+    /// </summary>
+    public static string InjectBlogList(string html, IReadOnlyList<Blog> blogs)
     {
-        // Empty root (spa-shell)
-        if (Regex.IsMatch(html, @"<div\s+id=[""']root[""']\s*>\s*</div>", RegexOptions.IgnoreCase))
-        {
-            return Re(html, @"<div\s+id=[""']root[""']\s*>\s*</div>",
-                $@"<div id=""root"">{content}</div>");
-        }
+        const string title = "Blog | Web Design, App Development & Digital Marketing Insights";
+        const string description =
+            "Practical guides on website design, mobile apps, SEO, and digital marketing for businesses in Vadodara and beyond.";
+        const string keywords =
+            "web design blog, digital marketing tips Vadodara, mobile app development guides";
+        const string pageUrl = "https://www.dotsandcoms.in/blogs";
 
-        // Already has content — insert seo block before closing #root
-        return Re(html, @"</div>\s*(?=<script[^>]+src=[""'][^""']*assets)",
-            $"{content}</div>\n    ");
-    }
+        Func<string?, string> enc = WebUtility.HtmlEncode;
+
+        html = Re(html, @"<title>[^<]*</title>", $"<title>{enc(title)}</title>");
+        html = Re(html, @"<link\b[^>]*\brel=[""']canonical[""'][^>]*>",
+            $@"<link rel=""canonical"" href=""{pageUrl}"" />");
+        html = Re(html, @"<meta\b[^>]*\bname=[""']description[""'][^>]*>",
+            $@"<meta name=""description"" content=""{enc(description)}"" />");
+        html = Re(html, @"<meta\b[^>]*\bname=[""']keywords[""'][^>]*>",
+            $@"<meta name=""keywords"" content=""{enc(keywords)}"" />");
+        html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:title[""'][^>]*>",
+            $@"<meta property=""og:title"" content=""{enc(title)}"" />");
+        html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:description[""'][^>]*>",
+            $@"<meta property=""og:description"" content=""{enc(description)}"" />");
+        html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:keywords[""'][^>]*>",
+            $@"<meta property=""og:keywords"" content=""{enc(keywords)}"" />");
+        html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:url[""'][^>]*>",
+            $@"<meta property=""og:url"" content=""{pageUrl}"" />");
+
+        var sb = new StringBuilder();
+        sb.Append("""<main id="seo-content"><h1>Blogs</h1><ul>""");
+        foreach (var blog in blogs)
+        {
+            var href = $"https://www.dotsandcoms.in/blogs/{blog.BrowserUrl}";
+            sb.Append("<li><a href=\"")
+              .Append(enc(href))
+              .Append("\">")
+              .Append(enc(blog.Title))
+              .Append("</a>");
+            if (!string.IsNullOrWhiteSpace(blog.ShortDescription))
+            {
+                sb.Append("<p>")
+                  .Append(enc(TrimTo160(blog.ShortDescription)))
+                  .Append("</p>");
+            }
+            sb.Append("</li>");
+        }
+        sb.Append("</ul></main>");
 
     private static string Re(string html, string pattern, string replacement) =>
         Regex.Replace(html, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Singleline);

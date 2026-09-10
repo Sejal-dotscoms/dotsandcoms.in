@@ -168,7 +168,7 @@ export default function TeamSection() {
                   >
                     <img 
                       src={teamSlides[activeIndex].image} 
-                      alt={teamSlides[activeIndex].alt || `${teamSlides[activeIndex].title} - Dots & Coms Development Team Baroda`}
+                      alt={teamSlides[activeIndex].alt || `${teamSlides[activeIndex].title} - Dots and Coms Development Team Baroda`}
                       className="w-full h-full object-cover cursor-zoom-in"
                       onClick={() => setIsLightboxOpen(true)}
                       loading="lazy"
@@ -274,7 +274,7 @@ export default function TeamSection() {
               <div className="relative w-full max-h-[75vh] flex justify-center items-center pointer-events-auto">
                 <img
                   src={teamSlides[activeIndex].image}
-                  alt={teamSlides[activeIndex].alt || `${teamSlides[activeIndex].title} - Dots & Coms Development Team Baroda`}
+                  alt={teamSlides[activeIndex].alt || `${teamSlides[activeIndex].title} - Dots and Coms Development Team Baroda`}
                   className="max-w-full max-h-[75vh] rounded-xl object-contain shadow-2xl border border-white/10"
                   loading="lazy"
                   decoding="async"

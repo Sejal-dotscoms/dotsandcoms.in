@@ -14,7 +14,7 @@ export default function SitemapPage() {
     <>
       <InnerBanner
         title="Sitemap"
-        subtitle={<>A comprehensive directory of pages, <strong>website design services</strong>, case studies, and corporate contact details at <strong>Dots & Coms</strong>.</>}
+        subtitle={<>A comprehensive directory of pages, <strong>website design services</strong>, case studies, and corporate contact details at <strong>Dots and Coms</strong>.</>}
         breadcrumbs={[{ label: "Sitemap" }]}
       />
       <h2 className="sr-only">Corporate Directory and Website Map</h2>

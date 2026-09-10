@@ -7,8 +7,8 @@ export default function NotFoundPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     return setPageSEO({
-      title: "404 - Page Not Found | Dots & Coms",
-      description: "The page you are looking for does not exist on Dots & Coms website. Navigate using our site directory below to find web design and mobile app services.",
+      title: "404 - Page Not Found | Dots and Coms",
+      description: "The page you are looking for does not exist on Dots and Coms website. Navigate using our site directory below to find web design and mobile app services.",
       keywords: "404 error, page not found, error page, Dots and Coms",
       canonical: "https://www.dotsandcoms.in/404"
     });
