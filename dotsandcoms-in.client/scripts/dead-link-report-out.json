@@ -1,0 +1,281 @@
+{
+  "origin": "https://www.dotsandcoms.in",
+  "generatedAt": "2026-09-10T12:26:45.783Z",
+  "summary": {
+    "checked": 269,
+    "ok": 250,
+    "dead": 17,
+    "errors": 2,
+    "blocked": 0,
+    "server": 0,
+    "other": 0
+  },
+  "dead": [
+    {
+      "url": "https://fonts.googleapis.com/",
+      "status": 404,
+      "finalUrl": "https://fonts.googleapis.com/",
+      "error": null,
+      "kind": "dead",
+      "sameSite": false,
+      "sources": [
+        "page:/free-seo-performance-website-audit",
+        "page:/feer-seo-performance-website-audit",
+        "page:/fee-seo-performance-website-audit",
+        "page:/free-seo-audit",
+        "page:/poweradmin",
+        "page:/fee-seo-performance-web-site-audit",
+        "page:/free-audit",
+        "page:/windows-web-hosting-service-provider-baroda"
+      ]
+    },
+    {
+      "url": "https://fonts.gstatic.com/",
+      "status": 404,
+      "finalUrl": "https://fonts.gstatic.com/",
+      "error": null,
+      "kind": "dead",
+      "sameSite": false,
+      "sources": [
+        "page:/free-seo-performance-website-audit",
+        "page:/feer-seo-performance-website-audit",
+        "page:/fee-seo-performance-website-audit",
+        "page:/free-seo-audit",
+        "page:/poweradmin",
+        "page:/fee-seo-performance-web-site-audit",
+        "page:/free-audit",
+        "page:/windows-web-hosting-service-provider-baroda"
+      ]
+    },
+    {
+      "url": "https://www.clarity.ms/tag/",
+      "status": 404,
+      "finalUrl": "https://www.clarity.ms/tag/",
+      "error": null,
+      "kind": "dead",
+      "sameSite": false,
+      "sources": [
+        "page:/free-seo-performance-website-audit",
+        "page:/feer-seo-performance-website-audit",
+        "page:/fee-seo-performance-website-audit",
+        "page:/free-seo-audit",
+        "page:/poweradmin",
+        "page:/fee-seo-performance-web-site-audit",
+        "page:/free-audit",
+        "page:/windows-web-hosting-service-provider-baroda"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/$%7Burl%7D",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/$%7Burl%7D",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/seo/injectHtmlMeta.js"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/404",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/404",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/pages/NotFoundPage.jsx"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/assets/$%7Bname%7D",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/assets/$%7Bname%7D",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/data/projects.js"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/assets/images/logo.png",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/assets/images/logo.png",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "page:/free-seo-performance-website-audit",
+        "page:/feer-seo-performance-website-audit",
+        "page:/fee-seo-performance-website-audit",
+        "page:/free-seo-audit",
+        "page:/poweradmin",
+        "page:/fee-seo-performance-web-site-audit",
+        "page:/free-audit",
+        "page:/windows-web-hosting-service-provider-baroda"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/blogs/$%7Bdata.browserUrl%7D%60",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/blogs/$%7Bdata.browserUrl%7D%60",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/pages/BlogDetailPage.jsx",
+        "page:/blogs/$%7Bdata.browserUrl%7D%60"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/blogs/%7Bform.browserUrl%7D",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/blogs/%7Bform.browserUrl%7D",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/Poweradmin/Pages/Blog/BlogForm.jsx",
+        "page:/blogs/%7Bform.browserUrl%7D"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/blogs/:slug",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/blogs/:slug",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/App.jsx",
+        "page:/blogs/:slug"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/blogs/my-url",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/blogs/my-url",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/Poweradmin/Pages/Blog/BlogForm.jsx",
+        "page:/blogs/my-url"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/poweradmin/blogs/edit/$%7Bblog.id%7D",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/poweradmin/blogs/edit/$%7Bblog.id%7D",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/Poweradmin/Pages/Blog/BlogList.jsx"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/ssl-digital-security-certificates-vadodara",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/ssl-digital-security-certificates-vadodara",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:public/llm.txt",
+        "src:public/llms.txt"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/webstories.html",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/webstories.html",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:public/llm.txt",
+        "src:public/llms.txt"
+      ]
+    },
+    {
+      "url": "https://www.dotsandcoms.in/www.memorify.world/",
+      "status": 404,
+      "finalUrl": "https://www.dotsandcoms.in/www.memorify.world/",
+      "error": null,
+      "kind": "dead",
+      "sameSite": true,
+      "sources": [
+        "src:src/components/Clients.jsx"
+      ]
+    },
+    {
+      "url": "https://www.googletagmanager.com/",
+      "status": 404,
+      "finalUrl": "https://www.googletagmanager.com/",
+      "error": null,
+      "kind": "dead",
+      "sameSite": false,
+      "sources": [
+        "page:/free-seo-performance-website-audit",
+        "page:/feer-seo-performance-website-audit",
+        "page:/fee-seo-performance-website-audit",
+        "page:/free-seo-audit",
+        "page:/poweradmin",
+        "page:/fee-seo-performance-web-site-audit",
+        "page:/free-audit",
+        "page:/windows-web-hosting-service-provider-baroda"
+      ]
+    },
+    {
+      "url": "https://www.linkedin.com/company/dots-&amp;-coms/",
+      "status": 404,
+      "finalUrl": "https://www.linkedin.com/company/dots-&amp;-coms/",
+      "error": null,
+      "kind": "dead",
+      "sameSite": false,
+      "sources": [
+        "page:/windows-web-hosting-service-provider-baroda",
+        "page:/about-web-development-company-baroda",
+        "page:/services",
+        "page:/responsive-website-designing-company-vadodara",
+        "page:/android-ios-mobile-app-development-company-baroda",
+        "page:/organic-seo-ppc-digital-marketing-vadodara",
+        "page:/website-mobile-app-development-company-portfolio-baroda",
+        "page:/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://www.dotsandcoms.in${crumb.href}`/",
+      "status": 0,
+      "finalUrl": "https://www.dotsandcoms.in${crumb.href}`/",
+      "error": "fetch failed",
+      "kind": "error",
+      "sameSite": false,
+      "sources": [
+        "src:src/utils/seo.js"
+      ]
+    },
+    {
+      "url": "https://yourwebsite.com/",
+      "status": 0,
+      "finalUrl": "https://yourwebsite.com/",
+      "error": "fetch failed",
+      "kind": "error",
+      "sameSite": false,
+      "sources": [
+        "src:src/components/ContactCTA.jsx",
+        "src:src/components/ui/AuditModal.jsx",
+        "src:src/pages/FreeWebsiteAuditPage.jsx",
+        "page:/free-seo-performance-website-audit"
+      ]
+    }
+  ],
+  "blocked": [],
+  "server": [],
+  "other": [],
+  "redirects": []
+}

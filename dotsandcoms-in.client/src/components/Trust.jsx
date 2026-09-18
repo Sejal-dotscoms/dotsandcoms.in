@@ -2,15 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 function Counter({ target, duration = 2, suffix = "" }) {
-  const [count, setCount] = useState(0);
+  const end = parseInt(target, 10);
+  // Start at the final value so prerender / non-JS crawlers see real stats, not "0+"
+  const [count, setCount] = useState(end);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    if (typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(end);
+      return;
+    }
 
     let start = 0;
-    const end = parseInt(target);
+    setCount(0);
 
     const totalMiliseconds = duration * 1000;
     const incrementTime = 30;
@@ -29,7 +39,7 @@ function Counter({ target, duration = 2, suffix = "" }) {
     }, incrementTime);
 
     return () => clearInterval(timer);
-  }, [isInView, target, duration]);
+  }, [isInView, end, duration]);
 
   return (
     <span ref={ref}>
