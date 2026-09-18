@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+﻿import { useEffect } from "react";
 import Lenis from "lenis";
 
 // Custom global elements
@@ -26,8 +26,6 @@ import WhatsAppButton from "./ui/WhatsAppButton";
 import "../App.css";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(!window.hasLoadedOnce);
-
   // Set page-specific SEO metadata on mount
   useEffect(() => {
     return setPageSEO(getRouteSEO("/"));
@@ -62,7 +60,7 @@ export default function Home() {
 
   return (
     <>
-      <LoadingScreen onComplete={() => setIsLoading(false)} />
+      <LoadingScreen />
       
       <div className="relative min-h-screen bg-[#f8fafc] text-slate-600">
         {/* Custom interactive elements */}
