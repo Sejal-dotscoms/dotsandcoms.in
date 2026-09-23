@@ -66,10 +66,25 @@ function ScrollToHashElement() {
   return null;
 }
 
+// Load OpenAI pixel on public routes (covers admin → public soft navigations)
+function EnsureOaiqPixelOnPublicRoutes() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname.startsWith("/poweradmin")) return;
+    if (typeof window.ensureOaiqPixel === "function") {
+      window.ensureOaiqPixel();
+    }
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToHashElement />
+      <EnsureOaiqPixelOnPublicRoutes />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />

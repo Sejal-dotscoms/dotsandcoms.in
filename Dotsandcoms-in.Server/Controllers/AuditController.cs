@@ -252,7 +252,8 @@ This email was generated automatically from your website Audit Form.
                 "parul@dotscoms.com", "contact@dotsandcoms.in",
                 model.Email,
                 "New SEO Audit Request",
-                body.ToString());
+                body.ToString(),
+                model.Name);
 
             return Ok(new
             {
