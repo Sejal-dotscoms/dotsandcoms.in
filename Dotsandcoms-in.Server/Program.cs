@@ -362,10 +362,20 @@ app.MapFallback(async context =>
             return;
     }
 
+    // Unknown routes (validity middleware set 404): inject not-found meta — never leave homepage shell meta
+    if (context.Response.StatusCode == StatusCodes.Status404NotFound)
+    {
+        await WriteCrawlerNotFoundAsync(
+            context,
+            env,
+            "The page you requested could not be found on Dots and Coms.");
+        return;
+    }
+
     var shellPath = ResolveSpaShellPath(env);
     if (!File.Exists(shellPath))
     {
-        context.Response.StatusCode = 404;
+        await WriteCrawlerNotFoundAsync(context, env, "The page you requested could not be found on Dots and Coms.");
         return;
     }
 
@@ -377,7 +387,6 @@ app.MapFallback(async context =>
             html = PageMetaInjector.Inject(html, seo, ensureCrawlerBody: true);
     }
 
-    // Preserve 404 status set by the validity middleware for unknown routes
     context.Response.ContentType = "text/html; charset=utf-8";
     context.Response.Headers["Cache-Control"] = "public, max-age=3600";
     await context.Response.WriteAsync(html);

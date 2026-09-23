@@ -425,7 +425,7 @@ export default function BlogForm() {
               <span className="ml-1 text-xs font-normal text-gray-400">(raw HTML injected into &lt;head&gt;)</span>
             </label>
             <textarea name="metaTags" value={form.metaTags} onChange={handleChange}
-              rows={5} placeholder={`<link rel="canonical" href="https://www.dotsandcoms.in/blogs/my-url" />\n<meta name="description" content="..." />\n<meta name="keywords" content="..." />`}
+              rows={5} placeholder={`<link rel="canonical" href="https://example.com/blogs/example-slug" />\n<meta name="description" content="..." />\n<meta name="keywords" content="..." />`}
               className={`w-full px-4 py-2.5 border rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-red-200 resize-y ${fieldErrors.metaTags ? "border-red-400" : "border-gray-200"}`} />
             <FieldError msg={fieldErrors.metaTags} />
             <p className="text-xs text-gray-400">Paste raw HTML meta/link tags. They will be injected into the blog detail page's &lt;head&gt;.</p>
