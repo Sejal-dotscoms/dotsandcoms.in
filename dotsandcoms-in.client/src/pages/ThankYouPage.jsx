@@ -15,6 +15,22 @@ export default function ThankYouPage() {
     return setPageSEO(getRouteSEO("/thank-you"));
   }, []);
 
+  useEffect(() => {
+    if (state?.from !== "contact") return;
+    if (sessionStorage.getItem("oaiq_lead_created_contact") === "1") return;
+
+    if (typeof window.ensureOaiqPixel === "function") {
+      window.ensureOaiqPixel();
+    }
+
+    if (typeof window.oaiq === "function") {
+      window.oaiq("measure", "lead_created", {
+        type: "customer_action",
+      });
+      sessionStorage.setItem("oaiq_lead_created_contact", "1");
+    }
+  }, [state]);
+
   if (!state) {
     return (
       <>

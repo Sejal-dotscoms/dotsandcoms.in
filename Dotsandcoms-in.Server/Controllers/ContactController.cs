@@ -311,7 +311,8 @@ This email was generated automatically from your website Contact Us form.
                     "parul@dotscoms.com", "contact@dotsandcoms.in",
                      model.Email,
                     $"New Contact Enquiry - {model.Name}",
-                    body.ToString());
+                    body.ToString(),
+                    model.Name);
 
                 //---------------------------------------
                 // Return Success

@@ -71,7 +71,8 @@ namespace Dotsandcoms_in.Server.Services
                 cc: "contact@dotsandcoms.in",
                 from: payload.EmailId,
                 subject: $"Hosting Order Form-{DateTime.Now:dd-MMM-yyyy}- IN",
-                html: BuildAdminMailBody(payload)
+                html: BuildAdminMailBody(payload),
+                replyToName: payload.YourName
             );
 
             // Thank you email

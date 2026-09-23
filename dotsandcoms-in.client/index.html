@@ -4,6 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat</title>
+    <!-- OpenAI Ads Pixel (public site only; skipped on /poweradmin*) -->
+    <script>
+      (function () {
+        var PIXEL_ID = "2hFXhdbnzLoTZxdSRVzFAf";
+        var SDK_URL = "https://bzrcdn.openai.com/sdk/oaiq.min.js";
+
+        function isPoweradminPath(pathname) {
+          return typeof pathname === "string" && pathname.indexOf("/poweradmin") === 0;
+        }
+
+        window.ensureOaiqPixel = function ensureOaiqPixel() {
+          if (isPoweradminPath(window.location.pathname)) return;
+          if (window.__oaiqInited) return;
+
+          if (!window.oaiq) {
+            !function (w, d, s, u) {
+              if (w.oaiq) return;
+              var q = function () { q.q.push(arguments); };
+              q.q = [];
+              w.oaiq = q;
+              var j = d.createElement(s);
+              j.async = 1;
+              j.src = u;
+              var f = d.getElementsByTagName(s)[0];
+              f.parentNode.insertBefore(j, f);
+            }(window, document, "script", SDK_URL);
+          }
+
+          window.oaiq("init", { pixelId: PIXEL_ID, debug: true });
+          window.__oaiqInited = true;
+        };
+
+        if (!isPoweradminPath(window.location.pathname)) {
+          window.ensureOaiqPixel();
+        }
+      })();
+    </script>
     <link rel="canonical" href="https://www.dotsandcoms.in/" />
     <link rel="preload" as="image" href="/hero-banner-image.webp" type="image/webp" fetchpriority="high" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
