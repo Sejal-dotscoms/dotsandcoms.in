@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Search, Zap, Shield, Smartphone, FileText } from "lucide-react";
+import { Search, Zap, Shield, Smartphone, FileText, ArrowRight } from "lucide-react";
 import AuditModal from "./ui/AuditModal";
 
 const features = [
@@ -91,7 +91,7 @@ export function FreeAuditCTA() {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex justify-center"
+          className="flex flex-col items-center gap-4"
         >
           <button
             onClick={() => setIsModalOpen(true)}
@@ -100,6 +100,15 @@ export function FreeAuditCTA() {
           >
             Analyze My Website Now
           </button>
+          <a
+            href="https://www.free-website-auditor.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/25 sm:text-base"
+          >
+            Explore free SEO audit tools
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
         </motion.div>
       </div>
 

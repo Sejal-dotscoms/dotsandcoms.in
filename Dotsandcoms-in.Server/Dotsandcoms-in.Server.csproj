@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Dotsandcoms_in.Server</RootNamespace>
+    <UserSecretsId>dotsandcoms-in-server-7f3a9c2e</UserSecretsId>
     <SpaRoot>..\dotsandcoms-in.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:57722</SpaProxyServerUrl>

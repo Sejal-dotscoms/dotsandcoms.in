@@ -93,6 +93,10 @@ try {
     ...blogRoutes.map((b) => ({ path: b.path, title: b.title })),
   ];
 
+  const sitemapKeywords =
+    PUBLIC_ROUTES.find((r) => r.path === "/sitemap")?.keywords ||
+    "sitemap, dots and coms directory, website map, blogs directory, tech articles, navigation panel, Baroda, IT services list";
+
   let html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,6 +104,7 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sitemap - Dots and Coms Baroda</title>
   <meta name="description" content="Explore the sitemap directory of Dots and Coms Vadodara. Quick links to website design, app development, blogs, web hosting, and digital marketing services.">
+  <meta name="keywords" content="${sitemapKeywords}">
   <link rel="canonical" href="${BASE_URL}/sitemap.html" />
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 40px 20px; line-height: 1.6; }
