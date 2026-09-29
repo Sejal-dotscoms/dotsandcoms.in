@@ -24,8 +24,10 @@ const TermsPage = lazy(() => import("./pages/TermsPage"));
 const SitemapPage = lazy(() => import("./pages/SitemapPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const AccutechCaseStudyPage = lazy(() => import("./pages/AccutechCaseStudyPage"));
+const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
 const OneLifeCaseStudyPage = lazy(() => import("./pages/OneLifeCaseStudyPage"));
-const KiiaraCaseStudyPage = lazy(() => import("./pages/KiiaraCaseStudyPage"));
+const AuroPumpsCaseStudyPage = lazy(() => import("./pages/AuroPumpsCaseStudyPage"));
+const HimileIndiaCaseStudyPage = lazy(() => import("./pages/HimileIndiaCaseStudyPage"));
 const OrderNowPage = lazy(() => import("./pages/OrderNowPage"));
 const WebHostingDetailsPage = lazy(() => import("./pages/WebHostingDetailsPage"));
 const ThankYouPage = lazy(() => import("./pages/ThankYouPage"));
@@ -136,9 +138,15 @@ function App() {
                     <Route path="/terms-and-conditions" element={<TermsPage />} />
                     <Route path="/sitemap" element={<SitemapPage />} />
                     <Route path="/sitemap.html" element={<SitemapPage />} />
+                    <Route path="/case-studies" element={<CaseStudiesPage />} />
+                    <Route path="/case-study-list" element={<Navigate to="/case-studies" replace />} />
+                    <Route path="/case-studies-list" element={<Navigate to="/case-studies" replace />} />
                     <Route path="/accutechlabels-case-study-traditional-to-web-business" element={<AccutechCaseStudyPage />} />
                     <Route path="/1life-case-study-of-regional-to-national-reach" element={<OneLifeCaseStudyPage />} />
-                    <Route path="/hobby-goes-global-case-study" element={<KiiaraCaseStudyPage />} />
+                    <Route path="/auro-pumps-case-study-traditional-to-digital-lead-engine" element={<AuroPumpsCaseStudyPage />} />
+                    <Route path="/himile-india-case-study-global-manufacturing-digital-voice" element={<HimileIndiaCaseStudyPage />} />
+                    <Route path="/himile-india-case-study" element={<Navigate to="/himile-india-case-study-global-manufacturing-digital-voice" replace />} />
+                    <Route path="/hobby-goes-global-case-study" element={<Navigate to="/auro-pumps-case-study-traditional-to-digital-lead-engine" replace />} />
                     <Route path="/order-now" element={<OrderNowPage />} />
                     <Route path="/web-hosting-details" element={<WebHostingDetailsPage />} />
                     <Route path="/thank-you" element={<ThankYouPage />} />

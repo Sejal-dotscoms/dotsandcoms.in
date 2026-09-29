@@ -32,14 +32,24 @@ export default function FeaturedWork() {
       link: "/1life-case-study-of-regional-to-national-reach",
     },
     {
-      title: "Kiiara Kreations",
-      industry: "Startup Growth",
-      image: "/case_study_kiiara.webp",
-      alt: "Kiiara Kreations Custom eCommerce Platform & Startup Case Study",
-      challenge: "Evolving Kiiara Kreations from a creative passion project into a structured startup with high conversion rates, speed-optimized storefronts, and targeted digital reach.",
-      result: "Transformed into a fast-growing consumer brand, leveraging custom-designed e-commerce platforms and social marketing to reach a wider audience and accelerate order volumes.",
-      tech: ["Shopify Headless API", "React 19", "Tailwind CSS", "Meta Marketing Ads", "Google Analytics"],
-      link: "/hobby-goes-global-case-study",
+      title: "Auro Pumps",
+      industry: "Industrial Lead Engine",
+      image: "/case_study_auropumps.webp",
+      alt: "Auro Pumps Industrial Web Design & Digital Lead Engine Case Study",
+      challenge: "Communicating the deep technical expertise, specialized manufacturing, and certified engineering of a 40-year-old industrial pump manufacturer to modern digital buyers.",
+      result: "Turned the website from an offline brochure into an active 24/7 lead-generation engine, delivering consistent high-value B2B industrial enquiries.",
+      tech: ["React JS", "Tailwind CSS", "Industrial SEO", "Lead Gen Strategy", "Google Ads"],
+      link: "/auro-pumps-case-study-traditional-to-digital-lead-engine",
+    },
+    {
+      title: "Himile India",
+      industry: "Multinational Corporate Website",
+      image: "/case_study_himile.webp",
+      alt: "Himile India Industrial Corporate Web Design & Digital Strategy Case Study",
+      challenge: "Structuring and communicating complex technology across tire molds, CNC machines, compressors, and heat exchangers for a global manufacturing giant without confusing visitors.",
+      result: "Created a structured digital corporate ecosystem with page-by-page information architecture, vertical-segmented contact routing, and global credibility.",
+      tech: ["Information Architecture", "React JS", "Tailwind CSS", "SEO Strategy", "UX Design"],
+      link: "/himile-india-case-study-global-manufacturing-digital-voice",
     },
   ];
 
@@ -48,32 +58,57 @@ export default function FeaturedWork() {
     const scrollWrapper = scrollWrapperRef.current;
     if (!scrollContainer || !scrollWrapper) return;
 
-    // Check if large screen to apply horizontal pinning
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
     let ctx;
-    if (mediaQuery.matches) {
-      ctx = gsap.context(() => {
-        const horizontalLength = scrollWrapper.scrollWidth - window.innerWidth;
-        gsap.to(scrollWrapper, {
-          x: -horizontalLength,
-          ease: "none",
-          scrollTrigger: {
-            trigger: scrollContainer,
-            pin: true,
-            scrub: 1,
-            start: "top top",
-            end: () => `+=${horizontalLength}`,
-            invalidateOnRefresh: true,
-          },
-        });
-      }, scrollContainerRef);
-    }
+    const initScroll = () => {
+      if (ctx) ctx.revert();
+      if (mediaQuery.matches) {
+        ctx = gsap.context(() => {
+          const getHorizontalLength = () => {
+            const scrollW = scrollWrapper.scrollWidth;
+            const winW = window.innerWidth;
+            return Math.max(0, scrollW - winW + 400);
+          };
+
+          gsap.to(scrollWrapper, {
+            x: () => -getHorizontalLength(),
+            ease: "none",
+            scrollTrigger: {
+              trigger: scrollContainer,
+              pin: true,
+              scrub: 1,
+              start: "top top",
+              end: () => `+=${getHorizontalLength()}`,
+              invalidateOnRefresh: true,
+            },
+          });
+        }, scrollContainerRef);
+      }
+    };
+
+    initScroll();
+
+    // Force ScrollTrigger refresh as layout, images, and fonts settle
+    const timer1 = setTimeout(() => ScrollTrigger.refresh(), 100);
+    const timer2 = setTimeout(() => ScrollTrigger.refresh(), 500);
+
+    const handleResize = () => {
+      initScroll();
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleResize);
 
     return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load", handleResize);
       if (ctx) ctx.revert();
     };
-  }, []);
+  }, [projects.length]);
 
   return (
     <div ref={scrollContainerRef} id="work" className="relative bg-[#f8fafc]">
@@ -81,21 +116,30 @@ export default function FeaturedWork() {
       <div className="pointer-events-none absolute top-1/2 left-1/3 -z-10 h-[300px] w-[600px] -translate-y-1/2 rounded-full bg-[#dc2626]/3 blur-[120px]" />
 
       {/* Outer section wrapper */}
-      <div className="flex flex-col justify-center pt-6 pb-6 md:py-20 lg:h-screen lg:overflow-hidden lg:py-0">
+      <div className="flex flex-col justify-between pt-12 pb-8 md:pt-16 md:pb-12 lg:h-screen lg:overflow-hidden lg:py-10">
         
         {/* Intro header block */}
-        <div className="mx-auto mb-12 flex w-full max-w-7xl flex-col justify-between px-6 text-left md:flex-row md:items-end md:px-12">
-          <div className="space-y-4">
+        <div className="mx-auto mb-6 flex w-full max-w-7xl shrink-0 flex-col justify-between gap-4 px-6 text-left md:flex-row md:items-center md:px-12">
+          <div className="space-y-2.5">
             <span className="font-mono text-xs font-bold tracking-widest text-[#ea580c] uppercase">
               // CASE STUDIES
             </span>
-            <h2 className="font-heading text-4xl leading-tight font-extrabold tracking-tight text-slate-800 md:text-5xl">
-            Impact of Our Digital Strategy in Action
+            <h2 className="font-heading pt-1 text-3xl leading-tight font-extrabold tracking-tight text-slate-800 sm:text-4xl md:leading-snug lg:text-5xl lg:whitespace-nowrap">
+              Impact of Our Digital Strategy in Action
             </h2>
           </div>
-          <span className="hidden font-mono text-xs tracking-widest text-slate-400 uppercase lg:block">
-            SCROLL DOWN FOR SIDEWAYS MOTION →
-          </span>
+          <div className="flex flex-col items-start gap-2 md:items-end md:justify-end shrink-0">
+            <Link
+              to="/case-studies"
+              className="group inline-flex items-center space-x-2 rounded-full bg-[#dc2626] px-6 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-md shadow-red-500/20 transition-all hover:-translate-y-0.5 hover:bg-[#b91c1c] hover:shadow-red-500/30"
+            >
+              <span>View All Case Studies</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+            <span className="hidden font-mono text-xs tracking-widest text-slate-400 uppercase lg:block">
+              SCROLL DOWN FOR SIDEWAYS MOTION →
+            </span>
+          </div>
         </div>
 
         {/* Horizontal flex slide element */}
@@ -182,6 +226,17 @@ export default function FeaturedWork() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Case Studies Bottom CTA Bar */}
+        <div className="mt-4 flex shrink-0 justify-center px-6 md:px-12 lg:mt-6">
+          <Link
+            to="/case-studies"
+            className="group inline-flex items-center space-x-3 rounded-full bg-slate-900 px-8 py-3.5 text-xs font-bold tracking-wider text-white uppercase shadow-xl transition-all duration-300 hover:bg-[#dc2626] hover:shadow-red-500/20"
+          >
+            <span>Explore All Client Case Studies</span>
+            <ArrowUpRight className="h-4 w-4 text-[#ea580c] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+          </Link>
         </div>
       </div>
     </div>

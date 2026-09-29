@@ -36,6 +36,50 @@ export const projects = [
     icon: Globe
   },
   {
+    id: 101,
+    title: "Accutech Labels",
+    location: "Vadodara, India",
+    category: "Web Design",
+    link: "/accutechlabels-case-study-traditional-to-web-business",
+    webp: webThumb("case_study_accutech.webp"),
+    png:  webThumb("case_study_accutech.webp"),
+    accent: "#dc2626",
+    icon: Globe
+  },
+  {
+    id: 102,
+    title: "1Life",
+    location: "Vadodara, India",
+    category: "Web Design",
+    link: "/1life-case-study-of-regional-to-national-reach",
+    webp: webThumb("case_study_onelife.webp"),
+    png:  webThumb("case_study_onelife.webp"),
+    accent: "#ea580c",
+    icon: Globe
+  },
+  {
+    id: 103,
+    title: "Auro Pumps",
+    location: "Vadodara, India",
+    category: "Web Design",
+    link: "/auro-pumps-case-study-traditional-to-digital-lead-engine",
+    webp: webThumb("case_study_auropumps.webp"),
+    png:  webThumb("case_study_auropumps.png"),
+    accent: "#0284c7",
+    icon: Globe
+  },
+  {
+    id: 104,
+    title: "Himile India",
+    location: "Vadodara, India",
+    category: "Web Design",
+    link: "/himile-india-case-study-global-manufacturing-digital-voice",
+    webp: webThumb("case_study_himile.webp"),
+    png:  webThumb("case_study_himile.jpg"),
+    accent: "#1e3a8a",
+    icon: Globe
+  },
+  {
     id: 3,
     title: "Alembic Pharmaceuticals",
     location: "Vadodara, India",

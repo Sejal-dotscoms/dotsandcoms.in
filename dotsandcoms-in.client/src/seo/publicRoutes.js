@@ -168,6 +168,18 @@ export const PUBLIC_ROUTES = [
     sitemap: true,
   },
   {
+    path: "/case-studies",
+    title: "Client Case Studies & B2B Digital Transformation Stories | Dots and Coms Vadodara",
+    description:
+      "Explore real case studies showing how Dots and Coms transformed traditional businesses and industrial companies into digital lead generation engines across Vadodara and India.",
+    keywords:
+      "case studies, website design case studies Vadodara, B2B digital transformation, web development portfolio Gujarat, industrial lead generation case studies",
+    canonical: `${BASE_URL}/case-studies`,
+    prerender: true,
+    sitemap: true,
+    priority: "0.9",
+  },
+  {
     path: "/accutechlabels-case-study-traditional-to-web-business",
     title: "Accutech Labels Case Study – Web Business Transformation",
     description:
@@ -190,13 +202,24 @@ export const PUBLIC_ROUTES = [
     sitemap: true,
   },
   {
-    path: "/hobby-goes-global-case-study",
-    title: "Kiiara Kreations Case Study – Hobby Goes Global Brand",
+    path: "/auro-pumps-case-study-traditional-to-digital-lead-engine",
+    title: "Auro Pumps Case Study – Traditional Business to Digital Lead Engine",
     description:
-      "Discover how Dots and Coms helped Kiiara Kreations turn a handmade craft hobby into a global brand through eCommerce web design, SEO, and marketing.",
+      "See how Dots and Coms helped Auro Pumps transform from a traditional 40-year-old industrial pump manufacturer into a 24/7 B2B digital lead generation engine.",
     keywords:
-      "Kiiara Kreations case study, handmade products website Baroda, ecommerce website design Vadodara, hobby to business web design, craft brand digital marketing Gujarat",
-    canonical: `${BASE_URL}/hobby-goes-global-case-study`,
+      "Auro Pumps case study, industrial pump manufacturer website Baroda, B2B website design Vadodara, industrial lead generation Gujarat, POMPE VERGANI pumps web design",
+    canonical: `${BASE_URL}/auro-pumps-case-study-traditional-to-digital-lead-engine`,
+    prerender: true,
+    sitemap: true,
+  },
+  {
+    path: "/himile-india-case-study-global-manufacturing-digital-voice",
+    title: "Himile India Case Study – Multinational Corporate Web Design & Strategy",
+    description:
+      "Discover how Dots and Coms helped Himile India structure and build a multi-vertical corporate website for tire molds, CNC tools, compressors & heat exchangers.",
+    keywords:
+      "Himile India case study, Himile corporate website design, industrial manufacturing website Baroda, tire mold manufacturer website, CNC machine tools web design, industrial corporate website Gujarat",
+    canonical: `${BASE_URL}/himile-india-case-study-global-manufacturing-digital-voice`,
     prerender: true,
     sitemap: true,
   },

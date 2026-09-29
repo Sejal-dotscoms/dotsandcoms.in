@@ -1,0 +1,1 @@
+var e=`/assets/dots-and-coms-logo.png`;export{e as t};

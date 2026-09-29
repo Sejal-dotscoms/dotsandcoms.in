@@ -1,4 +1,4 @@
-﻿import Logo from "./Logo";
+import Logo from "./Logo";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoImg from "../assets/images/dots-and-coms-logo.webp";
 import { Link } from "react-router-dom";
@@ -92,6 +92,7 @@ export default function Footer() {
               <li>
                 <Link to="/website-mobile-app-development-company-portfolio-baroda" aria-label="Dots and Coms Web Design Portfolio and Work" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Our Work</Link>
               </li>
+             
               <li>
                 <Link to="/faqs-web-design-hosting-digital-marketing" aria-label="Frequently Asked Questions on Web Design and Hosting" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">FAQs</Link>
               </li>
