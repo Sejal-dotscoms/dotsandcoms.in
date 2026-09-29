@@ -1483,9 +1483,6 @@
   .justify-end {
     justify-content: flex-end;
   }
-  .justify-start {
-    justify-content: flex-start;
-  }
   .gap-0 {
     gap: 0px;
   }
@@ -3677,9 +3674,6 @@
   .text-\[\#0284c7\] {
     color: #0284c7;
   }
-  .text-\[\#059669\] {
-    color: #059669;
-  }
   .text-\[\#dc2626\] {
     color: #dc2626;
   }
@@ -5411,9 +5405,6 @@
     .md\:items-end {
       align-items: flex-end;
     }
-    .md\:items-start {
-      align-items: flex-start;
-    }
     .md\:justify-end {
       justify-content: flex-end;
     }
@@ -5485,9 +5476,6 @@
     }
     .md\:py-16 {
       padding-block: calc(var(--spacing) * 16);
-    }
-    .md\:py-20 {
-      padding-block: calc(var(--spacing) * 20);
     }
     .md\:py-24 {
       padding-block: calc(var(--spacing) * 24);
@@ -5639,9 +5627,6 @@
     .lg\:mt-6 {
       margin-top: calc(var(--spacing) * 6);
     }
-    .lg\:mt-10 {
-      margin-top: calc(var(--spacing) * 10);
-    }
     .lg\:mb-12 {
       margin-bottom: calc(var(--spacing) * 12);
     }
@@ -5721,9 +5706,6 @@
     }
     .lg\:px-16 {
       padding-inline: calc(var(--spacing) * 16);
-    }
-    .lg\:py-0 {
-      padding-block: 0px;
     }
     .lg\:py-3 {
       padding-block: calc(var(--spacing) * 3);
