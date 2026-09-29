@@ -1,0 +1,1 @@
+var e=`/assets/our-approach-at-dots-and-coms-img.png`;export{e as t};

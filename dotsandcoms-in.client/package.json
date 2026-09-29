@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "playwright:install": "playwright install chromium",
+    "playwright:install": "playwright install chromium || exit 0",
     "prerender": "npm run playwright:install && node prerender.mjs",
     "build": "node generate-sitemap.js && vite build && npm run prerender && npm run qa:prerender",
     "qa:prerender": "node scripts/qa-prerender.mjs",

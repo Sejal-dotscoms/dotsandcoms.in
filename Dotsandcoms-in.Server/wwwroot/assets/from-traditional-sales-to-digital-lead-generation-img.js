@@ -1,0 +1,1 @@
+var e=`/assets/from-traditional-sales-to-digital-lead-generation-img.png`;export{e as t};

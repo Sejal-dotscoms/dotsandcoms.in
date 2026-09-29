@@ -91,7 +91,7 @@ export const timelineData = [
   { year: "2005", event: "NZ became the largest source of business — DNC adds a second shift.", tag: "Growth" },
   { year: "2004", event: "Moved to a brand-new office at Alkapuri — more than double the space and team.", tag: "Office" },
   { year: "2002", event: "Shifted to Jetalpur Road — double space, double team, focus narrows to web design and development.", tag: "Office" },
-  { year: "1999", event: "DNC founded at Alkapuri, Vadodara — operations begin as a web hosting company.", tag: "Founded" },
+  { year: "1999", event: " Dots and Coms founded in Alkapuri, Vadodara — operations begin as a web hosting company.", tag: "Founded" },
 ];
 
 export const teamIntro = {

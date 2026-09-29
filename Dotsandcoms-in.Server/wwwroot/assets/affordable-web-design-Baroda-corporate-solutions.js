@@ -1,0 +1,1 @@
+var e=`/assets/affordable-web-design-Baroda-corporate-solutions.jpg`;export{e as t};
