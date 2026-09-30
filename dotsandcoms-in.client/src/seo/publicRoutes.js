@@ -168,6 +168,15 @@ export const PUBLIC_ROUTES = [
     sitemap: true,
   },
   {
+    path: "/404",
+    title: "404 - Page Not Found | Dots and Coms",
+    description: "The page you requested could not be found on Dots and Coms.",
+    keywords: "404, page not found, Dots and Coms",
+    canonical: `${BASE_URL}/404`,
+    prerender: true,
+    sitemap: false,
+  },
+  {
     path: "/case-studies",
     title: "Client Case Studies & B2B Digital Transformation Stories | Dots and Coms Vadodara",
     description:

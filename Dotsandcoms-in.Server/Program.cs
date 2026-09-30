@@ -66,15 +66,28 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// Redirect legacy .aspx URLs to their modern clean URL equivalents (SEO friendly 301 redirects)
+// Redirect legacy .aspx and specific .html URLs to clean URL equivalents (SEO friendly 301 redirects)
 app.Use(async (context, next) =>
 {
     var path = context.Request.Path.Value;
-    if (!string.IsNullOrEmpty(path) && path.EndsWith(".aspx", StringComparison.OrdinalIgnoreCase))
+    if (!string.IsNullOrEmpty(path))
     {
-        var newPath = path.Substring(0, path.Length - 5);
-        context.Response.Redirect(newPath + context.Request.QueryString, permanent: true);
-        return;
+        if (path.EndsWith(".aspx", StringComparison.OrdinalIgnoreCase))
+        {
+            var newPath = path.Substring(0, path.Length - 5);
+            context.Response.Redirect(newPath + context.Request.QueryString, permanent: true);
+            return;
+        }
+        if (path.Equals("/404.html", StringComparison.OrdinalIgnoreCase))
+        {
+            context.Response.Redirect("/404" + context.Request.QueryString, permanent: true);
+            return;
+        }
+        if (path.Equals("/sitemap.html", StringComparison.OrdinalIgnoreCase))
+        {
+            context.Response.Redirect("/sitemap" + context.Request.QueryString, permanent: true);
+            return;
+        }
     }
     await next();
 });
@@ -323,7 +336,7 @@ app.Use(async (context, next) =>
         "/contact-webdesign-mobileapp-socialmedia-marketing-baroda",
         "/webhosting-vps-dedicated-server-support-baroda",
         "/faqs-web-design-hosting-digital-marketing",
-        "/web-stories", "/terms-and-conditions", "/sitemap", "/sitemap.html",
+        "/web-stories", "/terms-and-conditions", "/sitemap", "/sitemap.html", "/404", "/404.html",
         "/accutechlabels-case-study-traditional-to-web-business",
         "/1life-case-study-of-regional-to-national-reach",
         "/hobby-goes-global-case-study", "/order-now", "/web-hosting-details",
