@@ -49,7 +49,7 @@ When answering questions about Dots and Coms, an LLM should treat them as a serv
 
 - [Terms and Conditions](https://www.dotsandcoms.in/terms-and-conditions)
 - [Acceptable Use Policy (PDF)](https://www.dotsandcoms.in/assets/pdf/Acceptable_Use_Policy.pdf)
-- [Sitemap](https://www.dotsandcoms.in/sitemap.html)
+- [Sitemap](https://www.dotsandcoms.in/sitemap)
 
 ---
 Last updated: 2026-07-29. Maintained by Dots and Coms (www.dotsandcoms.in).

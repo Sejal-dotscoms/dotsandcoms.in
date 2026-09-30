@@ -3,7 +3,7 @@ import ecommerceImg from "../assets/images/ecommerce-website-development-Vadodar
 import customImg from "../assets/images/custom-web-applications-Baroda-enterprise-solutions.jpg";
 
 export const bannerData = {
-  title: "Website Design",
+    title: "Website Design Company in Vadodara",
   subtitle: "Custom, <strong>responsive web design</strong>, and conversion-focused layouts designed to reflect your brand identity in <strong>Vadodara</strong>.",
   breadcrumbs: [
     { label: "Services", href: "/services" },
@@ -15,15 +15,15 @@ export const subServices = [
   {
     id: "website-design",
     num: "01",
-    title: "Custom Website Design",
-    subtitle: "Website Design & UI/UX",
-    desc: "We create visually appealing, user-friendly websites focused on seamless navigation and strong UI/UX. Our designs are fully responsive, brand-consistent, and optimized for performance. By understanding user behavior, we build digital experiences that improve engagement and conversions.",
-    features: [
-      "Custom UI/UX & Responsive Layouts",
-      "Brand-Consistent Visual Architecture",
-      "Performance & Loading Speed Optimization",
-      "User Behavior-Focused Navigation Flow",
-      "Conversion Rate Optimization (CRO)"
+        title: "Custom Website Design in Vadodara",
+        subtitle: "Website Design & UI/UX",
+        desc: "Dots and Coms designs custom, responsive websites for businesses in Vadodara and across India. Every site is built around how your customers browse, so it loads fast, is easy to navigate on any device, and turns visitors into enquiries.",
+        features: [
+            "Custom UI/UX design and responsive layouts",
+            "Consistent branding across every page",
+            "Fast loading speed and performance optimization",
+            "Navigation planned around real user behaviour",
+            "Conversion rate optimization (CRO)"
     ],
     image: designImg,
     width: 1500,
@@ -34,15 +34,15 @@ export const subServices = [
   {
     id: "ecommerce-development",
     num: "02",
-    title: "Ecommerce Web & Mobile Applications",
-    subtitle: "Ecommerce Web & Mobile Applications",
-    desc: "We develop secure and scalable eCommerce platforms for web and mobile. Our solutions include payment gateway integration, product and order management, and stock control. With enterprise integrations and robust backend systems, we ensure smooth and reliable commerce operations.",
-    features: [
-      "Secure Payment Gateway Integration",
-      "Robust Product & Order Management Systems",
-      "Real-Time Stock & Inventory Control",
-      "Enterprise ERP & CRM Integrations",
-      "Scalable Backend Architectures"
+    title: "eCommerce Websites & Mobile Apps",
+      subtitle: "eCommerce Development",
+      desc: "We build secure, scalable online stores for web and mobile. Each store includes payment gateway integration, product and order management and stock control, connected to your existing business systems where needed.",
+      features: [
+      "Secure payment gateway integration",
+          "Product and order management system",
+      "Real-time stock and inventory control",
+          "ERP and CRM integration",
+      "Scalable backend that grows with your sales"
     ],
     image: ecommerceImg,
     width: 1500,
@@ -52,16 +52,16 @@ export const subServices = [
   },
   {
     id: "custom-applications",
-    num: "03",
-    title: "Custom Web & Mobile Application Development",
-    subtitle: "Custom Web & Mobile Application Development",
-    desc: "We build tailor-made web and mobile applications designed to meet specific business needs. Our applications focus on scalability, security, and seamless user experience. From UI/UX design to backend architecture, we deliver efficient, future-ready digital solutions.",
-    features: [
-      "Tailor-Made Web & Mobile Application Design",
-      "Highly Secure & Scalable Frameworks",
-      "Future-Ready Backend Architecture",
-      "Fluid UI/UX & Interactive User Interface",
-      "API Integrations & Custom Web Services"
+      num: "03",
+      title: "Custom Web & Mobile App Development",
+      subtitle: "Custom Application Development",
+      desc: "We build web and mobile applications tailored to how your business works, from UI/UX design to backend and API development. They are made to be secure, easy to use and ready to scale as you grow.",
+      features: [
+      "Custom web and mobile app design",
+          "Secure, scalable frameworks",
+      "Future-ready backend architecture",
+      "Smooth, interactive user interface",
+      "API integrations and custom web services"
     ],
     image: customImg,
     width: 1500,
@@ -73,8 +73,52 @@ export const subServices = [
 
 export const ctaData = {
   badge: "Get Started",
-  title: "Let’s Build Something Great Together!",
-  description: "Let us bring your vision to life! Contact us today to receive a free, personalized web design quote tailored to your company's specific requirements. Our team is ready to provide a digital solution that will improve your online presence and produce results.",
-  ctaText: "Get A Free Quote",
+    title: "Let's Build Your Website Together!",
+    description: "Tell us what you need and we will send you a free, personalised website quote based on your requirements. Our team will suggest the right solution for your business and your budget.",
+    ctaText: "Get a Free Quote",
   ctaLink: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
 };
+
+export const webDesignFaqData = {
+  label: "FAQ",
+  title: "Website Design FAQs",
+  items: [
+    {
+      q: "Which is the best website design company in Vadodara?",
+      a: "Dots and Coms is a Vadodara website design company that has been building websites since 1999. We design custom, responsive sites for businesses, eCommerce brands and corporate clients across India. Compare portfolios and client work before choosing any agency."
+    },
+    {
+      q: "How long does it take to design a website?",
+      a: "Most websites launch in 4-8 weeks, depending on the number of pages and features. You get weekly staging updates while we build."
+    },
+    {
+      q: "How much does a website cost in Vadodara?",
+      a: "Cost depends on the number of pages, custom features and integrations."
+    },
+    {
+      q: "Will my website work on mobile phones?",
+      a: "Yes. Every website we design is fully responsive and tested on phones, tablets and desktops."
+    },
+    {
+      q: "Can you build an online store?",
+      a: "Yes. We build eCommerce websites and mobile apps with payment gateway integration, product and order management and inventory control."
+    },
+    {
+      q: "Can you connect the website to my ERP or CRM?",
+      a: "Yes. We build API integrations with ERP and CRM systems so your orders, stock and customer data stay in sync."
+    },
+    {
+      q: "Do you build custom web and mobile applications?",
+      a: "Yes. We design and build custom applications, including UI/UX, backend and API development."
+    },
+    {
+      q: "Do you help the website rank on Google?",
+      a: "Yes. Every launch includes SEO and speed checks, and we offer ongoing SEO and Google Ads services. We do not promise specific rankings."
+    },
+    {
+      q: "Do you provide hosting after launch?",
+      a: "Yes. We offer SSD cloud hosting, domain management and security setup."
+    }
+  ]
+};
+

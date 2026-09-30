@@ -9,6 +9,22 @@ export function viteSeoMetaPlugin() {
   return {
     name: "seo-meta-inject",
     apply: "serve",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const url = req.url ? req.url.split("?")[0] : "";
+        if (url === "/sitemap.html") {
+          res.writeHead(302, { Location: "/sitemap" });
+          res.end();
+          return;
+        }
+        if (url === "/404.html") {
+          res.writeHead(302, { Location: "/404" });
+          res.end();
+          return;
+        }
+        next();
+      });
+    },
     transformIndexHtml(html, ctx) {
       const pathname = requestPath(ctx);
       const route = getRouteByPath(pathname);

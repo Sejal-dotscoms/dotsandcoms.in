@@ -137,7 +137,9 @@ function App() {
                     <Route path="/web-stories" element={<WebStoriesPage />} />
                     <Route path="/terms-and-conditions" element={<TermsPage />} />
                     <Route path="/sitemap" element={<SitemapPage />} />
-                    <Route path="/sitemap.html" element={<SitemapPage />} />
+                    <Route path="/sitemap.html" element={<Navigate to="/sitemap" replace />} />
+                    <Route path="/404" element={<NotFoundPage />} />
+                    <Route path="/404.html" element={<Navigate to="/404" replace />} />
                     <Route path="/case-studies" element={<CaseStudiesPage />} />
                     <Route path="/case-study-list" element={<Navigate to="/case-studies" replace />} />
                     <Route path="/case-studies-list" element={<Navigate to="/case-studies" replace />} />
