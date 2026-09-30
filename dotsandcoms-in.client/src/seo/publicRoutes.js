@@ -55,10 +55,10 @@ export const PUBLIC_ROUTES = [
     sitemap: true,
   },
   {
-    path: "/responsive-website-designing-company-vadodara",
-      title: "Responsive Website Design Company in Vadodara | Custom, Mobile-Friendly Sites",
+      path: "/responsive-website-designing-company-vadodara",
+      title: "Website Design Company in Vadodara | Dots and Coms",
       description:
-      "We design fast, mobile-responsive websites for businesses in Baroda — from simple brochure sites to full e-commerce builds. See our design process and get a quote.",
+      "Dots and Coms is a Vadodara website design company building custom, responsive websites, eCommerce stores and web and mobile apps. Free quote available.",
       keywords:
       "responsive website design Vadodara, custom website design Baroda, e-commerce website development, website designing company Gujarat",
     canonical: `${BASE_URL}/responsive-website-designing-company-vadodara`,
