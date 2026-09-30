@@ -3,7 +3,7 @@ import ecommerceImg from "../assets/images/ecommerce-website-development-Vadodar
 import customImg from "../assets/images/custom-web-applications-Baroda-enterprise-solutions.jpg";
 
 export const bannerData = {
-  title: "Website Design",
+    title: "Website Design Company in Vadodara",
   subtitle: "Custom, <strong>responsive web design</strong>, and conversion-focused layouts designed to reflect your brand identity in <strong>Vadodara</strong>.",
   breadcrumbs: [
     { label: "Services", href: "/services" },
@@ -78,3 +78,47 @@ export const ctaData = {
     ctaText: "Get a Free Quote",
   ctaLink: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
 };
+
+export const webDesignFaqData = {
+  label: "FAQ",
+  title: "Website Design FAQs",
+  items: [
+    {
+      q: "Which is the best website design company in Vadodara?",
+      a: "Dots and Coms is a Vadodara website design company that has been building websites since 1999. We design custom, responsive sites for businesses, eCommerce brands and corporate clients across India. Compare portfolios and client work before choosing any agency."
+    },
+    {
+      q: "How long does it take to design a website?",
+      a: "Most websites launch in 4-8 weeks, depending on the number of pages and features. You get weekly staging updates while we build."
+    },
+    {
+      q: "How much does a website cost in Vadodara?",
+      a: "Cost depends on the number of pages, custom features and integrations."
+    },
+    {
+      q: "Will my website work on mobile phones?",
+      a: "Yes. Every website we design is fully responsive and tested on phones, tablets and desktops."
+    },
+    {
+      q: "Can you build an online store?",
+      a: "Yes. We build eCommerce websites and mobile apps with payment gateway integration, product and order management and inventory control."
+    },
+    {
+      q: "Can you connect the website to my ERP or CRM?",
+      a: "Yes. We build API integrations with ERP and CRM systems so your orders, stock and customer data stay in sync."
+    },
+    {
+      q: "Do you build custom web and mobile applications?",
+      a: "Yes. We design and build custom applications, including UI/UX, backend and API development."
+    },
+    {
+      q: "Do you help the website rank on Google?",
+      a: "Yes. Every launch includes SEO and speed checks, and we offer ongoing SEO and Google Ads services. We do not promise specific rankings."
+    },
+    {
+      q: "Do you provide hosting after launch?",
+      a: "Yes. We offer SSD cloud hosting, domain management and security setup."
+    }
+  ]
+};
+
