@@ -66,10 +66,10 @@ export const PUBLIC_ROUTES = [
     sitemap: true,
   },
   {
-    path: "/android-ios-mobile-app-development-company-baroda",
-      title: "Android, iOS & Flutter App Development Company in Vadodara",
+      path: "/android-ios-mobile-app-development-company-baroda",
+      title: "Mobile App Development Company in Vadodara | Dots and Coms",
       description:
-      "Our team builds native Android and iOS apps and cross-platform Flutter apps — from concept through Play Store and App Store launch. Based in Vadodara, working globally.",
+      " Dots and Coms is a Vadodara mobile app development company building iOS, Android and Flutter apps from concept to app store launch. Get a free quote.",
       keywords:
       "mobile app development Vadodara, Android app developers Baroda, iOS app development company, Flutter app development India",
     canonical: `${BASE_URL}/android-ios-mobile-app-development-company-baroda`,
