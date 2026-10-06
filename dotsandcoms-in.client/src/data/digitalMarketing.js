@@ -15,24 +15,65 @@ export const subServices = [
   {
     id: "organic-seo",
     num: "01",
-    title: "Organic SEO",
+    title: "SEO Services in Vadodara",
     subtitle: "Search Engine Optimization",
-    desc: "Organic SEO is the process of increasing a website's visibility in search results by optimizing its content, structure, and technical aspects without using paid advertising. It helps search engines understand your website, resulting in higher ranks and more relevant traffic.",
+    desc: "Organic SEO improves your website's visibility in Google search results without paid advertising. We optimize your content, site structure and technical setup so search engines understand your website and send you more relevant visitors.",
+    featureGroups: [
+      {
+        title: "Analysis",
+        items: [
+          "Website and keyword analysis",
+          "Technical audit and competitor research"
+        ]
+      },
+      {
+        title: "On-page optimization",
+        items: [
+          "Title, meta, header and image alt tag optimization",
+          "Content and URL structure optimization",
+          "Internal linking setup",
+          "Structured data (schema) setup"
+        ]
+      },
+      {
+        title: "Technical",
+        items: [
+          "Analytics tool setup",
+          "Website caching and speed optimization",
+          "Mobile responsiveness check"
+        ]
+      },
+      {
+        title: "Local and off-page",
+        items: [
+          "Google Business Profile setup",
+          "Location submission to maps and directories",
+          "Quality backlink creation",
+          "Business listings and directory submissions"
+        ]
+      },
+      {
+        title: "Reporting",
+        items: [
+          "Monthly SEO report with keyword rankings and traffic insights"
+        ]
+      }
+    ],
     features: [
       "Website and keyword analysis",
       "Technical audit and competitor research",
-      "Title, meta, header, and alt image tag optimization",
+      "Title, meta, header and image alt tag optimization",
       "Content and URL structure optimization",
-      "Setting up Analytics Tool",
       "Internal linking setup",
-      "Structured data setup",
+      "Structured data (schema) setup",
+      "Analytics tool setup",
       "Website caching and speed optimization",
       "Mobile responsiveness check",
       "Google Business Profile setup",
       "Location submission to maps and directories",
       "Quality backlink creation",
       "Business listings and directory submissions",
-      "Monthly SEO report with keyword rankings, traffic insights"
+      "Monthly SEO report with keyword rankings and traffic insights"
     ],
     image: seoImg,
     width: 1502,

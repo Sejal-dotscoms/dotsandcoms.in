@@ -11,11 +11,27 @@ namespace Dotsandcoms_in.Server.Helpers;
 /// </summary>
 public static class BlogMetaInjector
 {
+    private const string HideStyle =
+        @"<style id=""seo-content-hide"">#seo-content{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}img{color:transparent;font-size:0}</style>";
+
     public static string Inject(string html, Blog blog)
     {
         Func<string?, string> enc = WebUtility.HtmlEncode;
         var title   = !string.IsNullOrWhiteSpace(blog.PageTitle) ? blog.PageTitle : blog.Title;
         var blogUrl = $"https://www.dotsandcoms.in/blogs/{blog.BrowserUrl}";
+
+        // Ensure hide rule is present in <head>
+        if (!html.Contains("id=\"seo-content-hide\"", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Regex.IsMatch(html, @"<head\b[^>]*>", RegexOptions.IgnoreCase))
+            {
+                html = Re(html, @"<head\b[^>]*>", $"$0\n    {HideStyle}");
+            }
+            else
+            {
+                html = $"{HideStyle}\n{html}";
+            }
+        }
 
         var rawMeta = StripScripts(blog.MetaTags ?? "");
 
@@ -106,8 +122,20 @@ public static class BlogMetaInjector
         html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:url[""'][^>]*>",
             $@"<meta property=""og:url"" content=""{pageUrl}"" />");
 
+        if (!html.Contains("id=\"seo-content-hide\"", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Regex.IsMatch(html, @"<head\b[^>]*>", RegexOptions.IgnoreCase))
+            {
+                html = Re(html, @"<head\b[^>]*>", $"$0\n    {HideStyle}");
+            }
+            else
+            {
+                html = $"{HideStyle}\n{html}";
+            }
+        }
+
         var sb = new StringBuilder();
-        sb.Append("""<main id="seo-content"><h1>Blogs</h1><ul>""");
+        sb.Append("""<main id="seo-content" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"><h1>Blogs</h1><ul>""");
         foreach (var blog in blogs)
         {
             var href = $"https://www.dotsandcoms.in/blogs/{blog.BrowserUrl}";
@@ -132,7 +160,7 @@ public static class BlogMetaInjector
     private static string BuildArticleBody(Blog blog, Func<string?, string> enc)
     {
         var sb = new StringBuilder();
-        sb.Append("""<main id="seo-content"><article>""");
+        sb.Append("""<main id="seo-content" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"><article>""");
         sb.Append("<h1>").Append(enc(blog.Title)).Append("</h1>");
 
         if (!string.IsNullOrWhiteSpace(blog.ShortDescription))

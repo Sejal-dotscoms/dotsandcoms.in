@@ -4,8 +4,8 @@ import flutterImg from "../assets/images/flutter-development-Vadodara-secure-web
 
 export const bannerData = {
     title: "Mobile App Development Company in Vadodara",
-    subtitle: "IOS, Android and Flutter app development for businesses in Vadodara, Gujarat and across India.",
-    breadcrumbs: [
+    subtitle: "iOS, Android and Flutter app development for businesses in Vadodara, Gujarat and across India.",
+  breadcrumbs: [
     { label: "Services", href: "/services" },
     { label: "Mobile Apps" }
   ]
@@ -14,19 +14,19 @@ export const bannerData = {
 export const subServices = [
   {
     id: "ios-development",
-        num: "01",
-        title: "iOS / Apple Mobile App Development",
-        subtitle: "iOS / Apple Mobile App Development",
-        desc: "Dots and Coms builds custom iPhone and iPad apps in Swift and Objective-C, using Xcode, the iOS SDK and the Cocoa Touch framework. We handle the whole journey, from app concept and design to API integration, App Store deployment and App Store optimization.",
-        features: [
+    num: "01",
+      title: "iOS / Apple Mobile App Development",
+      subtitle: "iOS App Development in Vadodara",
+      desc: "Dots and Coms builds custom iPhone and iPad apps in Swift and Objective-C, using Xcode, the iOS SDK and the Cocoa Touch framework. We handle the whole journey, from app concept and design to API integration, App Store deployment and App Store optimization.",
+    features: [
       "Native Swift and Objective-C development",
       "Cocoa Touch framework and iOS SDK",
       "Xcode-based builds following Apple design guidelines",
-            "JSON/XML parsing and API integration",
+      "JSON/XML parsing and API integration",
       "Apple App Store deployment and search optimization"
     ],
     image: iosImg,
-    width: 1586,        
+    width: 1586,
     height: 992,
     glowColor: "bg-[#dc2626]/8",
     offsetBorder: "border-[#dc2626]/30"
@@ -37,12 +37,12 @@ export const subServices = [
       title: "Android Mobile App Development",
       subtitle: "Android App Development in Vadodara",
       desc: "We build custom Android apps around your business needs, using Android Studio and the native Android SDK. Our team manages the full app lifecycle, from concept and development to release on the Google Play Store, with a focus on a smooth, user-friendly experience.",
-      features: [
-            "Native Android SDK development",
-            "HTTP networking and multithreading for fast, responsive apps",
-            "Android Studio development and responsive UI design",
-            "JNI integration for native code, where needed",
-            "Google Play Store deployment and lifecycle management"
+    features: [
+      "Native Android SDK development",
+      "HTTP networking and multithreading for fast, responsive apps",
+      "Android Studio development and responsive UI design",
+      "JNI integration for native code, where needed",
+      "Google Play Store deployment and lifecycle management"
     ],
     image: androidImg,
     width: 1586,
@@ -56,11 +56,11 @@ export const subServices = [
       title: "Cross-Platform App Development",
       subtitle: "Flutter App Development in Vadodara",
       desc: "Flutter is Google's toolkit for building iOS and Android apps from one codebase. We use it to deliver fast, consistent apps with a native feel on both platforms, with custom UI, backend integration, API connections and third-party plugins. One build means faster delivery and lower cost than two separate apps.",
-      features: [
-          "One codebase for iOS and Android",
+    features: [
+      "One codebase for iOS and Android",
       "Dart programming and custom widgets",
-          "Scalable backend integration",
-          "Dynamic UI/UX and responsive layouts",
+      "Scalable backend integration",
+      "Dynamic UI/UX and responsive layouts",
       "Custom APIs and third-party plugin support"
     ],
     image: flutterImg,
@@ -73,7 +73,7 @@ export const subServices = [
 
 export const ctaData = {
   badge: "Get Started",
-    title: " Let's Build Your App Together",
+    title: "Let's Build Your App Together",
     description: "Tell us about your app idea and we will send you a free, personalised quote based on your requirements. We will recommend the right approach, native or Flutter, for your business and budget.",
   ctaText: "Get A Free Quote",
   ctaLink: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
@@ -105,7 +105,7 @@ export const mobileAppsFaqData = {
     },
     {
       q: "How long does it take to build an app?",
-      a: "Timelines depend on features, complexity, and platforms. A typical mobile app takes 6 to 12 weeks from concept to launch."
+      a: "Timelines depend on features and platforms. A typical mobile app takes 8 to 14 weeks to develop and launch."
     },
     {
       q: "Can the app connect to my existing systems?",
@@ -117,4 +117,3 @@ export const mobileAppsFaqData = {
     }
   ]
 };
-

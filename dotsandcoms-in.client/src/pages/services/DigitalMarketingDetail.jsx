@@ -99,18 +99,46 @@ export default function DigitalMarketingDetail() {
                       {sub.desc}
                     </p>
 
-                    {/* Features list in a SINGLE vertical column with increased font-size & vertical spacing */}
-                    <ul className="pl-1 flex flex-col space-y-5">
-                      {sub.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-3.5 text-slate-700 text-[15px] md:text-[16.5px] leading-relaxed">
-                          {/* Modern stroke double chevron >> */}
-                          <svg className="w-4 h-4 text-[#dc2626] flex-shrink-0 mt-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m13 5 7 7-7 7M5 5l7 7-7 7" />
-                          </svg>
-                          <span className="leading-snug pt-0.5 font-medium">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Features list (supports point & subpoint hierarchy or single vertical list) */}
+                    {sub.featureGroups ? (
+                      <div className="flex flex-col space-y-6 pt-1">
+                        {sub.featureGroups.map((group, gIdx) => (
+                          <div key={gIdx} className="space-y-3">
+                            {/* Main Point */}
+                            <div className="flex items-center gap-3">
+                              <svg className="w-4 h-4 text-[#dc2626] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="m13 5 7 7-7 7M5 5l7 7-7 7" />
+                              </svg>
+                              <h3 className="text-base md:text-[17px] font-bold text-slate-900 tracking-tight">
+                                {group.title}
+                              </h3>
+                            </div>
+
+                            {/* Subpoints */}
+                            <ul className="ml-7 md:ml-8 pl-4 border-l-2 border-red-100 flex flex-col space-y-2.5">
+                              {group.items.map((feature, fIdx) => (
+                                <li key={fIdx} className="flex items-start gap-2.5 text-slate-700 text-[14.5px] md:text-[15.5px] leading-relaxed">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] mt-2 flex-shrink-0" />
+                                  <span className="leading-snug">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <ul className="pl-1 flex flex-col space-y-5">
+                        {sub.features.map((feature, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-3.5 text-slate-700 text-[15px] md:text-[16.5px] leading-relaxed">
+                            {/* Modern stroke double chevron >> */}
+                            <svg className="w-4 h-4 text-[#dc2626] flex-shrink-0 mt-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="m13 5 7 7-7 7M5 5l7 7-7 7" />
+                            </svg>
+                            <span className="leading-snug pt-0.5 font-medium">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
                   </div>
 

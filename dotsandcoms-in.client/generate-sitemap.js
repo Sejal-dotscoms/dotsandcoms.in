@@ -147,9 +147,17 @@ try {
     description: r.description,
     keywords: r.keywords,
     canonical: r.canonical,
+    heading: r.heading || r.title,
+    summary: r.summary || r.description,
   }));
   fs.writeFileSync(seoRoutesPath, JSON.stringify(seoRoutes, null, 2), "utf-8");
   console.log(`SEO routes written (${seoRoutes.length}) → ${seoRoutesPath}`);
+
+  // Also sync to server wwwroot if directory exists
+  const serverSeoRoutesPath = path.join(__dirname, "..", "Dotsandcoms-in.Server", "wwwroot", "seo-routes.json");
+  if (fs.existsSync(path.dirname(serverSeoRoutesPath))) {
+    fs.writeFileSync(serverSeoRoutesPath, JSON.stringify(seoRoutes, null, 2), "utf-8");
+  }
 } catch (error) {
   console.error("Error generating sitemap:", error);
   process.exit(1);

@@ -1,7 +1,7 @@
 /**
  * Shared non-JS crawler pass criteria.
  * A page passes only if the first raw HTML response is enough for
- * AI/simple crawlers (no JavaScript execution).
+ * AI/simple crawlers (no JavaScript execution), with zero visible text flash.
  */
 export const HOME_CANONICAL = "https://www.dotsandcoms.in/";
 
@@ -41,6 +41,10 @@ export function rootInnerLength(html) {
 
 export function hasSeoContent(html) {
   return /id=["']seo-content["']/i.test(html);
+}
+
+export function hasHideRule(html) {
+  return /id=["']seo-content-hide["']/i.test(html);
 }
 
 export function visibleText(html) {
@@ -84,14 +88,25 @@ export function evaluatePage({
   const emptyRoot = hasEmptyRoot(html);
   const bodyLen = Math.max(rootInnerLength(html), hasSeoContent(html) ? 40 : 0);
   const textLen = visibleText(html).length;
-  const effectiveBody = Math.max(bodyLen, hasSeoContent(html) ? visibleText(html.match(/id=["']seo-content["'][\s\S]*?<\/main>/i)?.[0] || "").length : 0);
+  const effectiveBody = Math.max(
+    bodyLen,
+    hasSeoContent(html)
+      ? visibleText(html.match(/id=["']seo-content["'][\s\S]*?<\/main>/i)?.[0] || "").length
+      : 0
+  );
   const isHome = path === "/" || path === "";
+  const hideRuleOk = hasHideRule(html);
+  const seoContentOk = hasSeoContent(html);
 
   const errors = [];
 
   if (!title) errors.push("missing <title>");
   if (!canonical) errors.push("missing canonical");
   if (!description) errors.push("missing meta description");
+
+  if (!hideRuleOk) {
+    errors.push("missing hide rule: <style id=\"seo-content-hide\"> in <head>");
+  }
 
   if (expectedTitle) {
     const needle = expectedTitle.trim().slice(0, 24).toLowerCase();
@@ -116,20 +131,35 @@ export function evaluatePage({
     }
   }
 
+  if (seoContentOk) {
+    const seoMatch = html.match(/<main\s+id=["']seo-content["'][^>]*>/i);
+    if (seoMatch) {
+      const tag = seoMatch[0];
+      if (!tag.includes('aria-hidden="true"')) {
+        errors.push("seo-content missing aria-hidden=\"true\"");
+      }
+      if (!tag.includes("clip:rect(0,0,0,0)") && !tag.includes("clip: rect(0, 0, 0, 0)")) {
+        errors.push("seo-content missing clip inline style");
+      }
+    }
+  }
+
   if (requireBody) {
-    if (emptyRoot && !hasSeoContent(html)) {
-      errors.push("empty #root with no #seo-content");
+    if (emptyRoot && !seoContentOk) {
+      errors.push("empty #root with no crawler body text");
     }
     const bodyScore = Math.max(effectiveBody, emptyRoot ? 0 : rootInnerLength(html));
-    // Prefer root/seo-content length; fall back to overall visible text minus head noise
-    const measured = Math.max(bodyScore, emptyRoot && !hasSeoContent(html) ? 0 : Math.min(textLen, bodyScore || textLen));
+    const measured = Math.max(
+      bodyScore,
+      emptyRoot && !seoContentOk ? 0 : Math.min(textLen, bodyScore || textLen)
+    );
     if (isHome) {
-      if (emptyRoot && !hasSeoContent(html)) {
+      if (emptyRoot && !seoContentOk) {
         errors.push("homepage has empty body for crawlers");
-      } else if (rootInnerLength(html) < minBodyChars && !hasSeoContent(html)) {
+      } else if (rootInnerLength(html) < minBodyChars && !seoContentOk) {
         errors.push(`homepage body too thin (${rootInnerLength(html)} chars)`);
       }
-    } else if (measured < minBodyChars && rootInnerLength(html) < minBodyChars && !hasSeoContent(html)) {
+    } else if (measured < minBodyChars && rootInnerLength(html) < minBodyChars && !seoContentOk) {
       errors.push(`body too thin for non-JS crawlers (${Math.max(rootInnerLength(html), measured)} chars)`);
     }
   }
@@ -141,7 +171,8 @@ export function evaluatePage({
     canonical,
     description,
     emptyRoot,
+    hasHideRule: hideRuleOk,
+    hasSeoContent: seoContentOk,
     rootLen: rootInnerLength(html),
-    hasSeoContent: hasSeoContent(html),
   };
 }

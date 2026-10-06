@@ -21,9 +21,11 @@ export default function Logo({ size = "md" }) {
         className={`${logoHeight} w-auto object-contain transition-all duration-300`}
         draggable="false"
         loading="eager"
+        fetchpriority="high"
         decoding="async"
         width="94"
         height="98"
+        style={{ color: "transparent", fontSize: 0 }}
       />
     </div>
   );

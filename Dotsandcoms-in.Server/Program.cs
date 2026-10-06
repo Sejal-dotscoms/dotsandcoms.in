@@ -423,7 +423,11 @@ static async Task WriteCrawlerNotFoundAsync(HttpContext context, IWebHostEnviron
                 ? "The page you requested could not be found on Dots and Coms."
                 : message,
             Keywords = "404, page not found, Dots and Coms",
-            Canonical = "https://www.dotsandcoms.in" + (context.Request.Path.Value ?? "/404")
+            Canonical = "https://www.dotsandcoms.in" + (context.Request.Path.Value ?? "/404"),
+            Heading = "404 - Page Not Found",
+            Summary = string.IsNullOrWhiteSpace(message)
+                ? "The page you requested could not be found on Dots and Coms."
+                : message
         };
         html = PageMetaInjector.Inject(html, notFound, ensureCrawlerBody: true);
         await context.Response.WriteAsync(html);

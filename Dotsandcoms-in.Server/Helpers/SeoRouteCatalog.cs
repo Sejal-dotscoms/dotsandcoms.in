@@ -9,6 +9,8 @@ public sealed class SeoRoute
     public string Description { get; set; } = "";
     public string Keywords { get; set; } = "";
     public string Canonical { get; set; } = "";
+    public string? Heading { get; set; }
+    public string? Summary { get; set; }
 }
 
 /// <summary>
