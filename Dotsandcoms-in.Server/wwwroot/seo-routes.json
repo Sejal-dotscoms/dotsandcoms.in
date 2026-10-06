@@ -98,6 +98,20 @@
     "canonical": "https://www.dotsandcoms.in/sitemap"
   },
   {
+    "path": "/404",
+    "title": "404 - Page Not Found | Dots and Coms",
+    "description": "The page you requested could not be found on Dots and Coms.",
+    "keywords": "404, page not found, Dots and Coms",
+    "canonical": "https://www.dotsandcoms.in/404"
+  },
+  {
+    "path": "/case-studies",
+    "title": "Client Case Studies & B2B Digital Transformation Stories | Dots and Coms Vadodara",
+    "description": "Explore real case studies showing how Dots and Coms transformed traditional businesses and industrial companies into digital lead generation engines across Vadodara and India.",
+    "keywords": "case studies, website design case studies Vadodara, B2B digital transformation, web development portfolio Gujarat, industrial lead generation case studies",
+    "canonical": "https://www.dotsandcoms.in/case-studies"
+  },
+  {
     "path": "/accutechlabels-case-study-traditional-to-web-business",
     "title": "Accutech Labels Case Study – Web Business Transformation",
     "description": "Discover how Dots and Coms transformed Accutech Labels from a traditional business into a digital lead engine using web design, SEO, and digital marketing.",

@@ -149,6 +149,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
 static string ResolveSpaShellPath(IWebHostEnvironment env)
 {
     var shell = Path.Combine(env.WebRootPath ?? "", "spa-shell.html");

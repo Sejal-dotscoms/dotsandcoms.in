@@ -67,9 +67,9 @@ export const PUBLIC_ROUTES = [
   },
   {
     path: "/android-ios-mobile-app-development-company-baroda",
-      title: "Android, iOS & Flutter App Development Company in Vadodara",
+      title: "Mobile App Development Company in Vadodara | Dots and Coms",
       description:
-      "Our team builds native Android and iOS apps and cross-platform Flutter apps — from concept through Play Store and App Store launch. Based in Vadodara, working globally.",
+      "Dots and Coms is a Vadodara mobile app development company building iOS, Android and Flutter apps from concept to app store launch. Get a free quote.",
       keywords:
       "mobile app development Vadodara, Android app developers Baroda, iOS app development company, Flutter app development India",
     canonical: `${BASE_URL}/android-ios-mobile-app-development-company-baroda`,
@@ -89,9 +89,9 @@ export const PUBLIC_ROUTES = [
   },
   {
     path: "/organic-seo-ppc-digital-marketing-vadodara",
-      title: "Organic SEO, PPC & Digital Marketing Services in Vadodara",
+      title: "SEO, PPC & Digital Marketing Company in Vadodara | Dots and Coms",
       description:
-      "Grow your search traffic and paid ad results with SEO, Google Ads, and social media marketing built for small and mid-size businesses in Vadodara.",
+      "Dots and Coms is a Vadodara digital marketing company offering SEO, Google Ads and social media marketing with monthly reports. Get a free SEO analysis.",
       keywords:
       "SEO company Vadodara, PPC agency Baroda, digital marketing services Gujarat, Google Ads management Vadodara, social media marketing company",
     canonical: `${BASE_URL}/organic-seo-ppc-digital-marketing-vadodara`,

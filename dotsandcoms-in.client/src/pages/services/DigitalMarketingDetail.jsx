@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import InnerBanner from "../../components/ui/InnerBanner";
-import { subServices, bannerData, ctaData } from "../../data/digitalMarketing";
+import { subServices, bannerData, ctaData, digitalMarketingFaqData } from "../../data/digitalMarketing";
 import { setPageSEO } from "../../utils/seo";
 import { getRouteSEO } from "../../seo/publicRoutes";
+import FAQSection from "../../components/FAQ/FAQSection";
 
 // Reusable 3D Tilt Card component with layered offset backing
 function TiltCard({ src, alt, offsetBorder, glowColor, width, height }) {
@@ -170,7 +171,14 @@ export default function DigitalMarketingDetail() {
             </Link>
           </div>
         </div>
-      </section>
+          </section>
+          {/* FAQ Section */}
+          <FAQSection
+              label={digitalMarketingFaqData.label}
+              title={digitalMarketingFaqData.title}
+              items={digitalMarketingFaqData.items}
+              id="mobile-app-faq"
+          />
     </>
   );
 }
