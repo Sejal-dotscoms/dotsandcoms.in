@@ -1,7 +1,7 @@
 export const contactData = {
   phones: [
     { label: "+91 84693 32448", value: "+918469332448" },
-    { label: "+91 99250 72327", value: "+919925072327" }
+      { label: "+91 99250 08965", value: "+919925008965" }
   ],
   emails: [
     { label: "parul@dotscoms.com", value: "parul@dotscoms.com" },

@@ -404,8 +404,8 @@ export default function SitemapGrid() {
               <a href="tel:+91 8469332448" className="block text-xs font-bold text-slate-800 transition-colors duration-200 hover:text-[#dc2626]">
                 +91 84693 32448
               </a>
-              <a href="tel:+919925072327" className="block text-xs font-bold text-slate-800 transition-colors duration-200 hover:text-[#dc2626]">
-                +91 99250 72327
+                          <a href="tel:+919925008965" className="block text-xs font-bold text-slate-800 transition-colors duration-200 hover:text-[#dc2626]">
+                              +91 99250 08965
               </a>
             </div>
           </div>
