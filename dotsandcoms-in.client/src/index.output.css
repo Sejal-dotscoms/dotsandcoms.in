@@ -1032,9 +1032,6 @@
   .max-h-16 {
     max-height: calc(var(--spacing) * 16);
   }
-  .max-h-96 {
-    max-height: calc(var(--spacing) * 96);
-  }
   .max-h-\[75vh\] {
     max-height: 75vh;
   }
@@ -5252,17 +5249,11 @@
     .sm\:px-12 {
       padding-inline: calc(var(--spacing) * 12);
     }
-    .sm\:py-5 {
-      padding-block: calc(var(--spacing) * 5);
-    }
     .sm\:py-20 {
       padding-block: calc(var(--spacing) * 20);
     }
     .sm\:pt-40 {
       padding-top: calc(var(--spacing) * 40);
-    }
-    .sm\:pb-6 {
-      padding-bottom: calc(var(--spacing) * 6);
     }
     .sm\:pl-11 {
       padding-left: calc(var(--spacing) * 11);

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -34,4 +34,9 @@
   <ItemGroup>
     <Content Include="..\dotsandcoms-in.client\public\seo-routes.json" Link="seo-routes.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
+
+  <!-- Automatically kill any lingering/orphan server instance before build so port 5151 is never locked -->
+  <Target Name="KillExistingProcessBeforeRun" BeforeTargets="BeforeBuild" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="taskkill /F /IM Dotsandcoms-in.Server.exe 2&gt;nul || exit 0" ContinueOnError="true" />
+  </Target>
 </Project>

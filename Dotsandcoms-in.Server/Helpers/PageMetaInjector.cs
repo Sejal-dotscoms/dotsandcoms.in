@@ -6,11 +6,14 @@ namespace Dotsandcoms_in.Server.Helpers;
 /// <summary>
 /// Rewrites title / description / keywords / canonical / OG / Twitter tags
 /// so View Page Source matches the requested route, not the homepage shell.
-/// Optionally injects a minimal crawler-visible body when #root is empty
-/// (required for AI / simple non-JS crawlers).
+/// Enforces the hide rule and clip style to eliminate crawler text and image alt flashes.
+/// Injects a crawler-visible summary block for AI and simple non-JS crawlers.
 /// </summary>
 public static class PageMetaInjector
 {
+    private const string HideStyle =
+        @"<style id=""seo-content-hide"">#seo-content{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}img{color:transparent;font-size:0}</style>";
+
     public static string Inject(string html, SeoRoute route, bool ensureCrawlerBody = true)
     {
         if (string.IsNullOrEmpty(html) || route == null) return html;
@@ -20,6 +23,19 @@ public static class PageMetaInjector
         var description = enc(route.Description ?? "");
         var keywords = enc(route.Keywords ?? "");
         var pageUrl = enc(route.Canonical ?? "");
+
+        // Ensure hide rule is present in <head>
+        if (!html.Contains("id=\"seo-content-hide\"", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Regex.IsMatch(html, @"<head\b[^>]*>", RegexOptions.IgnoreCase))
+            {
+                html = Re(html, @"<head\b[^>]*>", $"$0\n    {HideStyle}");
+            }
+            else
+            {
+                html = $"{HideStyle}\n{html}";
+            }
+        }
 
         html = Re(html, @"<title>[^<]*</title>", $"<title>{title}</title>");
 
@@ -63,27 +79,47 @@ public static class PageMetaInjector
             $@"<meta property=""twitter:description"" content=""{description}"" />");
 
         if (ensureCrawlerBody)
-            html = EnsureCrawlerBody(html, route.Title ?? "", route.Description ?? "");
+        {
+            var heading = !string.IsNullOrWhiteSpace(route.Heading) ? route.Heading : route.Title ?? "";
+            var summary = !string.IsNullOrWhiteSpace(route.Summary) ? route.Summary : route.Description ?? "";
+            html = EnsureCrawlerBody(html, heading, summary);
+        }
 
         return html;
     }
 
     /// <summary>
-    /// When #root is empty (spa-shell fallback), inject a short crawler-visible
-    /// block so AI/simple bots never see a blank homepage lookalike.
+    /// Injects a crawler-visible block clipped off-screen with aria-hidden="true"
+    /// so bots receive indexable body copy without any visual text flash for visitors.
     /// </summary>
-    public static string EnsureCrawlerBody(string html, string title, string description)
+    public static string EnsureCrawlerBody(string html, string heading, string summary)
     {
         if (string.IsNullOrEmpty(html)) return html;
-        if (!Regex.IsMatch(html, @"<div\s+id=[""']root[""']\s*>\s*</div>", RegexOptions.IgnoreCase))
-            return html;
 
         Func<string?, string> enc = WebUtility.HtmlEncode;
+        var h = enc(!string.IsNullOrWhiteSpace(heading) ? heading : "");
+        var s = enc(!string.IsNullOrWhiteSpace(summary) ? summary : "");
         var body =
-            $@"<main id=""seo-content""><h1>{enc(title)}</h1><p>{enc(description)}</p></main>";
+            $@"<main id=""seo-content"" aria-hidden=""true"" style=""position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0""><h1>{h}</h1><p>{s}</p></main>";
 
-        return Re(html, @"<div\s+id=[""']root[""']\s*>\s*</div>",
-            $@"<div id=""root"">{body}</div>");
+        if (Regex.IsMatch(html, @"<main\s+id=[""']seo-content[""']", RegexOptions.IgnoreCase))
+        {
+            return Regex.Replace(html, @"<main\s+id=[""']seo-content[""'][^>]*>[\s\S]*?</main>", body, RegexOptions.IgnoreCase);
+        }
+
+        if (Regex.IsMatch(html, @"<div\s+id=[""']root[""']\s*>\s*</div>", RegexOptions.IgnoreCase))
+        {
+            return Re(html, @"<div\s+id=[""']root[""']\s*>\s*</div>",
+                $@"<div id=""root"">{body}</div>");
+        }
+
+        if (Regex.IsMatch(html, @"<div\s+id=[""']root[""'][^>]*>", RegexOptions.IgnoreCase))
+        {
+            return Re(html, @"(<div\s+id=[""']root[""'][^>]*>)",
+                $"$1{body}");
+        }
+
+        return html;
     }
 
     private static string Re(string html, string pattern, string replacement) =>

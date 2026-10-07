@@ -1,8 +1,10 @@
 /**
  * Rewrites SEO tags in an HTML string so View Source / crawlers see the
- * route's title, description, keywords, and canonical — not homepage defaults.
+ * route's title, description, keywords, canonical, and crawler body — not homepage defaults.
+ * Also enforces the hide rule and clip style to eliminate visible crawler text / image alt flashes.
+ *
  * @param {string} html
- * @param {{ title?: string, description?: string, keywords?: string, canonical?: string }} route
+ * @param {{ title?: string, description?: string, keywords?: string, canonical?: string, heading?: string, summary?: string }} route
  */
 export function injectHtmlMeta(html, route) {
   if (!html || !route) return html;
@@ -13,6 +15,18 @@ export function injectHtmlMeta(html, route) {
   const keywords = escAttr(route.keywords || "");
   const url = escAttr(route.canonical || "");
 
+  // 1. Ensure <style id="seo-content-hide"> is in <head>
+  const hideStyle =
+    '<style id="seo-content-hide">#seo-content{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}img{color:transparent;font-size:0}</style>';
+  if (!html.includes('id="seo-content-hide"')) {
+    if (/<head\b[^>]*>/i.test(html)) {
+      html = html.replace(/<head\b[^>]*>/i, `$&    ${hideStyle}\n`);
+    } else {
+      html = `${hideStyle}\n${html}`;
+    }
+  }
+
+  // 2. Title & canonical
   if (titleText) {
     html = html.replace(/<title>[^<]*<\/title>/i, `<title>${titleText}</title>`);
   }
@@ -25,6 +39,7 @@ export function injectHtmlMeta(html, route) {
     );
   }
 
+  // 3. Meta description & keywords
   if (description) {
     html = replaceMeta(html, "name", "description", description);
   }
@@ -32,6 +47,7 @@ export function injectHtmlMeta(html, route) {
     html = replaceMeta(html, "name", "keywords", keywords);
   }
 
+  // 4. OpenGraph & Twitter
   if (title) {
     html = replaceMeta(html, "property", "og:title", title);
     html = replaceMeta(html, "name", "twitter:title", title);
@@ -51,14 +67,20 @@ export function injectHtmlMeta(html, route) {
     html = replaceMeta(html, "name", "twitter:url", url);
   }
 
-  // Guarantee crawler-visible body when Playwright captured an empty #root
-  if (/<div\s+id=["']root["']\s*>\s*<\/div>/i.test(html)) {
-    const body =
-      `<main id="seo-content"><h1>${titleText}</h1><p>${esc(route.description || "")}</p></main>`;
+  // 5. Crawler summary element (<main id="seo-content" aria-hidden="true" style="...">)
+  const heading = esc(route.heading || route.title || "");
+  const summary = esc(route.summary || route.description || "");
+  const crawlerBlock = `<main id="seo-content" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"><h1>${heading}</h1><p>${summary}</p></main>`;
+
+  if (/<main\s+id=["']seo-content["']/i.test(html)) {
+    html = html.replace(/<main\s+id=["']seo-content["'][^>]*>[\s\S]*?<\/main>/i, crawlerBlock);
+  } else if (/<div\s+id=["']root["']\s*>\s*<\/div>/i.test(html)) {
     html = html.replace(
       /<div\s+id=["']root["']\s*>\s*<\/div>/i,
-      `<div id="root">${body}</div>`
+      `<div id="root">${crawlerBlock}</div>`
     );
+  } else if (/<div\s+id=["']root["'][^>]*>/i.test(html)) {
+    html = html.replace(/(<div\s+id=["']root["'][^>]*>)/i, `$1${crawlerBlock}`);
   }
 
   return html;

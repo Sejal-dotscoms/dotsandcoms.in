@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -143,7 +145,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
@@ -424,7 +429,11 @@ static async Task WriteCrawlerNotFoundAsync(HttpContext context, IWebHostEnviron
                 ? "The page you requested could not be found on Dots and Coms."
                 : message,
             Keywords = "404, page not found, Dots and Coms",
-            Canonical = "https://www.dotsandcoms.in" + (context.Request.Path.Value ?? "/404")
+            Canonical = "https://www.dotsandcoms.in" + (context.Request.Path.Value ?? "/404"),
+            Heading = "404 - Page Not Found",
+            Summary = string.IsNullOrWhiteSpace(message)
+                ? "The page you requested could not be found on Dots and Coms."
+                : message
         };
         html = PageMetaInjector.Inject(html, notFound, ensureCrawlerBody: true);
         await context.Response.WriteAsync(html);
@@ -508,9 +517,22 @@ static async Task<string?> ReadMarketingHtmlAsync(IWebHostEnvironment env, strin
     if (File.Exists(shellPath))
         return await File.ReadAllTextAsync(shellPath);
 
-    // No dedicated shell — do not use prerendered homepage index.html (wrong body).
+    // No dedicated shell — do not use prerendered homepage index.html (wrong body)
     // Fall through so SpaProxy/Vite can serve in development.
     return null;
 }
 
-app.Run();
+try
+{
+    app.Run();
+}
+catch (Exception ex) when (
+    ex is IOException ||
+    ex is System.Net.Sockets.SocketException ||
+    ex.InnerException is System.Net.Sockets.SocketException ||
+    (ex.InnerException is AggregateException agg && agg.InnerExceptions.Any(e => e is System.Net.Sockets.SocketException)))
+{
+    var logger = app.Services.GetService<ILogger<Program>>();
+    logger?.LogError(ex, "Failed to bind to network socket/port. Please verify port availability or run using IIS Express.");
+    Console.Error.WriteLine($"[WARNING] Failed to bind to socket/port: {ex.Message}. If using Kestrel, switch the launch profile to 'IIS Express'.");
+}

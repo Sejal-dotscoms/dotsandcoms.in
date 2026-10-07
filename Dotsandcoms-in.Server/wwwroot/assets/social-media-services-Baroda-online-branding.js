@@ -1,1 +1,1 @@
-var e=`/assets/on-page-seo-Vadodara-website-optimization.png`,t=`/assets/social-media-services-Baroda-online-branding.png`;export{e as n,t};
+var e=`/assets/seo-and-search-visibility-strategy-img.png`,t=`/assets/social-media-services-Baroda-online-branding.png`;export{e as n,t};

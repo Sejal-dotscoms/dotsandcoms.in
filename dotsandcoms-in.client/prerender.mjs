@@ -124,7 +124,10 @@ async function main() {
   console.log(`Prerendering ${routes.length} routes…`);
 
   const server = await startStaticServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const failures = [];
 
   try {
@@ -135,11 +138,7 @@ async function main() {
     });
     await page.route("**/*", (route) => {
       const u = route.request().url();
-      if (
-        /googletagmanager|google-analytics|clarity\.ms|facebook|doubleclick|hotjar|taboola|apollo|recaptcha|gstatic\.com\/recaptcha/i.test(
-          u
-        )
-      ) {
+      if (!u.startsWith(`http://127.0.0.1:${PORT}/`)) {
         return route.abort();
       }
       return route.continue();
