@@ -118,9 +118,9 @@ namespace Dotsandcoms_in.Server.Services
         private static string BuildForgotPasswordEmail(string email, string tempPassword)
         {
             return $@"<div style=""font-family:Arial,sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#ffffff"">
-  <img src=""https://www.dotsandcoms.in/assets/dots-and-coms-logo.png"" alt=""Dots &amp; Coms"" style=""height:48px;margin-bottom:24px"" />
+  <img src=""https://www.dotsandcoms.in/assets/dots-and-coms-logo.png"" alt=""Dots and Coms"" style=""height:48px;margin-bottom:24px"" />
   <h2 style=""color:#cf1f1f;margin:0 0 16px"">Admin Panel Access</h2>
-  <p style=""color:#374151;margin:0 0 20px"">Your temporary credentials for the Dots &amp; Coms admin panel are below. Please sign in and change your password immediately.</p>
+  <p style=""color:#374151;margin:0 0 20px"">Your temporary credentials for the Dots and Coms admin panel are below. Please sign in and change your password immediately.</p>
   <table style=""background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:20px;width:100%;border-collapse:collapse"">
     <tr>
       <td style=""padding:8px 12px;color:#6b7280;font-size:14px"">Email</td>

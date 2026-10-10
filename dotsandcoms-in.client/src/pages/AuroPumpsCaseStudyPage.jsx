@@ -189,7 +189,7 @@ export default function AuroPumpsCaseStudyPage() {
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
                 <Lightbulb className="h-6 w-6" />
               </div>
-              <h3 className="font-heading text-lg font-bold text-slate-800">Dots & Coms Approach</h3>
+              <h3 className="font-heading text-lg font-bold text-slate-800">Dots and Coms Approach</h3>
               <p className="mt-2 text-xs leading-relaxed text-slate-600 md:text-sm">
                 Instead of selling a generic website, we took time to understand the business first — translating technical strengths into a digital experience.
               </p>

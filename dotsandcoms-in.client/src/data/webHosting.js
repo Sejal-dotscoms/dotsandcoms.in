@@ -335,7 +335,7 @@ export const sslData = {
 export const ctaData = {
   badge: "Cloud Consult",
   title: "Need secure enterprise cloud architecture?",
-  description: "Contact DNC's network administrators to outline hosting specs, CDN configuration parameters, and SSL certificate installation plans.",
+  description: "Contact Dots and Coms's network administrators to outline hosting specs, CDN configuration parameters, and SSL certificate installation plans.",
   ctaText: "Get Free Consulting",
   ctaLink: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
 };
