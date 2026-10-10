@@ -426,7 +426,7 @@ This email was generated automatically from your website order form.
         private string BuildThankYouMailBody(OrderTokenPayload o)
         {
             return $@"<p>Dear {(o.IsServerPlan ? o.ContactPersonName : o.YourName)},</p>
-                       <p>Thank you for placing an order with Dots &amp; Coms. Our team will contact you shortly to complete verification and payment.</p>
+                       <p>Thank you for placing an order with Dots and Coms. Our team will contact you shortly to complete verification and payment.</p>
                        <p>Order Reference ID: <b>{o.OrderRef}</b></p>";
         }
         public string BuildCcavenueRedirectToken(string token, out string orderRef)

@@ -35,6 +35,31 @@
     <Content Include="..\dotsandcoms-in.client\public\seo-routes.json" Link="seo-routes.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
+  <!-- User secrets live in this PC's profile. Copy them beside the DLL on build/publish
+       so the IIS site (a different machine and account) can read ConnectionStrings. -->
+  <Target Name="IncludeUserSecretsInOutput" AfterTargets="Build">
+    <PropertyGroup>
+      <_UserSecretsFile>$(APPDATA)\Microsoft\UserSecrets\$(UserSecretsId)\secrets.json</_UserSecretsFile>
+    </PropertyGroup>
+    <Copy SourceFiles="$(_UserSecretsFile)"
+          DestinationFiles="$(OutputPath)secrets.json"
+          SkipUnchangedFiles="true"
+          Condition="Exists('$(_UserSecretsFile)')" />
+  </Target>
+
+  <Target Name="IncludeUserSecretsInPublish" BeforeTargets="ComputeFilesToPublish">
+    <PropertyGroup>
+      <_UserSecretsFile>$(APPDATA)\Microsoft\UserSecrets\$(UserSecretsId)\secrets.json</_UserSecretsFile>
+    </PropertyGroup>
+    <ItemGroup Condition="Exists('$(_UserSecretsFile)')">
+      <ResolvedFileToPublish Include="$(_UserSecretsFile)">
+        <RelativePath>secrets.json</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
   <!-- Automatically kill any lingering/orphan server instance before build so port 5151 is never locked -->
   <Target Name="KillExistingProcessBeforeRun" BeforeTargets="BeforeBuild" Condition="'$(OS)' == 'Windows_NT'">
     <Exec Command="taskkill /F /IM Dotsandcoms-in.Server.exe 2&gt;nul || exit 0" ContinueOnError="true" />

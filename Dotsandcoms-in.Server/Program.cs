@@ -1,3 +1,4 @@
+using System.Reflection;
 using Dotsandcoms_in.Server.Data;
 using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
@@ -5,6 +6,13 @@ using Dotsandcoms_in.Server.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Credentials stay in user secrets. The host loads that file only in Development;
+// IIS runs this site as Production, so load it for every environment.
+// Publish also copies that file to secrets.json beside the DLL, because the
+// server account does not have this PC's user-secrets profile.
+builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly(), optional: true);
+builder.Configuration.AddJsonFile("secrets.json", optional: true, reloadOnChange: false);
 
 
 
@@ -39,6 +47,12 @@ builder.Services.AddCors(options =>
 });
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    Console.Error.WriteLine(
+        $"DefaultConnection is not set (environment: {builder.Environment.EnvironmentName}). " +
+        "Add ConnectionStrings:DefaultConnection to user secrets for the Windows account that runs this site.");
+}
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString)
@@ -54,6 +68,18 @@ var app = builder.Build();
 
 app.UseCors("ReactPolicy");
 app.UseResponseCompression();
+
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value ?? "";
+    if (path.Equals("/secrets.json", StringComparison.OrdinalIgnoreCase))
+    {
+        context.Response.StatusCode = StatusCodes.Status404NotFound;
+        return;
+    }
+
+    await next();
+});
 
 // Add security headers to defend against click-jacking, XSS, MIME type sniffing, and enforce HSTS
 app.Use(async (context, next) =>
@@ -441,7 +467,7 @@ static async Task WriteCrawlerNotFoundAsync(HttpContext context, IWebHostEnviron
     }
 
     await context.Response.WriteAsync(
-        "<!DOCTYPE html><html><head><title>Page Not Found | Dots &amp; Coms</title></head>" +
+        "<!DOCTYPE html><html><head><title>Page Not Found | Dots and Coms</title></head>" +
         "<body><h1>Page Not Found</h1><p>The page you requested could not be found.</p></body></html>");
 }
 
