@@ -387,9 +387,9 @@ export default function SitemapGrid() {
               <p className="mt-2 flex items-start gap-2 text-xs leading-relaxed text-slate-500">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-slate-400" />
                 <span>
-                  201, Senate Square Tower B,<br />
-                  Nr. Yash Complex, Gotri Road,<br />
-                  Vadodara 390 021, Gujarat, India.
+                  B, Nr, Yash Complex, 201,<br />
+                  Senate Square Tower, Gotri Rd,<br />
+                  Vadodara, Gujarat 390021
                 </span>
               </p>
             </div>
