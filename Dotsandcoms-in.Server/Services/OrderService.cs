@@ -113,7 +113,7 @@ namespace Dotsandcoms_in.Server.Services
         {
             var stamp = DateTime.UtcNow.ToString("yyMMddHHmmss");
             var rand = Random.Shared.Next(100, 999);
-            return $"DNC-{stamp}{rand}";
+            return $"Dots And Coms-{stamp}{rand}";
         }
 
         //private string BuildAdminMailBody(OrderTokenPayload o)

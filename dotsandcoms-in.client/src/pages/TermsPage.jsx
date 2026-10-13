@@ -48,7 +48,7 @@ export default function TermsPage() {
                   Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Dots and Coms's relationship with you in relation to this website.
                 </p>
                 <p>
-                  The term Dots and Coms or 'us' or 'we' refers to the owner of the website whose registered office is 201, Senate Square, Gotri, Vadodara. The term 'you' refers to the user or viewer of our website.
+                  The term Dots and Coms or 'us' or 'we' refers to the owner of the website whose registered office is B, Nr, Yash Complex, 201, Senate Square Tower, Gotri Rd, Vadodara, Gujarat 390021. The term 'you' refers to the user or viewer of our website.
                 </p>
               </div>
 

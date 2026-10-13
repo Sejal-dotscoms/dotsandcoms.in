@@ -3,6 +3,14 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import logoImg from "../assets/images/dots-and-coms-logo.webp";
 import { Link } from "react-router-dom";
 
+const LinkedinIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -65,11 +73,25 @@ export default function Footer() {
               <MapPin className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[#dc2626]" />
               <div className="flex flex-col space-y-0.5 leading-tight text-slate-300">
                 <span className="font-semibold text-slate-100">Dots and Coms</span>
-                <span>201, Senate Square Tower B,</span>
-                <span>Nr. Yash Complex, Gotri Road,</span>
-                <span>Vadodara 390021, Gujarat, India</span>
+                <span>B, Nr, Yash Complex, 201,</span>
+                <span>Senate Square Tower, Gotri Rd,</span>
+                <span>Vadodara, Gujarat 390021</span>
               </div>
             </div>
+          </div>
+
+          {/* LinkedIn Link */}
+          <div className="pt-2">
+            <a
+              href="https://in.linkedin.com/company/dotsandcoms"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dots and Coms LinkedIn Company Profile"
+              className="inline-flex items-center space-x-2 rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-2 text-[13px] font-medium text-slate-300 transition-all duration-300 hover:border-[#0077b5] hover:bg-[#0077b5] hover:text-white"
+            >
+              <LinkedinIcon className="h-4 w-4" />
+              <span>LinkedIn</span>
+            </a>
           </div>
         </div>
 
