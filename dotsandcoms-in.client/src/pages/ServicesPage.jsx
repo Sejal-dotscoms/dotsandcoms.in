@@ -19,7 +19,7 @@ const servicesHub = [
   {
     path: "/android-ios-mobile-app-development-company-baroda",
     title: "Mobile App Development",
-    desc: "Cross-platform mobile applications for iOS & Android built with Flutter and React Native, incorporating fluid integrations and sync APIs.",
+    desc: "Cross-platform mobile applications for iOS & Android built with Flutter and React Js, incorporating fluid integrations and sync APIs.",
     icon: Smartphone,
     color: "bg-emerald-50 text-emerald-600 border-emerald-100/50 hover:bg-emerald-600 hover:text-white",
     bgGlow: "bg-emerald-500/5"

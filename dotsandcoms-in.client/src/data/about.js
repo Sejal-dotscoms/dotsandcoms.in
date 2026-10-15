@@ -20,16 +20,24 @@ import companyCelebrationImg from "../assets/images/company-celebration-Baroda-d
 import officeLifeImg from "../assets/images/office-life-Vadodara-development-team.png";
 
 export const aboutHeroData = {
-  badge: "// Our Heritage",
-  title: "Crafting Digital Excellence Since 1999",
+  badge: "// Our Story",
+    title: "Web Agency founded in 1999, Gujarat",
   paragraphs: [
-    "For more than two decades, Dots and Coms  has stood at the intersection of technology and creativity. We've transformed over 4,500 brands with bespoke web design, custom mobile engineering, and performance-marketing frameworks.",
-    "Our philosophy has remained unchanged: strip away unnecessary complexity to deliver pixel-perfect digital systems that inspire users and drive commercial expansion."
+    "Dots and Coms was founded in 1999 in Vadodara, Gujarat, by Bharat and Kishor Tarachandani. In the 27 years since, we have designed more than 5,000 websites and built mobile apps for businesses in pharmaceuticals, chemicals, power, manufacturing, health and wellness, sports and retail. Clients include Alembic Pharmaceuticals, Rubamin, GIPCL, Nilkanth Group, JR Group, Gujarat Badminton Association, Book Pratha and Bankers Heart.",
+    "Today a team of 35+ designers, developers and marketers works from our office at Senate Square, Gotri Road, Vadodara. Beyond design and development, we also host websites and manage domains for clients, so your website, hosting and marketing can all be handled by one team."
   ],
-  stats: [
-    { value: "25+ Yrs", label: "Pioneering Design" },
-    { value: "Global", label: "Client Footprint" }
+  highlights: [
+    "Fixed scope and price, agreed before we start.",
+    "You own your website code, domain and content.",
+    "Most projects launch in 4–8 weeks, with a progress update every week.",
+    "Support continues after launch, including hosting, security and maintenance.",
   ],
+  // stats: [
+  //   { value: "25+ Yrs", label: "Pioneering Design" },
+  //   { value: "Global", label: "Client Footprint" },
+  //     { value: "35+", label: "Team Members " },
+  //     { value: "5,000+", label: "Websites Designed " },
+  // ],
   slides: [
     {
       id: 1,
@@ -65,7 +73,7 @@ export const timelineIntro = {
   est: "//   Est. 1999",
   title: "We Will Dot Com Your Company",
   paragraphs: [
-    "Our company, founded by visionary brothers Kishore and Bharat from India, has a rich history that is inextricably linked to technological advancement. From weathering the dotcom bubble to navigating the ever-changing world of technological developments, we've been consistent in our dedication to innovation.",
+    "Our company, founded by visionary brothers Bharat and Kishor Tarachandani from India, has a rich history that is inextricably linked to technological advancement. From weathering the dotcom bubble to navigating the ever-changing world of technological developments, we've been consistent in our dedication to innovation.",
     "Our team has grown globally over the years, attracting like-minded individuals who share a quest for excellence and dedication. Together, we've created a community dedicated to taking our organisation to new heights.",
     "With every challenge, we have become stronger and more resilient. Our experience demonstrates the strength of determination and flexibility in a constantly changing world. As we map our route forward, we stay ready to ride the waves of technological change, harnessing our collective skills to propel significant progress and influence the future."
   ]
@@ -91,16 +99,14 @@ export const timelineData = [
   { year: "2005", event: "NZ became the largest source of business — Dots and Coms adds a second shift.", tag: "Growth" },
   { year: "2004", event: "Moved to a brand-new office at Alkapuri — more than double the space and team.", tag: "Office" },
   { year: "2002", event: "Shifted to Jetalpur Road — double space, double team, focus narrows to web design and development.", tag: "Office" },
-  { year: "1999", event: " Dots and Coms founded in Alkapuri, Vadodara — operations begin as a web hosting company.", tag: "Founded" },
+    { year: "November 1999", event: " Dots and Coms founded in Alkapuri, Vadodara — operations begin as a web hosting company.", tag: "Founded" },
 ];
 
 export const teamIntro = {
   badge: "// Join The League",
   title: "Meet like-minded techies, who talk in zeros and ones!",
-  subtitlePrefix: "Associating with more than",
-  totalAssociates: "150 team associates",
-  subtitleMiddle: "over a decade, we currently are a team strength of",
-  teamStrength: "40",
+  subtitlePrefix: "We currently are a team of",
+  teamStrength: "35+",
   subtitleSuffix: "which includes:",
   inclusions: [
     "Lessons from different countries",

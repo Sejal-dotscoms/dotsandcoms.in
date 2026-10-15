@@ -23,7 +23,7 @@ export default function Services2() {
       hoverBg: "bg-emerald-600/5",
       title: "Mobile App Development",
       shortTitle: "Mobile Apps",
-      desc: "Native iOS/Android applications built with Flutter and React Native, ensuring fluid micro-interactions and performance.",
+      desc: "iOS/Android applications built with Flutter and React Js, ensuring fluid micro-interactions and performance.",
       link: "/android-ios-mobile-app-development-company-baroda"
     },
     {

@@ -150,7 +150,7 @@ export default function Header() {
   ];
 
   const socialLinks = [
-    { name: "Facebook", icon: <FacebookIcon className="w-3.5 h-3.5" />, href: "https://www.facebook.com/dedicated.developers.india/", color: "hover:bg-blue-600" },
+      { name: "Facebook", icon: <FacebookIcon className="w-3.5 h-3.5" />, href: "https://www.facebook.com/DotsAndComs/", color: "hover:bg-blue-600" },
     { name: "Twitter", icon: <TwitterIcon className="w-3.5 h-3.5" />, href: "https://x.com/dotsandcoms", color: "hover:bg-sky-505" },
     { name: "LinkedIn", icon: <LinkedinIcon className="w-3.5 h-3.5" />, href: "https://in.linkedin.com/company/dotsandcoms", color: "hover:bg-blue-700" },
     { name: "Instagram", icon: <InstagramIcon className="w-3.5 h-3.5" />, href: "https://www.instagram.com/dotsandcoms/?hl=en", color: "hover:bg-pink-655" },

@@ -19,7 +19,7 @@ export const subServices = [
       subtitle: "iOS App Development in Vadodara",
       desc: "Dots and Coms builds custom iPhone and iPad apps in Swift and Objective-C, using Xcode, the iOS SDK and the Cocoa Touch framework. We handle the whole journey, from app concept and design to API integration, App Store deployment and App Store optimization.",
     features: [
-      "Native Swift and Objective-C development",
+      "Swift and Objective-C development",
       "Cocoa Touch framework and iOS SDK",
       "Xcode-based builds following Apple design guidelines",
       "JSON/XML parsing and API integration",
@@ -36,12 +36,12 @@ export const subServices = [
     num: "02",
       title: "Android Mobile App Development",
       subtitle: "Android App Development in Vadodara",
-      desc: "We build custom Android apps around your business needs, using Android Studio and the native Android SDK. Our team manages the full app lifecycle, from concept and development to release on the Google Play Store, with a focus on a smooth, user-friendly experience.",
+      desc: "We build custom Android apps around your business needs, using Android Studio and the Android SDK. Our team manages the full app lifecycle, from concept and development to release on the Google Play Store, with a focus on a smooth, user-friendly experience.",
     features: [
-      "Native Android SDK development",
+      "Android SDK development",
       "HTTP networking and multithreading for fast, responsive apps",
       "Android Studio development and responsive UI design",
-      "JNI integration for native code, where needed",
+      "JNI integration for code, where needed",
       "Google Play Store deployment and lifecycle management"
     ],
     image: androidImg,
@@ -55,7 +55,7 @@ export const subServices = [
     num: "03",
       title: "Cross-Platform App Development",
       subtitle: "Flutter App Development in Vadodara",
-      desc: "Flutter is Google's toolkit for building iOS and Android apps from one codebase. We use it to deliver fast, consistent apps with a native feel on both platforms, with custom UI, backend integration, API connections and third-party plugins. One build means faster delivery and lower cost than two separate apps.",
+      desc: "Flutter is Google's toolkit for building iOS and Android apps from one codebase. We use it to deliver fast, consistent apps with a feel on both platforms, with custom UI, backend integration, API connections and third-party plugins. One build means faster delivery and lower cost than two separate apps.",
     features: [
       "One codebase for iOS and Android",
       "Dart programming and custom widgets",
@@ -74,7 +74,7 @@ export const subServices = [
 export const ctaData = {
   badge: "Get Started",
     title: "Let's Build Your App Together",
-    description: "Tell us about your app idea and we will send you a free, personalised quote based on your requirements. We will recommend the right approach, native or Flutter, for your business and budget.",
+    description: "Tell us about your app idea and we will send you a free, personalised quote based on your requirements. We will recommend the right approach, Flutter, for your business and budget.",
   ctaText: "Get A Free Quote",
   ctaLink: "/contact-webdesign-mobileapp-socialmedia-marketing-baroda"
 };
@@ -88,12 +88,12 @@ export const mobileAppsFaqData = {
       a: "Dots and Coms is a Vadodara-based company that builds iOS, Android and Flutter mobile apps for businesses in Gujarat and across India. We have been building digital products since 1999 and handle design, development and app store launch."
     },
     {
-      q: "Should I choose native apps or Flutter?",
-      a: "Flutter builds iOS and Android apps from one codebase, which usually means faster delivery and lower cost. Native development in Swift or Android's SDK suits apps that need deep access to device features. We recommend the option that fits your goals and budget."
+      q: "Should I choose apps or Flutter?",
+      a: "Flutter builds iOS and Android apps from one codebase, which usually means faster delivery and lower cost. Development in Swift or Android's SDK suits apps that need deep access to device features. We recommend the option that fits your goals and budget."
     },
     {
       q: "Do you build apps for both iPhone and Android?",
-      a: "Yes. We build native iOS apps, native Android apps, and cross-platform Flutter apps that run on both."
+      a: "Yes. We build iOS apps, Android apps, and cross-platform Flutter apps that run on both."
     },
     {
       q: "Will you publish my app on the App Store and Google Play?",
