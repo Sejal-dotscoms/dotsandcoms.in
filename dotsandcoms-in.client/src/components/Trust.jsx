@@ -51,8 +51,8 @@ function Counter({ target, duration = 2, suffix = "" }) {
 
 export default function Trust() {
   const stats = [
-    { label: "Years Experience", target: 25, suffix: "+" },
-    { label: "Websites Delivered", target: 5000, suffix: "+" },
+      { label: "Since", target: 27, suffix: "+" },
+      { label: "Websites Designed", target: 5000, suffix: "+" },
     { label: "Happy Clients", target: 8000, suffix: "+" },
     { label: "Domains Managed", target: 6000, suffix: "+" },
   ];

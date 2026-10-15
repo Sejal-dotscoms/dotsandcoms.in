@@ -108,7 +108,7 @@ export default function TeamSection() {
             </div>
 
             <p className="text-slate-700 text-[16px] leading-relaxed">
-              {teamIntro.subtitlePrefix} <span className="font-semibold text-slate-900">{teamIntro.totalAssociates}</span> {teamIntro.subtitleMiddle} <span className="font-semibold text-slate-900">{teamIntro.teamStrength}</span> {teamIntro.subtitleSuffix}
+              {teamIntro.subtitlePrefix} <span className="font-semibold text-slate-900">{teamIntro.teamStrength}</span> {teamIntro.subtitleSuffix}
             </p>
 
             {/* Inclusions List with red filled play symbol arrowheads */}

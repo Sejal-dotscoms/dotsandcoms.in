@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Check } from "lucide-react";
 import { aboutHeroData } from "../data/about";
 
 export default function About() {
@@ -70,13 +71,28 @@ export default function About() {
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-slate-800 tracking-tight leading-tight">
               {aboutHeroData.title}
             </h2>
-            <p className="text-slate-600 leading-relaxed text-base">
+            <p className="text-slate-600 leading-relaxed text-base pt-2">
               {aboutHeroData.paragraphs[0]}
             </p>
             <p className="text-slate-500 leading-relaxed text-sm">
               {aboutHeroData.paragraphs[1]}
             </p>
 
+            {aboutHeroData.highlights && aboutHeroData.highlights.length > 0 && (
+              <ul className="space-y-2.5 pt-3 pb-1">
+                {aboutHeroData.highlights.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#ea580c]/10 text-[#ea580c] flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                    </span>
+                    <span className="text-slate-700 text-sm font-medium leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+                      {/*
             <div className="pt-6 grid grid-cols-2 gap-6 border-t border-slate-200 mt-4">
               {aboutHeroData.stats.map((stat, idx) => (
                 <div key={idx}>
@@ -85,6 +101,7 @@ export default function About() {
                 </div>
               ))}
             </div>
+             */}
           </div>
 
           {/* Right Side: Modern 3D Image Slider */}

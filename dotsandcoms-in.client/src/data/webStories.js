@@ -55,7 +55,7 @@ export const webStories = [
     url: "https://webstories.dotsandcoms.in/?post_type=web-story&p=146",
     category: "Mobile Apps",
       accentColor: "#dc2626", // Blue
-    description: "Understand the differences between native and hybrid workflows, multithreaded runtime pools, and responsive screens."
+      description: "Understand the differences between platform-specific and hybrid workflows, multithreaded runtime pools, and responsive screens."
   },
   {
     id: 5,

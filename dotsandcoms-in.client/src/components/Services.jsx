@@ -14,7 +14,7 @@ export default function Services() {
     {
       icon: <Smartphone className="w-8 h-8 text-emerald-600" />,
       title: "Mobile App Development",
-      desc: "Native iOS/Android applications built with Flutter and React Native, ensuring fluid micro-interactions and performance.",
+      desc: "iOS/Android applications built with Flutter and React Js, ensuring fluid micro-interactions and performance.",
       span: "md:col-span-5",
       link: "/android-ios-mobile-app-development-company-baroda"
     },

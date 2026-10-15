@@ -66,7 +66,7 @@ export default function Home() {
         {/* Custom interactive elements */}
         <ParticleBackground />
 
-        {/* Navigation */}
+        {/* Navigation */}  
         <Header />
 
         {/* Page Sections */}

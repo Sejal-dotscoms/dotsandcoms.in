@@ -26,13 +26,13 @@ export const PUBLIC_ROUTES = [
   },
   {
     path: "/about-web-development-company-baroda",
-    title: "About Dots and Coms — 19+ Years Building Websites & Apps in Vadodara",
+      title: "About Dots and Coms — Web Design and App Company in Vadodara Since 1999",
     description:
       "Since 1999, Dots and Coms has delivered website design, mobile apps, hosting, and SEO for clients in Vadodara and beyond. Learn about our team and approach.",
     keywords:
       "Dots and Coms company, web development company Baroda, IT company since 1999, Vadodara software company",
     canonical: `${BASE_URL}/about-web-development-company-baroda`,
-    heading: "About Dots and Coms Web Solutions",
+      heading: "About Dots and Coms",
     summary:
       "Established in 1999, Dots and Coms is a premier IT and web engineering agency in Vadodara delivering high-performance websites, mobile applications, and cloud hosting.",
     prerender: true,
@@ -48,7 +48,7 @@ export const PUBLIC_ROUTES = [
     canonical: `${BASE_URL}/website-mobile-app-development-company-portfolio-baroda`,
     heading: "Our Work: Website & Mobile App Portfolio",
     summary:
-      "Explore real-world web applications, e-commerce platforms, and native mobile apps engineered by Dots and Coms for diverse commercial and industrial clients.",
+      "Explore real-world web applications, e-commerce platforms, and mobile apps engineered by Dots and Coms for diverse commercial and industrial clients.",
     prerender: true,
     sitemap: true,
   },
@@ -84,7 +84,7 @@ export const PUBLIC_ROUTES = [
     path: "/android-ios-mobile-app-development-company-baroda",
     title: "Android, iOS & Flutter App Development Company in Vadodara",
     description:
-      "Our team builds native Android and iOS apps and cross-platform Flutter apps — from concept through Play Store and App Store launch. Based in Vadodara, working globally.",
+      "Our team builds Android and iOS apps and cross-platform Flutter apps — from concept through Play Store and App Store launch. Based in Vadodara, working globally.",
     keywords:
       "mobile app development Vadodara, Android app developers Baroda, iOS app development company, Flutter app development India",
     canonical: `${BASE_URL}/android-ios-mobile-app-development-company-baroda`,

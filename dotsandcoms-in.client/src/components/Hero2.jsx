@@ -22,7 +22,7 @@ const LOGO_DOTS = [
     // Orange Row (middle) - Mobile Apps
     { id: 3, cx: 28, cy: 50, rx: 7.5, ry: 4, rot: -28, color: "from-orange-400 to-red-500", group: "app", label: "iOS Swift" },
     { id: 4, cx: 48, cy: 44, rx: 9, ry: 4.8, rot: -28, color: "from-orange-400 to-red-500", group: "app", label: "Android Kotlin" },
-    { id: 5, cx: 72, cy: 40, rx: 11, ry: 5.5, rot: -28, color: "from-orange-400 to-red-500", group: "app", label: "React Native" },
+    { id: 5, cx: 72, cy: 40, rx: 11, ry: 5.5, rot: -28, color: "from-orange-400 to-red-500", group: "app", label: "React Js" },
 
     // Red Row (bottom) - Web Design
     { id: 6, cx: 26, cy: 74, rx: 10, ry: 5.2, rot: -28, color: "from-red-500 to-rose-600", group: "web", label: "Tailwind & React" },
