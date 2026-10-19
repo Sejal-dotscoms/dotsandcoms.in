@@ -1,1 +1,1 @@
-var e=`/assets/on-page-seo-Vadodara-website-optimization.png`;export{e as t};
+var e=`/assets/seo-and-search-visibility-strategy-img.png`;export{e as t};

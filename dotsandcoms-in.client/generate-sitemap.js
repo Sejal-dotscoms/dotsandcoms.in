@@ -9,6 +9,29 @@ const __dirname = path.dirname(__filename);
 const SitemapXmlPath = path.join(__dirname, "public", "sitemap.xml");
 const SitemapHtmlPath = path.join(__dirname, "public", "sitemap.html");
 
+async function fetchPositionPaths(apiBase) {
+  const url = `${apiBase}/api/careers/positions`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`Vacancy sitemap fetch failed (${res.status}) from ${url}`);
+      return [];
+    }
+    const json = await res.json();
+    const items = json?.data ?? [];
+    return items
+      .filter((job) => job?.slug)
+      .map((job) => ({
+        path: `/${job.slug}`,
+        lastmod: job.updatedAt ? new Date(job.updatedAt).toISOString().split("T")[0] : null,
+        title: job.seoTitle || job.pageHeading || job.cardTitle || job.slug,
+      }));
+  } catch (err) {
+    console.warn(`Vacancy sitemap fetch error from ${url}:`, err.message);
+    return [];
+  }
+}
+
 async function fetchBlogPaths() {
   const apiBase = process.env.SITEMAP_API_URL?.replace(/\/$/, "");
   if (!apiBase) {
@@ -54,7 +77,12 @@ function urlEntry(loc, { lastmod, changefreq = "weekly", priority = "0.8" }) {
 try {
   const currentDate = new Date().toISOString().split("T")[0];
   const staticRoutes = getSitemapRoutes();
+  const apiBase = process.env.SITEMAP_API_URL?.replace(/\/$/, "");
   const blogRoutes = await fetchBlogPaths();
+  const positionRoutes = apiBase ? await fetchPositionPaths(apiBase) : [];
+  if (!apiBase) {
+    console.log("SITEMAP_API_URL not set — skipping live vacancy URLs in sitemap.");
+  }
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">\n`;
@@ -76,10 +104,18 @@ try {
     });
   }
 
+  for (const job of positionRoutes) {
+    xml += urlEntry(`${BASE_URL}${job.path}`, {
+      lastmod: job.lastmod || currentDate,
+      changefreq: "weekly",
+      priority: "0.7",
+    });
+  }
+
   xml += "</urlset>\n";
   fs.writeFileSync(SitemapXmlPath, xml, "utf-8");
   console.log(
-    `XML sitemap written (${staticRoutes.length} static + ${blogRoutes.length} blogs) → ${SitemapXmlPath}`
+    `XML sitemap written (${staticRoutes.length} static + ${blogRoutes.length} blogs + ${positionRoutes.length} vacancies) → ${SitemapXmlPath}`
   );
 
   const allForHtml = [
@@ -91,6 +127,7 @@ try {
           : r.title.split("|")[0].split("–")[0].trim(),
     })),
     ...blogRoutes.map((b) => ({ path: b.path, title: b.title })),
+    ...positionRoutes.map((job) => ({ path: job.path, title: job.title })),
   ];
 
   const sitemapKeywords =
@@ -157,6 +194,8 @@ try {
   const serverSeoRoutesPath = path.join(__dirname, "..", "Dotsandcoms-in.Server", "wwwroot", "seo-routes.json");
   if (fs.existsSync(path.dirname(serverSeoRoutesPath))) {
     fs.writeFileSync(serverSeoRoutesPath, JSON.stringify(seoRoutes, null, 2), "utf-8");
+    fs.writeFileSync(path.join(path.dirname(serverSeoRoutesPath), "sitemap.xml"), xml, "utf-8");
+    fs.writeFileSync(path.join(path.dirname(serverSeoRoutesPath), "sitemap.html"), html, "utf-8");
   }
 } catch (error) {
   console.error("Error generating sitemap:", error);

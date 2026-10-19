@@ -118,7 +118,7 @@ export const teamIntro = {
     "If you are a customer, you are probably interacting with one or two people who are at the frontline. However we assure you that there are many layers of people who do what you see.",
     "If you are someone who is inspired to join our team; visit our career section and see if you have it in you to be a member of our elite team."
   ],
-  careerUrl: "https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html"
+  careerUrl: "/training-and-job-vacancy-at-dots-coms-vadodara"
 };
 
 export const teamSlides = [

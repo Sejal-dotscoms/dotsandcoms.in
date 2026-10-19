@@ -204,14 +204,14 @@ export default function Header() {
 
               {/* Utility Pages */}
               <div className="flex items-center space-x-5 text-xs font-semibold">
-                <a
-                  href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer"
+                <Link
+                  to="/training-and-job-vacancy-at-dots-coms-vadodara"
                   aria-label="Career and Job Opportunities at Dots and Coms Vadodara"
                   className="flex items-center space-x-1.5 hover:text-[#ea580c] transition-colors duration-300"
                 >
                   <Briefcase className="w-3.5 h-3.5 text-[#ea580c]" />
                   <span>Career</span>
-                </a>
+                </Link>
                 <Link
                   to="/webhosting-vps-dedicated-server-support-baroda"
                   aria-label="Technical Support Services Baroda Header Link"

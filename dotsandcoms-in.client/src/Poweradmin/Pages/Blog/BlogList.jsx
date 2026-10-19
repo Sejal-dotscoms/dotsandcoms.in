@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { getBlogs, deleteBlog } from "../../../services/blogService";
+import { ActionNotice, BusyButton, useActionNotices } from "../../components/AdminFeedback";
 
 // ── Sort icon ──────────────────────────────────────────────────────────────
 function SortIcon({ col, sortCol, sortDir }) {
@@ -40,6 +41,8 @@ export default function BlogList() {
   const [search, setSearch]         = useState("");
   const [loading, setLoading]       = useState(false);
   const [error, setError]           = useState("");
+  const [notice, setNotice]         = useState("");
+  const actions = useActionNotices();
   const [sortCol, setSortCol]       = useState("blogDate");
   const [sortDir, setSortDir]       = useState("desc");
 
@@ -91,12 +94,17 @@ export default function BlogList() {
 
   async function handleDelete(id) {
     if (!confirm("Delete this blog post?")) return;
+    setNotice("");
+    setError("");
+    actions.begin(`delete-${id}`);
     try {
       await deleteBlog(id);
       setBlogs((prev) => prev.filter((b) => b.id !== id));
       setTotalCount((c) => c - 1);
+      setNotice("Blog deleted.");
+      actions.finish(`delete-${id}`, "Blog deleted.", "success", { inline: false });
     } catch (err) {
-      alert(err.message || "Failed to delete blog.");
+      actions.finish(`delete-${id}`, err.message || "Failed to delete blog.", "error");
     }
   }
 
@@ -142,9 +150,10 @@ export default function BlogList() {
         </button>
       </div>
 
-      {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg mb-4">
-          {error}
+      {(notice || error) && (
+        <div className="sticky top-0 z-20 mb-4 space-y-2 bg-gray-100">
+          <ActionNotice notice={notice ? { type: "success", message: notice } : null} onClose={() => setNotice("")} className="" />
+          <ActionNotice notice={error ? { type: "error", message: error } : null} onClose={() => setError("")} className="" />
         </div>
       )}
 
@@ -219,19 +228,25 @@ export default function BlogList() {
                       {blog.expiryDate ? new Date(blog.expiryDate).toLocaleDateString() : "—"}
                     </td>
                     <td className="px-4 py-3 text-center">
+                      <div className="inline-flex flex-col items-center gap-2">
                       <div className="flex items-center justify-center gap-2">
                         <button
+                          type="button"
                           onClick={() => navigate(`/poweradmin/blogs/edit/${blog.id}`)}
                           className="px-3 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-600 hover:bg-blue-100 transition focus:outline-none focus:ring-2 focus:ring-blue-200"
                         >
                           Edit
                         </button>
-                        <button
+                        <BusyButton
+                          busy={actions.isBusy(`delete-${blog.id}`)}
+                          busyLabel="Deleting…"
                           onClick={() => handleDelete(blog.id)}
                           className="px-3 py-1 rounded-md text-xs font-medium bg-red-50 text-red-600 hover:bg-red-100 transition focus:outline-none focus:ring-2 focus:ring-red-200"
                         >
                           Delete
-                        </button>
+                        </BusyButton>
+                      </div>
+                      <ActionNotice notice={actions.notices[`delete-${blog.id}`]} onClose={() => actions.dismiss(`delete-${blog.id}`)} className="mt-0" />
                       </div>
                     </td>
                   </tr>

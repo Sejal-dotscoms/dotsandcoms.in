@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { changePassword, getStoredUser } from "../../../services/authService";
+import { ActionNotice, useAdminFeedback } from "../../components/AdminFeedback";
 
 function EyeIcon({ open }) {
     return open ? (
@@ -54,6 +55,7 @@ function PasswordField({ label, name, value, onChange, show, onToggle, error }) 
 export default function ChangePassword() {
     const navigate = useNavigate();
     const user = getStoredUser();
+    const { notify, dismissToast } = useAdminFeedback();
 
     const [form, setForm] = useState({ oldPassword: "", newPassword: "", confirmPassword: "" });
     const [show, setShow] = useState({ old: false, new: false, confirm: false });
@@ -66,7 +68,6 @@ export default function ChangePassword() {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
         setErrors((prev) => ({ ...prev, [name]: "" }));
-        setApiError("");
     }
 
     function validate() {
@@ -86,8 +87,15 @@ export default function ChangePassword() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        dismissToast();
         const errs = validate();
-        if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+        if (Object.keys(errs).length > 0) {
+            setErrors(errs);
+            const message = "Please fix the highlighted fields.";
+            setApiError(message);
+            notify(message, "error");
+            return;
+        }
 
         setLoading(true);
         setApiError("");
@@ -95,12 +103,13 @@ export default function ChangePassword() {
             await changePassword(form.oldPassword, form.newPassword, form.confirmPassword);
             setSuccess(true);
             setForm({ oldPassword: "", newPassword: "", confirmPassword: "" });
+            notify("Your password has been updated successfully.", "success");
         } catch (err) {
             const msg = err.message || "Failed to change password.";
             if (msg.toLowerCase().includes("old password") || msg.toLowerCase().includes("incorrect"))
                 setErrors((prev) => ({ ...prev, oldPassword: msg }));
-            else
-                setApiError(msg);
+            setApiError(msg);
+            notify(msg, "error");
         } finally {
             setLoading(false);
         }
@@ -182,13 +191,8 @@ export default function ChangePassword() {
                             error={errors.confirmPassword}
                         />
 
-                        {apiError && (
-                            <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-2.5">
-                                {apiError}
-                            </p>
-                        )}
-
-                        <div className="flex items-center gap-3 pt-1">
+                        <div className="pt-1">
+                        <div className="flex items-center gap-3">
                             <button
                                 type="submit"
                                 disabled={loading}
@@ -212,6 +216,11 @@ export default function ChangePassword() {
                             >
                                 Cancel
                             </button>
+                        </div>
+                        <ActionNotice
+                            notice={apiError ? { type: "error", message: apiError } : null}
+                            onClose={() => setApiError("")}
+                        />
                         </div>
                     </form>
                 )}

@@ -131,7 +131,7 @@ export default function Footer() {
                 <Link to="/contact-webdesign-mobileapp-socialmedia-marketing-baroda" aria-label="Contact Dots and Coms Web Development Team" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Contact Us</Link>
               </li>
               <li>
-                <a href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html" target="_blank" rel="noopener noreferrer" aria-label="Careers and Vacancies at Dots and Coms Vadodara" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Careers</a>
+                <Link to="/training-and-job-vacancy-at-dots-coms-vadodara" aria-label="Careers and Vacancies at Dots and Coms Vadodara" className="font-normal text-slate-400 transition-colors duration-300 hover:text-white">Careers</Link>
               </li>
             </ul>
           </div>

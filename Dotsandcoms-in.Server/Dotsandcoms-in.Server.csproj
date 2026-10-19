@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="MailKit" Version="4.18.1" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>
@@ -33,6 +34,7 @@
 
   <ItemGroup>
     <Content Include="..\dotsandcoms-in.client\public\seo-routes.json" Link="seo-routes.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Update="Data\job-positions.seed.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
   <!-- User secrets live in this PC's profile. Copy them beside the DLL on build/publish
@@ -41,10 +43,7 @@
     <PropertyGroup>
       <_UserSecretsFile>$(APPDATA)\Microsoft\UserSecrets\$(UserSecretsId)\secrets.json</_UserSecretsFile>
     </PropertyGroup>
-    <Copy SourceFiles="$(_UserSecretsFile)"
-          DestinationFiles="$(OutputPath)secrets.json"
-          SkipUnchangedFiles="true"
-          Condition="Exists('$(_UserSecretsFile)')" />
+    <Copy SourceFiles="$(_UserSecretsFile)" DestinationFiles="$(OutputPath)secrets.json" SkipUnchangedFiles="true" Condition="Exists('$(_UserSecretsFile)')" />
   </Target>
 
   <Target Name="IncludeUserSecretsInPublish" BeforeTargets="ComputeFilesToPublish">

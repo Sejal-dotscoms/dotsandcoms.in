@@ -9,6 +9,8 @@ const PoweradminLayout = lazy(() => import("./Poweradmin/layout/PoweradminLayout
 const Dashboard = lazy(() => import("./Poweradmin/Pages/Dashboard/Dashboard"));
 const BlogList = lazy(() => import("./Poweradmin/Pages/Blog/BlogList"));
 const BlogForm = lazy(() => import("./Poweradmin/Pages/Blog/BlogForm"));
+const VacancyList = lazy(() => import("./Poweradmin/Pages/Vacancies/VacancyList"));
+const VacancyForm = lazy(() => import("./Poweradmin/Pages/Vacancies/VacancyForm"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const FaqPage = lazy(() => import("./pages/FaqPage"));
 const TechnicalSupportPage = lazy(() => import("./pages/TechnicalSupportPage"));
@@ -36,7 +38,17 @@ const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
 const ChangePassword = lazy(() => import("./Poweradmin/Pages/ChangePassword/ChangePassword"));
 const ForgotPassword = lazy(() => import("./Poweradmin/Pages/ForgotPassword/ForgotPassword"));
 const FreeWebsiteAuditPage = lazy(() => import("./pages/FreeWebsiteAuditPage"));
+const CareersPage = lazy(() => import("./pages/CareersPage"));
+const JobVacancyPage = lazy(() => import("./pages/JobVacancyPage"));
+const JobDetailPage = lazy(() => import("./pages/JobDetailPage"));
+const ApplyPage = lazy(() => import("./pages/ApplyPage"));
+const ApplicationStatusPage = lazy(() => import("./pages/ApplicationStatusPage"));
+const ApplicationReceivedPage = lazy(() => import("./pages/ApplicationReceivedPage"));
+const ApplicationList = lazy(() => import("./Poweradmin/Pages/Applications/ApplicationList"));
+const ApplicationDetail = lazy(() => import("./Poweradmin/Pages/Applications/ApplicationDetail"));
+const MassEmailPage = lazy(() => import("./Poweradmin/Pages/Applications/MassEmailPage"));
 import ProtectedRoute from "./Poweradmin/components/ProtectedRoute";
+import AdminShell from "./Poweradmin/components/AdminFeedback";
 
 // Scroll helper to support both top-of-page scrolling and dynamic #hash scrolling in Single Page App navigations
 function ScrollToHashElement() {
@@ -91,7 +103,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* ── Poweradmin area ── */}
-          <Route path="/poweradmin">
+          <Route path="/poweradmin" element={<AdminShell />}>
             {/* /poweradmin → signin */}
             <Route index element={<SignIn />} />
 
@@ -107,9 +119,15 @@ function App() {
               }
             >
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="applications" element={<ApplicationList />} />
+              <Route path="applications/mass-email" element={<MassEmailPage />} />
+              <Route path="applications/:id" element={<ApplicationDetail />} />
               <Route path="blogs" element={<BlogList />} />
               <Route path="blogs/new" element={<BlogForm />} />
               <Route path="blogs/edit/:id" element={<BlogForm />} />
+              <Route path="vacancies" element={<VacancyList />} />
+              <Route path="vacancies/new" element={<VacancyForm />} />
+              <Route path="vacancies/edit/:id" element={<VacancyForm />} />
               <Route path="change-password" element={<ChangePassword />} />
             </Route>
           </Route>
@@ -152,6 +170,14 @@ function App() {
                     <Route path="/order-now" element={<OrderNowPage />} />
                     <Route path="/web-hosting-details" element={<WebHostingDetailsPage />} />
                     <Route path="/thank-you" element={<ThankYouPage />} />
+                    <Route path="/training-and-job-vacancy-at-dots-coms-vadodara" element={<CareersPage />} />
+                    <Route path="/training-and-job-vacancy-at-dots-coms-vadodara.html" element={<Navigate to="/training-and-job-vacancy-at-dots-coms-vadodara" replace />} />
+                    <Route path="/job-vacancy-at-dots-and-coms-company" element={<JobVacancyPage />} />
+                    <Route path="/job-vacancy-at-dots-and-coms-company.html" element={<Navigate to="/job-vacancy-at-dots-and-coms-company" replace />} />
+                    <Route path="/:slug" element={<JobDetailPage />} />
+                    <Route path="/apply/:slug" element={<ApplyPage />} />
+                    <Route path="/check-application-status" element={<ApplicationStatusPage />} />
+                    <Route path="/application-received" element={<ApplicationReceivedPage />} />
                     <Route path="/blogs" element={<BlogsPage />} />
                     <Route path="/blogs/:slug" element={<BlogDetailPage />} />
                     <Route path="/*" element={<NotFoundPage />} />

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { contactData } from "../../data/contact";
 
 /* ============================================================
@@ -33,14 +34,12 @@ export function ContactInfoSection() {
                     <p className="text-[11px] leading-normal text-slate-400 mb-2 font-medium">
                         * Job Seekers: Please apply online only. Do not call on this numbers for job inquiries.
                     </p>
-                    <a
-                        href="https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        to="/training-and-job-vacancy-at-dots-coms-vadodara"
                         className="inline-flex items-center justify-center w-full px-4 py-2 rounded-xl text-xs font-bold tracking-wider uppercase bg-[#dc2626] text-white hover:bg-red-700 transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                         Job / Internship
-                    </a>
+                    </Link>
                 </div>
             </ContactInfoCard>
 

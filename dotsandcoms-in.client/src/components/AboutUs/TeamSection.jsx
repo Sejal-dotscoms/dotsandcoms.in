@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { teamSlides, teamIntro } from "../../data/about";
 
 export default function TeamSection() {
@@ -131,14 +132,12 @@ export default function TeamSection() {
 
             <p className="text-slate-600 text-[15px] leading-relaxed">
               If you are someone who is inspired to join our team; visit our{" "}
-              <a 
-                href={teamIntro.careerUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link
+                to={teamIntro.careerUrl}
                 className="text-[#dc2626] font-extrabold hover:underline"
               >
                 career section
-              </a>{" "}
+              </Link>{" "}
               and {teamIntro.paragraphs[1].split('career section and ')[1]}
             </p>
           </div>

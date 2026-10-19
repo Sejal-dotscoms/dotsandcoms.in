@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { forgotPassword } from "../../../services/authService";
+import { ActionNotice, useAdminFeedback } from "../../components/AdminFeedback";
 
 export default function ForgotPassword() {
   const [email, setEmail]       = useState("");
@@ -9,6 +10,7 @@ export default function ForgotPassword() {
   const [sent, setSent]         = useState(false);
 
   const navigate = useNavigate();
+  const { notify, dismissToast } = useAdminFeedback();
 
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -16,11 +18,13 @@ export default function ForgotPassword() {
     e.preventDefault();
     if (!emailIsValid) return;
 
+    dismissToast();
     setLoading(true);
     setApiError("");
     try {
       await forgotPassword(email);
       setSent(true);
+      notify(`A temporary password has been sent to ${email}.`, "success");
       // Redirect to sign-in after 3 seconds with success message
       setTimeout(() => {
         navigate("/poweradmin", {
@@ -28,14 +32,16 @@ export default function ForgotPassword() {
         });
       }, 3000);
     } catch (err) {
-      setApiError(err.message || "Something went wrong. Please try again.");
+      const message = err.message || "Something went wrong. Please try again.";
+      setApiError(message);
+      notify(message, "error");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-red-100 via-white to-blue-50 flex items-center justify-center p-6">
+    <div className="admin-shell min-h-screen bg-gradient-to-tr from-red-100 via-white to-blue-50 flex items-center justify-center p-6">
       <div className="w-full max-w-lg mx-auto shadow-xl rounded-2xl overflow-hidden">
         <div className="bg-white bg-opacity-90 backdrop-blur py-12 px-6 sm:px-10">
 
@@ -80,21 +86,6 @@ export default function ForgotPassword() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
-
-              {/* Error banner */}
-              {apiError && (
-                <div
-                  role="alert"
-                  className="flex items-center gap-2 p-3 rounded-lg border text-sm font-medium"
-                  style={{ background: "#fef2f2", borderColor: "#fca5a5", color: "#b91c1c" }}
-                >
-                  <svg height="18" width="18" fill="none" viewBox="0 0 24 24" className="shrink-0">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.7" />
-                    <path d="M12 7.5v4m0 2.5v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                  {apiError}
-                </div>
-              )}
 
               {/* Email field */}
               <div className="space-y-1">
@@ -142,6 +133,10 @@ export default function ForgotPassword() {
                 )}
                 {loading ? "Submitting…" : "Submit"}
               </button>
+              <ActionNotice
+                notice={apiError ? { type: "error", message: apiError } : null}
+                onClose={() => setApiError("")}
+              />
 
               {/* Back to login */}
               <p className="text-center text-sm text-gray-500">
