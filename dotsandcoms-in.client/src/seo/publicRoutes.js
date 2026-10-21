@@ -10,7 +10,7 @@ export const BASE_URL = "https://www.dotsandcoms.in";
 export const PUBLIC_ROUTES = [
   {
     path: "/",
-    title: "Website Design, Mobile App Development & Digital Marketing Company in Vadodara",
+    title: "Web Design & App Development Company in Vadodara | Dots and Coms",
     description:
       "Dots and Coms has built websites, apps, and digital marketing campaigns for businesses across Vadodara since 1999. See how we can help you get found online.",
     keywords:
@@ -444,6 +444,7 @@ export function getRouteSEO(path) {
   if (!route) return null;
   return {
     title: route.title,
+    ogTitle: route.ogTitle,
     description: route.description,
     keywords: route.keywords,
     canonical: route.canonical,

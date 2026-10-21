@@ -20,6 +20,7 @@ public static class PageMetaInjector
 
         Func<string?, string> enc = WebUtility.HtmlEncode;
         var title = enc(route.Title ?? "");
+        var socialTitle = enc(!string.IsNullOrWhiteSpace(route.OgTitle) ? route.OgTitle : route.Title ?? "");
         var description = enc(route.Description ?? "");
         var keywords = enc(route.Keywords ?? "");
         var pageUrl = enc(route.Canonical ?? "");
@@ -48,8 +49,11 @@ public static class PageMetaInjector
         html = Re(html, @"<meta\b[^>]*\bname=[""']keywords[""'][^>]*>",
             $@"<meta name=""keywords"" content=""{keywords}"" />");
 
+        html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:locale[""'][^>]*>",
+            $@"<meta property=""og:locale"" content=""en_IN"" />");
+
         html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:title[""'][^>]*>",
-            $@"<meta property=""og:title"" content=""{title}"" />");
+            $@"<meta property=""og:title"" content=""{socialTitle}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:description[""'][^>]*>",
             $@"<meta property=""og:description"" content=""{description}"" />");
@@ -58,10 +62,10 @@ public static class PageMetaInjector
             $@"<meta property=""og:url"" content=""{pageUrl}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bproperty=[""']og:image:alt[""'][^>]*>",
-            $@"<meta property=""og:image:alt"" content=""{title}"" />");
+            $@"<meta property=""og:image:alt"" content=""{socialTitle}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bname=[""']twitter:title[""'][^>]*>",
-            $@"<meta name=""twitter:title"" content=""{title}"" />");
+            $@"<meta name=""twitter:title"" content=""{socialTitle}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bname=[""']twitter:description[""'][^>]*>",
             $@"<meta name=""twitter:description"" content=""{description}"" />");
@@ -70,10 +74,10 @@ public static class PageMetaInjector
             $@"<meta name=""twitter:url"" content=""{pageUrl}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bname=[""']twitter:image:alt[""'][^>]*>",
-            $@"<meta name=""twitter:image:alt"" content=""{title}"" />");
+            $@"<meta name=""twitter:image:alt"" content=""{socialTitle}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bproperty=[""']twitter:title[""'][^>]*>",
-            $@"<meta property=""twitter:title"" content=""{title}"" />");
+            $@"<meta property=""twitter:title"" content=""{socialTitle}"" />");
 
         html = Re(html, @"<meta\b[^>]*\bproperty=[""']twitter:description[""'][^>]*>",
             $@"<meta property=""twitter:description"" content=""{description}"" />");

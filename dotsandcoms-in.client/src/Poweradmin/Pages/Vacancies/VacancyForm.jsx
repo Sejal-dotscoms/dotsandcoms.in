@@ -11,6 +11,7 @@ import {
 import "ckeditor5/ckeditor5.css";
 import { createVacancy, getVacancy, updateVacancy, uploadVacancyImage } from "../../../services/vacancyService";
 import FileBox from "../../../components/ui/FileBox";
+import JobDetailArticle from "../../../components/JobDetailArticle";
 import { useAdminFeedback } from "../../components/AdminFeedback";
 
 function slugify(str) {
@@ -351,8 +352,25 @@ export default function VacancyForm() {
     return <div className="py-20 text-center text-sm text-gray-400">Loading position…</div>;
   }
 
+  const preview = (
+    <JobDetailArticle
+      job={{
+        pageHeading: form.pageHeading,
+        summary: form.summary,
+        bodyHtml: form.bodyHtml,
+        skillIcons: form.skillIcons,
+        isVacancyOpen: form.isVacancyOpen,
+        freshersCanApply: form.freshersCanApply,
+        slug: form.slug,
+      }}
+      interactive={false}
+      contained
+    />
+  );
+
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="xl:grid xl:h-[calc(100dvh-7rem)] xl:grid-cols-2 xl:items-stretch xl:gap-6">
+      <div className="min-h-0 min-w-0 xl:overflow-y-auto xl:pr-1">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">{isEdit ? "Edit position" : "Add position"}</h2>
@@ -475,13 +493,24 @@ export default function VacancyForm() {
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-3">
+        <div className="mt-6 flex justify-end gap-3 pb-2">
           <button type="button" onClick={() => navigate("/poweradmin/vacancies")} className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600">Cancel</button>
           <button type="submit" disabled={loading} className="rounded-lg bg-red-600 px-5 py-2 text-sm font-medium text-white disabled:opacity-60">
             {loading ? "Saving…" : isEdit ? "Update position" : "Create position"}
           </button>
         </div>
       </form>
+      </div>
+
+      <aside className="mt-8 flex min-h-0 min-w-0 flex-col xl:mt-0 xl:h-full">
+        <div className="mb-3 shrink-0">
+          <p className="text-sm font-medium text-gray-700">Live preview</p>
+          <p className="mt-0.5 text-xs text-gray-400">The public job page, without the site header and footer. Scroll this pane on its own.</p>
+        </div>
+        <div className="@container min-h-0 flex-1 overflow-y-auto rounded-xl border border-slate-200 bg-white px-5 py-6 font-sans shadow-sm">
+          {preview}
+        </div>
+      </aside>
     </div>
   );
 }

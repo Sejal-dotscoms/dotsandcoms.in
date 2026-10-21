@@ -9,7 +9,11 @@ namespace Dotsandcoms_in.Server.Data
     {
         public static async Task EnsureAsync(AppDbContext db, IWebHostEnvironment env)
         {
-            if (await db.JobPositions.AnyAsync()) return;
+            if (await db.JobPositions.AnyAsync())
+            {
+                await ReplaceLegacyExperienceWordingAsync(db);
+                return;
+            }
 
             var path = ResolvePath(env);
             if (path == null) return;
@@ -47,6 +51,28 @@ namespace Dotsandcoms_in.Server.Data
                     CreatedAt = now,
                     UpdatedAt = now
                 });
+            }
+
+            await db.SaveChangesAsync();
+        }
+
+        // Job copy lives in JobPositions. The seed file is inserted only into an empty table,
+        // so existing rows keep the original "25 years" sentence until this replacement runs.
+        private static async Task ReplaceLegacyExperienceWordingAsync(AppDbContext db)
+        {
+            var rows = await db.JobPositions
+                .Where(p => p.BodyHtml.Contains("25 years") || p.BodyHtml.Contains("25+ years"))
+                .ToListAsync();
+
+            if (rows.Count == 0) return;
+
+            foreach (var row in rows)
+            {
+                row.BodyHtml = row.BodyHtml
+                    .Replace("with 25 years of experience", "since 1999")
+                    .Replace("with 25 years of expertise", "since 1999")
+                    .Replace("with 25+ years of industry experience", "since 1999");
+                row.UpdatedAt = DateTime.UtcNow;
             }
 
             await db.SaveChangesAsync();

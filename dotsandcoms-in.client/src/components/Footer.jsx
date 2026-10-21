@@ -1,7 +1,37 @@
+import { useEffect } from "react";
 import Logo from "./Logo";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoImg from "../assets/images/dots-and-coms-logo.webp";
 import { Link } from "react-router-dom";
+
+const PREFERRED_SOURCE_SRC = "https://news.google.com/swg/js/v1/publisher.js";
+
+function renderPreferredSourceButtons() {
+  const init = (api) => {
+    if (api && typeof api.init === "function") {
+      api.init({ theme: "light" });
+    }
+  };
+
+  const preferredSource = window.PREFERRED_SOURCE;
+  if (preferredSource && typeof preferredSource.ready === "function") {
+    preferredSource.ready().then(init);
+    return;
+  }
+
+  const queue = Array.isArray(preferredSource) ? preferredSource : [];
+  queue.push(init);
+  if (!Array.isArray(preferredSource)) {
+    window.PREFERRED_SOURCE = queue;
+  }
+
+  if (!document.querySelector(`script[src="${PREFERRED_SOURCE_SRC}"]`)) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = PREFERRED_SOURCE_SRC;
+    document.head.appendChild(script);
+  }
+}
 
 const LinkedinIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13,6 +43,10 @@ const LinkedinIcon = (props) => (
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  useEffect(() => {
+    renderPreferredSourceButtons();
+  }, []);
 
   return (
     <footer 
@@ -222,6 +256,7 @@ export default function Footer() {
         <div>
           © {currentYear} Dots and Coms. All rights reserved. | <Link to="/sitemap" aria-label="Dots and Coms Complete HTML Sitemap Page" className="text-sm transition-colors hover:text-slate-300">Sitemap</Link>
         </div>
+        <div google-add-preferred-source-btn="" />
         <div className="flex space-x-6">
           <Link to="/terms-and-conditions#terms" aria-label="Dots and Coms Terms of Service and Conditions" className="text-sm transition-colors hover:text-slate-300">Terms of Service</Link>
         </div>

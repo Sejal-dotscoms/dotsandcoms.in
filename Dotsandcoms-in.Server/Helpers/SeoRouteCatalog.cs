@@ -6,6 +6,7 @@ public sealed class SeoRoute
 {
     public string Path { get; set; } = "";
     public string Title { get; set; } = "";
+    public string? OgTitle { get; set; }
     public string Description { get; set; } = "";
     public string Keywords { get; set; } = "";
     public string Canonical { get; set; } = "";

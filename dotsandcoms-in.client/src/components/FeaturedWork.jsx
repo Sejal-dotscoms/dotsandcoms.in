@@ -17,7 +17,7 @@ export default function FeaturedWork() {
       image: "/case_study_accutech.webp",
       alt: "Accutech Labels B2B Web Design & Digital Transformation Case Study",
       challenge: "Accutech Labels operated primarily on a traditional, offline-first model, leaving them vulnerable to digital-first competitors and missing valuable B2B search traffic.",
-      result: "Shifted from an offline-first approach to a powerful digital lead engine, unlocking massive national B2B growth and consistent high-quality lead streams.",
+      result: "Shifted from an offline-first approach to a powerful digital lead engine, Generating  45+ Quality inquires most of which would give them repeat orders unlocking new continuous revenue stream.",
       tech: ["React JS", "Tailwind CSS", "SEO Strategy", "Google Ads Network"],
       link: "/accutechlabels-case-study-traditional-to-web-business",
     },

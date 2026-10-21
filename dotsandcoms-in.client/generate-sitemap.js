@@ -181,6 +181,7 @@ try {
   const seoRoutes = PUBLIC_ROUTES.map((r) => ({
     path: r.path,
     title: r.title,
+    ...(r.ogTitle ? { ogTitle: r.ogTitle } : {}),
     description: r.description,
     keywords: r.keywords,
     canonical: r.canonical,
