@@ -1,4 +1,5 @@
 ﻿using Dotsandcoms_in.Server.DTOs;
+using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
 using Dotsandcoms_in.Server.Services;
 using Microsoft.AspNetCore.Http;
@@ -247,7 +248,7 @@ Submitted On
 <td
 style='border:1px solid #eee;'>
 
-" + DateTime.Now.ToString("dd MMM yyyy hh:mm tt") + @"
+" + IstTime.Now.ToString("dd MMM yyyy hh:mm tt") + @"
 
 </td>
 
@@ -390,7 +391,7 @@ This email was generated automatically from your website Contact Us form.
 
                 <tr>
                     <td><b>Submitted On</b></td>
-                    <td>{DateTime.Now:dd MMM yyyy hh:mm tt}</td>
+                    <td>{IstTime.Now:dd MMM yyyy hh:mm tt}</td>
                 </tr>
 
             </table>";

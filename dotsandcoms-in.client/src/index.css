@@ -228,6 +228,42 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* Poweradmin buttons and links. Tailwind preflight leaves buttons on the default cursor. */
+.admin-shell :is(a, button, [role="button"]),
+.admin-shell :is(input[type="file"]::file-selector-button, input[type="file"]::-webkit-file-upload-button) {
+  cursor: pointer;
+}
+.admin-shell :is(button, [role="button"]):disabled,
+.admin-shell :is(button, [role="button"]):disabled:hover {
+  cursor: not-allowed;
+}
+
+.apply-form :is(a, button, [role="button"]),
+.apply-form :is(input[type="file"]::file-selector-button, input[type="file"]::-webkit-file-upload-button) {
+  cursor: pointer;
+}
+.apply-form :is(button, [role="button"]):disabled,
+.apply-form :is(button, [role="button"]):disabled:hover {
+  cursor: not-allowed;
+}
+
+@keyframes admin-toast-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.admin-toast {
+  animation: admin-toast-in 180ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .admin-toast { animation: none; }
+}
+
+.vacancy-editor .ck.ck-editor__editable.ck-editor__editable_inline,
+.vacancy-editor .ck-source-editing-area,
+.vacancy-editor .ck-source-editing-area textarea {
+  min-height: 560px;
+}
+
 /* Responsive text justification: justify standard paragraphs on desktop, keep centered elements centered */
 @media (min-width: 1280px) {
   p:not(.text-center) {

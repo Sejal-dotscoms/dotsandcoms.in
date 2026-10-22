@@ -1,60 +1,100 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-function Counter({ target, duration = 2, suffix = "" }) {
-  const end = parseInt(target, 10);
-  // Start at the final value so prerender / non-JS crawlers see real stats, not "0+"
-  const [count, setCount] = useState(end);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const hasAnimated = useRef(false);
+function formatStat(value, grouped) {
+  const rounded = Math.ceil(value);
+  return grouped ? rounded.toLocaleString("en-US") : String(rounded);
+}
+
+function Counter({ target, duration = 2, suffix = "", grouped = true }) {
+  const end = Number.parseInt(target, 10);
+  const finalText = `${formatStat(end, grouped)}${suffix}`;
+  const hostRef = useRef(null);
+  const visualRef = useRef(null);
+  const isInView = useInView(hostRef, { once: true, amount: 0.5 });
+
+  // The light-DOM text stays on the final number for the whole animation.
+  // The ticking digits live in a shadow root, so innerText / AI readers never see 0.
+  useLayoutEffect(() => {
+    const host = hostRef.current;
+    if (!host) return;
+
+    let shadow = host.shadowRoot;
+    if (!shadow) {
+      shadow = host.attachShadow({ mode: "open" });
+      const style = document.createElement("style");
+      style.textContent = `
+        span {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font: inherit;
+          letter-spacing: inherit;
+          line-height: inherit;
+          color: inherit;
+          user-select: none;
+          pointer-events: none;
+          white-space: nowrap;
+        }
+      `;
+      const span = document.createElement("span");
+      span.setAttribute("aria-hidden", "true");
+      span.dataset.visual = "true";
+      // Slot keeps the final number in the rendered text crawlers read.
+      const slot = document.createElement("slot");
+      shadow.append(style, span, slot);
+    }
+
+    const visual = shadow.querySelector("[data-visual]");
+    visualRef.current = visual;
+    if (visual) visual.textContent = finalText;
+  }, [finalText]);
 
   useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
+    if (!isInView) return;
+    const visual = visualRef.current;
+    if (!visual) return;
 
-    if (typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setCount(end);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      visual.textContent = finalText;
       return;
     }
 
     let start = 0;
-    setCount(0);
+    visual.textContent = `${formatStat(0, grouped)}${suffix}`;
 
-    const totalMiliseconds = duration * 1000;
     const incrementTime = 30;
-    const steps = totalMiliseconds / incrementTime;
-    const increment = (end - start) / steps;
+    const steps = (duration * 1000) / incrementTime;
+    const increment = end / steps;
 
     const timer = setInterval(() => {
       start += increment;
-
       if (start >= end) {
         clearInterval(timer);
-        setCount(end);
+        visual.textContent = finalText;
       } else {
-        setCount(Math.ceil(start));
+        visual.textContent = `${formatStat(start, grouped)}${suffix}`;
       }
     }, incrementTime);
 
     return () => clearInterval(timer);
-  }, [isInView, end, duration]);
+  }, [isInView, end, duration, suffix, grouped, finalText]);
 
   return (
-    <span ref={ref}>
-      {count.toLocaleString()}
-      {suffix}
+    <span ref={hostRef} className="relative inline-block" role="group" aria-label={finalText}>
+      <span className="text-transparent">{finalText}</span>
     </span>
   );
 }
 
 export default function Trust() {
   const stats = [
-      { label: "Since", target: 27, suffix: "+" },
-      { label: "Websites Designed", target: 5000, suffix: "+" },
-    { label: "Happy Clients", target: 8000, suffix: "+" },
-    { label: "Domains Managed", target: 6000, suffix: "+" },
+    { label: "Since", target: 1999, suffix: "", grouped: false },
+    { label: "Websites Designed", target: 5000, suffix: "+", grouped: true },
+    { label: "Happy Clients", target: 8000, suffix: "+", grouped: true },
+    { label: "Domains Managed", target: 6000, suffix: "+", grouped: true },
   ];
 
   return (
@@ -114,6 +154,7 @@ export default function Trust() {
                               <Counter
                                   target={stat.target}
                                   suffix={stat.suffix}
+                                  grouped={stat.grouped}
                               />
 
                           </div>

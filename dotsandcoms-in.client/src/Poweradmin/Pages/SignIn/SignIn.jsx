@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { signIn, getStoredToken, validateToken, signOut } from "../../../services/authService";
+import { ActionNotice, useAdminFeedback } from "../../components/AdminFeedback";
 
 export default function SignIn() {
   const [email, setEmail]               = useState("");
@@ -11,17 +12,14 @@ export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading]           = useState(false);
   const [apiError, setApiError]         = useState("");
-  const [success, setSuccess]           = useState("");
-
   const navigate = useNavigate();
   const location = useLocation();
+  const { notify, dismissToast } = useAdminFeedback();
+  const [success, setSuccess] = useState(() => location.state?.successMsg || "");
 
   // On mount: if a valid session already exists, skip the login form
   useEffect(() => {
-    // Show success message passed from ForgotPassword redirect
-    if (location.state?.successMsg) {
-      setSuccess(location.state.successMsg);
-    }
+    if (location.state?.successMsg) notify(location.state.successMsg, "success");
 
     const token = getStoredToken();
     if (token) {
@@ -49,11 +47,14 @@ export default function SignIn() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    dismissToast();
     setApiError("");
     setSuccess("");
 
     if (!formIsValid) {
-      setApiError("Please fix the validation errors and try again.");
+      const message = "Please fix the validation errors and try again.";
+      setApiError(message);
+      notify(message, "error");
       return;
     }
 
@@ -81,10 +82,14 @@ export default function SignIn() {
         console.warn("Failed to persist auth token to storage.");
       }
 
-      setSuccess("Signed in successfully. Redirecting…");
+      const message = "Signed in successfully. Redirecting…";
+      setSuccess(message);
+      notify(message, "success");
       setTimeout(() => navigate("/poweradmin/dashboard"), 600);
     } catch (err) {
-      setApiError(err?.message || "Sign in failed. Please check your credentials.");
+      const message = err?.message || "Sign in failed. Please check your credentials.";
+      setApiError(message);
+      notify(message, "error");
     } finally {
       setLoading(false);
     }
@@ -102,7 +107,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-red-100 via-white to-blue-50 flex items-center justify-center p-6">
+    <div className="admin-shell min-h-screen bg-gradient-to-tr from-red-100 via-white to-blue-50 flex items-center justify-center p-6">
       <div className="w-full max-w-lg mx-auto shadow-xl rounded-2xl overflow-hidden">
         <div className="bg-white bg-opacity-90 backdrop-blur py-12 px-6 sm:px-10">
           <form onSubmit={handleSubmit} aria-label="Poweradmin sign in" noValidate className="space-y-6">
@@ -123,37 +128,6 @@ export default function SignIn() {
                 Admin Login
               </h1>
             </div>
-
-            {/* ── Error banner ── */}
-            {apiError && (
-              <div
-                role="alert"
-                data-testid="signin-error-box"
-                className="flex items-center gap-2 p-3 rounded-lg border text-sm font-medium"
-                style={{ background: "#fef2f2", borderColor: "#fca5a5", color: "#b91c1c" }}
-              >
-                <svg height="18" width="18" fill="none" viewBox="0 0 24 24" className="shrink-0">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.7" />
-                  <path d="M12 7.5v4m0 2.5v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                {apiError}
-              </div>
-            )}
-
-            {/* ── Success banner ── */}
-            {success && (
-              <div
-                role="status"
-                className="flex items-center gap-2 p-3 rounded-lg border text-sm font-medium"
-                style={{ background: "#f0fdf4", borderColor: "#86efac", color: "#15803d" }}
-              >
-                <svg height="18" width="18" fill="none" viewBox="0 0 24 24" className="shrink-0">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.7" />
-                  <path d="M8.8 13.2l2.1 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                {success}
-              </div>
-            )}
 
             {/* ── Email ── */}
             <div className="space-y-1">
@@ -272,6 +246,10 @@ export default function SignIn() {
               )}
               {loading ? "Signing In…" : "Sign In"}
             </button>
+            <ActionNotice
+              notice={apiError ? { type: "error", message: apiError } : success ? { type: "success", message: success } : null}
+              onClose={() => { setApiError(""); setSuccess(""); }}
+            />
 
             {/* ── Footer note ── */}
             {/*<p className="text-center text-xs text-gray-400 pt-2">*/}

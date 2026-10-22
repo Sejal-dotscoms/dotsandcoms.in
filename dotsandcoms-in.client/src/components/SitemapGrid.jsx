@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { 
   Home, Monitor, Smartphone, Server, Shield, Globe, Layers, 
-  BookOpen, HelpCircle, FileText, Mail, Phone, MapPin, ArrowRight, ExternalLink 
+  BookOpen, HelpCircle, FileText, Mail, Phone, MapPin, ArrowRight, ExternalLink, Briefcase
 } from "lucide-react";
 
 export default function SitemapGrid() {
@@ -50,6 +50,18 @@ export default function SitemapGrid() {
               <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
                               Established in 1999, Dots and Coms is a Vadodara-based digital service provider trusted by businesses across Gujarat, India, and abroad. The web development and digital marketing company now serves clients across several countries worldwide.
 
+              </p>
+            </div>
+
+            {/* Careers */}
+            <div className="group rounded-2xl border border-slate-100/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md">
+              <Link to="/training-and-job-vacancy-at-dots-coms-vadodara" aria-label="Working at Dots and Coms and job vacancies in Vadodara" className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900 transition-colors duration-200 group-hover:text-[#dc2626]">
+                <Briefcase className="h-4 w-4" />
+                <span>Careers</span>
+                <ArrowRight className="h-4 w-4 translate-x-[-4px] opacity-0 transition-opacity duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
+              </Link>
+              <p className="mt-3 text-xs leading-relaxed font-normal text-slate-500">
+                Working at Dots and Coms in Vadodara, and the current job and internship openings for developers, designers, marketers, support, HR, and project managers.
               </p>
             </div>
 

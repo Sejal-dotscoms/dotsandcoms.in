@@ -10,7 +10,7 @@ export function injectHtmlMeta(html, route) {
   if (!html || !route) return html;
 
   const titleText = esc(route.title || "");
-  const title = escAttr(route.title || "");
+  const socialTitle = escAttr(route.ogTitle || route.title || "");
   const description = escAttr(route.description || "");
   const keywords = escAttr(route.keywords || "");
   const url = escAttr(route.canonical || "");
@@ -47,13 +47,15 @@ export function injectHtmlMeta(html, route) {
     html = replaceMeta(html, "name", "keywords", keywords);
   }
 
+  html = replaceMeta(html, "property", "og:locale", "en_IN");
+
   // 4. OpenGraph & Twitter
-  if (title) {
-    html = replaceMeta(html, "property", "og:title", title);
-    html = replaceMeta(html, "name", "twitter:title", title);
-    html = replaceMeta(html, "property", "twitter:title", title);
-    html = replaceMeta(html, "property", "og:image:alt", title);
-    html = replaceMeta(html, "name", "twitter:image:alt", title);
+  if (socialTitle) {
+    html = replaceMeta(html, "property", "og:title", socialTitle);
+    html = replaceMeta(html, "name", "twitter:title", socialTitle);
+    html = replaceMeta(html, "property", "twitter:title", socialTitle);
+    html = replaceMeta(html, "property", "og:image:alt", socialTitle);
+    html = replaceMeta(html, "name", "twitter:image:alt", socialTitle);
   }
 
   if (description) {

@@ -33,6 +33,6 @@
         public string ControlPanel { get; set; }
 
         public string IpAddress { get; set; }
-        public DateTime CreatedOn { get; set; } = DateTime.Now;
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
     }
 }

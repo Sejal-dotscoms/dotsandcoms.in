@@ -13,7 +13,7 @@ export default function TechStack() {
       icon: <img src="/react-js.png" className="h-10 w-auto object-contain" alt="React JS - Modern frontend development library for interactive web applications" loading="lazy" decoding="async" width="256" height="256" />,
     },
     {
-      name: "ASPX Core",
+      name: "ASP.NET Core",
       role: "Enterprise Backend",
       desc: "Secure, high-performance MVC framework for robust server-side application logic and web APIs.",
       color: "from-purple-500/10 to-indigo-500/5",

@@ -546,7 +546,7 @@ export default function AccutechCaseStudyPage() {
                 <ul className="list-unstyled text-xs md:text-sm text-slate-650 font-bold">
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Inbound inquiries grew to 3 to 4 qualified B2B leads per month</span>
+                    <span>Inbound inquiries grew 45+ Quality inquires most of which would give them repeat orders unlocking new continuous revenue stream. Not only did the quantity of leads grew 8x but  the quality of leads was better.</span>
                   </li>
                 </ul>
                 <p className="text-slate-500 text-xs md:text-sm leading-relaxed pt-2 border-t border-slate-100">

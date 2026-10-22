@@ -23,7 +23,7 @@ export const aboutHeroData = {
   badge: "// Our Story",
     title: "Web Agency founded in 1999, Gujarat",
   paragraphs: [
-    "Dots and Coms was founded in 1999 in Vadodara, Gujarat, by Bharat and Kishor Tarachandani. In the 27 years since, we have designed more than 5,000 websites and built mobile apps for businesses in pharmaceuticals, chemicals, power, manufacturing, health and wellness, sports and retail. Clients include Alembic Pharmaceuticals, Rubamin, GIPCL, Nilkanth Group, JR Group, Gujarat Badminton Association, Book Pratha and Bankers Heart.",
+    "Dots and Coms was founded in 1999 in Vadodara, Gujarat, by Bharat and Kishor Tarachandani. We have designed more than 5,000 websites and built mobile apps for businesses in pharmaceuticals, chemicals, power, manufacturing, health and wellness, sports and retail. Clients include Alembic Pharmaceuticals, Rubamin, GIPCL, Nilkanth Group, JR Group, Gujarat Badminton Association, Book Pratha and Bankers Heart.",
     "Today a team of 35+ designers, developers and marketers works from our office at Senate Square, Gotri Road, Vadodara. Beyond design and development, we also host websites and manage domains for clients, so your website, hosting and marketing can all be handled by one team."
   ],
   highlights: [
@@ -118,7 +118,7 @@ export const teamIntro = {
     "If you are a customer, you are probably interacting with one or two people who are at the frontline. However we assure you that there are many layers of people who do what you see.",
     "If you are someone who is inspired to join our team; visit our career section and see if you have it in you to be a member of our elite team."
   ],
-  careerUrl: "https://www.dotscoms.com/training-and-job-vacancy-at-dots-coms-vadodara.html"
+  careerUrl: "/training-and-job-vacancy-at-dots-coms-vadodara"
 };
 
 export const teamSlides = [

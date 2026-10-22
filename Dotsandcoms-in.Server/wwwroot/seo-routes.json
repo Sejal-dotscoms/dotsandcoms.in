@@ -1,7 +1,7 @@
 [
   {
     "path": "/",
-    "title": "Website Design, Mobile App Development & Digital Marketing Company in Vadodara",
+    "title": "Web Design & App Development Company in Vadodara | Dots and Coms",
     "description": "Dots and Coms has built websites, apps, and digital marketing campaigns for businesses across Vadodara since 1999. See how we can help you get found online.",
     "keywords": "website design company Vadodara, mobile app development Vadodara, digital marketing agency Vadodara, web development company Baroda, IT company Vadodara",
     "canonical": "https://www.dotsandcoms.in/",
@@ -10,11 +10,11 @@
   },
   {
     "path": "/about-web-development-company-baroda",
-    "title": "About Dots and Coms — 19+ Years Building Websites & Apps in Vadodara",
+    "title": "About Dots and Coms — Web Design and App Company in Vadodara Since 1999",
     "description": "Since 1999, Dots and Coms has delivered website design, mobile apps, hosting, and SEO for clients in Vadodara and beyond. Learn about our team and approach.",
     "keywords": "Dots and Coms company, web development company Baroda, IT company since 1999, Vadodara software company",
     "canonical": "https://www.dotsandcoms.in/about-web-development-company-baroda",
-    "heading": "About Dots and Coms Web Solutions",
+    "heading": "About Dots and Coms",
     "summary": "Established in 1999, Dots and Coms is a premier IT and web engineering agency in Vadodara delivering high-performance websites, mobile applications, and cloud hosting."
   },
   {
@@ -24,7 +24,7 @@
     "keywords": "web design portfolio Vadodara, mobile app portfolio, website development case studies, Dots and Coms projects",
     "canonical": "https://www.dotsandcoms.in/website-mobile-app-development-company-portfolio-baroda",
     "heading": "Our Work: Website & Mobile App Portfolio",
-    "summary": "Explore real-world web applications, e-commerce platforms, and native mobile apps engineered by Dots and Coms for diverse commercial and industrial clients."
+    "summary": "Explore real-world web applications, e-commerce platforms, and mobile apps engineered by Dots and Coms for diverse commercial and industrial clients."
   },
   {
     "path": "/services",
@@ -47,7 +47,7 @@
   {
     "path": "/android-ios-mobile-app-development-company-baroda",
     "title": "Android, iOS & Flutter App Development Company in Vadodara",
-    "description": "Our team builds native Android and iOS apps and cross-platform Flutter apps — from concept through Play Store and App Store launch. Based in Vadodara, working globally.",
+    "description": "Our team builds Android and iOS apps and cross-platform Flutter apps — from concept through Play Store and App Store launch. Based in Vadodara, working globally.",
     "keywords": "mobile app development Vadodara, Android app developers Baroda, iOS app development company, Flutter app development India",
     "canonical": "https://www.dotsandcoms.in/android-ios-mobile-app-development-company-baroda",
     "heading": "Android, iOS & Flutter Mobile App Development in Vadodara",
@@ -214,6 +214,42 @@
     "canonical": "https://www.dotsandcoms.in/web-hosting-details",
     "heading": "Web Hosting Order Details",
     "summary": "Review your server deployment parameters, billing terms, and hosting configuration details before finalizing your order."
+  },
+  {
+    "path": "/training-and-job-vacancy-at-dots-coms-vadodara",
+    "title": "IT Training & Job Vacancies in Vadodara | Dots Coms Careers",
+    "description": "Apply for IT training and latest job vacancies in Vadodara at Dots Coms. Freshers and experienced candidates can apply for IT careers.",
+    "keywords": "IT training Vadodara, job vacancy Vadodara, IT company hiring Vadodara, software training Vadodara, freshers IT jobs Vadodara",
+    "canonical": "https://www.dotsandcoms.in/training-and-job-vacancy-at-dots-coms-vadodara",
+    "heading": "Working at Dots and Coms",
+    "summary": "Life at work is energetic and focused on learning, with IT treated as a place to grow rather than only a profession."
+  },
+  {
+    "path": "/job-vacancy-at-dots-and-coms-company",
+    "title": "Latest Job Openings in IT Company Vadodara | Dots and Coms",
+    "description": "Explore latest job openings in IT company at Vadodara. Dots Coms is hiring developers, designers, marketers and managers.",
+    "keywords": "job openings Vadodara, IT company jobs Vadodara, Dots Coms careers, software company vacancy Vadodara",
+    "canonical": "https://www.dotsandcoms.in/job-vacancy-at-dots-and-coms-company",
+    "heading": "Explore by positions - Location : Vadodara, Gujarat - India",
+    "summary": "Open roles in Vadodara for developers, designers, marketers, support, HR, and project managers. Freshers can apply for most positions."
+  },
+  {
+    "path": "/check-application-status",
+    "title": "Check Job Application Status | Dots Coms Careers",
+    "description": "Check your job application status online at Dots Coms. Track your IT job application in Vadodara and Baroda.",
+    "keywords": "check job status Dots Coms, application status IT job Vadodara",
+    "canonical": "https://www.dotsandcoms.in/check-application-status",
+    "heading": "Application Status",
+    "summary": "Enter the email used on your application to see the current status."
+  },
+  {
+    "path": "/application-received",
+    "title": "Application Received | Dots and Coms Careers",
+    "description": "Your job application has been received. Keep your reference code to check the status later.",
+    "keywords": "job application received, Dots and Coms careers",
+    "canonical": "https://www.dotsandcoms.in/application-received",
+    "heading": "Application Received",
+    "summary": "Your application reference code is shown on this page and sent to your email."
   },
   {
     "path": "/thank-you",

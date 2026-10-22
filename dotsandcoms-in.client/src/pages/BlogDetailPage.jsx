@@ -5,12 +5,10 @@ import { Calendar, ArrowLeft } from "lucide-react";
 import InnerBanner from "../components/ui/InnerBanner";
 import { getPublicBlogBySlug } from "../services/blogService";
 import { setPageSEO } from "../utils/seo";
+import { formatIstDate } from "../utils/istDate";
 
 function fmt(dateVal) {
-  if (!dateVal) return "";
-  return new Date(dateVal).toLocaleDateString("en-IN", {
-    day: "numeric", month: "long", year: "numeric",
-  });
+  return formatIstDate(dateVal);
 }
 
 function ImageCarousel({ images, alt }) {

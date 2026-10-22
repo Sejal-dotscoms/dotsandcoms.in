@@ -10,7 +10,7 @@ export const BASE_URL = "https://www.dotsandcoms.in";
 export const PUBLIC_ROUTES = [
   {
     path: "/",
-    title: "Website Design, Mobile App Development & Digital Marketing Company in Vadodara",
+    title: "Web Design & App Development Company in Vadodara | Dots and Coms",
     description:
       "Dots and Coms has built websites, apps, and digital marketing campaigns for businesses across Vadodara since 1999. See how we can help you get found online.",
     keywords:
@@ -350,6 +350,57 @@ export const PUBLIC_ROUTES = [
     sitemap: false,
   },
   {
+    path: "/training-and-job-vacancy-at-dots-coms-vadodara",
+    title: "IT Training & Job Vacancies in Vadodara | Dots Coms Careers",
+    description:
+      "Apply for IT training and latest job vacancies in Vadodara at Dots Coms. Freshers and experienced candidates can apply for IT careers.",
+    keywords:
+      "IT training Vadodara, job vacancy Vadodara, IT company hiring Vadodara, software training Vadodara, freshers IT jobs Vadodara",
+    canonical: `${BASE_URL}/training-and-job-vacancy-at-dots-coms-vadodara`,
+    heading: "Working at Dots and Coms",
+    summary:
+      "Life at work is energetic and focused on learning, with IT treated as a place to grow rather than only a profession.",
+    prerender: true,
+    sitemap: true,
+  },
+  {
+    path: "/job-vacancy-at-dots-and-coms-company",
+    title: "Latest Job Openings in IT Company Vadodara | Dots and Coms",
+    description:
+      "Explore latest job openings in IT company at Vadodara. Dots Coms is hiring developers, designers, marketers and managers.",
+    keywords:
+      "job openings Vadodara, IT company jobs Vadodara, Dots Coms careers, software company vacancy Vadodara",
+    canonical: `${BASE_URL}/job-vacancy-at-dots-and-coms-company`,
+    heading: "Explore by positions - Location : Vadodara, Gujarat - India",
+    summary:
+      "Open roles in Vadodara for developers, designers, marketers, support, HR, and project managers. Freshers can apply for most positions.",
+    prerender: true,
+    sitemap: true,
+  },
+  {
+    path: "/check-application-status",
+    title: "Check Job Application Status | Dots Coms Careers",
+    description:
+      "Check your job application status online at Dots Coms. Track your IT job application in Vadodara and Baroda.",
+    keywords: "check job status Dots Coms, application status IT job Vadodara",
+    canonical: `${BASE_URL}/check-application-status`,
+    heading: "Application Status",
+    summary: "Enter the email used on your application to see the current status.",
+    prerender: false,
+    sitemap: false,
+  },
+  {
+    path: "/application-received",
+    title: "Application Received | Dots and Coms Careers",
+    description: "Your job application has been received. Keep your reference code to check the status later.",
+    keywords: "job application received, Dots and Coms careers",
+    canonical: `${BASE_URL}/application-received`,
+    heading: "Application Received",
+    summary: "Your application reference code is shown on this page and sent to your email.",
+    prerender: false,
+    sitemap: false,
+  },
+  {
     path: "/thank-you",
     title: "Thank You for Your Order | Dots and Coms",
     description:
@@ -393,6 +444,7 @@ export function getRouteSEO(path) {
   if (!route) return null;
   return {
     title: route.title,
+    ogTitle: route.ogTitle,
     description: route.description,
     keywords: route.keywords,
     canonical: route.canonical,

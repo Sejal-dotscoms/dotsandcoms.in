@@ -1,5 +1,6 @@
 ﻿using Dotsandcoms_in.Server.Data;
 using Dotsandcoms_in.Server.DTOs;
+using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
 using System.Text;
 using System.Text.Json;
@@ -70,7 +71,7 @@ namespace Dotsandcoms_in.Server.Services
                 to: "techsupport@dotscoms.com",
                 cc: "contact@dotsandcoms.in",
                 from: payload.EmailId,
-                subject: $"Hosting Order Form-{DateTime.Now:dd-MMM-yyyy}- IN",
+                subject: $"Hosting Order Form-{IstTime.Now:dd-MMM-yyyy}- IN",
                 html: BuildAdminMailBody(payload),
                 replyToName: payload.YourName
             );
@@ -111,7 +112,7 @@ namespace Dotsandcoms_in.Server.Services
 
         private static string GenerateOrderRef()
         {
-            var stamp = DateTime.UtcNow.ToString("yyMMddHHmmss");
+            var stamp = IstTime.Now.ToString("yyMMddHHmmss");
             var rand = Random.Shared.Next(100, 999);
             return $"Dots And Coms-{stamp}{rand}";
         }
@@ -388,7 +389,7 @@ IP Address
 Submitted On
 </td>
 <td style='border:1px solid #eee;'>
-{DateTime.Now:dd MMM yyyy hh:mm tt}
+{IstTime.Now:dd MMM yyyy hh:mm tt}
 </td>
 </tr>
 

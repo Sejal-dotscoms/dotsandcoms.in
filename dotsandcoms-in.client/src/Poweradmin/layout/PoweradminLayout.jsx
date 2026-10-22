@@ -2,8 +2,9 @@
 // Shared admin shell: collapsible sidebar + topbar + page content area.
 
 import React, { useState, useRef, useEffect } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { signOut, getStoredUser, getStoredToken } from "../../services/authService";
+import { getCareerStatuses, listApplications } from "../../services/careerService";
 import logo from "../../assets/images/dots-and-coms-logo.png";
 
 // ── Nav items ─────────────────────────────────────────────────────────
@@ -30,14 +31,51 @@ const NAV = [
       </svg>
     ),
   },
+  {
+    label: "Vacancy Management",
+    to: "/poweradmin/vacancies",
+    end: false,
+    icon: (
+      <svg viewBox="0 0 22 22" fill="none" className="w-5 h-5 shrink-0">
+        <rect x="3" y="4" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M7 9h8M7 13h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    label: "Resume Management",
+    to: "/poweradmin/applications",
+    end: false,
+    icon: (
+      <svg viewBox="0 0 22 22" fill="none" className="w-5 h-5 shrink-0">
+        <rect x="4" y="2" width="14" height="18" rx="2" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M8 8h6M8 12h6M8 16h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 // ── Sidebar link ──────────────────────────────────────────────────────
-function SideLink({ item, collapsed }) {
+function PendingBadge({ value, active, collapsed }) {
+  if (value == null) return null;
+  return (
+    <span
+      className={[
+        "min-w-5 h-5 px-1 rounded-full text-[11px] font-bold leading-none inline-flex items-center justify-center",
+        collapsed ? "absolute -top-2 -right-2" : "ml-auto",
+        active ? "bg-white text-red-600" : "bg-amber-500 text-white",
+      ].join(" ")}
+    >
+      {value}
+    </span>
+  );
+}
+
+function SideLink({ item, collapsed, badge }) {
   return (
     <NavLink
       to={item.to}
-      end
+      end={item.end !== false}
       className={({ isActive }) =>
         [
           "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 group",
@@ -48,8 +86,16 @@ function SideLink({ item, collapsed }) {
       }
       title={collapsed ? item.label : undefined}
     >
-      {item.icon}
-      {!collapsed && <span className="truncate">{item.label}</span>}
+      {({ isActive }) => (
+        <>
+          <span className="relative shrink-0">
+            {item.icon}
+            {collapsed && <PendingBadge value={badge} active={isActive} collapsed />}
+          </span>
+          {!collapsed && <span className="truncate">{item.label}</span>}
+          {!collapsed && <PendingBadge value={badge} active={isActive} />}
+        </>
+      )}
     </NavLink>
   );
 }
@@ -58,6 +104,10 @@ function SideLink({ item, collapsed }) {
 export default function PoweradminLayout() {
   const [collapsed, setCollapsed]       = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [pendingResumes, setPendingResumes] = useState(null);
+  const [resumeTotal, setResumeTotal] = useState(null);
+  const pendingStatusId = useRef(undefined);
+  const location = useLocation();
   const navigate      = useNavigate();
   const user          = getStoredUser();
   const hasSession    = !!(user || getStoredToken());
@@ -66,6 +116,33 @@ export default function PoweradminLayout() {
   const displayRole   = user?.role ?? "Admin";
   const avatarLetter  = displayName[0]?.toUpperCase() ?? "A";
   const dropdownRef   = useRef(null);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        if (pendingStatusId.current == null) {
+          const statuses = await getCareerStatuses(false);
+          const match = (statuses || []).find((item) => item.shortLabel === "Review Pending");
+          pendingStatusId.current = match?.id ?? 0;
+        }
+        const totalRequest = listApplications({ page: 1, pageSize: 1 });
+        const pendingRequest = pendingStatusId.current
+          ? listApplications({ statusId: pendingStatusId.current, page: 1, pageSize: 1 })
+          : Promise.resolve({ totalCount: 0 });
+        const [totalData, pendingData] = await Promise.all([totalRequest, pendingRequest]);
+        if (!alive) return;
+        setResumeTotal(totalData?.totalCount ?? 0);
+        setPendingResumes(pendingData?.totalCount ?? 0);
+      } catch {
+        if (alive) {
+          setResumeTotal("—");
+          setPendingResumes("—");
+        }
+      }
+    })();
+    return () => { alive = false; };
+  }, [location.pathname]);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -82,13 +159,13 @@ export default function PoweradminLayout() {
   }
 
   return (
-    <div className="min-h-screen flex bg-gray-100" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
+    <div className="admin-shell min-h-screen flex bg-gray-100" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
 
       {/* ── Sidebar ────────────────────────────────────────────────── */}
       <aside
         className="flex flex-col shrink-0 transition-all duration-200"
         style={{
-          width: collapsed ? "68px" : "230px",
+          width: collapsed ? "68px" : "256px",
           background: "linear-gradient(180deg, #1e1e2d 0%, #2a2a3d 100%)",
           minHeight: "100vh",
         }}
@@ -130,7 +207,12 @@ export default function PoweradminLayout() {
         {/* Nav links */}
         <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
           {NAV.map((item) => (
-            <SideLink key={item.to} item={item} collapsed={collapsed} />
+            <SideLink
+              key={item.to}
+              item={item}
+              collapsed={collapsed}
+              badge={item.to === "/poweradmin/applications" ? resumeTotal : undefined}
+            />
           ))}
         </nav>
 
@@ -230,7 +312,7 @@ export default function PoweradminLayout() {
 
         {/* Page content */}
         <main className="flex-1 p-6 overflow-auto">
-          <Outlet />
+          <Outlet context={{ pendingResumes }} />
         </main>
       </div>
     </div>

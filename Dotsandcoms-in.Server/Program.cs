@@ -32,6 +32,8 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ILegacyTokenService, LegacyTokenService>();
 builder.Services.AddScoped<IAdminAuthService, AdminAuthService>();
 builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddScoped<ICareerService, CareerService>();
+builder.Services.AddScoped<IJobPositionService, JobPositionService>();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<SeoRouteCatalog>();
 builder.Services.AddCors(options =>
@@ -64,7 +66,29 @@ builder.Services.AddResponseCompression(options =>
 });
 
 var app = builder.Build();
- 
+
+// The live database already has InitialCreate tables, but that migration was never
+// recorded. Record it, then apply only the pending careers migration.
+try
+{
+    using var migrateScope = app.Services.CreateScope();
+    var migrateDb = migrateScope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await migrateDb.Database.ExecuteSqlRawAsync("""
+        IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NOT NULL
+           AND OBJECT_ID(N'AdminUsers') IS NOT NULL
+           AND NOT EXISTS (
+                SELECT 1 FROM [__EFMigrationsHistory]
+                WHERE [MigrationId] = N'20260730070335_InitialCreate')
+        INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+        VALUES (N'20260730070335_InitialCreate', N'8.0.6');
+        """);
+    await migrateDb.Database.MigrateAsync();
+    await JobPositionSeeder.EnsureAsync(migrateDb, app.Environment);
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine("Database migration was not applied: " + ex.Message);
+}
 
 app.UseCors("ReactPolicy");
 app.UseResponseCompression();
@@ -116,7 +140,26 @@ app.Use(async (context, next) =>
             context.Response.Redirect("/sitemap" + context.Request.QueryString, permanent: true);
             return;
         }
+        if (path.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
+        {
+            var clean = path[..^5];
+            var staticCareer = clean.Equals("/training-and-job-vacancy-at-dots-coms-vadodara", StringComparison.OrdinalIgnoreCase)
+                || clean.Equals("/job-vacancy-at-dots-and-coms-company", StringComparison.OrdinalIgnoreCase);
+            if (staticCareer || await IsJobSlugAsync(context, clean.TrimStart('/')))
+            {
+                context.Response.Redirect(clean + context.Request.QueryString, permanent: true);
+                return;
+            }
+        }
     }
+    await next();
+});
+
+// Vacancy board and position pages: live HTML from JobPositions, before prerendered files.
+app.Use(async (context, next) =>
+{
+    if (await TryWriteJobHtmlAsync(context))
+        return;
     await next();
 });
 
@@ -209,7 +252,7 @@ app.Use(async (context, next) =>
     try
     {
         var db = context.RequestServices.GetRequiredService<AppDbContext>();
-        var today = DateTime.UtcNow.Date;
+        var today = IstTime.Today;
 
         var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
             b.BrowserUrl.ToLower() == slug.ToLower() &&
@@ -252,7 +295,7 @@ app.Use(async (context, next) =>
         {
             var db  = context.RequestServices.GetRequiredService<AppDbContext>();
             var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
-            var today = DateTime.UtcNow.Date;
+            var today = IstTime.Today;
 
             var blogs = await db.Blogs.AsNoTracking()
                 .Where(b =>
@@ -372,11 +415,25 @@ app.Use(async (context, next) =>
         "/accutechlabels-case-study-traditional-to-web-business",
         "/1life-case-study-of-regional-to-national-reach",
         "/hobby-goes-global-case-study", "/order-now", "/web-hosting-details",
-        "/thank-you", "/blogs"
+        "/thank-you", "/blogs",
+        "/training-and-job-vacancy-at-dots-coms-vadodara",
+        "/job-vacancy-at-dots-and-coms-company",
+        "/check-application-status",
+        "/application-received"
     };
 
+    if (path.StartsWith("/apply/", StringComparison.OrdinalIgnoreCase)
+        || path.Equals("/check-application-status", StringComparison.OrdinalIgnoreCase)
+        || path.Equals("/application-received", StringComparison.OrdinalIgnoreCase))
+    {
+        context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    }
+
     bool isValid = validRoutes.Any(r => path.Equals(r, StringComparison.OrdinalIgnoreCase)) ||
-                   path.StartsWith("/poweradmin", StringComparison.OrdinalIgnoreCase);
+                   path.StartsWith("/poweradmin", StringComparison.OrdinalIgnoreCase) ||
+                   path.StartsWith("/apply/", StringComparison.OrdinalIgnoreCase);
+    if (!isValid)
+        isValid = await IsJobSlugAsync(context, path.TrimStart('/'));
     // /blogs/{slug} is handled earlier (inject or 404) — never treat unknown blog URLs as valid SPA fallback
 
     if (!isValid)
@@ -469,6 +526,88 @@ static async Task WriteCrawlerNotFoundAsync(HttpContext context, IWebHostEnviron
     await context.Response.WriteAsync(
         "<!DOCTYPE html><html><head><title>Page Not Found | Dots and Coms</title></head>" +
         "<body><h1>Page Not Found</h1><p>The page you requested could not be found.</p></body></html>");
+}
+
+static async Task<bool> IsJobSlugAsync(HttpContext context, string slug)
+{
+    if (string.IsNullOrWhiteSpace(slug) || slug.Contains('/') || slug.Contains('.'))
+        return false;
+    try
+    {
+        var db = context.RequestServices.GetRequiredService<AppDbContext>();
+        var key = slug.Trim();
+        return await db.JobPositions.AsNoTracking().AnyAsync(j => j.Slug.ToLower() == key.ToLower());
+    }
+    catch
+    {
+        return false;
+    }
+}
+
+static async Task<bool> TryWriteJobHtmlAsync(HttpContext context)
+{
+    if (!HttpMethods.IsGet(context.Request.Method) && !HttpMethods.IsHead(context.Request.Method))
+        return false;
+
+    var path = SeoRouteCatalog.Normalize(context.Request.Path.Value ?? "");
+    if (path.StartsWith("/api", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/poweradmin", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/blogs", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/uploads", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/assets", StringComparison.OrdinalIgnoreCase) ||
+        path.StartsWith("/apply", StringComparison.OrdinalIgnoreCase))
+        return false;
+
+    var isList = path.Equals("/job-vacancy-at-dots-and-coms-company", StringComparison.OrdinalIgnoreCase);
+    string? slug = null;
+    if (!isList)
+    {
+        if (path.Count(c => c == '/') != 1) return false;
+        slug = Uri.UnescapeDataString(path.Trim('/'));
+        if (slug.Contains('.')) return false;
+    }
+
+    try
+    {
+        var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+        var shellPath = ResolveSpaShellPath(env);
+        if (!File.Exists(shellPath)) return false;
+
+        var db = context.RequestServices.GetRequiredService<AppDbContext>();
+        var html = await File.ReadAllTextAsync(shellPath);
+        if (isList)
+        {
+            var jobs = await db.JobPositions.AsNoTracking()
+                .OrderBy(j => j.SortOrder).ThenBy(j => j.Id)
+                .Select(j => new JobPosition
+                {
+                    Id = j.Id,
+                    Slug = j.Slug,
+                    CardTitle = j.CardTitle,
+                    IsVacancyOpen = j.IsVacancyOpen
+                })
+                .ToListAsync();
+            var catalog = context.RequestServices.GetRequiredService<SeoRouteCatalog>();
+            SeoRoute? seo = catalog.TryGet(path, out var found) ? found : null;
+            html = JobMetaInjector.InjectList(html, seo, jobs);
+        }
+        else
+        {
+            var key = slug!.ToLower();
+            var job = await db.JobPositions.AsNoTracking().FirstOrDefaultAsync(j => j.Slug.ToLower() == key);
+            if (job == null) return false;
+            html = JobMetaInjector.InjectDetail(html, job);
+        }
+
+        context.Response.ContentType = "text/html; charset=utf-8";
+        context.Response.Headers["Cache-Control"] = "public, max-age=3600";
+        await context.Response.WriteAsync(html);
+        return true;
+    }
+    catch
+    {
+        return false;
+    }
 }
 
 static async Task<bool> TryWriteHomeHtmlAsync(HttpContext context)

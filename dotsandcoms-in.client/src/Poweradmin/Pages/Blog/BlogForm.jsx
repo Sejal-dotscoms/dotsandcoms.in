@@ -5,6 +5,8 @@ import {
   createBlog, updateBlog, getBlogById,
   checkBlogTitleExists, checkBlogBrowserUrlExists,
 } from "../../../services/blogService";
+import { ActionNotice, useAdminFeedback } from "../../components/AdminFeedback";
+import { istTodayYmd, toIstYmd } from "../../../utils/istDate";
 
 import {
   ClassicEditor, Essentials, Paragraph, Bold, Italic, Underline,
@@ -15,13 +17,7 @@ import {
 import "ckeditor5/ckeditor5.css";
 
 function fmt(dateVal) {
-  if (!dateVal) return "";
-  // API strings like "2026-07-29T00:00:00" — slice directly to avoid UTC-shift for IST users
-  if (typeof dateVal === "string" && dateVal.length >= 10) return dateVal.slice(0, 10);
-  // Date objects (e.g. new Date()) — use local components so today's date is correct
-  const d = dateVal instanceof Date ? dateVal : new Date(dateVal);
-  if (isNaN(d)) return "";
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  return toIstYmd(dateVal);
 }
 
 function slugify(str) {
@@ -34,7 +30,7 @@ function slugify(str) {
 const EMPTY = {
   isVisible: true, imageUrls: [], title: "", pageTitle: "",
   browserUrl: "", metaTags: "", shortDescription: "",
-  longDescription: "", blogDate: fmt(new Date()), expiryDate: "",
+  longDescription: "", blogDate: istTodayYmd(), expiryDate: "",
 };
 
 const CK_PLUGINS = [
@@ -69,6 +65,7 @@ export default function BlogForm() {
   const { id }   = useParams();
   const isEdit   = Boolean(id);
   const navigate = useNavigate();
+  const { notify, dismissToast } = useAdminFeedback();
 
   const [form, setForm]               = useState(EMPTY);
   const [loading, setLoading]         = useState(false);
@@ -217,7 +214,10 @@ export default function BlogForm() {
   // ── Submit ─────────────────────────────────────────────────────────
   async function handleSubmit(e) {
     e.preventDefault();
-    setApiError(""); setSuccess("");
+    setApiError("");
+    setSuccess("");
+    dismissToast();
+    setLoading(true);
 
     const longDesc = instanceRef.current?.getData() ?? form.longDescription;
     const errors = {};
@@ -244,8 +244,16 @@ export default function BlogForm() {
       } catch { /* ignore */ }
     }
 
-    if (Object.keys(errors).length) { setFieldErrors(errors); return; }
+    if (Object.keys(errors).length) {
+      setFieldErrors(errors);
+      const message = "Please fix the highlighted fields.";
+      setApiError(message);
+      notify(message, "error");
+      setLoading(false);
+      return;
+    }
 
+    setFieldErrors({});
     const payload = {
       isVisible:        form.isVisible,
       imageUrls:        form.imageUrls.length > 0 ? form.imageUrls : null,
@@ -255,18 +263,19 @@ export default function BlogForm() {
       metaTags:         form.metaTags || null,
       shortDescription: form.shortDescription.trim(),
       longDescription:  longDesc,
-      blogDate:         new Date(form.blogDate).toISOString(),
-      expiryDate:       form.expiryDate ? new Date(form.expiryDate).toISOString() : null,
+      blogDate:         form.blogDate,
+      expiryDate:       form.expiryDate || null,
     };
 
-    setLoading(true);
     try {
       if (isEdit) {
         await updateBlog(id, payload);
         setSuccess("Blog updated successfully.");
+        notify("Blog updated successfully.", "success");
       } else {
         await createBlog(payload);
         setSuccess("Blog created successfully. Redirecting…");
+        notify("Blog created successfully. Redirecting…", "success");
       }
       setTimeout(() => navigate("/poweradmin/blogs"), 800);
     } catch (err) {
@@ -275,8 +284,8 @@ export default function BlogForm() {
         setFieldErrors((prev) => ({ ...prev, title: msg }));
       else if (msg.toLowerCase().includes("browser url"))
         setFieldErrors((prev) => ({ ...prev, browserUrl: msg }));
-      else
-        setApiError(msg);
+      setApiError(msg);
+      notify(msg, "error");
     } finally { setLoading(false); }
   }
 
@@ -310,26 +319,6 @@ export default function BlogForm() {
           Back to list
         </button>
       </div>
-
-      {/* Alerts */}
-      {apiError && (
-        <div className="flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg mb-5">
-          <svg height="16" width="16" fill="none" viewBox="0 0 24 24" className="shrink-0">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.7" />
-            <path d="M12 7.5v4m0 2.5v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          {apiError}
-        </div>
-      )}
-      {success && (
-        <div className="flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-sm px-4 py-3 rounded-lg mb-5">
-          <svg height="16" width="16" fill="none" viewBox="0 0 24 24" className="shrink-0">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.7" />
-            <path d="M8.8 13.2l2.1 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          {success}
-        </div>
-      )}
 
       <form onSubmit={handleSubmit} noValidate>
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 divide-y divide-gray-100">
@@ -543,6 +532,10 @@ export default function BlogForm() {
             Cancel
           </button>
         </div>
+        <ActionNotice
+          notice={apiError ? { type: "error", message: apiError } : success ? { type: "success", message: success } : null}
+          onClose={() => { setApiError(""); setSuccess(""); }}
+        />
       </form>
     </div>
   );

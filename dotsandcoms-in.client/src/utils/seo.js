@@ -9,11 +9,12 @@
  * @param {string} opts.canonical     - canonical URL
  * @param {string} [opts.ogImage]     - OG image URL (defaults to site og-image)
  */
-export function setPageSEO({ title, description, keywords, canonical, ogImage, breadcrumbs }) {
+export function setPageSEO({ title, ogTitle, description, keywords, canonical, ogImage, breadcrumbs }) {
   const DEFAULT_TITLE = "Best Web Design, Mobile App Development and Digital Marketing Agency in Vadodara, Gujarat";
   const DEFAULT_IMAGE = "https://www.dotsandcoms.in/og-image.png";
 
   const imgUrl = ogImage || DEFAULT_IMAGE;
+  const socialTitle = ogTitle || title;
 
   // ── helpers ──────────────────────────────────────────────────────────────
   const setMeta = (selector, attr, value) => {
@@ -57,24 +58,24 @@ export function setPageSEO({ title, description, keywords, canonical, ogImage, b
     // OG
     setMeta("meta[property='og:type']",            "content", "website"),
     setMeta("meta[property='og:site_name']",       "content", "Dots and Coms"),
-    setMeta("meta[property='og:locale']",          "content", "en_US"),
-    setMeta("meta[property='og:title']",           "content", title),
+    setMeta("meta[property='og:locale']",          "content", "en_IN"),
+    setMeta("meta[property='og:title']",           "content", socialTitle),
     setMeta("meta[property='og:description']",     "content", description),
     setMeta("meta[property='og:url']",             "content", canonical),
     setMeta("meta[property='og:image']",           "content", imgUrl),
-    setMeta("meta[property='og:image:alt']",       "content", title || "Dots and Coms Vadodara"),
+    setMeta("meta[property='og:image:alt']",       "content", socialTitle || "Dots and Coms Vadodara"),
     // Twitter Card (Both name and property selectors for complete validation)
     setMeta("meta[name='twitter:card']",           "content", "summary_large_image"),
     setMeta("meta[name='twitter:site']",           "content", "@dotsandcoms"),
     setMeta("meta[name='twitter:creator']",        "content", "@dotsandcoms"),
     setMeta("meta[name='twitter:domain']",         "content", "dotsandcoms.in"),
-    setMeta("meta[name='twitter:title']",          "content", title),
+    setMeta("meta[name='twitter:title']",          "content", socialTitle),
     setMeta("meta[name='twitter:description']",    "content", description),
     setMeta("meta[name='twitter:url']",            "content", canonical),
     setMeta("meta[name='twitter:image']",          "content", imgUrl),
     setMeta("meta[name='twitter:image:src']",      "content", imgUrl),
-    setMeta("meta[name='twitter:image:alt']",      "content", title || "Dots and Coms Vadodara"),
-    setMeta("meta[property='twitter:title']",      "content", title),
+    setMeta("meta[name='twitter:image:alt']",      "content", socialTitle || "Dots and Coms Vadodara"),
+    setMeta("meta[property='twitter:title']",      "content", socialTitle),
     setMeta("meta[property='twitter:description']","content", description),
     setMeta("meta[property='twitter:image']",      "content", imgUrl),
   ];

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { getBlogs } from "../../../services/blogService";
 
 export default function Dashboard() {
+  const { pendingResumes = null } = useOutletContext() || {};
   const [totalBlogs, setTotalBlogs] = useState(null);
 
   useEffect(() => {
@@ -19,6 +21,17 @@ export default function Dashboard() {
         <svg viewBox="0 0 22 22" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.6">
           <rect x="2" y="3" width="18" height="16" rx="2" />
           <path d="M6 8h10M6 12h7" strokeLinecap="round" />
+        </svg>
+      ),
+    },
+    {
+      label: "Review Pending",
+      value: pendingResumes,
+      color: "#d97706",
+      icon: (
+        <svg viewBox="0 0 22 22" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.6">
+          <rect x="4" y="2" width="14" height="18" rx="2" />
+          <path d="M8 8h6M8 12h6M8 16h4" strokeLinecap="round" />
         </svg>
       ),
     },

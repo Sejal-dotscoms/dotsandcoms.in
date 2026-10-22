@@ -1,5 +1,6 @@
 using Dotsandcoms_in.Server.Data;
 using Dotsandcoms_in.Server.DTOs;
+using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -283,7 +284,7 @@ namespace Dotsandcoms_in.Server.Services
         // so the list response stays small regardless of image/content size.
         public async Task<List<PublicBlogDto>> GetPublicListAsync()
         {
-            var today = DateTime.UtcNow.Date;
+            var today = IstTime.Today;
             var rows = await _db.Blogs.AsNoTracking()
                 .Where(b =>
                     b.IsVisible &&
@@ -324,7 +325,7 @@ namespace Dotsandcoms_in.Server.Services
         // ── Public single blog by ID ───────────────────────────────────
         public async Task<PublicBlogDto?> GetPublicByIdAsync(int id)
         {
-            var today = DateTime.UtcNow.Date;
+            var today = IstTime.Today;
             var blog = await _db.Blogs.AsNoTracking()
                 .FirstOrDefaultAsync(b =>
                     b.Id == id &&
@@ -338,7 +339,7 @@ namespace Dotsandcoms_in.Server.Services
         // ── Public single blog by slug (BrowserUrl) ────────────────────
         public async Task<PublicBlogDto?> GetPublicBySlugAsync(string slug)
         {
-            var today = DateTime.UtcNow.Date;
+            var today = IstTime.Today;
             var normalised = slug.Trim().ToLower();
             var blog = await _db.Blogs.AsNoTracking()
                 .FirstOrDefaultAsync(b =>
