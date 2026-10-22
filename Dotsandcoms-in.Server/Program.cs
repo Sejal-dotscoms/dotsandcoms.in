@@ -252,7 +252,7 @@ app.Use(async (context, next) =>
     try
     {
         var db = context.RequestServices.GetRequiredService<AppDbContext>();
-        var today = DateTime.UtcNow.Date;
+        var today = IstTime.Today;
 
         var blog = await db.Blogs.AsNoTracking().FirstOrDefaultAsync(b =>
             b.BrowserUrl.ToLower() == slug.ToLower() &&
@@ -295,7 +295,7 @@ app.Use(async (context, next) =>
         {
             var db  = context.RequestServices.GetRequiredService<AppDbContext>();
             var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
-            var today = DateTime.UtcNow.Date;
+            var today = IstTime.Today;
 
             var blogs = await db.Blogs.AsNoTracking()
                 .Where(b =>

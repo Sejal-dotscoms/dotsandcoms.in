@@ -6,6 +6,7 @@ import {
   checkBlogTitleExists, checkBlogBrowserUrlExists,
 } from "../../../services/blogService";
 import { ActionNotice, useAdminFeedback } from "../../components/AdminFeedback";
+import { istTodayYmd, toIstYmd } from "../../../utils/istDate";
 
 import {
   ClassicEditor, Essentials, Paragraph, Bold, Italic, Underline,
@@ -16,13 +17,7 @@ import {
 import "ckeditor5/ckeditor5.css";
 
 function fmt(dateVal) {
-  if (!dateVal) return "";
-  // API strings like "2026-07-29T00:00:00" — slice directly to avoid UTC-shift for IST users
-  if (typeof dateVal === "string" && dateVal.length >= 10) return dateVal.slice(0, 10);
-  // Date objects (e.g. new Date()) — use local components so today's date is correct
-  const d = dateVal instanceof Date ? dateVal : new Date(dateVal);
-  if (isNaN(d)) return "";
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  return toIstYmd(dateVal);
 }
 
 function slugify(str) {
@@ -35,7 +30,7 @@ function slugify(str) {
 const EMPTY = {
   isVisible: true, imageUrls: [], title: "", pageTitle: "",
   browserUrl: "", metaTags: "", shortDescription: "",
-  longDescription: "", blogDate: fmt(new Date()), expiryDate: "",
+  longDescription: "", blogDate: istTodayYmd(), expiryDate: "",
 };
 
 const CK_PLUGINS = [
@@ -268,8 +263,8 @@ export default function BlogForm() {
       metaTags:         form.metaTags || null,
       shortDescription: form.shortDescription.trim(),
       longDescription:  longDesc,
-      blogDate:         new Date(form.blogDate).toISOString(),
-      expiryDate:       form.expiryDate ? new Date(form.expiryDate).toISOString() : null,
+      blogDate:         form.blogDate,
+      expiryDate:       form.expiryDate || null,
     };
 
     try {

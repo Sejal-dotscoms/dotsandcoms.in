@@ -42,7 +42,9 @@ const LinkedinIcon = (props) => (
 );
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = Number(
+    new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", year: "numeric" }).format(new Date())
+  );
 
   useEffect(() => {
     renderPreferredSourceButtons();

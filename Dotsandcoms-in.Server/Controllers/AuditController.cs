@@ -1,4 +1,5 @@
 ﻿using Dotsandcoms_in.Server.DTOs;
+using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
 using Dotsandcoms_in.Server.Services;
 using Microsoft.AspNetCore.Http;
@@ -180,7 +181,7 @@ Submitted On
 <td
 style='border:1px solid #eee;'>
 
-" + DateTime.Now.ToString("dd MMM yyyy hh:mm tt") + @"
+" + IstTime.Now.ToString("dd MMM yyyy hh:mm tt") + @"
 
 </td>
 

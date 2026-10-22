@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Dotsandcoms_in.Server.Data;
 using Dotsandcoms_in.Server.DTOs;
+using Dotsandcoms_in.Server.Helpers;
 using Dotsandcoms_in.Server.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -163,7 +164,7 @@ namespace Dotsandcoms_in.Server.Services
             app.StatusUpdatedAt = DateTime.UtcNow;
             app.UpdatedAt = DateTime.UtcNow;
             await _db.SaveChangesAsync();
-            app.ReferenceCode = $"DNC{DateTime.UtcNow:yyyy}{app.Id:D5}";
+            app.ReferenceCode = $"DNC{IstTime.Now:yyyy}{app.Id:D5}";
             await _db.SaveChangesAsync();
 
             var fullName = $"{app.FirstName} {app.Surname}".Trim();
@@ -293,7 +294,7 @@ namespace Dotsandcoms_in.Server.Services
             app.StatusUpdatedAt = DateTime.UtcNow;
             app.OfficeNote = request.OfficeNote ?? app.OfficeNote;
             app.IsOldResume = request.IsOldResume;
-            app.ReapplyAfter = status.LockDays > 0 ? DateTime.UtcNow.Date.AddDays(status.LockDays) : null;
+            app.ReapplyAfter = status.LockDays > 0 ? IstTime.Today.AddDays(status.LockDays) : null;
             app.UpdatedAt = DateTime.UtcNow;
             await _db.SaveChangesAsync();
 
@@ -702,14 +703,14 @@ namespace Dotsandcoms_in.Server.Services
 
         private static int AgeYears(DateTime birth)
         {
-            var today = DateTime.UtcNow.Date;
+            var today = IstTime.Today;
             var age = today.Year - birth.Year;
             if (birth.Date > today.AddYears(-age)) age--;
             return age;
         }
 
         private static string Fmt(DateTime? value) =>
-            value.HasValue ? value.Value.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture) : "";
+            value.HasValue ? IstTime.ToIst(value.Value).ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture) : "";
 
         private static string ExperienceText(JobApplication app)
         {
@@ -718,7 +719,7 @@ namespace Dotsandcoms_in.Server.Services
         }
 
         private static bool CanReplace(JobApplication app) =>
-            app.ReapplyAfter == null || app.ReapplyAfter.Value.Date <= DateTime.UtcNow.Date;
+            app.ReapplyAfter == null || app.ReapplyAfter.Value.Date <= IstTime.Today;
 
         private static string ContentTypeFor(string path) => Path.GetExtension(path).ToLowerInvariant() switch
         {
@@ -793,7 +794,7 @@ namespace Dotsandcoms_in.Server.Services
             StatusUpdated = Fmt(app.StatusUpdatedAt),
             StatusLabel = app.Status?.ShortLabel ?? "Review Pending",
             StatusDetails = app.Status?.Summary ?? "",
-            ReapplyAfter = app.ReapplyAfter.HasValue && app.ReapplyAfter.Value.Date > DateTime.UtcNow.Date ? Fmt(app.ReapplyAfter) : null,
+            ReapplyAfter = app.ReapplyAfter.HasValue && app.ReapplyAfter.Value.Date > IstTime.Today ? Fmt(app.ReapplyAfter) : null,
             CanReplaceResume = CanReplace(app) && !string.IsNullOrWhiteSpace(app.ResumeStoredName) || CanReplace(app)
         };
 

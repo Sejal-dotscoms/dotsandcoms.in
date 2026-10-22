@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { getBlogs, deleteBlog } from "../../../services/blogService";
 import { ActionNotice, BusyButton, useActionNotices } from "../../components/AdminFeedback";
+import { formatIstDateShort } from "../../../utils/istDate";
 
 // ── Sort icon ──────────────────────────────────────────────────────────────
 function SortIcon({ col, sortCol, sortDir }) {
@@ -223,9 +224,9 @@ export default function BlogList() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-gray-800 font-medium max-w-xs truncate">{blog.title}</td>
-                    <td className="px-4 py-3 text-gray-600">{new Date(blog.blogDate).toLocaleDateString()}</td>
+                    <td className="px-4 py-3 text-gray-600">{formatIstDateShort(blog.blogDate)}</td>
                     <td className="px-4 py-3 text-gray-600">
-                      {blog.expiryDate ? new Date(blog.expiryDate).toLocaleDateString() : "—"}
+                      {blog.expiryDate ? formatIstDateShort(blog.expiryDate) : "—"}
                     </td>
                     <td className="px-4 py-3 text-center">
                       <div className="inline-flex flex-col items-center gap-2">
